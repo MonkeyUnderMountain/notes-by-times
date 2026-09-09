@@ -1,0 +1,204 @@
+#!/usr/bin/env bash
+# Create chapters and sections in this notes repository.
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+CHAPTERS_DIR="$SCRIPT_DIR/chapters"
+
+die() { printf 'Error: %s\n' "$*" >&2; }
+
+require_safe_name() {
+  local name=$1
+  [[ -n $name && $name != .* && $name =~ ^[[:alnum:]_+.-]+$ ]] || {
+    die "Names may use letters, numbers, _, +, -, and . (and may not start with .)."
+    return 1
+  }
+}
+
+choose_from() {
+  # Usage: choose_from "prompt" item...
+  local prompt=$1 answer i n=0
+  shift
+  (($# > 0)) || {
+    die "There is nothing to choose from."
+    return 1
+  }
+  printf '\n%s\n' "$prompt" >&2
+  for i in "$@"; do
+    printf '  %d) %s\n' "$((++n))" "$(basename -- "$i")" >&2
+  done
+  while true; do
+    read -r -p 'Choose a number (or q to cancel): ' answer
+    [[ $answer == q || $answer == Q ]] && return 1
+    [[ $answer =~ ^[0-9]+$ ]] && ((answer >= 1 && answer <= $#)) && {
+      printf '%s\n' "${!answer}"
+      return 0
+    }
+    printf 'Please enter a number from 1 to %d, or q.\n' "$#" >&2
+  done
+}
+
+choose_chapter() {
+  local chapter
+  local -a chapters=()
+  [[ -d $CHAPTERS_DIR ]] || {
+    die "This repository has no chapters directory yet."
+    return 1
+  }
+  while IFS= read -r -d '' chapter; do chapters+=("$chapter"); done \
+    < <(find "$CHAPTERS_DIR" -mindepth 1 -maxdepth 1 -type d -print0 | sort -z)
+  choose_from 'Available chapters:' "${chapters[@]}"
+}
+
+write_chapter_files() {
+  local name=$1
+  local target="$CHAPTERS_DIR/$name"
+  require_safe_name "$name" || return 1
+  if [[ -e $target ]]; then
+    die "Already exists: $target"
+    return 1
+  fi
+  mkdir -p -- "$target"
+  cat >"$target/$name.tex" <<EOF
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+% !BIB program = biber
+\documentclass[sectionlevel=chapter]{noteformyself}
+\usepackage{draftwatermark} % Watermark package
+
+\input{../../accessories/notation.tex}
+\addbibresource{refs.bib}
+\newcommand{\Yang}[1]{\textcolor{red}{Yang: #1}}
+
+
+\title{$name}
+\author{Tianle Yang}
+\date{\today}
+\authorpage{\href{www.example.com}{My Homepage}}
+
+% Available with "\sectionlevel=chapter" or "\sectionlevel=book".
+% LXGW WenKai font; remove or replace this line if the font is unavailable.
+\setCJKfamilyfont{lxgwwenkai}{LXGW WenKai}
+\coversentence{\CJKfamily{lxgwwenkai} A slogan you like}
+\coverimage{} % Cover image
+\covertitlefont{Times New Roman} % Cover title font; remove or replace if unavailable.
+% \coverlinecolor{red} % Cover line color
+% \covertextcolor{green} % Cover text color
+
+
+\begin{document}
+
+    \maketitle
+
+    \tableofcontents
+
+    \printbibliography[heading=bibintoc, title={References}]
+
+\end{document}
+EOF
+  cat >"$target/refs.bib" <<'EOF'
+EOF
+  printf 'Created %s\n' "$target"
+}
+
+write_section_files() {
+  local chapter=$1
+  local name=$2
+  local target="$chapter/$name"
+  require_safe_name "$name" || return 1
+  if [[ -e $target ]]; then
+    die "Already exists: $target"
+    return 1
+  fi
+  mkdir -p -- "$target"
+  cat >"$target/$name.tex" <<EOF
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+% !BIB program = biber
+\documentclass{noteformyself}
+\usepackage{draftwatermark} % Watermark package
+
+\newcommand{\Yang}[1]{\textcolor{red}{Yang: #1}}
+\input{../../../accessories/notation.tex}
+\addbibresource{../refs.bib}
+
+
+\title{$name}
+\author{Tianle Yang}
+\date{\today}
+\authorpage{\href{https://www.tianleyang.com}{My Homepage}}
+
+
+\begin{document}
+
+\maketitle
+
+\input{text.tex}
+
+% \input{appendix.tex}
+
+% \printbibliography[heading=bibintoc, title={References}]
+
+\end{document}
+EOF
+  cat >"$target/text.tex" <<EOF
+% !TeX root = $name.tex
+\section{$name}
+EOF
+  printf 'Created %s\n' "$target"
+}
+
+ask_name() {
+  local label=$1 name
+  while true; do
+    read -r -p "Name of the new $label (or q to cancel): " name
+    [[ $name == q || $name == Q ]] && return 1
+    require_safe_name "$name" && {
+      printf '%s\n' "$name"
+      return 0
+    }
+  done
+}
+
+create_section_in() {
+  local chapter=$1 name
+  printf '\nExisting sections:\n'
+  find "$chapter" -mindepth 1 -maxdepth 1 -type d -printf '  %f\n' | sort || true
+  name=$(ask_name section) || return 0
+  write_section_files "$chapter" "$name"
+}
+
+create_chapter() {
+  local name chapter answer
+  mkdir -p -- "$CHAPTERS_DIR"
+  printf '\nExisting chapters:\n'
+  find "$CHAPTERS_DIR" -mindepth 1 -maxdepth 1 -type d -printf '  %f\n' | sort || true
+  name=$(ask_name chapter) || return 0
+  write_chapter_files "$name"
+  chapter="$CHAPTERS_DIR/$name"
+  if read -r -p 'Create a section in this new chapter? [y/N] ' answer && [[ $answer =~ ^[Yy]([Ee][Ss])?$ ]]; then
+    create_section_in "$chapter"
+  fi
+}
+
+main() {
+  local choice chapter answer
+  while true; do
+    printf '\nWhat would you like to create?\n  1) A chapter\n  2) A section in a chapter\n  q) Quit\n'
+    read -r -p 'Choose an option: ' choice
+    case $choice in
+    1) create_chapter ;;
+    2)
+      chapter=$(choose_chapter) || continue
+      create_section_in "$chapter"
+      ;;
+    q | Q) exit 0 ;;
+    *) printf 'Please choose 1, 2, or q.\n' >&2 ;;
+    esac
+    read -r -p 'Create something else? [Y/n] ' answer || exit 0
+    [[ $answer =~ ^[Nn]([Oo])?$ ]] && exit 0
+  done
+}
+
+main "$@"
