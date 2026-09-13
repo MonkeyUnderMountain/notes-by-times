@@ -1,0 +1,35 @@
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+% !BIB program = biber
+\documentclass[sectionlevel=chapter]{noteformyself}
+\usepackage{draftwatermark} % Watermark package
+
+\input{../../accessories/notation.tex}
+\addbibresource{refs.bib}
+\newcommand{\Yang}[1]{\textcolor{red}{Yang: #1}}
+
+
+\title{course-in-coference-of-A-geometry}
+\author{Tianle Yang}
+\date{\today}
+\authorpage{\href{www.example.com}{My Homepage}}
+
+% Available with "\sectionlevel=chapter" or "\sectionlevel=book".
+% LXGW WenKai font; remove or replace this line if the font is unavailable.
+\setCJKfamilyfont{lxgwwenkai}{LXGW WenKai}
+\coversentence{\CJKfamily{lxgwwenkai} A slogan you like}
+% \coverimage{} % Cover image
+% \covertitlefont{Times New Roman} % Cover title font; remove or replace if unavailable.
+% \coverlinecolor{red} % Cover line color
+% \covertextcolor{green} % Cover text color
+
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\printbibliography[heading=bibintoc, title={References}]
+
+\end{document}
