@@ -81,19 +81,19 @@ write_chapter_files() {
 % LXGW WenKai font; remove or replace this line if the font is unavailable.
 \setCJKfamilyfont{lxgwwenkai}{LXGW WenKai}
 \coversentence{\CJKfamily{lxgwwenkai} A slogan you like}
-\coverimage{} % Cover image
-\covertitlefont{Times New Roman} % Cover title font; remove or replace if unavailable.
+% \coverimage{} % Cover image
+% \covertitlefont{Times New Roman} % Cover title font; remove or replace if unavailable.
 % \coverlinecolor{red} % Cover line color
 % \covertextcolor{green} % Cover text color
 
 
 \begin{document}
 
-    \maketitle
+\maketitle
 
-    \tableofcontents
+\tableofcontents
 
-    \printbibliography[heading=bibintoc, title={References}]
+\printbibliography[heading=bibintoc, title={References}]
 
 \end{document}
 EOF
@@ -135,8 +135,6 @@ write_section_files() {
 \maketitle
 
 \input{text.tex}
-
-% \input{appendix.tex}
 
 % \printbibliography[heading=bibintoc, title={References}]
 
