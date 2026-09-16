@@ -1,0 +1,74 @@
+name: Build and publish selected notes
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out notes and shared templates
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Check note selection and site assembly
+        run: python3 -m unittest discover -s .github/tests -v
+
+      - name: Validate notes.json and select documents
+        id: documents
+        run: python3 .github/build-pages.py roots
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Compile selected notes
+        if: steps.documents.outputs.compile_required == 'true'
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: ${{ steps.documents.outputs.root_files }}
+          texlive_version: 2026
+          os: debian
+          work_in_root_file_dir: true
+          latexmk_use_xelatex: ${{ steps.documents.outputs.engine == 'xelatex' }}
+          args: -pdf -g -file-line-error -halt-on-error -interaction=nonstopmode
+          extra_fonts: ./accessories/fonts/lxgw-wenkai/LXGWWenKai-Regular.ttf
+          pre_compile: |
+            texmf_home="$(kpsewhich -var-value=TEXMFHOME)"
+            mkdir -p "$texmf_home/tex/latex/noteformyself"
+            cp accessories/templates-of-latex/noteformyself/noteformyself.cls \
+              "$texmf_home/tex/latex/noteformyself/noteformyself.cls"
+            mktexlsr "$texmf_home"
+
+      - name: Assemble the PDF index and selected PDFs
+        run: python3 .github/build-pages.py site
+
+      - name: Upload the Pages site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

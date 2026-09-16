@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>Notes by Times — Tianle Yang</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.6;
+        --paper: #f7f4ed;
+        --ink: #292721;
+        --muted: #69665d;
+        --line: #d7d0c2;
+        --link: #765126;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --paper: #1c1b18;
+          --ink: #eee9df;
+          --muted: #b4aea2;
+          --line: #454138;
+          --link: #e3bc80;
+        }
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--paper); color: var(--ink); }
+      main { max-width: 760px; margin: 4rem auto; padding: 0 1.5rem; }
+      header { border-bottom: 2px solid var(--ink); padding-bottom: 1.5rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 6vw, 3rem); line-height: 1.2; }
+      header p { margin: 0.75rem 0 0; color: var(--muted); }
+      .notes { list-style: none; margin: 0; padding: 0; }
+      .notes li { padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
+      a { color: var(--link); text-underline-offset: 0.2em; }
+      .notes a { display: flex; justify-content: space-between; gap: 1rem; }
+      .notes a { font-size: 1.2rem; overflow-wrap: anywhere; }
+      .format, .statuses { font-family: system-ui, sans-serif; font-size: 0.8rem; }
+      .format { flex-shrink: 0; align-self: center; }
+      .statuses { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; color: var(--muted); }
+      .status { border: 1px solid var(--line); border-radius: 1rem; padding: 0.05rem 0.5rem; }
+      .empty { margin-top: 2rem; color: var(--muted); }
+      footer { margin-top: 2rem; font-size: 0.9rem; color: var(--muted); }
+      @media (max-width: 480px) { main { margin: 2rem auto; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Notes by Times</h1>
+        <p>Mathematical notes by Tianle Yang.</p>
+      </header>
+      <!-- NOTE_LIST -->
+      <footer>These notes continue to evolve as I read and learn.</footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "build": {
+    "engine": "xelatex"
+  },
+  "notes": [
+    {
+      "id": "dynamics-on-projective-spaces",
+      "title": "Dynamics on Projective Spaces",
+      "tex": "chapters/dynamics-on-projective-spaces/dynamics-on-projective-spaces.tex",
+      "url": "pdf/chapters/dynamics-on-projective-spaces/dynamics-on-projective-spaces.pdf",
+      "compile": true,
+      "status": {
+        "published": 0,
+        "finished": 0
+      }
+    }
+  ]
+}
