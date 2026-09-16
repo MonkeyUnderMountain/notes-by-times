@@ -1,4 +1,161 @@
 % !TeX root = adelic-line-bundle-0914.tex
-\section{adelic-line-bundle-0914}
+\section{adelic-line-bundle-0914:Reviews and background}
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:reviews}]{Reviews and background}
+
+Recall the height function:
+
+\begin{definition}[label=\labelNFM{def:naive-height}, status=draft, tag=0000000]
+	Let $x \in K$ with $K$ a number field, we define
+	\[ h(x) \coloneqq \sum_{v \in M_K} \log \max \{ |x|_v, 1 \} \]
+	For $x \in \bbP^n(\bbQ)$, choose $K$ such that $x \in \bbP^n(K)$ and $x = [x_0: \cdots :x_n]$, we define
+	\[ h(x) \coloneqq \frac{1}{[K:\bbQ]} \sum_{v \in M_K} \log \max \{|x_0|_v,\cdots,|x_n|_v\}. \]
+\end{definition}
+
+We have the \emph{Weil height machine} as follows.
+
+Let $X$ be a projective varieties over $K$, $L \in \Pic(X)$.
+If $L$ is very ample, then $L$ gives an embedding $f: X \to \bbP^n$, define
+\[ h_L \coloneqq h_{\bbP^n} \circ f: X(\overline{K}) \to \bbR. \]
+Such $h_L$ is well-defined up to a bounded function $O(1)$.
+For a general $L$, write $L = L_1 - L_2$ with $L_i$ very ample and set $h_L = h_{L_1} - h_{L_2}$.
+This is also well-defined up to $O(1)$.
+In summary, we get a group homomorphism
+\[ h: \Pic(X) \to \{\text{ height functions }\} \big/ \{\text{ bounded functions on } X(\overline{K})\}. \]
+
+Let's consider the \emph{Hermitian line bundles}:
+let $\calX$ be a arithmetic variety over $\calO_K$.
+A \emph{hermition line bundle} is a pair $(\overline{\calL} = (\calL,\|\cdot\|)$, $\calL \in \Pic(\calX)$, and $\|\cdot\|$ is a continuous/smooth metric on $\calL_\bbC^\an$ on $\calX_\bbC^\an$, and is conjugation invariant.
+For $\calX = \Spec \calO_K$, we define
+\[ \adeg \overline{\calL} \coloneqq \log \#(\calL / l\calO_K) - \sum_{v | \infty} \log \|l\|_v, l \neq 0 \in H^0(\calX,\calL). \]
+For a general $\calX$, the height function is defined as
+\[ h_{\overline{\calL}}: \calX(\overline{K}) \to \bbR, \quad x \mapsto \frac{\adeg \overline{x}^*\calL}{[\rkk(\overline{x}):\bbQ]}. \]
+
+\begin{remark}[label=\labelNFM{rmk:rmk1}, status=draft, tag=0000000]
+	The height $h_{\overline{\calL}}$ is a Weil height w.r.t. $L = \calL_K$.
+\end{remark}
+
+\begin{remark}[label=\labelNFM{rmk:rmk2}, status=draft, tag=0000000]
+	Give $(X,L)/K$, the integral model $(\calX,\calL)$ will induces a metric on $L(\overline{K_v})$ with $v$ non-archimedean.
+	For a local sectioni $s$ of $L|_x$, $x \in X(\overline{K_v})$, we define $\|s\|_v \leq 1$ iff $s$ extends to $\overline{x} = \Spec \calO_{\overline{K_v}}$.
+	This metric is called the \emph{model metrics}.
+\end{remark}
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:neron-tate-height}]{N\'eron-Tate heights and Zhang's adelic line bundle on projective space}
+
+Let $A/K$ be an abelian variety, $e \in A(K)$ the zero point, $L \in \Pic(A)$ symmetric rigidified (fix $e^*L \cong \calO_A$ \Yang{}).
+Then there is a unique isomorphism $[2]^*L \cong L^{\otimes 4}$.
+Choose any Weil height $h_L$ of $L$.
+We can define the \emph{N\'eron-Tata height}:
+\[ \hat{h}_L(x) \coloneqq \lim_{N \to \infty} \frac{h_L([2^N]x)}{4^N}. \]
+There is a fact that there is a unique metric $\|\cdot\|_v$ on $L(\overline{K_v})$ such that $[2]^*L \cong L^{\otimes 4}$ is an isometry, called canonical metric on $L$.
+We get $\overline{L} = (L, \{\|\cdot\|_v\}_{v \in M_K})$ and $\hat{h}_L = h_{\bar{L}}$.
+
+If $h_L$ is given by a model $(\calL,\calM)$, then
+\[ \text{`` } \bar{L} = \lim_{N \to \infty} \frac{[2^N]^*\overline{M}}{4^N} \text{ ''} \]
+
+Let us consider the adelic line bundle on projective varieties by Zhang.
+Let $(X,L)/K$.
+An \emph{adelic metric} $\{\|\cdot\|_v\}_{v \in M_K}$ on $L$ satisfies
+\begin{enumerate}
+	\item there is a Zariski open $V \subset \Spec \calO_K$, and a projective model $\calU \to V$, and $\calM \in \aPic(\calU)$ s.t. for $v \in V$, $\|\cdot\|_v$ is the model metric.
+	\item there exits a sequence $(\calX_n,\bar{\calL}_n)$ of projective models of $(\calU,\calM)$ over $\Spec \calO_K$ such that $\|\cdot\|_{v(\calX,\calL_n)}/\|\cdot\|_v$, as functions on $X(\overline{K})$, converges uniformly to $1$.
+\end{enumerate}
+
+
+\begin{remark}[label=\labelNFM{rmk:rmk3}, status=draft, tag=0000000]
+	Model continuous is equivariant to that continuous on Berkovich spaces.
+
+	Canonical metrics on $A$ is adelic.
+	There is a intersection theory of integrable adelic line bundles.
+\end{remark}
+
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:quasi-proj-case}]{Quasi-projective case}
+
+\begin{example}[label=\labelNFM{eg:eg1}, status=draft, tag=0000000]
+	Let $\pi: A \to S$ be a abelian scheme, $S/K$ quasi-projective.
+	Let $L \in \Pic A$, symmetric, rigidified.
+	We have the fiberwise Neron-Tate height: $\hat{h}_L(x)$.
+	And we have the fiberwise canonical metrics, $\{\|\cdot\|_v\}_{v \in M_K}$ on $A(\overline{K_v})$, $\overline{L} = (L, \|\cdot \|_{v \in M_K})$.
+
+	We can take limit of projective cases:
+	\[
+		\begin{tikzcd}
+			A & \calA \\
+			\overline{A} & \overline{\calA}
+			\arrow[from=1-1, to=1-2]
+			\arrow[from=1-1, to=2-1]
+			\arrow[from=1-2, to=2-2]
+			\arrow[from=2-1, to=2-2]
+		\end{tikzcd}
+	\]
+	here $A,\calA$ are abelian scheme over quasi-projective base and $\overline{A},\overline{\calA}$ are not abelian scheme but over projective base.
+\end{example}
+
+\begin{definition}[label=\labelNFM{def:def0}, status=draft, tag=0000000]
+	Let $X$ be a quasi-projective variety over $K$ and $L \in \Pic(X)$.
+	An \emph{adelic metric} $\{\|\cdot\|_v\}_{v \in M_K}$ on $L$ satisfies:
+	\begin{enumerate}
+		\item there exits a quasi-projective model $(\calU,\calM)/\Spec \calO_K$ s.t. $\|\cdot \|_v = \|\cdot \|_{v,(\calU,\calM)}$ whenever $x \in X(\overline{K_v})$ has reduction in $\calU$.
+		\item there exists a sequence of projective models $(\calX_n,\calL_n)$ of $(\calU,\calM)$ s.t. $\|\cdot\|$ is uniformly limit of $\|\cdot\|_{v,(\calX,\calL_n)}$ for all $v \in M_K$, $x \in X(\overline{K_v})$.
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}[label=\labelNFM{rmk:begin}, status=draft, tag=0000000]
+	The ``uniformly convergence'' is equivariant to ''locally uniformly convergence in Berkovich spaces''.
+\end{remark}
+
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:defsection}]{Definitions}
+
+For simplicity, assume $K = \bbQ$, $k = \bbZ$, all varieties are quasi-projective over $\bbZ$.
+by ``divisor'', we means the Cartier divisor.
+
+
+\begin{definition}[label=\labelNFM{def:defdef}, status=draft, tag=0000000]
+	An \emph{arithmetic divisor} on $\calX$ is $\overline{D} = (D,g_D)$, $g_D$ is a Green function of $D(\bbC)^\an$, on $X(\bbC)^\an$.
+
+	A principle divisor has form $(\adiv (f) \coloneqq (\divisor f, - \log |f|)$.
+
+	A divisor $\overline{D} = (D,g_D)$ is (strictly) effective if $g_D \geq 0$ ($g_D > 0$) and $D$ is effective.
+\end{definition}
+
+
+Now let $\calU$ be a quasi-projective variety over $\bbZ$.
+Fix a projective model $\calX$.
+
+An arithmetic $(\bbQ,\bbZ)$-divisor is a $\bbQ$-divisor on $\calX$ and the restriction on $\calU$ having $\bbZ$-coefficients.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

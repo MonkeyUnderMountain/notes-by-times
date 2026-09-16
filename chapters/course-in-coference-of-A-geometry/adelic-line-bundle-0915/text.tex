@@ -1,0 +1,86 @@
+% !TeX root = adelic-line-bundle-0915.tex
+\section{adelic-line-bundle-0915}
+
+Recall last time:
+Let $\calU$ be a quasi-projective variety over $\bbZ$ and $\calX$ a projective model of $\calU$.
+We have defined $\aDiv(\calX,\calU)$ of the $(\bbQ,\bbZ)$-divisors, $\aDiv(\calU)_{mod}$ the limit running out all $(\bbQ,\bbZ)$ of the $(\bbQ,\bbZ)$-divisors, and $\aDiv(\calU/\bbZ)$ its completion.
+Quotient it by the principle ones, we get the adelic line bundles.
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:inter}]{Intersection theory}
+
+Let $K$ be a number field and $\calX$ a projective variety over $\calO_K$ of absolute dimension $n$.
+For $d \geq 1$, $\bar{\calL}_1,\cdots, \bar{\calL}_d$ hermition line bundles on $\calX$ with smooth metrics, $\calZ \subset \calX$ a closed integral subscheme of dimension $d \geq 1$.
+Then intersection number is defined inductively as following.
+
+If $\dim \calZ = 1$, let $\pi: \title{\calZ} \to \calZ$ be the normalization and $\bar{\calL}_1 \cdot \calZ = \adeg \pi^* \bar{\calL}_1$.
+For $d \geq 1$, take a rational section $l_d$ of $\calL_d|_\calZ$, assuming $\divisor(l_d) = \sum a_i \calZ_i$, then
+\[ \bar{\calL}_1 \cdot \bar{\calL}_d \cdot [\calZ] = \sum a_i \bar{\calL}_1 \cdot \bar{\calL}_{d-1} \cdot [\calZ_i] - \int_{\calZ(\bbC)} \log \|l_d\| c_1(\bar{\calL}_1 \cdots c_1(\bar{\calL}_{d-1}). \]
+
+Then we can define the height
+\[ h_{\bar{\calL}}(\calZ) \coloneqq \frac{\bar{\calL}^d \cdot \calZ}{\dim \calZ + 1) \deg_{\calL_K} Z}. \]
+
+We say that $\bar{\calL}$ is nef if
+\begin{enumerate}
+	\item $c_1(\calL_\bbC)$ is semi-positive current.
+	\item $\calL \cdot [\calZ] \geq 0$ for all $1$-dimensional subscheme $\calZ \subset \calX$.
+\end{enumerate}
+It is called integrable if it is difference of two nef line bundle.
+We have an intersection pairing
+\[ \aPic(\calX)_{int}^n \to \bbR. \]
+
+
+For adelic line bundles $\calL$, we say that $\calL$ is strongly nef if $\calL$ can be represented by $\calL_i$ with $\calL_i$ all nef.
+$\calL$ is nef if there exists $\calM$ strongly nef such that $a \calL + \calM$ is strongly nef for all $a \in \bbZ_{\geq 1}$.
+
+\begin{theorem}[label=\labelNFM{thm:intersection-pairing}, status=draft, tag=0000000]
+	There is a pairing
+	\[ \aPic(X/\bbZ)_{int}^n \to \bbR. \]
+\end{theorem}
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:deligne}]{Deligne pairing}
+
+
+\begin{theorem}[label=\labelNFM{thm:thm}, status=draft, tag=0000000]
+	Let $Y$ be a flat quasi-projective voer $\bbZ$ and $f: X \to Y$ projective and flat morphism of relative dimension $d$.
+	Assuming that $X$ is integral, $Y$ is normal, then there is a pairing
+	\[ \aPic(X/\bbZ)^{d+1}_{int} \to \aPic(Y/\bbZ)_{int}, \quad (\bar{L}_1,\cdots,\bar{L}_{d+1}) \mapsto \left< \bar{L}_1,\cdots,\bar{L}_{d+1} \right>. \]
+	It maps (strongly) nef to (strongly) nef and is compatible with base change.
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

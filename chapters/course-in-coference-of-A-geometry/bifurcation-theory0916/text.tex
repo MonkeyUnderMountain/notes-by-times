@@ -1,0 +1,148 @@
+% !TeX root = bifurcation-theory0916.tex
+\section{bifurcation-theory0916}
+
+\begin{question}[label=\labelNFM{ques:1}, status=draft, tag=0000000]
+	Give $f,g: \bbP^1 \to \bbP^1$, when $\# \Preper(f) \cap \Preper(g) = \infty$.
+\end{question}
+
+
+\begin{question}[label=\labelNFM{ques:2.1}, status=draft, tag=0000000]
+	Let $B$ be a quasi-projective curve, $f:B \times \bbP^1 \to $ a family of deg $\geq 2$ and $a: B \to \bbP^1$.
+	When $T_f \wedge [\Gamma_a] = 0$.
+\end{question}
+
+\begin{question}[label=\labelNFM{ques:3}, status=draft, tag=0000000]
+	$f,g: B \times \bbP^1 \to B \times \bbP^1$. when $T_f \wedge T_g = 0$.
+\end{question}
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:ari}]{Arithmetic original}
+
+\begin{theorem}[label=\labelNFM{thm:lang}, status=draft, tag=0000000]
+	Let $C \subset \bbC^2$ be an irreducible curve, TFAE
+	\begin{enumerate}
+		\item $|C \cap \mu_\infty \times \mu_\infty| = \infty$;
+		\item $C$ is a component of $x^n - \xi y^m = 0$ with $\xi \in \mu_\infty$.
+	\end{enumerate}
+\end{theorem}
+
+The $\mu_\infty \times \mu_\infty$ are special points in $(\bbC^*)^2$.
+And the curves in (b) are special curves (translation of algebraic subgroup of $(\bbC^*)^2$).
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:q1}]{On Question 1}
+
+Let $f: \bbP^1 \to \bbP^1$.
+Recall that $\Preper(f) = \left\{ z \in \bbP^1(\bbC) \;\middle|\; f^n(z) = f^m(z) \right\} $.
+So $\Preper(z \mapsto z^2) = \mu_\infty \cup \{0,\infty\}$.
+And $\Preper((z,w) \mapsto (z^2,w^2)) = \mu_\infty \times \mu_\infty$.
+
+Inspired by Lang, one can ask $C \subset \bbC^2$, when is $|C \cap \Preper(f,g)| = \infty$.
+Takes $C = \Delta$ the diagonal, then this becomes the \cref{ques:1}.
+
+Shou-Wu Zhang propose the Dynamical Manim-Mumford:
+\begin{conjecture}[label=\labelNFM{conj:dmm}, status=draft, tag=0000000]
+	Let $\phi: \bbP^n \to \bbP^n$ of deg $d$ and $X \subset \bbP^n$ a subvariety.
+	When does $X$ contain a Zariski dense set of points in $\Preper(\phi)$.
+\end{conjecture}
+
+For example, when $X$ is $\phi$-preperiodic.
+
+\begin{theorem}[label=\labelNFM{thm:1}, status=draft, tag=0000000]
+	We have
+	\[ |\Delta \cap \Preper(f,g)| = \infty \iff |\Preper(f) \cap \Preper(g)| = \infty \]
+	\[\iff \Delta \text{ is preperiodic or preperiodic with a map commutative with $(f,g)$ } \]
+\end{theorem}
+
+We work over $\bar{\bbQ}$.
+
+Let $f: \bbP^1_{\bar{\bbQ}} \to \bbP^1_{\bar{\bbQ}}$.
+Call-Silverman construct a canonical height
+\[ \hat{h}_f(\alpha) = \lim_{n \to \infty} \frac{h(f^n(\alpha))}{d^n} \in \bbR_{\geq 0}. \]
+with $\hat{h}_f(f(\alpha)) = d\hat{h}_f(\alpha)$.
+And we know that $\hat{h}_f(\alpha) = 0 \iff \alpha \in \Preper(f)$.
+Shou-Wu Zhang define the canonical adelic line bundle $\bar{L}_f = (\calO(1), \{\|\cdot\|_{f,v}\}_{v \in M_\bbQ})$ with $h_{\bar{L}_f} = \hat{h}_f$.
+
+Fix $\tilde{f} = (F_0,F_1)$ be a homogenous lift of $f$ to $\bbC^2$.
+Set
+\[ G_{\tilde{f},v}(z) = \lim_{n \to \infty} \frac{\log \|\tilde{f}^n(z)\|_v}{d^n}, \quad \|s(z))\|_{f,v} = |s(z)|_v e^{-G_{\tilde{f},v}(z)}. \]
+Then
+\[ \hat{h}_f(\alpha) = \sum_v G_{\tilde{f},v}(\alpha). \]
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:equidistribution}]{Equidistribution Theorem}
+
+\begin{theorem}[label=\labelNFM{thm:ed}, status=draft, tag=0000000]
+	Let $\alpha_n \in \bbP^1(\bar{\bbQ})$ with $\hat{h}_f(\alpha_n) \to 0$.
+	Then
+	\[ \frac{1}{\Gal(\alpha_n)} \sum_{\sigma} \delta_{\sigma(\alpha_n)} \to \mu_f. \]
+\end{theorem}
+
+Here, $\mu_f$ is a $f$-invariant measure with $f^*\mu_f = d\mu_f$.
+And $\mu_f = c_1(\bar{L}_f) = \Delta G_{\tilde{f}}(z)$.
+
+We proved that
+\[ essmin \{\hat{h}_f(x) + \hat{h}_g(x)\} = 0 \iff f \sim g \} \]
+This is the Bogomolov's conjecture.
+
+Let $F: \bbP^n \to \bbP^n$, $X \subset \bbP^n$, $L_F \in \Pic(\bbP^n/\bbZ)$, then
+\[ h_{L_F}(X) = \frac{L_F^{\dim X + 1}|_X}{\deg X} \]
+We have Zhang's fundamental inequality,
+\[ (\dim X + 1) essmin_{\Delta}(\hat{h}_f+\hat{h}_g) \geq \hat{h}_{f,g}(\Delta) \geq
+\]
+
+\paragraph{bifurcation-theory}
+Let $f: B \times \bbP^1$, $a: B \to \bbP^1$.
+\begin{definition}[label=\labelNFM{def:bifurcation-theory}, status=draft, tag=0000000]
+	$(f,a)$ is stable on analytic open $U \subset B$ if $\{t \mapsto f_t^n(a(t))\}$ is normal on $U$.
+	$B(f,a)$ is defined as the unstalbe locus, called bifucation locus.
+\end{definition}
+
+By Montel theorem, $B(f,a) \subset \{t | a(t) \text{ is preper to a repelling cycle of } f_t\}$.
+
+there exists a $(1,1)$-curents on $B$ that supported on $B(f,a)$.
+\[ \hat{T}_f = \lim_n \frac{1}{d^n} (f^n)^*(p^*\omega)) = dd(G_{\tilde{f}_t}(z) \]
+For each $t \in B$; $\hat{T}_f |_{t \times \bbP^1} = \mu_{f_t}$.
+And $T_{f,a} = \pi_*( T_{f} \wedge [Gamma_a])$.
+
+
+\begin{theorem}[label=\labelNFM{thm:23}, status=draft, tag=0000000]
+	$\Supp T_{f,a} = B(f,a)$.
+	And then
+	\[ T_{f,a} = 0 \iff (f,a) \text{ is stable } \iff \hat{h}_f^{gem}(a) =0 \]
+\end{theorem}
+
+\begin{theorem}[label=\labelNFM{thm:22}, status=draft, tag=0000000]
+	$\hat{h}_f^{geom}(a) = 0 \iff (f,a)$ is preperiodic of isotrivial
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

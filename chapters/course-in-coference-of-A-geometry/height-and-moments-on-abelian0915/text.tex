@@ -1,0 +1,176 @@
+% !TeX root = height-and-moments-on-abelian0915.tex
+\section{height-and-moments-on-abelian0915}
+
+Plan:
+\begin{enumerate}
+	\item Heights (and Arakelov geometry);
+	\item Berkovich space (and tropical space);
+	\item Some relation between above two.
+\end{enumerate}
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:height}]{Heights}
+
+Given $a/b \in \bbQ$, $h(a/b) = $ ``number of bits needed to store $a/b$ on a computer''.
+More explicitly, $h(a/b) \coloneqq \max \{ \log |a|, \log |b| \}$.
+
+Let $K$ be a number field.
+The height is
+\[ h: \bbP^n(\bar{K}) \to [0,\infty), \quad [a_0:\cdots:a_n] \mapsto \sum_{v \in M_K} \frac{[K_v:\bbQ_v]}{[K:\bbQ]} \max_i \{ \log |a_i| \}. \]
+
+\begin{theorem}[label=\labelNFM{thm:northcott}, status=draft, tag=0000000, title={Northcott property}]
+	\[ \# \left\{ p \in \bbP^n(\bar{K}) \;\middle|\; \deg p \leq d, h(P) \leq B \right\} \]
+	is finite.
+\end{theorem}
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:heightmachine}]{Weil Height machine}
+
+Let $X$ be a smooth projective variety over $K$.
+Then there exists a unique homomorphism
+\[ h_X: \Pic(X) \to \bbR^{X(\bar{K})}/\{O(1)\} \]
+such that if $L$ is very ample with closed embedding $\phi_L: X \to \bbP^n$, $h_X(L) = h_{\bbP^n} \circ \phi_L + O(1)$.
+And it is ``functorial'' and ``positive''.
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:nextsect}]{Canonical height}
+
+Let $A$ be an abelian variety over $K$ and a line bundle on $A$.
+
+\begin{theorem}[label=\labelNFM{thm:ntheight}, status=draft, tag=0000000]
+	In the class of Weil heights, $h_L: A(\bar{K}) \to \bbR$ associated to $L$, there exist a unique $\hat{h}_L: A(\bar{K}) \to \bbR$ that can be written as a sum of quadratic and a linear form.
+\end{theorem}
+
+\begin{corollary}[label=\labelNFM{cor:c1}, status=draft, tag=0000000]
+	On torsion points $x$, $\hat{h}_L(x) = 0$.
+\end{corollary}
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:adelicintersection}]{Adelic intersection point of view}
+
+Let $A$ be an abelian variety over $K$, $L$ a (rigidified) ample symmetric line bundel.
+For each place, let $\|\cdot\|_{v,L}$ be the canonical metric, making $[m]^*L \cong L^{\otimes m^2}$ isometry on $L_v^\an$ over $A_v^\an$.
+Set $\bar{L} = (L,(\|\cdot\|_{v,L})_{v \in M_K})$ be the adelic line bundle.
+
+Let $Z$ be an integral cycle on $A$, (after Philippon, Guber, Bost-Gillet-Soule,Zhang), there exists an intersection theory.
+
+\begin{definition}[label=\labelNFM{def:hi}, status=draft, tag=0000000]
+	The canonical (Neron-Tate) height of $Z$ with respect to $L$ can be defined as
+	\[ \hat{h}_L(Z) \coloneqq \frac{1}{[K:\bbQ]} \cdot \frac{1}{(\dim Z + 1) \deg_L Z} \left<\bar{L} \cdots \bar{L} | Z \right>. \]
+	It is independent of the rigidified.
+\end{definition}
+
+\begin{example}[label=\labelNFM{eg:po}, status=draft, tag=0000000]
+	If $Z$ is a point $P$, then we get again the canonical height.
+\end{example}
+
+\begin{example}[label=\labelNFM{eg:ag}, status=draft, tag=0000000]
+	If you have a principally polarized abelian variety $(A,\lambda)$.
+	That is, given a line bundle $L \cong \calO(\theta)$ with $\theta$ a divisor with one-dimensional global sections.
+	Then
+	\[ \hat{h}(\theta) \eqqcolon h_{NT}(\theta) = \frac{1}{[K:\bbQ]} \cdot \frac{1}{g \cdot g!} \left<\bar{L} \cdots \bar{L} | \theta \right> \]
+\end{example}
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:Fali}]{Faltings height}
+
+Let $A$ be an abelian variety over $K$.
+($K$ is large enough)
+We have
+\[
+	\begin{tikzcd}
+		A & \calA \\
+		\Spec K & \Spec \calO_K
+		\arrow[from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow[from=2-1, to=2-2]
+	\end{tikzcd}
+\]
+It $(\calA)$ exists and called the Neron model.
+And you have a zero section $0: \Spec \calO_K \to \calA$.
+There is a line bundle
+\[ \omega \coloneqq 0^* \Omega_{\calA/\Spec \calO_K}^{\wedge g} \]
+on $\Spec \calO_K$.
+It is equipped a canonical metric by Faltings.
+Then the Faltings height is defined as
+\[ h_F(A) = \frac{1}{[K:\bbQ]} \adeg \omega. \]
+
+\begin{remark}[label=\labelNFM{rmk:111}, status=draft, tag=0000000]
+	Using ``recursive formula'' of intersection numbers and Chambert-Loir measure, we have
+	\[ \left< \bar{L} \cdots \bar{L} | Z \right> = \left< \bar{L} \cdots \bar{L} | \divisor_Z(s) \right> - \sum_{v \in M_K} \int_{A_v^\an} \log \|s\| \upd \mu. \]
+	One obtains
+	\[ \hat{h}_L(P) = \frac{1}{[K:\bbQ]} \sum_{v \in M_K} - \log \|s(P)\|_{v,L}, \quad P \notin \Supp D. \]
+	And
+	\[ h_{NT}(\theta) = \frac{1}{[K:\bbQ]g} \sum_{v\in M_K} \int_{A_v^\an} \log \|s\|_{v,L} \upd \mu.\]
+\end{remark}
+
+
+These are examples of the following principle:
+\begin{slogan}
+	Global quantities should be made from the local quantities.
+\end{slogan}
+
+\begin{theorem}[label=\labelNFM{thm:neron}, status=draft, tag=0000000]
+	Let $v$ be a place of $K$, $A$ an abelian variety over $K$, $L$ a symmetric ample line bundle on $A$.
+	There exists a unique up to constant $\Lambda: A(K_v)\setminus \Supp D \to \bbR$ such that
+	\begin{enumerate}
+		\item $\Lambda$ is continous;
+		\item additive
+		\item functorial w.r.t. isogeny.
+		\item $\hat{h}_D(P) = \sum \Lambda_{D,v}(P) - C$ for $P \not\in \Supp D$.
+	\end{enumerate}
+\end{theorem}
+
+% \begin{remark}[label=\labelNFM{rmk:rem}, status=draft, tag=0000000]
+%   Consider
+% \end{remark}
+
+
+\subsection[status=draft,label=\labelNFM{subsec:ana}]{Analytic geometry over non-archimedean fields}
+
+Let $(K,|\cdot|)$ be a non-archimedean fields, complete with respect to $|\cdot|$.
+For example, $K = \bbQ_p$ or $\bbC_p$.
+The topology of $K$ is totally disconnected.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
