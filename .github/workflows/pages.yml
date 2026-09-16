@@ -30,7 +30,7 @@ jobs:
         run: python3 .github/build-pages.py roots
 
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Compile selected notes
         if: steps.documents.outputs.compile_required == 'true'
@@ -54,7 +54,7 @@ jobs:
         run: python3 .github/build-pages.py site
 
       - name: Upload the Pages site
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: _site
 
@@ -71,4 +71,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
