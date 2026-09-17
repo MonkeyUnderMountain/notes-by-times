@@ -1,2 +1,316 @@
 % !TeX root = moduli-of-dynamics-on-projective-spaces.tex
-\section{moduli-of-dynamics-on-projective-spaces}
+\section{Moduli of dynamics on projective spaces}
+
+
+The references of this section are \cite{Silverman-2012-ModuliSpacesArithmetic,Levy-2011-SpaceMorphismsProjective} and \Yang{}
+For some basic knowledge of moduli problem and geometric invariant theory, I refer to \Yang{}
+
+
+
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:review-of-moduli-problem}]{Review of moduli problem and GIT}
+
+Recall that a moduli problem is a functor.
+
+
+Moduli space is a geometric space whose points represent isomorphism classes of certain geometric objects.
+For example, fix a field \(\kkk\), all elliptic curves over \(\kkk\) can be classified by the \(j\)-invariant, which gives a bijection between isomorphism classes of elliptic curves and elements of \(\kkk\).
+However, this classification is just a set-theoretic one.
+We would like to have a geometric ``parameter space'' such that we can ``deform'' the objects continuously.
+This is the initial motivation for moduli spaces.
+
+In algebraic geometry, ``deforming objects continuously'' is usually described by flat families.
+Hence the most perfect object to represent this moduli problem is such a flat family \(\calX \to M\), where \(M\) is a variety parameterizing all elliptic curves, and the fiber over each point \(m \in M(\kkk)\) is the elliptic curve corresponding to \(m\).
+Furthermore, we hope that this family is universal, i.e., any other flat family \(\calY \to B\) of elliptic curves is obtained by pulling back \(\calX \to M\) along a unique morphism \(B \to M\).
+(Despite in this example, such a perfect family does not exist; we will discuss this later.)
+It can be described by the language of functors.
+Consider the functor
+\[ \calM: \Var_{\kkk}^{\op} \to \Set,\quad X \mapsto \{\text{flat families of elliptic curves over } X\}/\sim, \]
+where \(\sim\) is the equivalence relation given by isomorphisms of families over \(X\).
+If the family \(\calX \to M\) above exists, then it represents the functor \(\calM\).
+In this case, we say that the moduli problem \(\calM\) is \emph{representable}, \(M\) is called a \emph{fine moduli space} and \(\calX \to M\) is called a \emph{universal object}.
+
+Hence, to study a moduli problem, we follow the steps:
+\begin{enumerate}
+	\item Define the moduli functor \(\calM\).
+	\item Check whether \(\calM\) is representable.
+\end{enumerate}
+
+\begin{slogan}\label{slogan:moduli_problem_is_find_representable_functor}
+	\hspace{1em}
+	\begin{center}
+		Moduli problem \(\longleftrightarrow\) Find a representable functor describing ``deformations''.
+	\end{center}
+\end{slogan}
+
+\begin{definition}\label{def:moduli_functor}
+	Let \(S\) be a noetherian scheme.
+	A \emph{moduli functor} over \(S\) is a functor \(\calM: \Sch_{S}^{\op} \to \Set\).
+\end{definition}
+
+The main moduli functor we will care about is the moduli functor of dynamics on a variety.
+
+\begin{definition}[label=\labelNFM{def:the-moduli-functor-of-dynamics-on-projective-spaces}, status=draft, tag=0000000]
+	Let $X$ be a variety over an excellent base scheme $S$.
+	Let $\calPolDyn_{X,q}: \Sch_S \to \Set$ be the functor defined by
+	\[ T \mapsto \left\{ f:X\times T \to X \times T \;\middle|\; f_t: X \to X \text{ is } q\text{-polarized for every } t \in T(\kkk) \right\}. \]
+	On this note, we will use $\calD_{n,d}$ to denote the moduli functor $\calPolDyn_{\bbP^n,d}$.
+	\Yang{}
+\end{definition}
+
+
+\begin{definition}\label{def:fine_moduli_space}
+	Let \(S\) be a noetherian scheme and \(\calM: \Sch_{S}^{\op} \to \Set\) be a functor.
+
+	If \(\calM\) is representable by a scheme \(M\) of finite type over \(S\), then we say that \(M\) is a \emph{fine moduli space} for the moduli problem \(\calM\).
+	The object \(\calU \in \calM(M)\) corresponding to the identity morphism \(\id_M \in \Hom_{\Sch_{S}}(M, M)\) is called a \emph{universal object} over \(M\).
+\end{definition}
+
+However, for many questions we care about, the fine moduli space does exist.
+For example, \Yang{}
+
+Hence, there is a weaken version.
+
+\begin{definition}[label=\labelNFM{def:the-coarse-moduli-space}, status=draft, tag=0000000]
+	Let $\calM$ be a moduli functor over $S$.
+	A scheme $M$ is called a \emph{coarse moduli space} if the following condition holds:
+	\begin{enumerate}
+		\item
+	\end{enumerate}
+	\Yang{}
+\end{definition}
+
+
+
+
+An important tool, and will be used later, to construct moduli space is the \emph{geometric invariant theory (GIT)}.
+
+Here we provide a brief overview of geometric invariant theory (GIT).
+For the propose of this notes, we only consider that the ground field $\kkk$ is algebraically closed and of characteristic zero, typically $\kkk = \bbC$.
+
+\begin{definition}[Categorical and geometric quotients]
+	Let $G$ be an algebraic group acting on a variety $X$ via $\sigma: G \times X \to X$.
+	A \emph{categorical quotient} of $X$ by $G$ is a variety $Y$ together with a $G$-invariant morphism $\pi: X \to Y$ such that for any other variety $Z$ and any $G$-invariant morphism $f: X \to Z$, there exists a unique morphism $\tilde{f}: Y \to Z$ making the following diagram commute:
+	\[
+		\begin{tikzcd}
+			G \acts X & Y \racts \id \\
+			& Z \racts \id
+			\arrow[from=1-1, to=1-2, "\pi"]
+			\arrow[from=1-2, to=2-2, "\tilde{f}", gray]
+			\arrow[from=1-1, to=2-2, "f"]
+		\end{tikzcd}
+	\]
+
+	Given a categorical quotient $\pi: X \to Y$, we say that $Y$ is a \emph{geometric quotient} of $X$ by $G$ if the following conditions hold:
+	\begin{enumerate}
+		\item The variety $Y$ is equipped with the quotient topology induced by $\pi$, i.e., a subset $U \subseteq Y$ is open if and only if $\pi^{-1}(U)$ is open in $X$.
+		\item The morphism $\pi$ is surjective, and the fibers of $\pi$ are precisely the $G$-orbits in $X$, i.e., for each $y \in Y$, we have $\pi^{-1}(y) = G \cdot x$ for some $x \in X$.
+		\item The sheaf of regular functions on $Y$ is isomorphic to the sheaf of $G$-invariant regular functions on $X$, i.e., for any open subset $U \subseteq Y$, we have $\mathcal{O}_Y(U) \cong \mathcal{O}_X(\pi^{-1}(U))^G$.
+	\end{enumerate}
+\end{definition}
+
+In general, a categorical quotient may not be a geometric quotient, and the existence of quotients is not guaranteed.
+\begin{example}
+	Let $G = \bbG_m$ act on $X = \bbA^1$ by scaling, i.e., $t \cdot x = tx$ for $t \in \bbG_m$ and $x \in \bbA^1$.
+	The categorical quotient of this action is a single point, since any $G$-invariant morphism from $\bbA^1$ to another variety must be constant.
+	Easily, we can see that the categorical quotient is not a geometric quotient, since the fibers of the quotient map are not precisely the $G$-orbits in $X$.
+\end{example}
+
+On GIT, we are particularly interested in the case where $G$ is a reductive group.
+
+Recall that any affine linear algebraic group $G$ is a linear algebraic group.
+For a linear algebraic group $G$ and $g \in G$, we say that $g$ is \emph{semisimple} if it is diagonalizable over the algebraic closure of the base field, and $g$ is \emph{unipotent} if all its eigenvalues are equal to 1.
+We have the \emph{Jordan decomposition} of $g$ as $g = g_s g_u$, where $g_s$ is semisimple and $g_u$ is unipotent, and they commute with each other.
+
+On the other hands, $G$ has a unique maximal normal solvable connected subgroup, which is called the \emph{radical} of $G$, denoted by $R(G)$.
+All unipotent elements of $R(G)$ form a normal subgroup of $G$, called the \emph{unipotent radical} of $G$, denoted by $R_u(G)$.
+The unipotent radical $R_u(G)$ can also be characterized as the unique maximal normal unipotent connected subgroup of $G$.
+We say that $G$ is \emph{reductive} if its unipotent radical is trivial, i.e., $R_u(G) = \{e\}$, where $e$ is the identity element of $G$.
+This is equivalent to saying that the radical $R(G)$ is a torus, i.e., $R(G) \cong (\bbG_m)^n$ for some $n \geq 0$.
+
+\begin{example}
+	The general linear group $\GL_n$ is reductive, since its radical is the center of $\GL_n$, which is isomorphic to $\bbG_m$.
+
+	To see this, let $R = R(\GL_n)$ be the radical of $\GL_n$.
+	By Lie-Kolchin theorem, $R$ is conjugate to a subgroup of the group $B$ of upper triangular matrices in $\GL_n$.
+	Since $R$ is normal in $\GL_n$, it is contained in the intersection of all conjugates of $B$, which is the group of scalar matrices, i.e., $R \subseteq Z(\GL_n) \cong \bbG_m$.
+	Note that we always have $Z(G)^\circ \subseteq R(G)$ for any linear algebraic group $G$, where $Z(G)^\circ$ is the connected component of the identity in the center of $G$.
+	Hence $R$ is a torus, and thus $\GL_n$ is reductive.
+
+	By similar argument, one can show that $R(\SL_n) = \{e\}$, and thus $\SL_n$ is also reductive.
+\end{example}
+
+For reductive groups, we have the following theorem to show its power.
+
+\begin{theorem}[{{ref. \cite[Theorem 1.1, Amplification 1.3]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}}}]
+	Let $G$ be a reductive group acting on an affine variety $X$.
+	Then the categorical quotient $X \to X / G$ exists.
+	And it is a geometric quotient if and only if all $G$-orbits (of closed points) in $X$ are closed.
+\end{theorem}
+
+For projective cases, the case is a bit more complicated, and we need to introduce the notion of $G$-linearization and (semi)stable points.
+
+\begin{definition}
+	Let $G$ be an algebraic group acting on a variety $X$ and let $\calL$ be a line bundle on $X$.
+	A \emph{$G$-linearization} of $\calL$ is an isomorphism $\phi: \sigma^* \calL \to p_2^* \calL$ of line bundles on $G \times X$, where $\sigma: G \times X \to X$ is the action map and $p_2: G \times X \to X$ is the projection onto the second factor.
+\end{definition}
+
+Inspiringly, assume that $\calL$ is very ample with an embedding $\iota: X \hookrightarrow \bbP^n$.
+Then given a $G$-linearization $\phi: \sigma^* \calL \to p_2^* \calL$, by restricting $\phi$ to the $\{g\} \times X$ for each $g \in G$, we get an isomorphism $\phi_g: \sigma_g^* \calL \to \calL$, where $\sigma_g: X \to X$ is the action of $g$ on $X$.
+Hence we induce a (contravariant) linear action of $G$ on $H^0(X, \calL)$, and thus a linear action of $G$ on $\bbP^n$.
+In this case, a $G$-linearization of $\calL$ will induce a $G$-equivariant embedding $\iota: X \hookrightarrow \bbP^n$.
+
+\begin{definition}
+	Let $G$ be a reductive group acting on a projective variety $X$ and let $\calL$ be a $G$-linearized line bundle on $X$.
+	A point $x \in X$ is called \emph{semistable} if there exists a $G$-invariant section $s \in H^0(X, \calL^{\otimes n})^G$ for some $n > 0$ such that $s(x) \neq 0$ and $X_s := \{y \in X \mid s(y) \neq 0\}$ is affine.
+	A semistable point $x \in X$ is called \emph{stable} if the action of $G$ on $X_s$ is closed, i.e., the orbit $G \cdot y$ is closed in $X_s$ for all $y \in X_s$.
+\end{definition}
+
+The set of semistable points and stable points are open in $X(\kkk)$, and we will also denote the corresponding open subvarieties by $X^{\text{ss}}(\calL)$ and $X^{\text{s}}(\calL)$ respectively.
+
+Then we have the following theorem in projective cases.
+
+\begin{theorem}[{{ref. \cite[Theorem 1.10 and comments under Amplification 1.11]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}}}]
+	Let $G$ be a reductive group acting on a projective variety $X$ and let $\calL$ be a $G$-linearized line bundle on $X$.
+	\begin{enumerate}
+		\item there exists a categorical quotient $\pi: X^{\text{ss}}(\calL) \to X^{\text{ss}}(\calL) / G$;
+		\item $X^{\text{ss}}(\calL) / G \cong \Proj \left( \bigoplus_{n \geq 0} H^0(X, \calL^{\otimes n})^G \right)$;
+		\item the restriction of $\pi$ to $X^{\text{s}}$ is a geometric quotient $\pi: X^{\text{s}}(\calL) \to X^{\text{s}}(\calL) / G$.
+	\end{enumerate}
+\end{theorem}
+
+The next problem is to determine the (semi)stable points.
+
+\begin{construction}
+	Settings as the theorem above.
+	Let $l: \bbG_m \to G$ be a homomorphism of algebraic groups, which is called a \emph{$1$-parameter subgroup} of $G$.
+	Then we have an action of $\bbG_m$ on $X$ via $l$, and thus we can define the limit point $\lim_{t \to 0} l(t) \cdot x$ for any $x \in X$.
+	More exactly, given an $1$-parameter subgroup $l: \bbG_m \to G$, we can define a morphism $\rho_{x, l}: \bbG_m \to X$ by $\rho_{x, l}(t) = l(t) \cdot x$.
+	And then by the valuative criterion of properness, we can uniquely extend $\rho_{x, l}$ to a morphism $\tilde{\rho}_{x, l}: \bbA^1 \to X$, and thus we can define the limit point $\lim_{t \to 0} l(t) \cdot x = \tilde{\rho}_{x, l}(0)$.
+	This limit point will be denoted by $l(0) \cdot x$.
+
+	For every $\alpha \in \bbG_m$, we can shift the $1$-parameter subgroup $l$ by $\alpha$ to get another $1$-parameter subgroup $l_\alpha: \bbG_m \to G$ defined by $l_\alpha(t) = l(\alpha t)$.
+	Note that $l_\alpha(0) \cdot x = l(0) \cdot x$ for all $\alpha \in \bbG_m$ since $\tilde{\rho}_{x, l_\alpha}(t) = \tilde{\rho}_{x, l}(\alpha t)$.
+	Hence $l(\alpha) \cdot (l(0) \cdot x) = l(0) \cdot x$ for all $\alpha \in \bbG_m$.
+
+	Note that since $\calL$ is $G$-linearized, we have an induced action of $G$ on the vector bundle $\bbV(\calL)$, and thus we have an action of $\bbG_m$ on the fiber $\calL_{l(0) \cdot x}$.
+	This gives a character $\chi: \bbG_m \to \bbG_m$ defined by $l(\alpha) \cdot v = \chi(\alpha) v$ for all $v \in \bbV(\calL)|_{l(0)\cdot x}$ and $\alpha \in \bbG_m$.
+	Identifying $\Hom(\bbG_m, \bbG_m) \cong \bbZ$, we can write $\chi(\alpha) = \alpha^r$ for some $r \in \bbZ$.
+	Then we set $\mu^\calL(x, l) = r$.
+\end{construction}
+
+\begin{remark}
+	Note that $\bbV(\calL) = \Spec \Sym^\bullet \calL$ is in the sense of Grothendieck, and the fiber $\bbV(\calL)|_x$ is dual to the fiber $\calL|_x$.
+	Hence our definition of $\mu^\calL(x, l)$ coincides with the one in \cite[Definition 2.2]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya} although we have a sign difference.
+	\Yang{}
+\end{remark}
+
+\begin{theorem}[{{ref. \cite[Theorem 2.1]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}}}]
+	Let $G$ be a reductive group acting on a projective variety $X$ and let $\calL$ be a $G$-linearized line bundle on $X$.
+	Then we have the following criterion for (semi)stability:
+	\begin{enumerate}
+		\item A point $x \in X$ is semistable if and only if $\mu^\calL(x, l) \geq 0$ for all $1$-parameter subgroups $l: \bbG_m \to G$.
+		\item A point $x \in X$ is stable if and only if $\mu^\calL(x, l) > 0$ for all $1$-parameter subgroups $l: \bbG_m \to G$.
+	\end{enumerate}
+\end{theorem}
+
+If $X = \bbP^n$ and $\calL = \calO_{\bbP^n}(1)$, then we can give a more explicit description of $\mu^\calL(x, l)$.
+
+\begin{proposition}[{{ref. \cite[Example 2.3]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}}}]
+	Let $G$ be a reductive group act on $X = \bbP^n$ and $\calL = \calO_{\bbP^n}(1)$.
+	Then for any $1$-parameter subgroup $l: \bbG_m \to G$, there exists a coordinate system such that $l(t) = \diag(t^{r_0}, t^{r_1}, \ldots, t^{r_n})$ with $\sum_{i=0}^n r_i = 0$.
+	Under this coordinate system, for any point $x = [x_0: x_1: \ldots: x_n] \in \bbP^n$, we have
+	\[
+		\mu^\calL(x, l) = -\min\{r_i \mid x_i \neq 0\}.
+	\]
+\end{proposition}
+
+
+
+
+
+
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:automorphism-group-and-construction-of-coarse-moduli}]{Automorphism of group and construction of coarse moduli}
+
+
+% \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:automorphism-group-of-dynamics}]{Automorphism group of dynamics on projective spaces}
+
+
+First we show that the automorphism group of a dynamics $f: \bbP^n \to \bbP^n$ is finite.
+
+\begin{proposition}[label=\labelNFM{prop:automorphism-group-of-dynamics-on-pn-is-finite}, status=draft, tag=0000000]
+	Let $f: \bbP^n \to \bbP^n$ a surjective endomorphism over a field $\kk$.
+	Then its automorphism is finite, that is,
+	\[ \# \Aut(f/\kk) = \# \left\{ g \in \Aut(\bbP^n/\kk) = \PGL_n(\kk) \;\middle|\; f \circ g = g \circ f \right\} < \infty.  \]
+\end{proposition}
+\begin{proof}
+	\Yang{}
+\end{proof}
+
+Moreover, the bound is uniform in term of dimension $n$ and degree $d$.
+
+\begin{theorem}[label=\labelNFM{thm:uniform-bound-for-the-auto-group-of-dynamics-on-pn}, status=draft, tag=0000000]
+	There exists a number $C = C_{n,d}$ depending only on $n$ and $d$ such that for any field $\kk$ and $[f] \in \calD_{n,d}(\kk)$,
+	\[ \# \Aut([f]/\kk) \leq C. \]
+\end{theorem}
+\begin{proof}
+	\Yang{}
+\end{proof}
+
+% \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:construction-of-coarse-moduli-of-dynamics-on-projective-space}]{Construction of coarse moduli}
+
+Now let us turn to construct the coarse moduli of dynamics on $\bbP^n$ by GIT.
+
+\begin{theorem}[label=\labelNFM{thm:existence-of-coarse-moduli-of-dynamics-on-projective-space}, status=draft, tag=0000000]
+	The coarse moduli space $D_{n,d}$ of the moduli functor $\calD_{n,d}$ exists.
+\end{theorem}
+\begin{proof}
+	\Yang{}
+\end{proof}
+
+A good example is the degree two dynamics on projective line.
+
+\begin{example}[label=\labelNFM{eg:moduli-of-degree-two-maps-on-p1}, status=draft, tag=0000000]
+	Let us consider $D_{1,2}$, i.e., the coarse moduli space of degree two endomorphism on $\bbP^1$.
+	We claim that $D_{1,2} \cong \bbA^2$.
+
+
+	\Yang{}
+\end{example}
+
+\begin{theorem}[label=\labelNFM{thm:coarse-moduli-of-dynamics-on-projective-line-is-affine-and-rational}, status=draft, tag=0000000]
+	Let $\kk$ be a field and $D_{n,d}$ be the coarse moduli space of $d$-polarized endomorphism on projective space $\bbP^n$.
+	Then
+	\begin{enumerate}
+		\item The variety $D_{n,d}$ is an affine variety of dimension $(n+1)C_{n+d}^d - (n+1)^2$.
+		\item The variety $D_{1,d}$ is rational for all $d$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\Yang{}
+\end{proof}
+
+
+
+
+% \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:focus-on-projective-lines}]{Focus on projective line}
+
+% \begin{definition}[label=\labelNFM{def:pcf-map-on-pn}, status=draft, tag=0000000]
+% 	Let $f: \bbP^n \to \bbP^n$ be a \Yang{}
+% 	We say that $f$ is PCF if \Yang{}
+% \end{definition}
+%
+% \begin{theorem}[label=\labelNFM{thm:pcf-points-defined-over-Qbar}, status=draft, tag=0000000]
+% 	Let $\kk$ be any field over $\bbQ$ and $[f] \in \calP_{1,d}(\kk)$ be a PCF point.
+% 	Then $[f]$ is indeed defined over $\bar{\bbQ}$, i.e., there exists that $[f_{\bar{\bbQ}}] \in \calP_{1,d}(\bar{\bbQ})$ such that $f = f_{\bar{\bbQ}} \times_{\bar{\bbQ}} \kk$.
+% 	\Yang{}
+% \end{theorem}
+%
+%
+
+
+
+
