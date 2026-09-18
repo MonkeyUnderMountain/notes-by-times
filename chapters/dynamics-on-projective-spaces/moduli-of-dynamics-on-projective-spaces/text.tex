@@ -5,6 +5,7 @@
 The references of this section are \cite{Silverman-2012-ModuliSpacesArithmetic,Levy-2011-SpaceMorphismsProjective} and \Yang{}
 For some basic knowledge of moduli problem and geometric invariant theory, I refer to \Yang{}
 
+Throughout this section, let $\kk$ be an arbitrary field of characteristic zero and $\kkk$ be its algebraic closure without specific.
 
 
 
@@ -15,24 +16,24 @@ Recall that a moduli problem is a functor.
 
 
 Moduli space is a geometric space whose points represent isomorphism classes of certain geometric objects.
-For example, fix a field \(\kkk\), all elliptic curves over \(\kkk\) can be classified by the \(j\)-invariant, which gives a bijection between isomorphism classes of elliptic curves and elements of \(\kkk\).
+For example, fix an algebraically closed field \(\kkk\), all elliptic curves over \(\kkk\) can be classified by the \(j\)-invariant, which gives a bijection between isomorphism classes of elliptic curves and elements of \(\bbA^1(\kkk)\).
 However, this classification is just a set-theoretic one.
 We would like to have a geometric ``parameter space'' such that we can ``deform'' the objects continuously.
 This is the initial motivation for moduli spaces.
 
 In algebraic geometry, ``deforming objects continuously'' is usually described by flat families.
 Hence the most perfect object to represent this moduli problem is such a flat family \(\calX \to M\), where \(M\) is a variety parameterizing all elliptic curves, and the fiber over each point \(m \in M(\kkk)\) is the elliptic curve corresponding to \(m\).
-Furthermore, we hope that this family is universal, i.e., any other flat family \(\calY \to B\) of elliptic curves is obtained by pulling back \(\calX \to M\) along a unique morphism \(B \to M\).
+Furthermore, we hope that this family is universal, i.e., any other flat family \(\calY \to T\) of elliptic curves is obtained by pulling back \(\calX \to M\) along a unique morphism \(T \to M\).
 (Despite in this example, such a perfect family does not exist; we will discuss this later.)
 It can be described by the language of functors.
 Consider the functor
-\[ \calM: \Var_{\kkk}^{\op} \to \Set,\quad X \mapsto \{\text{flat families of elliptic curves over } X\}/\sim, \]
-where \(\sim\) is the equivalence relation given by isomorphisms of families over \(X\).
+\[ \calM: \Var_{\kkk}^{\op} \to \Set,\quad T \mapsto \{\text{flat families of elliptic curves over } T\}/\sim, \]
+where \(\sim\) is the equivalence relation given by isomorphisms of families over \(T\).
 If the family \(\calX \to M\) above exists, then it represents the functor \(\calM\).
 In this case, we say that the moduli problem \(\calM\) is \emph{representable}, \(M\) is called a \emph{fine moduli space} and \(\calX \to M\) is called a \emph{universal object}.
 
 Hence, to study a moduli problem, we follow the steps:
-\begin{enumerate}
+\begin{enumerate}[nosep]
 	\item Define the moduli functor \(\calM\).
 	\item Check whether \(\calM\) is representable.
 \end{enumerate}
@@ -40,46 +41,91 @@ Hence, to study a moduli problem, we follow the steps:
 \begin{slogan}\label{slogan:moduli_problem_is_find_representable_functor}
 	\hspace{1em}
 	\begin{center}
-		Moduli problem \(\longleftrightarrow\) Find a representable functor describing ``deformations''.
+		Moduli problem of parameterizing objects in $S$ \(\longleftrightarrow\) Find a functor $\calM$ with $\calM(\kkk) = S$ describing ``deformations'';
+
+		Algebraic families over $T$ with fiber in $S$ $\longleftrightarrow$ elements in $\calM(T)$;
+
+		Pullpack / base change along $f:T' \to T$ $\longleftrightarrow$ the map $\calM(f): \calM(T) \to \calM(T')$.
 	\end{center}
+	\Yang{}
 \end{slogan}
 
-\begin{definition}\label{def:moduli_functor}
-	Let \(S\) be a noetherian scheme.
-	A \emph{moduli functor} over \(S\) is a functor \(\calM: \Sch_{S}^{\op} \to \Set\).
-\end{definition}
+\Yang{}
+An important and we will use later example is the hilbert scheme and moduli space of endomorphisms. \Yang{}
 
 The main moduli functor we will care about is the moduli functor of dynamics on a variety.
 
 \begin{definition}[label=\labelNFM{def:the-moduli-functor-of-dynamics-on-projective-spaces}, status=draft, tag=0000000]
-	Let $X$ be a variety over an excellent base scheme $S$.
-	Let $\calPolDyn_{X,q}: \Sch_S \to \Set$ be the functor defined by
-	\[ T \mapsto \left\{ f:X\times T \to X \times T \;\middle|\; f_t: X \to X \text{ is } q\text{-polarized for every } t \in T(\kkk) \right\}. \]
+	Let $\kk$ be a field of characteristic zero and $X$ a projective (and geometrically integral) variety over $\kk$.
+	Let $\calPolDyn_{X,q}: \Sch_\kk^{\op} \to \Set$ be the functor defined by
+	\[ T \mapsto \left\{ f:X\times T \to X \times T \;\middle|\; f_t: X \times \{t\} \to X \times \{t\} \text{ is } q\text{-polarized for every } t \in T \right\} / \sim. \]
 	On this note, we will use $\calD_{n,d}$ to denote the moduli functor $\calPolDyn_{\bbP^n,d}$.
-	\Yang{}
-\end{definition}
-
-
-\begin{definition}\label{def:fine_moduli_space}
-	Let \(S\) be a noetherian scheme and \(\calM: \Sch_{S}^{\op} \to \Set\) be a functor.
-
-	If \(\calM\) is representable by a scheme \(M\) of finite type over \(S\), then we say that \(M\) is a \emph{fine moduli space} for the moduli problem \(\calM\).
-	The object \(\calU \in \calM(M)\) corresponding to the identity morphism \(\id_M \in \Hom_{\Sch_{S}}(M, M)\) is called a \emph{universal object} over \(M\).
 \end{definition}
 
 However, for many questions we care about, the fine moduli space does exist.
-For example, \Yang{}
+Above example of moduli space of elliptic curves is just an example; see \cref{eg:affine-line-is-coarse-moduli-of-elliptic-curves}.
 
-Hence, there is a weaken version.
+Hence, there is a weaken version, called \emph{coarse moduli space}, satisfying the following considition:
+\begin{itemize}[nosep]
+	\item there is an $1:1$ corresponding between the isomorphic classes parameterized by $\calM$ and the closed points in $M$;
+	\item for every ``algebraic family $F \to T$ with fiber being objects parameterized by $\calM$'', there exists a unique morphism $f: T \to M$ induced by $F$ such that $F_t$ is isomorphic to the object parameterized by $f(t) \in M$.
+\end{itemize}
+
+In a rigorous language of functor, ``an algebraic family over $T$'' means an element $F$ in $\calM(T)$; a morphism corresponds to an element $f_F \in \Mor(T,M) = h_M(T)$.
+Hence a coarse moduli space should consist of a scheme $M$ and a natural transformation $\eta: \calM \to h_M$ with $\eta(T):\calM(T) \to h_M(T), F \mapsto f_F$.
+The the first condition above is just $\eta(\kkk): \calM(\kkk) \to h_M(\kkk)$ being bijective.
+
+The remain issue is the uniqueness of $M$.
+For example, if we have a morphism $g: N \to M$ which is bijective on the level of closed points, then $(N, g^* \circ \eta)$ is another pair satisfying the conditions.
+(here $g^*:h_M \to h_N$ is the natural transformation given by composition by $g$.)
+In a reasonable sense, since $N$ is onto $M$ by $g$, we regard that $M$ is the more ``suitable'' moduli space.
+Hence we may require that the coarse moduli space $(M,\eta)$ with the universal property that other such pair $(N,\xi)$ should factor through it.
+% On the other hand, note that such a factorization $\xi = \Phi \circ \eta$ must be given by a morphism $g:N \to M$ by Yoneda lemma.
+% If require that such factorization is unique (as any other universal property), we naturally get the uniqueness of the morphism $f_F:T \to M$ above.
+% For a general ``family'' $F \in \calM(T)$, we do need to require that all isomorphic classes appearing as fibers.
+% Therefore, the universal property should also be stated without the assumption of $\xi(\kkk)$ being bijective.
+
+In summary, we have the following definition.
 
 \begin{definition}[label=\labelNFM{def:the-coarse-moduli-space}, status=draft, tag=0000000]
-	Let $\calM$ be a moduli functor over $S$.
-	A scheme $M$ is called a \emph{coarse moduli space} if the following condition holds:
+	Let $\calM$ be a moduli functor over $\kk$.
+	A \emph{coarse moduli space} of $\calM$ is a pair $(M,\eta)$ with $M$ a $\kk$-scheme of finite type and $\eta: \calM \to h_M$ a natural transformation such that
 	\begin{enumerate}
-		\item
+		\item for any other pair $(N,\xi \colon \calM \to h_{N})$, there exists a unique factorization
+		      \[
+			      \begin{tikzcd}
+				      \calM & h_M \\
+				      & h_{N}.
+				      \arrow[from=1-1, to=1-2, "\eta"]
+				      \arrow[from=1-2, to=2-2, "\exists !", gray]
+				      \arrow[from=1-1, to=2-2, "\xi"']
+			      \end{tikzcd}
+		      \]
+		\item $\eta(\kkk): \calM(\kkk) \to h_M(\kkk) = M(\kkk)$ is a bijection;
 	\end{enumerate}
-	\Yang{}
 \end{definition}
+
+By the universal property, if the coarse moduli space exists, then it is unique.
+
+\begin{remark}[label=\labelNFM{rmk:fine-moduli-space-is-coarse-moduli-space-and-converse-if-universal-family-exists}, status=draft, tag=0000000]
+	Let $\calM$ be a moduli functor.
+	Suppose that $\calM$ has a fine moduli space, that is, $\calM$ is representable and represented by a scheme $M$ of finite type.
+	Then easily see that $M$ is also a coarse moduli space of $\calM$.
+
+	Conversely, suppose that $\calM$ has a coarse moduli space $(M,\eta)$.
+	Then $M$ is a fine moduli space iff $\eta$ is a natural-isomorphism.
+	This is also equivalent to that $\eta(T)$ is injective for all $T$ and there exists an element $\calX \in \calM(M)$ which gives the identity morphism $\eta(M)(\calX) = \id_M \in h_{M}(M)$.
+\end{remark}
+
+\begin{example}[label=\labelNFM{eg:affine-line-is-coarse-moduli-of-elliptic-curves}, status=draft, tag=0000000]
+	Let $\calM$ be the functor given by
+	\[ \calM: \Sch_{\kkk}^{\op} \to \Set,\quad T \mapsto \{\text{flat families of elliptic curves over } T\}/\sim, \]
+	We claim that $\bbA^1_\kkk$ is the coarse moduli space of $\calM$.
+	\Yang{}
+\end{example}
+
+
+
 
 
 
