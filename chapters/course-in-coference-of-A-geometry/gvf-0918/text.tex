@@ -1,0 +1,42 @@
+% !TeX root = gvf-0918.tex
+\section{gvf-0918}
+
+Let $X$ be a projective var over $\bar{\bbQ}$ and $\bar{\calL}$ a geometrically big adelic line bundle.
+
+\begin{question}[label=\labelNFM{ques:1}, status=draft, tag=0000000]
+	Consider
+	\[ \Sigma(X,\bar{\calL}) \coloneqq \left\{ s \in \bbR \;\middle|\; \forall \varepsilon > 0, \{x \in X(\bar{\bbQ}) | |h_{\bar{\calL}}(x) - s| \leq \varepsilon\} \text{ is Zariski dense} \right\}  \]
+	What can such a set look like?
+\end{question}
+
+Let $r,s \in \Sigma(X,\bar{\calL})$, there there exist a geometric sequence of pts $(x_i), (y_i) \in X(\bar{\bbQ})$ and $\lim h(x_i) = r, \lim h(y_i) = s$.
+They admit a subsequence converging in $X_{GVF}$ to limits $x,y \in X_{GVF}$ with $\pi(x) = \pi(y) = \eta \in X$.
+Any convex combination $\lambda h_x + (1-\lambda)h_y$ defines a GVF structure on $\bar{\bbQ}(X)$ extending $\bar{\bbQ}[1]$.
+Hence $[r,s] \subset \Sigma(X,\bar{\calL})$ and then
+\[ \Sigma(X,\bar{\calL}) = [essmin, \infty). \]
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:2}]{Polarized GVF extension}
+
+Let $X$ be a projective variety of dimension $d$ over a field $K$.
+Let $\bar{\calL}_1,\cdots,\bar{\calL}_d$ be nef adelic line bundle on $X$.
+Then the Deligne pairing defines a map
+\[ \left< \calL_1,\cdots \bar{\calL}_d,- \right>: \aPic(K(X)) \to \aPic(K) \]
+
+\begin{definition}[label=\labelNFM{def:3}, status=draft, tag=0000000]
+	Let $K$ be a GVF given by a gvf functional $\Phi$.
+	We define a polarized GVF structure by $K(X,\bar{L}_1\cdots, \bar{L}_d)$ by the functional $\Phi \circ \left< \calL_1,\cdots \bar{\calL}_d,- \right>$.
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
