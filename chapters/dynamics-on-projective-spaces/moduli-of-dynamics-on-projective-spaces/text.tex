@@ -41,9 +41,9 @@ Hence, to study a moduli problem, we follow the steps:
 \begin{slogan}\label{slogan:moduli_problem_is_find_representable_functor}
 	\hspace{1em}
 	\begin{center}
-		Moduli problem of parameterizing objects in $S$ \(\longleftrightarrow\) Find a functor $\calM$ with $\calM(\kkk) = S$ describing ``deformations'';
+		Moduli problem of parameterizing objects in $\Sigma$ \(\longleftrightarrow\) Find a functor $\calM$ with $\calM(\kkk) = \Sigma$ describing ``deformations'';
 
-		Algebraic families over $T$ with fiber in $S$ $\longleftrightarrow$ elements in $\calM(T)$;
+		Algebraic families over $T$ with fiber in $\Sigma$ $\longleftrightarrow$ elements in $\calM(T)$;
 
 		Pullpack / base change along $f:T' \to T$ $\longleftrightarrow$ the map $\calM(f): \calM(T) \to \calM(T')$.
 	\end{center}
@@ -52,6 +52,32 @@ Hence, to study a moduli problem, we follow the steps:
 
 \Yang{}
 An important and we will use later example is the hilbert scheme and moduli space of endomorphisms. \Yang{}
+
+Let us list some useful fine moduli spaces.
+
+\begin{example}[label=\labelNFM{eg:hilbert-scheme}, status=draft, tag=0000000]
+	Let $X$ be a projective variety over $\kk$ and $\calH$ an ample line bundle, $P$ is polynomial of $\bbQ$-coefficients.
+	The \emph{Hilbert functor} is defined by
+	\[ \calHilb_{(X,\calH,P)/\kk}(T) \coloneqq \left\{  \;\middle|\;  \right\} \]
+	It is representable and represented by a scheme of finite type over $\kk$, called the \emph{Hilbert scheme}, denoted by $\Hilb_{(X,\calH,P)/\kk}$.
+	\Yang{}
+\end{example}
+
+\begin{example}[label=\labelNFM{eg:moduli-functor-of-endmorphisms}, status=draft, tag=0000000]
+	Let $X$ be a projective variety over $\kk$ and $\calH$ an ample line bundle.
+	Its \emph{moduli functor of endomorphisms}
+	\Yang{}
+\end{example}
+
+\begin{example}[label=\labelNFM{eg:moduli-of-functor-of-automorphisms}, status=draft, tag=0000000]
+	Let $X$ be a projective variety over $\kk$ and $\calH$ an ample line bundle.
+	Its \emph{moduli functor of numerically trivial automorphisms}
+	\Yang{}
+\end{example}
+
+
+
+
 
 The main moduli functor we will care about is the moduli functor of dynamics on a variety.
 
@@ -63,7 +89,18 @@ The main moduli functor we will care about is the moduli functor of dynamics on 
 \end{definition}
 
 However, for many questions we care about, the fine moduli space does exist.
-Above example of moduli space of elliptic curves is just an example; see \cref{eg:affine-line-is-coarse-moduli-of-elliptic-curves}.
+An important statuation is that, if an object $X \in \calM(\kkk)$ has non-trivial automorphism group, then $\calM$ cannot have a fine moduli space.
+
+\begin{proposition}[label=\labelNFM{prop:nontrivial-automorphism-group-means-no-fine-moduli-space}, status=draft, tag=0000000]
+	Let $\calM: \Sch_\kk^\op \to \Set$ be a moduli functor.
+	Suppose that there exists $X \in \calM(\kkk)$ such that its automorphism group in $\Sch_\kk$ is non-trivial, i.e., $\Aut_{\Sch_\kk}(X) \neq \{\id_X\}$.
+	Then the fine moduli space of $\calM$ does not exit.
+\end{proposition}
+\begin{proof}
+	\Yang{}
+\end{proof}
+
+Since the morphism $[-1]_E:E \to E$ is a non-trivial automorphism, above example of moduli space of elliptic curves has no fine moduli space; see also \cref{eg:affine-line-is-coarse-moduli-of-elliptic-curves}.
 
 Hence, there is a weaken version, called \emph{coarse moduli space}, satisfying the following considition:
 \begin{itemize}[nosep]
@@ -117,19 +154,10 @@ By the universal property, if the coarse moduli space exists, then it is unique.
 	This is also equivalent to that $\eta(T)$ is injective for all $T$ and there exists an element $\calX \in \calM(M)$ which gives the identity morphism $\eta(M)(\calX) = \id_M \in h_{M}(M)$.
 \end{remark}
 
-\begin{example}[label=\labelNFM{eg:affine-line-is-coarse-moduli-of-elliptic-curves}, status=draft, tag=0000000]
-	Let $\calM$ be the functor given by
-	\[ \calM: \Sch_{\kkk}^{\op} \to \Set,\quad T \mapsto \{\text{flat families of elliptic curves over } T\}/\sim, \]
-	We claim that $\bbA^1_\kkk$ is the coarse moduli space of $\calM$.
-	\Yang{}
-\end{example}
+Many coarse moduli spaces are constructed by taking quotients of fine moduli spaces.
+Let us introduce some notions of quotients in algebraic geometric.
 
-
-
-
-
-
-
+\Yang{}
 An important tool, and will be used later, to construct moduli space is the \emph{geometric invariant theory (GIT)}.
 
 Here we provide a brief overview of geometric invariant theory (GIT).
@@ -154,7 +182,9 @@ For the propose of this notes, we only consider that the ground field $\kkk$ is 
 		\item The morphism $\pi$ is surjective, and the fibers of $\pi$ are precisely the $G$-orbits in $X$, i.e., for each $y \in Y$, we have $\pi^{-1}(y) = G \cdot x$ for some $x \in X$.
 		\item The sheaf of regular functions on $Y$ is isomorphic to the sheaf of $G$-invariant regular functions on $X$, i.e., for any open subset $U \subseteq Y$, we have $\mathcal{O}_Y(U) \cong \mathcal{O}_X(\pi^{-1}(U))^G$.
 	\end{enumerate}
+	\Yang{}
 \end{definition}
+\Yang{}
 
 In general, a categorical quotient may not be a geometric quotient, and the existence of quotients is not guaranteed.
 \begin{example}
@@ -162,6 +192,23 @@ In general, a categorical quotient may not be a geometric quotient, and the exis
 	The categorical quotient of this action is a single point, since any $G$-invariant morphism from $\bbA^1$ to another variety must be constant.
 	Easily, we can see that the categorical quotient is not a geometric quotient, since the fibers of the quotient map are not precisely the $G$-orbits in $X$.
 \end{example}
+
+
+Now let us restate the example of moduli functor of elliptic curves over $\kk$.
+
+\begin{example}[label=\labelNFM{eg:affine-line-is-coarse-moduli-of-elliptic-curves}, status=draft, tag=0000000]
+	Let $\calM$ be the functor given by
+	\[ \calM: \Sch_{\kk}^{\op} \to \Set,\quad T \mapsto \left\{ (\pi:\calE \to T, e:T \to \calE \;\middle|\; \substack{\pi \text{ is flat and projective, } e \circ \pi = \id_T,\ \calE_t \text{ is an elliptic} \\ \text{ curve over $\rkk(t)$ with zero elements $e(t)$, } \forall t \in T}  \right\} \big/ \sim, \]
+
+	We claim that $\bbA^1_\kkk$ is the coarse moduli space of $\calM$.
+	\Yang{}
+\end{example}
+
+
+
+
+
+
 
 On GIT, we are particularly interested in the case where $G$ is a reductive group.
 
@@ -184,94 +231,108 @@ This is equivalent to saying that the radical $R(G)$ is a torus, i.e., $R(G) \co
 	Note that we always have $Z(G)^\circ \subseteq R(G)$ for any linear algebraic group $G$, where $Z(G)^\circ$ is the connected component of the identity in the center of $G$.
 	Hence $R$ is a torus, and thus $\GL_n$ is reductive.
 
-	By similar argument, one can show that $R(\SL_n) = \{e\}$, and thus $\SL_n$ is also reductive.
+	By similar argument, one can show that $R(\PGL_n) = \{e\}$, and thus $\PGL_n$ is also reductive.
 \end{example}
 
 For reductive groups, we have the following theorem to show its power.
 
-\begin{theorem}[{{ref. \cite[Theorem 1.1, Amplification 1.3]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}}}]
+\begin{theorem}[{{ref. \cite[Theorem 1.1 and Amplification 1.3]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}}}]
 	Let $G$ be a reductive group acting on an affine variety $X$.
-	Then the categorical quotient $X \to X / G$ exists.
+	Then the categorical quotient $X \to X / G$ exists and $X/G$ is also an affine variety over $\kk$.
 	And it is a geometric quotient if and only if all $G$-orbits (of closed points) in $X$ are closed.
+	\Yang{}
 \end{theorem}
 
-For projective cases, the case is a bit more complicated, and we need to introduce the notion of $G$-linearization and (semi)stable points.
-
-\begin{definition}
-	Let $G$ be an algebraic group acting on a variety $X$ and let $\calL$ be a line bundle on $X$.
-	A \emph{$G$-linearization} of $\calL$ is an isomorphism $\phi: \sigma^* \calL \to p_2^* \calL$ of line bundles on $G \times X$, where $\sigma: G \times X \to X$ is the action map and $p_2: G \times X \to X$ is the projection onto the second factor.
-\end{definition}
-
-Inspiringly, assume that $\calL$ is very ample with an embedding $\iota: X \hookrightarrow \bbP^n$.
-Then given a $G$-linearization $\phi: \sigma^* \calL \to p_2^* \calL$, by restricting $\phi$ to the $\{g\} \times X$ for each $g \in G$, we get an isomorphism $\phi_g: \sigma_g^* \calL \to \calL$, where $\sigma_g: X \to X$ is the action of $g$ on $X$.
-Hence we induce a (contravariant) linear action of $G$ on $H^0(X, \calL)$, and thus a linear action of $G$ on $\bbP^n$.
-In this case, a $G$-linearization of $\calL$ will induce a $G$-equivariant embedding $\iota: X \hookrightarrow \bbP^n$.
-
-\begin{definition}
-	Let $G$ be a reductive group acting on a projective variety $X$ and let $\calL$ be a $G$-linearized line bundle on $X$.
-	A point $x \in X$ is called \emph{semistable} if there exists a $G$-invariant section $s \in H^0(X, \calL^{\otimes n})^G$ for some $n > 0$ such that $s(x) \neq 0$ and $X_s := \{y \in X \mid s(y) \neq 0\}$ is affine.
-	A semistable point $x \in X$ is called \emph{stable} if the action of $G$ on $X_s$ is closed, i.e., the orbit $G \cdot y$ is closed in $X_s$ for all $y \in X_s$.
-\end{definition}
-
-The set of semistable points and stable points are open in $X(\kkk)$, and we will also denote the corresponding open subvarieties by $X^{\text{ss}}(\calL)$ and $X^{\text{s}}(\calL)$ respectively.
-
-Then we have the following theorem in projective cases.
-
-\begin{theorem}[{{ref. \cite[Theorem 1.10 and comments under Amplification 1.11]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}}}]
-	Let $G$ be a reductive group acting on a projective variety $X$ and let $\calL$ be a $G$-linearized line bundle on $X$.
-	\begin{enumerate}
-		\item there exists a categorical quotient $\pi: X^{\text{ss}}(\calL) \to X^{\text{ss}}(\calL) / G$;
-		\item $X^{\text{ss}}(\calL) / G \cong \Proj \left( \bigoplus_{n \geq 0} H^0(X, \calL^{\otimes n})^G \right)$;
-		\item the restriction of $\pi$ to $X^{\text{s}}$ is a geometric quotient $\pi: X^{\text{s}}(\calL) \to X^{\text{s}}(\calL) / G$.
-	\end{enumerate}
-\end{theorem}
-
-The next problem is to determine the (semi)stable points.
-
-\begin{construction}
-	Settings as the theorem above.
-	Let $l: \bbG_m \to G$ be a homomorphism of algebraic groups, which is called a \emph{$1$-parameter subgroup} of $G$.
-	Then we have an action of $\bbG_m$ on $X$ via $l$, and thus we can define the limit point $\lim_{t \to 0} l(t) \cdot x$ for any $x \in X$.
-	More exactly, given an $1$-parameter subgroup $l: \bbG_m \to G$, we can define a morphism $\rho_{x, l}: \bbG_m \to X$ by $\rho_{x, l}(t) = l(t) \cdot x$.
-	And then by the valuative criterion of properness, we can uniquely extend $\rho_{x, l}$ to a morphism $\tilde{\rho}_{x, l}: \bbA^1 \to X$, and thus we can define the limit point $\lim_{t \to 0} l(t) \cdot x = \tilde{\rho}_{x, l}(0)$.
-	This limit point will be denoted by $l(0) \cdot x$.
-
-	For every $\alpha \in \bbG_m$, we can shift the $1$-parameter subgroup $l$ by $\alpha$ to get another $1$-parameter subgroup $l_\alpha: \bbG_m \to G$ defined by $l_\alpha(t) = l(\alpha t)$.
-	Note that $l_\alpha(0) \cdot x = l(0) \cdot x$ for all $\alpha \in \bbG_m$ since $\tilde{\rho}_{x, l_\alpha}(t) = \tilde{\rho}_{x, l}(\alpha t)$.
-	Hence $l(\alpha) \cdot (l(0) \cdot x) = l(0) \cdot x$ for all $\alpha \in \bbG_m$.
-
-	Note that since $\calL$ is $G$-linearized, we have an induced action of $G$ on the vector bundle $\bbV(\calL)$, and thus we have an action of $\bbG_m$ on the fiber $\calL_{l(0) \cdot x}$.
-	This gives a character $\chi: \bbG_m \to \bbG_m$ defined by $l(\alpha) \cdot v = \chi(\alpha) v$ for all $v \in \bbV(\calL)|_{l(0)\cdot x}$ and $\alpha \in \bbG_m$.
-	Identifying $\Hom(\bbG_m, \bbG_m) \cong \bbZ$, we can write $\chi(\alpha) = \alpha^r$ for some $r \in \bbZ$.
-	Then we set $\mu^\calL(x, l) = r$.
-\end{construction}
-
-\begin{remark}
-	Note that $\bbV(\calL) = \Spec \Sym^\bullet \calL$ is in the sense of Grothendieck, and the fiber $\bbV(\calL)|_x$ is dual to the fiber $\calL|_x$.
-	Hence our definition of $\mu^\calL(x, l)$ coincides with the one in \cite[Definition 2.2]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya} although we have a sign difference.
+\begin{remark}[label=\labelNFM{rmk:quotient-by-nonreductive-group-may-be-not-of-finite-type}, status=draft, tag=0000000]
+	Let $G$ be a general algebraic group acting on an affine scheme $X = \Spec A$.
+	$A^G$ may be not of finite type over $\kk$.
 	\Yang{}
 \end{remark}
 
-\begin{theorem}[{{ref. \cite[Theorem 2.1]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}}}]
-	Let $G$ be a reductive group acting on a projective variety $X$ and let $\calL$ be a $G$-linearized line bundle on $X$.
-	Then we have the following criterion for (semi)stability:
-	\begin{enumerate}
-		\item A point $x \in X$ is semistable if and only if $\mu^\calL(x, l) \geq 0$ for all $1$-parameter subgroups $l: \bbG_m \to G$.
-		\item A point $x \in X$ is stable if and only if $\mu^\calL(x, l) > 0$ for all $1$-parameter subgroups $l: \bbG_m \to G$.
-	\end{enumerate}
-\end{theorem}
+\begin{remark}[label=\labelNFM{rmk:quotient-for-projective-case-GIT}, status=draft, tag=0000000]
+	For projective case, there is also a whole theory to deal the quotient by reductive group, namely, the \emph{geometric invariant theory}.
+	The standard reference is \cite{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}.
+\end{remark}
 
-If $X = \bbP^n$ and $\calL = \calO_{\bbP^n}(1)$, then we can give a more explicit description of $\mu^\calL(x, l)$.
 
-\begin{proposition}[{{ref. \cite[Example 2.3]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}}}]
-	Let $G$ be a reductive group act on $X = \bbP^n$ and $\calL = \calO_{\bbP^n}(1)$.
-	Then for any $1$-parameter subgroup $l: \bbG_m \to G$, there exists a coordinate system such that $l(t) = \diag(t^{r_0}, t^{r_1}, \ldots, t^{r_n})$ with $\sum_{i=0}^n r_i = 0$.
-	Under this coordinate system, for any point $x = [x_0: x_1: \ldots: x_n] \in \bbP^n$, we have
-	\[
-		\mu^\calL(x, l) = -\min\{r_i \mid x_i \neq 0\}.
-	\]
-\end{proposition}
 
+% For projective cases, the case is a bit more complicated, and we need to introduce the notion of $G$-linearization and (semi)stable points.
+%
+% \begin{definition}
+% 	Let $G$ be an algebraic group acting on a variety $X$ and let $\calL$ be a line bundle on $X$.
+% 	A \emph{$G$-linearization} of $\calL$ is an isomorphism $\phi: \sigma^* \calL \to p_2^* \calL$ of line bundles on $G \times X$, where $\sigma: G \times X \to X$ is the action map and $p_2: G \times X \to X$ is the projection onto the second factor.
+% \end{definition}
+%
+% Inspiringly, assume that $\calL$ is very ample with an embedding $\iota: X \hookrightarrow \bbP^n$.
+% Then given a $G$-linearization $\phi: \sigma^* \calL \to p_2^* \calL$, by restricting $\phi$ to the $\{g\} \times X$ for each $g \in G$, we get an isomorphism $\phi_g: \sigma_g^* \calL \to \calL$, where $\sigma_g: X \to X$ is the action of $g$ on $X$.
+% Hence we induce a (contravariant) linear action of $G$ on $H^0(X, \calL)$, and thus a linear action of $G$ on $\bbP^n$.
+% In this case, a $G$-linearization of $\calL$ will induce a $G$-equivariant embedding $\iota: X \hookrightarrow \bbP^n$.
+%
+% \begin{definition}
+% 	Let $G$ be a reductive group acting on a projective variety $X$ and let $\calL$ be a $G$-linearized line bundle on $X$.
+% 	A point $x \in X$ is called \emph{semistable} if there exists a $G$-invariant section $s \in H^0(X, \calL^{\otimes n})^G$ for some $n > 0$ such that $s(x) \neq 0$ and $X_s := \{y \in X \mid s(y) \neq 0\}$ is affine.
+% 	A semistable point $x \in X$ is called \emph{stable} if the action of $G$ on $X_s$ is closed, i.e., the orbit $G \cdot y$ is closed in $X_s$ for all $y \in X_s$.
+% \end{definition}
+%
+% The set of semistable points and stable points are open in $X(\kkk)$, and we will also denote the corresponding open subvarieties by $X^{\text{ss}}(\calL)$ and $X^{\text{s}}(\calL)$ respectively.
+%
+% Then we have the following theorem in projective cases.
+%
+% \begin{theorem}[{{ref. \cite[Theorem 1.10 and comments under Amplification 1.11]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}}}]
+% 	Let $G$ be a reductive group acting on a projective variety $X$ and let $\calL$ be a $G$-linearized line bundle on $X$.
+% 	\begin{enumerate}
+% 		\item there exists a categorical quotient $\pi: X^{\text{ss}}(\calL) \to X^{\text{ss}}(\calL) / G$;
+% 		\item $X^{\text{ss}}(\calL) / G \cong \Proj \left( \bigoplus_{n \geq 0} H^0(X, \calL^{\otimes n})^G \right)$;
+% 		\item the restriction of $\pi$ to $X^{\text{s}}$ is a geometric quotient $\pi: X^{\text{s}}(\calL) \to X^{\text{s}}(\calL) / G$.
+% 	\end{enumerate}
+% \end{theorem}
+%
+% The next problem is to determine the (semi)stable points.
+%
+% \begin{construction}
+% 	Settings as the theorem above.
+% 	Let $l: \bbG_m \to G$ be a homomorphism of algebraic groups, which is called a \emph{$1$-parameter subgroup} of $G$.
+% 	Then we have an action of $\bbG_m$ on $X$ via $l$, and thus we can define the limit point $\lim_{t \to 0} l(t) \cdot x$ for any $x \in X$.
+% 	More exactly, given an $1$-parameter subgroup $l: \bbG_m \to G$, we can define a morphism $\rho_{x, l}: \bbG_m \to X$ by $\rho_{x, l}(t) = l(t) \cdot x$.
+% 	And then by the valuative criterion of properness, we can uniquely extend $\rho_{x, l}$ to a morphism $\tilde{\rho}_{x, l}: \bbA^1 \to X$, and thus we can define the limit point $\lim_{t \to 0} l(t) \cdot x = \tilde{\rho}_{x, l}(0)$.
+% 	This limit point will be denoted by $l(0) \cdot x$.
+%
+% 	For every $\alpha \in \bbG_m$, we can shift the $1$-parameter subgroup $l$ by $\alpha$ to get another $1$-parameter subgroup $l_\alpha: \bbG_m \to G$ defined by $l_\alpha(t) = l(\alpha t)$.
+% 	Note that $l_\alpha(0) \cdot x = l(0) \cdot x$ for all $\alpha \in \bbG_m$ since $\tilde{\rho}_{x, l_\alpha}(t) = \tilde{\rho}_{x, l}(\alpha t)$.
+% 	Hence $l(\alpha) \cdot (l(0) \cdot x) = l(0) \cdot x$ for all $\alpha \in \bbG_m$.
+%
+% 	Note that since $\calL$ is $G$-linearized, we have an induced action of $G$ on the vector bundle $\bbV(\calL)$, and thus we have an action of $\bbG_m$ on the fiber $\calL_{l(0) \cdot x}$.
+% 	This gives a character $\chi: \bbG_m \to \bbG_m$ defined by $l(\alpha) \cdot v = \chi(\alpha) v$ for all $v \in \bbV(\calL)|_{l(0)\cdot x}$ and $\alpha \in \bbG_m$.
+% 	Identifying $\Hom(\bbG_m, \bbG_m) \cong \bbZ$, we can write $\chi(\alpha) = \alpha^r$ for some $r \in \bbZ$.
+% 	Then we set $\mu^\calL(x, l) = r$.
+% \end{construction}
+%
+% \begin{remark}
+% 	Note that $\bbV(\calL) = \Spec \Sym^\bullet \calL$ is in the sense of Grothendieck, and the fiber $\bbV(\calL)|_x$ is dual to the fiber $\calL|_x$.
+% 	Hence our definition of $\mu^\calL(x, l)$ coincides with the one in \cite[Definition 2.2]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya} although we have a sign difference.
+% 	\Yang{}
+% \end{remark}
+%
+% \begin{theorem}[{{ref. \cite[Theorem 2.1]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}}}]
+% 	Let $G$ be a reductive group acting on a projective variety $X$ and let $\calL$ be a $G$-linearized line bundle on $X$.
+% 	Then we have the following criterion for (semi)stability:
+% 	\begin{enumerate}
+% 		\item A point $x \in X$ is semistable if and only if $\mu^\calL(x, l) \geq 0$ for all $1$-parameter subgroups $l: \bbG_m \to G$.
+% 		\item A point $x \in X$ is stable if and only if $\mu^\calL(x, l) > 0$ for all $1$-parameter subgroups $l: \bbG_m \to G$.
+% 	\end{enumerate}
+% \end{theorem}
+%
+% If $X = \bbP^n$ and $\calL = \calO_{\bbP^n}(1)$, then we can give a more explicit description of $\mu^\calL(x, l)$.
+%
+% \begin{proposition}[{{ref. \cite[Example 2.3]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}}}]
+% 	Let $G$ be a reductive group act on $X = \bbP^n$ and $\calL = \calO_{\bbP^n}(1)$.
+% 	Then for any $1$-parameter subgroup $l: \bbG_m \to G$, there exists a coordinate system such that $l(t) = \diag(t^{r_0}, t^{r_1}, \ldots, t^{r_n})$ with $\sum_{i=0}^n r_i = 0$.
+% 	Under this coordinate system, for any point $x = [x_0: x_1: \ldots: x_n] \in \bbP^n$, we have
+% 	\[
+% 		\mu^\calL(x, l) = -\min\{r_i \mid x_i \neq 0\}.
+% 	\]
+% \end{proposition}
+%
 
 
 
@@ -287,14 +348,39 @@ If $X = \bbP^n$ and $\calL = \calO_{\bbP^n}(1)$, then we can give a more explici
 
 First we show that the automorphism group of a dynamics $f: \bbP^n \to \bbP^n$ is finite.
 
+\begin{definition}[label=\labelNFM{def:automorphism-group-of-dynamics}, status=draft, tag=0000000]
+	Let $f: \bbP^n \to \bbP^n$ a surjective endomorphism over a field $\kk$.
+	Then its automorphism group, is defined as an algebraic group by
+	\[ \Aut_{f/\kk}(\kkk) \coloneqq \left\{ g \in \Aut_{\bbP^n/\kk} = \PGL_n() \;\middle|\; f \circ g = g \circ f \right\}.  \]
+\end{definition}
+
+\begin{remark}[label=\labelNFM{rmk:scheme-theoretic-automorphism-group-and-categroy-theoretic}, status=draft, tag=0000000]
+	Note that for , we consider its automorphism group as a \emph{algebraic group}.
+	And ...
+\end{remark}
+
+
+
+
 \begin{proposition}[label=\labelNFM{prop:automorphism-group-of-dynamics-on-pn-is-finite}, status=draft, tag=0000000]
 	Let $f: \bbP^n \to \bbP^n$ a surjective endomorphism over a field $\kk$.
 	Then its automorphism is finite, that is,
-	\[ \# \Aut(f/\kk) = \# \left\{ g \in \Aut(\bbP^n/\kk) = \PGL_n(\kk) \;\middle|\; f \circ g = g \circ f \right\} < \infty.  \]
+	\[ \# \Aut_{f/\kk}(\kkk) = \# \left\{ g \in \Aut(\bbP^n/\kk) = \PGL_n(\kk) \;\middle|\; f \circ g = g \circ f \right\} < \infty.  \]
 \end{proposition}
 \begin{proof}
 	\Yang{}
 \end{proof}
+
+\begin{example}[label=\labelNFM{eg:power-map-has-nontrivial-automorphism-by-unit-roots}, status=draft, tag=0000000]
+	Consider the power map $f: z \mapsto z^d$ for $d \geq 3$.
+	Then $\mu_{d-1} \in \Aut_{f/\kk}(\kkk)$ since $m_\xi \circ f \circ m_{\xi^{-1}} (z) = \xi \cdot \xi^{-d} z^{d} = z^d = f(z)$ for $\xi \in \mu_{d-1}$ and $m_a$ is the map given by muliplication of $a$.
+\end{example}
+
+\begin{example}[label=\labelNFM{eg:power-map-has-nontrivial-automorphism-by-permutation}, status=draft, tag=0000000]
+	More generally, let $f: [x_0:\cdots:x_n] \mapsto [x_0^d:\cdots:x_n^d]$.
+	Then any involution $\tau \in \frakS_{n+1}$, i.e., an permutation of $n+1$ symbol satisfying $\tau^2 = \id$, induces an automorphism $g_\tau \in \Aut_{\bbP^n}(\kk)$ by $[x_0:\cdots : x_n] \mapsto [x_{\tau(0)}:\cdots:x_{\tau(n)}]$ which is commutative with $f$.
+	In particular, $f$ has non-trivial automorphism group and $\calD_{d,n}$ can't have a fine moduli space.
+\end{example}
 
 Moreover, the bound is uniform in term of dimension $n$ and degree $d$.
 
@@ -306,12 +392,12 @@ Moreover, the bound is uniform in term of dimension $n$ and degree $d$.
 	\Yang{}
 \end{proof}
 
-% \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:construction-of-coarse-moduli-of-dynamics-on-projective-space}]{Construction of coarse moduli}
 
 Now let us turn to construct the coarse moduli of dynamics on $\bbP^n$ by GIT.
+The \cref{prop:automorphism-group-of-dynamics-on-pn-is-finite} is enough to show the existence of the coarse moduli space.
 
 \begin{theorem}[label=\labelNFM{thm:existence-of-coarse-moduli-of-dynamics-on-projective-space}, status=draft, tag=0000000]
-	The coarse moduli space $D_{n,d}$ of the moduli functor $\calD_{n,d}$ exists.
+	The coarse moduli space $D_{n,d}$ of the moduli functor $\calD_{n,d}$ exists and is an affine variety of dimension $(n+1)C_{n+d}^d - (n+1)^2$.
 \end{theorem}
 \begin{proof}
 	\Yang{}
@@ -327,17 +413,27 @@ A good example is the degree two dynamics on projective line.
 	\Yang{}
 \end{example}
 
-\begin{theorem}[label=\labelNFM{thm:coarse-moduli-of-dynamics-on-projective-line-is-affine-and-rational}, status=draft, tag=0000000]
-	Let $\kk$ be a field and $D_{n,d}$ be the coarse moduli space of $d$-polarized endomorphism on projective space $\bbP^n$.
-	Then
-	\begin{enumerate}
-		\item The variety $D_{n,d}$ is an affine variety of dimension $(n+1)C_{n+d}^d - (n+1)^2$.
-		\item The variety $D_{1,d}$ is rational for all $d$.
-	\end{enumerate}
-\end{theorem}
-\begin{proof}
-	\Yang{}
-\end{proof}
+\begin{remark}[label=\labelNFM{rmk:rational-and-unirational-of-coarse-moduli-of-dynamics-on-pn}, status=draft, tag=0000000]
+	The coarse moduli spaces $\calD_{n,d}$ is unirational since \Yang{}
+	Moreover, \Yang{}
+\end{remark}
+
+
+
+% \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:construction-of-coarse-moduli-of-dynamics-on-projective-space}]{Construction of coarse moduli}
+
+
+% \begin{theorem}[label=\labelNFM{thm:coarse-moduli-of-dynamics-on-projective-line-is-affine-and-rational}, status=draft, tag=0000000]
+% 	Let $\kk$ be a field and $D_{n,d}$ be the coarse moduli space of $d$-polarized endomorphism on projective space $\bbP^n$.
+% 	Then
+% 	\begin{enumerate}
+% 		\item The variety $D_{n,d}$ is an affine variety of dimension $(n+1)C_{n+d}^d - (n+1)^2$.
+% 		\item The variety $D_{1,d}$ is rational for all $d$.
+% 	\end{enumerate}
+% \end{theorem}
+% \begin{proof}
+% 	\Yang{}
+% \end{proof}
 
 
 
