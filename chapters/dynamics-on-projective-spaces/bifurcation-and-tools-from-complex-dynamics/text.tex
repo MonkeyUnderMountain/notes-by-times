@@ -3,23 +3,196 @@
 
 The main references of this section are \cite{DeMarco-2003-DynamicsRationalMaps,DeMarco-2018-DynamicalModuliSpaces} and \Yang{}
 
+On the field $\bbC$ of complex numbers, we always fix a subfield $\bbR\subset \bbC$ of real numbers, a standard basis $\bbC = \bbR \oplus \bbR \im$, and the standard Eculidean topology.
+\Yang{}
 
-\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:metric-forms-and-currents}]{Review of metric, forms and currents}
 
-\begin{definition}[label=\labelNFM{def:height-by-metric}, status=draft, tag=0000000]
-	A canonical height \Yang{}
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:forms-and-currents}]{Review of forms and currents}
+
+Recall that on a complex mainfolds $X$, or more generally a complex analytic space, we have the sheaves of $\scrC^\infty$-differential forms
+\[ \scrA_X^\bullet = \bigoplus_{k} \scrA_X^k = \bigoplus_{k} \bigoplus_{p+q = k} \scrA_X^{p,q}, \quad \scrA_X^{0,1} = \overline{\scrA_{X}^{1,0}}, \quad \scrA_X^{p,q} \coloneqq \bigwedge^p \scrA_X^{1,0} \otimes \bigwedge^q \scrA_X^{0,1}. \]
+with $\scrA_X^{1,0}$ given by the complex-valued $\cinf$-sections of $T^*X$ when $X$ smooth and the over line means the conjugation of the almost complex structure on $T^*X$.
+All these sheaves are $\cinf_{X,\bbC}$-modules.
+For details, see \cite{Demailly-2012-ComplexAnalyticDifferential,Barlet-Magnusson-2019-ComplexAnalyticCycles}.
+
+There is a natural way to endow topology on $\scrA_X^{p,q}(U)$ making it as a Frechet space.
+\Yang{}
+
+\begin{proposition}[label=\labelNFM{prop:basic-properties-of-forms-with-topology}, status=draft, tag=0000000]
+	Let \Yang{}
+	\begin{enumerate}
+		\item there is a functorial differential map,
+		\item them forms a sheaves of rings
+		\item the subring is commutative
+		\item there is an evaluation map $\Gamma_c(\scrA_X^{p,q},U) \to \bbC$; in particular, if $X$ is compact, then we have $\scrA_X^{p,q}(X) \to \bbC$.
+		\item there is a unconditional pullback
+		\item the differential and pullback are continuous
+	\end{enumerate}
+	\Yang{}
+\end{proposition}
+
+\begin{construction}[label=\labelNFM{constr:currents}, status=draft, tag=0000000]
+	On $\Gamma_c(\scrA_X^{p,q},U)$, we endow it with the subspace topology.
+	For any $U \subset V$, the natural map is the zero-extension:
+	\[ i_*: \Gamma_c(\scrA_X^{p,q},U) \to \Gamma_c(\scrA_X^{p,q},V), \quad (i_*\alpha)|_{V\setminus U} = 0. \]
+	Set $\scrA_{p,q}^X(U)$ be the topology dual space of $\Gamma_c(\scrA_X^{p,q},U)$.
+	Then the dual of zero-extension $i_*$ gives a functorial restriction $\res^V_U: \scrA_{p,q}^X(V) \to \scrA_{p,q}^X(U)$.
+
+	\Yang{}
+\end{construction}
+
+\begin{example}[label=\labelNFM{eg:forms-as-currents}, status=draft, tag=0000000]
+
+	\Yang{}
+\end{example}
+
+\begin{example}[label=\labelNFM{eg:submainfolds-as-currents}, status=draft, tag=0000000]
+	\Yang{}
+\end{example}
+
+\begin{example}[label=\labelNFM{eg:measure-and-distribution-as-currents}, status=draft, tag=0000000]
+	\Yang{}
+\end{example}
+
+\begin{slogan}
+	There is a philosophy analogue: forms are cocyles, like Cartier divisor or line bundles; and currents are cycles, like Weil divisor or subvarieties.
+	\Yang{}
+\end{slogan}
+
+Let us record some basic properties of currents on a complex analytic spaces.
+
+\begin{proposition}[label=\labelNFM{prop:basic-properties}, status=draft, tag=0000000]
+	Let \Yang{}
+	\begin{enumerate}
+		\item there is a inclusion $\scrA^{p,q} \subset \scrA_{d-p,d-q}$.
+		\item there is a differential
+		\item it is a $\scrA^\cdot$-module.
+		\item there is a proper pushforward and flat pullback.
+		\item the pushforward is a $\scrA$-homomorphism.
+		\item the pullback coincides with pullback of forms
+	\end{enumerate}
+	\Yang{}
+\end{proposition}
+
+
+
+Forms and currents are more finer object than algebraic cycles and cocyles.
+
+\Yang{}
+
+
+
+
+
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:review-of-metrics}]{Hermitian line bundles and adelic divisors}
+
+
+Given a line bundles, we can get a cohomological class.
+But it is not a differential forms.
+
+\begin{definition}[label=\labelNFM{def:hermitian-line-bundles}, status=draft, tag=0000000]
+	A \emph{$\cinf$-hermitian metric} (resp. \emph{continous hermitian metric}) on \(E\) is a $\cinf$-ly (resp. continuously) varying family of hermitian inner products \(\langle \cdot, \cdot \rangle_x\) on the fibers \(E_x\) for each \(x \in X\),
+	i.e.,
+	\[\langle \cdot, \cdot \rangle_x: E_x \times E_x \to \mathbb{C}\]
+	is a hermitian inner product for each \(x\), and for any local smooth (resp. continuous) sections \(s,t\) of \(E\), the function
+	\[x \mapsto \langle s(x), t(x) \rangle_x\]
+	is smooth (resp. continuous) on \(X\).
+	A complex vector bundle equipped with a hermitian metric is called a \emph{hermitian vector bundle}.
 \end{definition}
 
+Let \(X\) be a complex analytic variety and $\calL$ a holomorphic line bundle on $X$.
+
+\begin{proposition}\label{prop:correspondence_between_hermitian_metric_and_forms}
+	There is a one-to-one correspondence between smooth hermitian metrics on \(L\) and real \((1,1)\)-forms representing the first Chern class \(c_1(L) \in H^{1,1}(X, \bbR)\).
+	More precisely, given a smooth hermitian metric \(h\) on \(L\), there exists a unique real \((1,1)\)-form \(\omega_h\) such that for any local holomorphic non-vanishing section \(s\) of \(L\),
+	\[\omega_h = -\frac{i}{2\pi} \partial \overline{\partial} \log h(s,s), \qquad [\omega_h] = c_1(L) \in H^{1,1}(X,\bbR).\]
+	Conversely, given a real \((1,1)\)-form \(\omega\) representing \(c_1(L)\), there exists a hermitian metric \(h\) unique up to \Yang{} on \(L\) such that \(\omega = \omega_h\).
+	\Yang{To be checked.}
+\end{proposition}
+
+
+\begin{proposition}\label{prop:hermitian_metric_different_by_a_smooth_function_on_a_fixed_line_bundle}
+	Let \(h_1,h_2\) be two smooth (resp. continuous) hermitian metrics on $\calL$.
+	Then there exists a unique smooth (resp. continuous) function \(\varphi: X \to \bbR\) such that
+	\[h_2(s,t) = \exp(\varphi) \cdot h_1(s,t)\]
+	for all local smooth (resp. continuous) sections \(s,t\) of \(L\).
+\end{proposition}
+\begin{proof}
+	\Yang{to be added.}
+\end{proof}
+
+\begin{definition}\label{def:green-functions-for-a-divisor}
+	Let $D = \{(U_i,f_i)\}$ be a Caritier divisor on $X$.
+	A \emph{green function} of $D$ is a (real-valued) function $g \in \scrO_{X}^{\cnt,\bbR}(X \setminus \Supp D)$ such that $g|_{U_i} + \log |f_i|$ can be extended to a continous function on $U_i$.
+\end{definition}
+
+\begin{example}
+	Let $\bbP$
+
+	\Yang{to be continued.}
+\end{example}
+
+\begin{proposition}
+	\Yang{given a hermitian metric and a section is like to given a green function}
+\end{proposition}
+
+\begin{theorem}[Lelong-Poincar\'e equation]
+	Let
+	\[ \upd \upd^c g = \frac{\im}{\pi} \partial \overline{\partial} g = \omega_h - \delta_D. \]
+	\Yang{}
+\end{theorem}
 
 
 
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:on-complex-dynamics}]{Canonical height}
 
-\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:equilibrium-measure-and-julia-sets}]{Equilibrium measure and Julia sets}
-
-\begin{definition}[label=\labelNFM{def:equilibrium-measure}, status=draft, tag=0000000]
-	Let $\kk$ be a and $f:X \to X$ a dynamics.
+\begin{definition}[label=\labelNFM{def:height-function-by-metrized-line-bundle}, status=draft, tag=0000000]
+	Let $\bar calL$ be a hermitian line bundles
+	The \emph{height function} is defined as
 	\Yang{}
 \end{definition}
+
+\begin{proposition}[label=\labelNFM{prop:canonical-height-for-family-of-endomorphism-on-pn}, status=draft, tag=0000000]
+	Let $f: \bbP^n \times T \to \bbP^n \times T$ be a family of endmorphisms on $\bbP^n$, then there exists a unique
+	\[ \hat{h}_f \]
+	\Yang{}
+\end{proposition}
+
+\begin{corollary}[label=\labelNFM{cor:zero-of-canonical-height-was-preperiodic-points}, status=draft, tag=0000000]
+	Let $h$.
+	Then $\hat{h}_f(x) = 0$ iff $x \in \Preper(f)$.
+\end{corollary}
+
+\begin{corollary}[label=\labelNFM{cor:finiteness-of-preperiodic-points-of-finite-degree-defined-field}, status=draft, tag=0000000]
+	We have
+	\[ \left\{ x \in \bbP^n(\bar{\bbQ}) \;\middle|\; x \in \Preper(f), [\rkk(x): \bbQ] \leq D \right\} \]
+	is finite \Yang{}
+\end{corollary}
+
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:equilibrium-measure-and-julia-sets}]{Equilibrium measure}
+
+\begin{lemma}[label=\labelNFM{lem:existence-of-green-currents-and-functions-for-dynamics-on-pn}, status=draft, tag=0000000]
+	Let $f: \bbP^n \to \bbP^n$ be a $d$-polarized dynamics.
+	Then there exists a unique currents \Yang{}
+\end{lemma}
+
+
+\begin{definition}[label=\labelNFM{def:equilibrium-measure}, status=draft, tag=0000000]
+	Let $f \in \calD_{n,d}(\kk)$.
+
+	$\kk$ be a and $f:X \to X$ a dynamics.
+	\Yang{}
+\end{definition}
+
+
+
+
+
 
 
 
