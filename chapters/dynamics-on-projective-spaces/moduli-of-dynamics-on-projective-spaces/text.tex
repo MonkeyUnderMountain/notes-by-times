@@ -2,170 +2,114 @@
 \section{Moduli of dynamics on projective spaces}
 
 
-The references of this section are \cite{Silverman-2012-ModuliSpacesArithmetic,Levy-2011-SpaceMorphismsProjective} and \Yang{}
-For some basic knowledge of moduli problem and geometric invariant theory, I refer to \Yang{}
+The references of this section are \cite{Silverman-2012-ModuliSpacesArithmetic,Levy-2011-SpaceMorphismsProjective}.
+For some basic knowledge of moduli problem and geometric invariant theory, I refer to \cite{Harris-Morrison-1998-ModuliCurves,Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}
 
 Throughout this section, let $\kk$ be an arbitrary field of characteristic zero and $\kkk$ be its algebraic closure without specific.
 
 
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:review-of-functorial-ag}]{Review of algebraic geometry by functors}
 
+On this subsection, we review some facts about the viewpoint of functors in algebraic geometry.
 
-\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:review-of-moduli-problem}]{Review of moduli problem and GIT}
+First recall that we can associate any scheme $X$ with a contravariant functor $\bfh_X$ to sets.
+Let us state it in a general setting.
 
-Recall that a moduli problem is a functor.
-
-
-Moduli space is a geometric space whose points represent isomorphism classes of certain geometric objects.
-For example, fix an algebraically closed field \(\kkk\), all elliptic curves over \(\kkk\) can be classified by the \(j\)-invariant, which gives a bijection between isomorphism classes of elliptic curves and elements of \(\bbA^1(\kkk)\).
-However, this classification is just a set-theoretic one.
-We would like to have a geometric ``parameter space'' such that we can ``deform'' the objects continuously.
-This is the initial motivation for moduli spaces.
-
-In algebraic geometry, ``deforming objects continuously'' is usually described by flat families.
-Hence the most perfect object to represent this moduli problem is such a flat family \(\calX \to M\), where \(M\) is a variety parameterizing all elliptic curves, and the fiber over each point \(m \in M(\kkk)\) is the elliptic curve corresponding to \(m\).
-Furthermore, we hope that this family is universal, i.e., any other flat family \(\calY \to T\) of elliptic curves is obtained by pulling back \(\calX \to M\) along a unique morphism \(T \to M\).
-(Despite in this example, such a perfect family does not exist; we will discuss this later.)
-It can be described by the language of functors.
-Consider the functor
-\[ \calM: \Var_{\kkk}^{\op} \to \Set,\quad T \mapsto \{\text{flat families of elliptic curves over } T\}/\sim, \]
-where \(\sim\) is the equivalence relation given by isomorphisms of families over \(T\).
-If the family \(\calX \to M\) above exists, then it represents the functor \(\calM\).
-In this case, we say that the moduli problem \(\calM\) is \emph{representable}, \(M\) is called a \emph{fine moduli space} and \(\calX \to M\) is called a \emph{universal object}.
-
-Hence, to study a moduli problem, we follow the steps:
-\begin{enumerate}[nosep]
-	\item Define the moduli functor \(\calM\).
-	\item Check whether \(\calM\) is representable.
-\end{enumerate}
-
-\begin{slogan}\label{slogan:moduli_problem_is_find_representable_functor}
-	\hspace{1em}
-	\begin{center}
-		Moduli problem of parameterizing objects in $\Sigma$ \(\longleftrightarrow\) Find a functor $\calM$ with $\calM(\kkk) = \Sigma$ describing ``deformations'';
-
-		Algebraic families over $T$ with fiber in $\Sigma$ $\longleftrightarrow$ elements in $\calM(T)$;
-
-		Pullpack / base change along $f:T' \to T$ $\longleftrightarrow$ the map $\calM(f): \calM(T) \to \calM(T')$.
-	\end{center}
-	\Yang{}
-\end{slogan}
-
-\Yang{}
-An important and we will use later example is the hilbert scheme and moduli space of endomorphisms. \Yang{}
-
-Let us list some useful fine moduli spaces.
-
-\begin{example}[label=\labelNFM{eg:hilbert-scheme}, status=draft, tag=0000000]
-	Let $X$ be a projective variety over $\kk$ and $\calH$ an ample line bundle, $P$ is polynomial of $\bbQ$-coefficients.
-	The \emph{Hilbert functor} is defined by
-	\[ \calHilb_{(X,\calH,P)/\kk}(T) \coloneqq \left\{  \;\middle|\;  \right\} \]
-	It is representable and represented by a scheme of finite type over $\kk$, called the \emph{Hilbert scheme}, denoted by $\Hilb_{(X,\calH,P)/\kk}$.
-	\Yang{}
-\end{example}
-
-\begin{example}[label=\labelNFM{eg:moduli-functor-of-endmorphisms}, status=draft, tag=0000000]
-	Let $X$ be a projective variety over $\kk$ and $\calH$ an ample line bundle.
-	Its \emph{moduli functor of endomorphisms}
-	\Yang{}
-\end{example}
-
-\begin{example}[label=\labelNFM{eg:moduli-of-functor-of-automorphisms}, status=draft, tag=0000000]
-	Let $X$ be a projective variety over $\kk$ and $\calH$ an ample line bundle.
-	Its \emph{moduli functor of numerically trivial automorphisms}
-	\Yang{}
-\end{example}
-
-
-
-
-
-The main moduli functor we will care about is the moduli functor of dynamics on a variety.
-
-\begin{definition}[label=\labelNFM{def:the-moduli-functor-of-dynamics-on-projective-spaces}, status=draft, tag=0000000]
-	Let $\kk$ be a field of characteristic zero and $X$ a projective (and geometrically integral) variety over $\kk$.
-	Let $\calPolDyn_{X,q}: \Sch_\kk^{\op} \to \Set$ be the functor defined by
-	\[ T \mapsto \left\{ f:X\times T \to X \times T \;\middle|\; f_t: X \times \{t\} \to X \times \{t\} \text{ is } q\text{-polarized for every } t \in T \right\} / \sim. \]
-	On this note, we will use $\calD_{n,d}$ to denote the moduli functor $\calPolDyn_{\bbP^n,d}$.
+\begin{definition}[label=\labelNFM{def:h-X-and-its-category}, status=draft, tag=0000000]
+	Let $\bfS$ be a category.
+	For any $X \in \Obj(\bfS)$, we can define a functor $\bfh_X: \bfS^\op \to \Set$ by
+	\begin{align*}
+		\bfh_X(T) & = \Arr(T,X),\quad                                     & \forall T \in \Obj(\bfS),          \\
+		\bfh_X(a) & : \Arr(T,X) \to \Arr(S,X),\ b \mapsto b \circ a,\quad & \forall (a:S \to T) \in \Arr(S,T).
+	\end{align*}
+	For any $f: X \to Y$, we can associate it with a natural transformation $\bfh_f: \bfh_X \to \bfh_Y$ by
+	\[ \bfh_f(T): \bfh_X(T) \to \bfh_Y(T), \quad b \mapsto f \circ b. \]
 \end{definition}
 
-However, for many questions we care about, the fine moduli space does exist.
-An important statuation is that, if an object $X \in \calM(\kkk)$ has non-trivial automorphism group, then $\calM$ cannot have a fine moduli space.
+The amazing Yoneda lemma tell us this functor $X \mapsto \bfh_X$ does not loss any information.
 
-\begin{proposition}[label=\labelNFM{prop:nontrivial-automorphism-group-means-no-fine-moduli-space}, status=draft, tag=0000000]
-	Let $\calM: \Sch_\kk^\op \to \Set$ be a moduli functor.
-	Suppose that there exists $X \in \calM(\kkk)$ such that its automorphism group in $\Sch_\kk$ is non-trivial, i.e., $\Aut_{\Sch_\kk}(X) \neq \{\id_X\}$.
-	Then the fine moduli space of $\calM$ does not exit.
-\end{proposition}
-\begin{proof}
-	\Yang{}
-\end{proof}
+\begin{theorem}[label=\labelNFM{thm:Yoneda-lemma}, status=draft, tag=0000000, title={{Yoneda Lemma, see \cite[\href{https://stacks.math.columbia.edu/tag/001P}{Tag 001P}]{Stacksprojectauthors-2026-StacksProject}}}]
+	Let $\bfS$ be a category.
+	The functor
+	\[ \bfh_{-}: \bfS \to \Fun(\bfS^\op, \Set), \qquad X \mapsto \bfh_X, \quad f \mapsto \bfh_f. \]
+	is fully faithful, that is, the map
+	\[ \Arr_{\bfS}(X,Y) \to \Nat(\bfh_X,\bfh_Y) \]
+	is a bijection of sets for any $X,Y \in \Obj(\bfS)$.
+\end{theorem}
 
-Since the morphism $[-1]_E:E \to E$ is a non-trivial automorphism, above example of moduli space of elliptic curves has no fine moduli space; see also \cref{eg:affine-line-is-coarse-moduli-of-elliptic-curves}.
-
-Hence, there is a weaken version, called \emph{coarse moduli space}, satisfying the following considition:
-\begin{itemize}[nosep]
-	\item there is an $1:1$ corresponding between the isomorphic classes parameterized by $\calM$ and the closed points in $M$;
-	\item for every ``algebraic family $F \to T$ with fiber being objects parameterized by $\calM$'', there exists a unique morphism $f: T \to M$ induced by $F$ such that $F_t$ is isomorphic to the object parameterized by $f(t) \in M$.
-\end{itemize}
-
-In a rigorous language of functor, ``an algebraic family over $T$'' means an element $F$ in $\calM(T)$; a morphism corresponds to an element $f_F \in \Mor(T,M) = h_M(T)$.
-Hence a coarse moduli space should consist of a scheme $M$ and a natural transformation $\eta: \calM \to h_M$ with $\eta(T):\calM(T) \to h_M(T), F \mapsto f_F$.
-The the first condition above is just $\eta(\kkk): \calM(\kkk) \to h_M(\kkk)$ being bijective.
-
-The remain issue is the uniqueness of $M$.
-For example, if we have a morphism $g: N \to M$ which is bijective on the level of closed points, then $(N, g^* \circ \eta)$ is another pair satisfying the conditions.
-(here $g^*:h_M \to h_N$ is the natural transformation given by composition by $g$.)
-In a reasonable sense, since $N$ is onto $M$ by $g$, we regard that $M$ is the more ``suitable'' moduli space.
-Hence we may require that the coarse moduli space $(M,\eta)$ with the universal property that other such pair $(N,\xi)$ should factor through it.
-% On the other hand, note that such a factorization $\xi = \Phi \circ \eta$ must be given by a morphism $g:N \to M$ by Yoneda lemma.
-% If require that such factorization is unique (as any other universal property), we naturally get the uniqueness of the morphism $f_F:T \to M$ above.
-% For a general ``family'' $F \in \calM(T)$, we do need to require that all isomorphic classes appearing as fibers.
-% Therefore, the universal property should also be stated without the assumption of $\xi(\kkk)$ being bijective.
-
-In summary, we have the following definition.
-
-\begin{definition}[label=\labelNFM{def:the-coarse-moduli-space}, status=draft, tag=0000000]
-	Let $\calM$ be a moduli functor over $\kk$.
-	A \emph{coarse moduli space} of $\calM$ is a pair $(M,\eta)$ with $M$ a $\kk$-scheme of finite type and $\eta: \calM \to h_M$ a natural transformation such that
-	\begin{enumerate}
-		\item for any other pair $(N,\xi \colon \calM \to h_{N})$, there exists a unique factorization
-		      \[
-			      \begin{tikzcd}
-				      \calM & h_M \\
-				      & h_{N}.
-				      \arrow[from=1-1, to=1-2, "\eta"]
-				      \arrow[from=1-2, to=2-2, "\exists !", gray]
-				      \arrow[from=1-1, to=2-2, "\xi"']
-			      \end{tikzcd}
-		      \]
-		\item $\eta(\kkk): \calM(\kkk) \to h_M(\kkk) = M(\kkk)$ is a bijection;
-	\end{enumerate}
+\begin{definition}[label=\labelNFM{def:representable-functor}, status=draft, tag=0000000]
+	Let $\bfS$ be a category.
+	A functor $F: \bfS^\op \to \Set$ is said representable if it lies in the full subcategroy $\bfh_-(\bfS)$ up to isomorphic.
 \end{definition}
 
-By the universal property, if the coarse moduli space exists, then it is unique.
+Recall that, tautologically, a functor $F:\bfS^\op \to \Set$ is a presheaf $F$ over $\bfS$ valued in $\Set$.
+For some reason, we will use the terminology $\PSh_\bfS(\Set)$ or simply $\PSh_\bfS$.
 
-\begin{remark}[label=\labelNFM{rmk:fine-moduli-space-is-coarse-moduli-space-and-converse-if-universal-family-exists}, status=draft, tag=0000000]
-	Let $\calM$ be a moduli functor.
-	Suppose that $\calM$ has a fine moduli space, that is, $\calM$ is representable and represented by a scheme $M$ of finite type.
-	Then easily see that $M$ is also a coarse moduli space of $\calM$.
+Let us focus on the case of scheme.
+For a scheme $X$, we will often identify $X$ with the functor $\bfh_X$.
+In other words, we will denote by $X(T) = \Mor(T,X)$.
+In particular, if $X$ is of finite type over a field $\kk$ and $\KK/\kk$ is a field extension, then $X(\KK) = \Mor_\kk(\KK,X)$ is the set of $\KK$-points in $X$.
+This coincides with usual notations.
+It is worth noting that if $X$ is a scheme over a base scheme $S$ and $T/S$, then $X(T) = X_T(S)$ under the identification by $X_T \to X$ by universal property of fiber products.
+In particular, if $S = \Spec \kk$ and $T = \Spec \kkk$, we have $X(\kkk) = X_{\kkk}(\kkk)$.
+And from this viewpoint, an element in $X(T)$ should be viewed as a section of $X_T \to T$.
 
-	Conversely, suppose that $\calM$ has a coarse moduli space $(M,\eta)$.
-	Then $M$ is a fine moduli space iff $\eta$ is a natural-isomorphism.
-	This is also equivalent to that $\eta(T)$ is injective for all $T$ and there exists an element $\calX \in \calM(M)$ which gives the identity morphism $\eta(M)(\calX) = \id_M \in h_{M}(M)$.
+\begin{remark}[label=\labelNFM{rmk:yoneda-embedding-as-weak-solution-in-pde}, status=draft, tag=0000000]
+	One should view the Yoneda embedding $\bfh_{-}: \bfS \to \PSh_\bfS$ as the embedding $\scrC([0,1]) \injmap L^2([0,1])$.
+	Many objects does not exist as a scheme, but we can first define it as a functor and then try to figure when it is indeed a scheme.
+	This is like that when we try to solve a PDE, we cannot the smooth soluation at begin, but we can first find a $L^2$-weak soluation, and then try to show it is smooth.
 \end{remark}
 
-Many coarse moduli spaces are constructed by taking quotients of fine moduli spaces.
-Let us introduce some notions of quotients in algebraic geometric.
+\begin{slogan}
+	\[ \bfh_{-}: \bfS \to \PSh_\bfS \quad \longleftrightarrow \quad \scrC([0,1]) \injmap L^2([0,1]). \]
+\end{slogan}
 
-\Yang{}
-An important tool, and will be used later, to construct moduli space is the \emph{geometric invariant theory (GIT)}.
 
-Here we provide a brief overview of geometric invariant theory (GIT).
-For the propose of this notes, we only consider that the ground field $\kkk$ is algebraically closed and of characteristic zero, typically $\kkk = \bbC$.
+We also need the notions of group objects and group actions in the language of category theory.
+From now, we always assume the category $\bfS$ has fiber products and terminal object.
+And by easily computing, one can see that $\bfh_-$ preserves fiber products and terminal objects.
 
-\begin{definition}[Categorical and geometric quotients]
-	Let $G$ be an algebraic group acting on a variety $X$ via $\sigma: G \times X \to X$.
-	A \emph{categorical quotient} of $X$ by $G$ is a variety $Y$ together with a $G$-invariant morphism $\pi: X \to Y$ such that for any other variety $Z$ and any $G$-invariant morphism $f: X \to Z$, there exists a unique morphism $\tilde{f}: Y \to Z$ making the following diagram commute:
+\begin{definition}[label=\labelNFM{def:group-object-in-category-theory}, status=draft, tag=0000000, title={Group objects}]
+	Let $\bfS$ be a category with fiber products and terminal object.
+	A \emph{group object} consists of an object $G \in \Obj(\bfS)$ and a factorization of functors
+	\[ \bfh_G: \bfS \to \Grp \xrightarrow{\text{forget}} \Set. \]
+\end{definition}
+
+\begin{remark}[label=\labelNFM{rmk:group-object-in-category-theory-by-arrows}, status=draft, tag=0000000]
+	The group objects can also be described by arrows as \cite[Definition 0.1]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}.
+	% \cite[Definition 1.1]{Milne-2017-AlgebraicGroupsTheory}.
+
+	Let $* \in \Obj(\bfS)$ be the terminal object in $\bfS$.
+	Given a factorization as \cref{def:group-object-in-category-theory}, then $\bfh_G(*)$ is a group.
+	In particular, it has an identity element $e: * \to G$.
+	And we have natural transformation $h_{G \times G} = h_G \times h_G \to h_{G}$ and $h_G \to h_G$ (with target $\Set$) by the multiplication and inverse law of groups.
+	By Yoneda lemma, they give arrows $m: G\times G \to G$ and $i: G \to G$.
+
+	Conversely, if one have $e:* \to G$, $m: G \times G \to G$ and $i: G \to G$ satisfying the commutative diagrams in \cite[Definition 0.1]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya},
+	% \cite[Definition 1.1]{Milne-2017-AlgebraicGroupsTheory},
+	then apply $\Arr(T,-)$ will get the group law on the set $G(T)$.
+	This gives a factorization required in \cref{def:group-object-in-category-theory}.
+\end{remark}
+
+\begin{definition}[label=\labelNFM{def:group-action-in-category-theory}, status=draft, tag=0000000, title={Group actions and quotients}]
+	Let $\bfS$ be a category with fiber products and terminal object, $G$ be a group object in $\bfS$ and $X \in \Obj(\bfS)$.
+	A \emph{group action} of $G$ on $X$ is an arrow $G \times X \to X$ such that on every $T$, $G(T) \times X(T) \to X(T)$ is a usual group action on sets.
+
+	Given a group object $G$ and actions $\sigma: G \times X \to X$ and $\tau: G \times Y \to Y$.A \emph{$G$-equivalent arrow} is an arrow $a: X \to Y$ with the diagram
+	\[
+		\begin{tikzcd}
+			G \times X & G \times Y \\
+			X  & Y
+			\arrow[from=1-1, to=1-2, "\id \times a"]
+			\arrow[from=1-1, to=2-1, "\sigma"']
+			\arrow[from=1-2, to=2-2, "\tau"]
+			\arrow[from=2-1, to=2-2, "a"]
+		\end{tikzcd}
+	\]
+	commuting.
+
+	Given an action $\sigma: G \times X \to X$ of $G$ on $X$.
+	The \emph{categorical quotient} of $X$ by $G$ is an object $Y$ together with a $G$-invariant morphism $\pi: X \to Y$ such that for any other object $Z$ (with trivial $G$-action) and any $G$-invariant morphism $f: X \to Z$, there exists a unique morphism $\tilde{f}: Y \to Z$ making the following diagram commuting:
 	\[
 		\begin{tikzcd}
 			G \acts X & Y \racts \id \\
@@ -175,16 +119,96 @@ For the propose of this notes, we only consider that the ground field $\kkk$ is 
 			\arrow[from=1-1, to=2-2, "f"]
 		\end{tikzcd}
 	\]
+\end{definition}
 
+\begin{example}[label=\labelNFM{eg:group-action-on-funtor-to-sets}, status=draft, tag=0000000]
+	Let $\bfS$ be a category and $G$ be a group object in $\PSh_\bfS$.
+	On $\PSh_\bfS$, the categorical quotient always exists.
+	Indeed, it is very easy to describe since the target is $\Set$.
+	Let $\sigma: G \acts F$ be a group action in $\bfF$.
+	Then the quotient is given by $(F/G)(T) \coloneqq F(T) / G(T)$ on object $T$.
+	And for an arrow $a:S \to T$ in $\bfS$, we have the commute diagram
+	\[
+		\begin{tikzcd}
+			G(T) \times F(T) & F(T) \\
+			G(S) \times F(S) & F(S).
+			\arrow[from=1-1, to=1-2, "\sigma(S)"]
+			\arrow[from=1-1, to=2-1, "G(a) \times F(a)"']
+			\arrow[from=1-2, to=2-2, "F(a)"]
+			\arrow[from=2-1, to=2-2, "\sigma(T)"']
+		\end{tikzcd}
+	\]
+	Hence for $F(a): F(T) \to F(S)$, any $G(T)$-orbit will map to a $G(S)$-orbit.
+	Then we get a well-defined map of sets $F(T)/G(T) \to F(S)/G(S)$.
+	Set it as $(F/G)(a)$.
+	The universal property is easy to check.
+	Hence we get the quotient functor.
+	However, in general, the properties of this quotient is very bad and we will not use it.
+\end{example}
+
+\begin{definition}[label=\labelNFM{def:invariant-ring-by-algebraic-group}, status=draft, tag=0000000]
+	Let $G$ be an algebraic group acting on an affine variety $X = \Spec A$ via $\sigma: G \times X \to X$ or $\sigma^\sharp: A \to \Gamma(A \otimes \calO_G, X \times G) \cong A \otimes \Gamma(\calO_G,G)$.
+	The \emph{invariant ring} is defined as
+	\[ A^G \coloneqq \left\{ f \in A \;\middle|\; \sigma^\sharp(f) = f \otimes 1 \in A \otimes \Gamma(\calO_{G},G)\right\}. \]
+	Here the subscript $x$ or $(x,g)$ means the localization.
+\end{definition}
+\begin{remark}[label=\labelNFM{rmk:dense-rational-point-makes-invariant-ring-coincides-with-usual-invariant-ring}, status=draft, tag=0000000]
+	Suppose that $G(\kk)$ is dense on $G$, then above invariant ring $A^G$ coincides with usual set-theoretic invariant ring $A^{G(\kk)}$.
+	\Yang{}
+\end{remark}
+
+
+\begin{example}[label=\labelNFM{eg:invariant-ring-are-categorial-quotient}, status=draft, tag=0000000]
+	Let $G$ be an algebraic group acting on an affine variety $X = \Spec A$.
+	Then $Y = \Spec A^G$ is the categorical quotients.
+	\Yang{}
+\end{example}
+
+\begin{remark}[label=\labelNFM{rmk:quotient-by-nonreductive-group-may-be-not-of-finite-type}, status=draft, tag=0000000]
+	On \cref{eg:invariant-ring-are-categorial-quotient}, if $G$ is reductive, then $Y$ is of finite type over $\kk$; see \cref{thm:quotient-of-reductive-acting-on-affine}.
+	If $G$ is a general algebraic group, then $A^G$ may fail to have finite type over $\kk$.
+	For an example, see
+	\Yang{}
+\end{remark}
+
+
+
+% \begin{example}[label=\labelNFM{eg:categorical-quotient-of-affine-scheme}, status=draft, tag=0000000]
+% 	Let $X = \Spec A$ be an affine scheme over $\kkk$ and $G$ be an algebraic group over $\kkk$ acting on $X$.
+% 	Then the categorical quotient of $X$ by $G$ is given by $X/G = \Spec A^{G(\kkk)}$, where $A^{G(\kkk)}$ is the invariant ring of $A$ under the action of group $G(\kkk)$.
+%
+% 	\Yang{}
+% \end{example}
+
+
+% \Yang{}
+%
+% Many coarse moduli spaces are constructed by taking quotients of fine moduli spaces.
+% Let us introduce some notions of quotients in algebraic geometric.
+On algebraic geometry, we have another notion to describe the quotient with more geometric flavor.
+
+\begin{definition}[Geometric quotients for schemes]
+	Let $G$ be an algebraic group acting on a variety $X$ via $\sigma: G \times X \to X$.
+	% A \emph{categorical quotient} of $X$ by $G$ is a variety $Y$ together with a $G$-invariant morphism $\pi: X \to Y$ such that for any other variety $Z$ and any $G$-invariant morphism $f: X \to Z$, there exists a unique morphism $\tilde{f}: Y \to Z$ making the following diagram commute:
+	% \[
+	% 	\begin{tikzcd}
+	% 		G \acts X & Y \racts \id \\
+	% 		& Z \racts \id
+	% 		\arrow[from=1-1, to=1-2, "\pi"]
+	% 		\arrow[from=1-2, to=2-2, "\tilde{f}", gray]
+	% 		\arrow[from=1-1, to=2-2, "f"]
+	% 	\end{tikzcd}
+	% \]
+	%
 	Given a categorical quotient $\pi: X \to Y$, we say that $Y$ is a \emph{geometric quotient} of $X$ by $G$ if the following conditions hold:
 	\begin{enumerate}
 		\item The variety $Y$ is equipped with the quotient topology induced by $\pi$, i.e., a subset $U \subseteq Y$ is open if and only if $\pi^{-1}(U)$ is open in $X$.
 		\item The morphism $\pi$ is surjective, and the fibers of $\pi$ are precisely the $G$-orbits in $X$, i.e., for each $y \in Y$, we have $\pi^{-1}(y) = G \cdot x$ for some $x \in X$.
 		\item The sheaf of regular functions on $Y$ is isomorphic to the sheaf of $G$-invariant regular functions on $X$, i.e., for any open subset $U \subseteq Y$, we have $\mathcal{O}_Y(U) \cong \mathcal{O}_X(\pi^{-1}(U))^G$.
 	\end{enumerate}
-	\Yang{}
+	Note that here we require that a geometric quotient is a categorical quotient.
+	On \cite{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}, this is not necessary.
 \end{definition}
-\Yang{}
 
 In general, a categorical quotient may not be a geometric quotient, and the existence of quotients is not guaranteed.
 \begin{example}
@@ -193,40 +217,26 @@ In general, a categorical quotient may not be a geometric quotient, and the exis
 	Easily, we can see that the categorical quotient is not a geometric quotient, since the fibers of the quotient map are not precisely the $G$-orbits in $X$.
 \end{example}
 
+The most interesting case is that $G$ is a reductive group.
+For some basic knowledge of reductive groups, see \cref{rmk:review-of-reductive-group} and \cref{eg:gln-and-pgln-is-reductive-group}.
 
-Now let us restate the example of moduli functor of elliptic curves over $\kk$.
+\begin{remark}[label=\labelNFM{rmk:review-of-reductive-group}, status=draft, tag=0000000]
+	Recall that any affine linear algebraic group $G$ is a linear algebraic group.
+	For a linear algebraic group $G$ and $g \in G$, we say that $g$ is \emph{semisimple} if it is diagonalizable over the algebraic closure of the base field, and $g$ is \emph{unipotent} if all its eigenvalues are equal to 1.
+	We have the \emph{Jordan decomposition} of $g$ as $g = g_s g_u$, where $g_s$ is semisimple and $g_u$ is unipotent, and they commute with each other.
 
-\begin{example}[label=\labelNFM{eg:affine-line-is-coarse-moduli-of-elliptic-curves}, status=draft, tag=0000000]
-	Let $\calM$ be the functor given by
-	\[ \calM: \Sch_{\kk}^{\op} \to \Set,\quad T \mapsto \left\{ (\pi:\calE \to T, e:T \to \calE \;\middle|\; \substack{\pi \text{ is flat and projective, } e \circ \pi = \id_T,\ \calE_t \text{ is an elliptic} \\ \text{ curve over $\rkk(t)$ with zero elements $e(t)$, } \forall t \in T}  \right\} \big/ \sim, \]
+	On the other hands, $G$ has a unique maximal normal solvable connected subgroup, which is called the \emph{radical} of $G$, denoted by $R(G)$.
+	All unipotent elements of $R(G)$ form a normal subgroup of $G$, called the \emph{unipotent radical} of $G$, denoted by $R_u(G)$.
+	The unipotent radical $R_u(G)$ can also be characterized as the unique maximal normal unipotent connected subgroup of $G$.
+	We say that $G$ is \emph{reductive} if its unipotent radical is trivial, i.e., $R_u(G) = \{e\}$, where $e$ is the identity element of $G$.
+	This is equivalent to saying that the radical $R(G)$ is a torus, i.e., $R(G) \cong (\bbG_m)^n$ for some $n \geq 0$.
+\end{remark}
 
-	We claim that $\bbA^1_\kkk$ is the coarse moduli space of $\calM$.
-	\Yang{}
-\end{example}
-
-
-
-
-
-
-
-On GIT, we are particularly interested in the case where $G$ is a reductive group.
-
-Recall that any affine linear algebraic group $G$ is a linear algebraic group.
-For a linear algebraic group $G$ and $g \in G$, we say that $g$ is \emph{semisimple} if it is diagonalizable over the algebraic closure of the base field, and $g$ is \emph{unipotent} if all its eigenvalues are equal to 1.
-We have the \emph{Jordan decomposition} of $g$ as $g = g_s g_u$, where $g_s$ is semisimple and $g_u$ is unipotent, and they commute with each other.
-
-On the other hands, $G$ has a unique maximal normal solvable connected subgroup, which is called the \emph{radical} of $G$, denoted by $R(G)$.
-All unipotent elements of $R(G)$ form a normal subgroup of $G$, called the \emph{unipotent radical} of $G$, denoted by $R_u(G)$.
-The unipotent radical $R_u(G)$ can also be characterized as the unique maximal normal unipotent connected subgroup of $G$.
-We say that $G$ is \emph{reductive} if its unipotent radical is trivial, i.e., $R_u(G) = \{e\}$, where $e$ is the identity element of $G$.
-This is equivalent to saying that the radical $R(G)$ is a torus, i.e., $R(G) \cong (\bbG_m)^n$ for some $n \geq 0$.
-
-\begin{example}
+\begin{example}[label=\labelNFM{eg:gln-and-pgln-is-reductive-group}, status=draft, tag=0000000]
 	The general linear group $\GL_n$ is reductive, since its radical is the center of $\GL_n$, which is isomorphic to $\bbG_m$.
 
 	To see this, let $R = R(\GL_n)$ be the radical of $\GL_n$.
-	By Lie-Kolchin theorem, $R$ is conjugate to a subgroup of the group $B$ of upper triangular matrices in $\GL_n$.
+	By Lie-Kolchin theorem and solvability, $R$ is conjugate to a subgroup of the group $B$ of upper triangular matrices in $\GL_n$.
 	Since $R$ is normal in $\GL_n$, it is contained in the intersection of all conjugates of $B$, which is the group of scalar matrices, i.e., $R \subseteq Z(\GL_n) \cong \bbG_m$.
 	Note that we always have $Z(G)^\circ \subseteq R(G)$ for any linear algebraic group $G$, where $Z(G)^\circ$ is the connected component of the identity in the center of $G$.
 	Hence $R$ is a torus, and thus $\GL_n$ is reductive.
@@ -234,20 +244,24 @@ This is equivalent to saying that the radical $R(G)$ is a torus, i.e., $R(G) \co
 	By similar argument, one can show that $R(\PGL_n) = \{e\}$, and thus $\PGL_n$ is also reductive.
 \end{example}
 
-For reductive groups, we have the following theorem to show its power.
+We have the following theorem to show its power and for later using.
 
-\begin{theorem}[{{ref. \cite[Theorem 1.1 and Amplification 1.3]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}}}]
-	Let $G$ be a reductive group acting on an affine variety $X$.
-	Then the categorical quotient $X \to X / G$ exists and $X/G$ is also an affine variety over $\kk$.
+\begin{theorem}[label=\labelNFM{thm:quotient-of-reductive-acting-on-affine}, status=draft, tag=0000000, title={{ref. \cite[Theorem 1.1 and Amplification 1.3]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}}}]
+	Let $G$ be a reductive group acting on an affine variety $X = \Spec A$ over $\kk$.
+	Then the categorical quotient $X \to X / G$ exists and $X/G = \Spec A^{G}$ is also an affine variety (in particular, of finite) over $\kk$.
 	And it is a geometric quotient if and only if all $G$-orbits (of closed points) in $X$ are closed.
-	\Yang{}
 \end{theorem}
 
-\begin{remark}[label=\labelNFM{rmk:quotient-by-nonreductive-group-may-be-not-of-finite-type}, status=draft, tag=0000000]
-	Let $G$ be a general algebraic group acting on an affine scheme $X = \Spec A$.
-	$A^G$ may be not of finite type over $\kk$.
-	\Yang{}
-\end{remark}
+\begin{example}[label=\labelNFM{eg:eigenvalues-as-geometry-quotients}, status=draft, tag=0000000]
+	Let $X(\KK) = \bbA^{n^2}(\KK) \cong \End_{\vect_\KK}(\KK^n)$ and $G(\KK) = \GL_n(\KK)$ acts on $X(\KK)$ by conjugation for any field $\KK$.
+	The variety $X$ is affine and we denote it by $X = \Spec A$ with $A = \kk[a_{11},\cdots,a_{nn}]$.
+	Then we have $A_\KK^{G(\KK)} = \KK[\sigma_1,\cdots,\sigma_n]$, here $\sigma_k = \Tr(\Phi^k)$ and $\Phi = (a_{ij})_{ij}$ is the matrix with indetermined entries and $\Phi^k$ is the matrix multiplication.
+	Set $Y = \Spec B \cong \bbA^n$ with $B = \KK[\sigma_1,\cdots,\sigma_n]$.
+	Then $Y = X/G$ is the categorical quotient.
+
+	This quotient is not a geometric quotient since it only captures the eigenvalues rather than Jordan form.
+\end{example}
+
 
 \begin{remark}[label=\labelNFM{rmk:quotient-for-projective-case-GIT}, status=draft, tag=0000000]
 	For projective case, there is also a whole theory to deal the quotient by reductive group, namely, the \emph{geometric invariant theory}.
@@ -337,6 +351,315 @@ For reductive groups, we have the following theorem to show its power.
 
 
 
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:review-of-moduli-problem}]{Review of moduli problem and Hilbert schemes}
+
+Moduli space is a geometric space whose points represent isomorphism classes of certain geometric objects.
+For example, fix an algebraically closed field \(\kkk\), all elliptic curves over \(\kkk\) can be classified by the \(j\)-invariant, which gives a bijection between isomorphism classes of elliptic curves and elements of \(\bbA^1(\kkk)\).
+However, this classification is just a set-theoretic one.
+We would like to have a geometric ``parameter space'' such that we can ``deform'' the objects continuously.
+This is the initial motivation for moduli spaces.
+
+In algebraic geometry, ``deforming objects continuously'' is usually described by flat families.
+Hence the most perfect object to represent this moduli problem is such a flat family \(\calX \to M\), where \(M\) is a variety parameterizing all elliptic curves, and the fiber over each point \(m \in M(\kkk)\) is the elliptic curve corresponding to \(m\).
+Furthermore, we hope that this family is universal, i.e., any other flat family \(\calY \to T\) of elliptic curves is obtained by pulling back \(\calX \to M\) along a unique morphism \(T \to M\).
+(Despite in this example, such a perfect family does not exist; we will discuss this later.)
+It can be described by the language of functors.
+Consider the functor
+\[ \calM: \Var_{\kkk}^{\op} \to \Set,\quad T \mapsto \{\text{flat families of elliptic curves over } T\}/\sim, \]
+where \(\sim\) is the equivalence relation given by isomorphisms of families over \(T\).
+If the family \(\calX \to M\) above exists, then it represents the functor \(\calM\).
+In this case, we say that the moduli problem \(\calM\) is \emph{representable}, \(M\) is called a \emph{fine moduli space} and \(\calX \to M\) is called a \emph{universal object}.
+
+Hence, to study a moduli problem, we follow the steps:
+\begin{enumerate}[nosep]
+	\item Define the moduli functor \(\calM\).
+	\item Check whether \(\calM\) is representable.
+\end{enumerate}
+
+\begin{slogan}\label{slogan:moduli_problem_is_find_representable_functor}
+	\hspace{1em}
+	\begin{center}
+		Moduli problem of parameterizing objects in $\Sigma$ \(\longleftrightarrow\) Find a functor $\calM$ with $\calM(\kkk) = \Sigma$ describing ``deformations'';
+
+		Algebraic families over $T$ with fiber in $\Sigma$ $\longleftrightarrow$ elements in $\calM(T)$;
+
+		Pullpack / base change along $f:T' \to T$ $\longleftrightarrow$ the map $\calM(f): \calM(T) \to \calM(T')$.
+	\end{center}
+	\Yang{}
+\end{slogan}
+
+Let us list some useful fine moduli spaces.
+% An important and we will use later example is the hilbert scheme and moduli space of endomorphisms.
+
+\begin{example}[label=\labelNFM{eg:hilbert-scheme}, status=draft, tag=0000000, title={{Hilbert schemes}}]
+	Let $X$ be a projective variety over $\kk$ and $\calH$ an ample line bundle, $P$ a polynomial of $\bbQ$-coefficients.
+	The \emph{hilbert functor} is defined by
+	\[ \calHilb_{(X,\calH,P)/\kk}(T) \coloneqq \left\{ \calV \subset X \times T \;\middle|\; \pi: \calV \to T \text{ is flat, } \chi(\calO_{\calV|_{t}} \otimes \calH^{\otimes m}) = P(m) \text{ for all } t \in T \right\}. \]
+	It is representable and represented by a scheme projective over $\kk$, called the \emph{Hilbert scheme}, denoted by $\Hilb_{(X,\calH,P)/\kk}$; see \cite[Theorem 5.14]{Fantechi-Gottsche-Illusie-Kleiman-Nitsure-Vistoli-2006-FundamentalAlgebraicGeometry}.
+
+	The hilbert functor parameterizes the subschemes of $X$ with a fixed hilbert polynomial $P$ with respect to the ample line bundle $\calH$.
+\end{example}
+
+% \begin{example}[label=\labelNFM{eg:moduli-functor-of-morphisms}, status=draft, tag=0000000]
+% 	Let $X,Y$ be projective, geometrically integral varieties over $\kk$ and $\calH_X, \calH_Y$ be ample line bundles on $X$ and $Y$ respectively.
+% 	The \emph{moduli functor of morphisms with polarization $(\calH_X,\calH_Y)$} is defined as
+% 	\[ \calMor_{(X,\calH_X;Y,\calH_Y)/\kk}(T) \coloneqq \left\{ f:X \times T \to Y \times T  \;\middle|\; f_t \acts X_t \text{ morphism }, f_t^*\calH_Y \cong \calH_X \right\}. \]
+% 	It is represented by a quasi-projective scheme over $\kk$.
+% 	\Yang{}
+%
+%   Indeed, set $W = X \times_\kk Y$ and $\calH = p_X^*\calH_X \otimes p_Y^*\calH_Y$ on $W$.
+%   Consider the polynomial $P(\lambda) \in \bbQ[\lambda]$ given by $P(m) = \chi_X\left(\calH_X^{\otimes m} \otimes $
+% 	\[ P(m) = \chi_{W}\left(\calH^{\otimes m}\right). \]
+% 	For any field extension $\KK/\kk$ and any $f \in \calEnd_{(X,\calH,\calH')/\kk}(\KK)$, let $i: \Gamma_f \subset X_\KK \times_\KK X_\KK$ be the graph of $f$, we have $i_*\calO_{X_\KK} \otimes (p_1^*\calH \otimes p_2^*\calH)^{\otimes m} \cong i_*\left( (\calH \otimes \calH')^{\otimes m} \right)$ and hence
+% 	\[ \chi_{X_{\KK} \times X_{\KK}}(\calO_{\Gamma_f} \otimes (p_1^*\calH \otimes p_2^*\calH)^{\otimes m} = \chi_{X_\KK}((\calH \otimes \calH')^{\otimes m}) = P(m). \]
+% 	Note that for any $T$ and $f \in \calEnd_{X,\calH,\calH')/\kk}(T)$, since $\Gamma_f \subset X \times X \times T \subset \bbP^N \times T$ has fiberwise constant hilbert polynomial, the family $\Gamma_f \to T$ is indeed flat by \cite[Chapter III, Theorem 9.9]{Hartshorne-1977-AlgebraicGeometry}.
+% 	Then we get a inclusion of sets $\calEnd_{X,\calH,\calH')/\kk}(T) \subset \calHilb_{(X \times X, p_1^*\calH \otimes p_2^*\calH, P)/\kk}(T)$ for any $T$.
+%
+% 	\Yang{}
+% \end{example}
+
+\begin{example}[label=\labelNFM{eg:moduli-functor-of-morphisms}, status=draft, tag=0000000, title={Functor of morphisms}]
+	Let $X,Y$ be projective varieties over $\kk$, $\calH$ an ample divisor on $W = X \times Y$ and $P$ be a polynomial of $\bbQ$-coefficients.
+	Set
+	\[ \calMor_{(X,Y;\calH,P)/\kk}(T) \coloneqq \left\{ f:X \times T \to Y \times T  \;\middle|\; f_t \acts X_t \text{ morphism }, \chi_{W}(\calO_{\Gamma_f}\otimes \calH^{\otimes m}) = P(m) \right\}. \]
+	I claim that $\calMor_{(X,Y;\calH,P)/\kk}$ is represented by an open subschemes of $\calHilb_{(W,\calH,P)/\kk}$.
+
+	Set $H = \Hilb_{(W,\calH,P)/\kk}$ with universal family $\calU \subset W \times H = X \times Y \times H$ and $M = \{t \in H \;|\; \calU_{t} \to X \times \{t\} \text{ is isomorphic } \}$.
+	We only need to show that $M$ is an open subset of $H$.
+	If so, $M$ has natural open subscheme structure and universal family $X \times M \cong \calU|_M \to Y \times M$ and the natural factorization
+	\[
+		\begin{tikzcd}
+			\calMor_{(X,Y;\calH,P)/\kk} & \calHilb_{(W,\calH,P)/\kk} \\
+			M(T) & H(T)
+			\arrow[from=1-1, to=1-2, hook, "f \mapsto \Gamma_f"]
+			\arrow[from=1-1, to=2-1, "\phi"]
+			\arrow[from=1-2, to=2-2, "\cong"]
+			\arrow[from=2-1, to=2-2, hook]
+		\end{tikzcd}
+	\]
+	shows that $\phi$ is an isomorphic natural transformation and hence $\calMor_{(X,Y;\calH,P)/\kk}$ is represented by $M$.
+
+	Suppose that $M$ is nonempty and $t \in M$.
+
+	\Yang{}
+\end{example}
+
+\begin{example}[label=\labelNFM{eg:moduli-functor-of-endmorphisms-on-pn}, status=draft, tag=0000000, title={Endomorphisms on $\bbP^n$}]
+	Let $X = Y = \bbP^n$ in \cref{eg:moduli-functor-of-morphisms}.
+
+	\Yang{}
+\end{example}
+
+
+% \begin{example}[label=\labelNFM{eg:moduli-functor-of-endmorphisms}, status=draft, tag=0000000]
+% 	Let $X$ be a projective variety over $\kk$ of dimension $n$, $\calH_1, \calH_2$ ample line bundles on $X$.
+% 	Its \emph{moduli functor of endomorphisms with polarization $(\calH_1,\calH_2)$} is defined as
+% 	\[ \calEnd_{(X,\calH_1,\calH_2)/\kk}(T) \coloneqq \left\{ f:X \times T \to X \times T  \;\middle|\; f_t \acts X_t \text{ surjective endomorphism }, f_t^*\calH_1 \cong \calH_2 \right\}. \]
+% 	% Here $\sim$ is given by \Yang{}
+% 	It is represented by a quasi-projective scheme over $\kk$.
+% 	Let us show it.
+%
+% 	Let $Y = X \times X$ and $\calH = p_1^*\calH_1 \otimes p_2^*\calH_1$ on $Y$.
+% 	Set $P(\lambda) \in \bbQ[\lambda]$ given by $P(m) = \chi_X\left(\calH_1 \otimes \calH_2)^{\otimes m}\right)$.
+% 	For any field extension $\KK/\kk$ and any $f \in \calEnd_{(X,\calH_1,\calH_2)/\kk}(\KK)$, let $i: \Gamma_f \subset Y_\KK$ be the graph of $f$, we have
+% 	\[ i_*\calO_{X_\KK} \otimes \calH^{\otimes m} \cong i_*\calO_{X_\KK} \otimes (p_1^*\calH_1 \otimes p_2^*\calH_1)^{\otimes m}  \cong  i_*\left( (\calH_1 \otimes \calH_2)^{\otimes m} \right) \]
+% 	and hence
+% 	\[ \chi_{Y_{\KK}}(\calO_{\Gamma_f} \otimes (\calH)^{\otimes m}) = \chi_{X_\KK}((\calH \otimes \calH')^{\otimes m}) = P(m). \]
+% 	Note that for any $T$ and $\calf \in \calEnd_{(X,\calH_1,\calH_2)/\kk}(T)$, since $\Gamma_\calf \subset Y \times T \subset \bbP^N \times T$ has fiberwise constant hilbert polynomial, the family $\Gamma_\calf \to T$ is indeed flat by \cite[Chapter III, Theorem 9.9]{Hartshorne-1977-AlgebraicGeometry}.
+% 	Then we get inclusions of sets $\calEnd_{(X,\calH_1,\calH_2)/\kk}(T) \subset \calHilb_{(Y,\calH, P)/\kk}(T)$.
+%
+% 	Set $M = \Hilb_{(Y,\calH,P)/\kk}(T)$ with universal family $\calU \subset Y \times M = X \times X \times M$ and $p_i: \calU \to X \times M$ the projection to the $i$-th coordinate of $X$.
+% 	Let $U_1 \subset M$ be the locus with $p_{1,t}: \calU_t \to X \times \{t\}$ being isomorphic.
+% 	This locus is open since
+%
+%
+% 	% \Yang{}
+% 	% \[ P(m) = \chi_{X}\left((\calH \otimes \calH')^{\otimes m}\right). \]
+% 	% For any field extension $\KK/\kk$ and any $f \in \calEnd_{(X,\calH,\calH')/\kk}(\KK)$, let $i: \Gamma_f \subset X_\KK \times_\KK X_\KK$ be the graph of $f$, we have $i_*\calO_{X_\KK} \otimes (p_1^*\calH \otimes p_2^*\calH)^{\otimes m} \cong i_*\left( (\calH \otimes \calH')^{\otimes m} \right)$ and hence
+% 	% \[ \chi_{X_{\KK} \times X_{\KK}}(\calO_{\Gamma_f} \otimes (p_1^*\calH \otimes p_2^*\calH)^{\otimes m} = \chi_{X_\KK}((\calH \otimes \calH')^{\otimes m}) = P(m). \]
+% 	% Note that for any $T$ and $f \in \calEnd_{X,\calH,\calH')/\kk}(T)$, since $\Gamma_f \subset X \times X \times T \subset \bbP^N \times T$ has fiberwise constant hilbert polynomial, the family $\Gamma_f \to T$ is indeed flat by \cite[Chapter III, Theorem 9.9]{Hartshorne-1977-AlgebraicGeometry}.
+% 	% Then we get a inclusion of sets $\calEnd_{X,\calH,\calH')/\kk}(T) \subset \calHilb_{(X \times X, p_1^*\calH \otimes p_2^*\calH, P)/\kk}(T)$ for any $T$.
+%
+%
+%
+%
+% 	\Yang{}
+% \end{example}
+
+\begin{example}[label=\labelNFM{eg:moduli-of-functor-of-automorphisms}, status=draft, tag=0000000]
+	Let $X$ be a projective variety over $\kk$ and $\calH$ an ample line bundle.
+	Its \emph{moduli functor of automorphisms with polarization $\calH$} is defined as $\calAut_{(X,\calH)/\kk} \coloneqq \calEnd_{(X,\calH,\calH)/\kk}$.
+
+	For any $f \in \calAut_{(X,\calH)/\kk}(T)$, I claim that $f: X \times T \to X \times T$ is an isomorphism.
+
+
+	% Its \emph{moduli functor of numerically trivial automorphisms}
+	\Yang{}
+\end{example}
+
+% \begin{remark}[label=\labelNFM{rmk:fix-a-line-bundle-or-numerically-class-of-lb}, status=draft, tag=0000000]
+% 	On \cref{eg:moduli-functor-of-endmorphisms}, to get a moduli space of finite type, we indeed only need to fix the numerical equivalence class $[\calH_2] \in \NS(X)$ of $\calH_2$.
+%
+% 	\Yang{}
+% \end{remark}
+
+
+The main moduli functor we will care about is the moduli functor of dynamics on a variety.
+
+\begin{definition}[label=\labelNFM{def:the-moduli-functor-of-dynamics-on-projective-spaces}, status=draft, tag=0000000]
+	% Let $\kk$ be a field of characteristic zero and $X$ a projective (and geometrically integral) variety over $\kk$.
+	% Let $\calPolDyn_{X,q}: \Sch_\kk^{\op} \to \Set$ be the functor defined by
+	% \[ T \mapsto \left\{ (f: \calX \to \calX) / T \;\middle|\; \calX_t \cong X_{\rkk(t)},\ f_t \calX \text{ is } q\text{-polarized for every } t \in T \right\} / \approx. \]
+	% On this note, we will use $\calD_{n,d}$ to denote the moduli functor $\calPolDyn_{\bbP^n,d}$.
+	% \Yang{}
+	%
+	The functor of dynamics on $\bbP^n$ with $d$-polarized is defined as
+	\[ \calD_{d \acts n}(T) \coloneqq \left\{ (f:X \to X)/T \;\middle|\; X_t \cong \bbP^n_{\rkk(t)},\ f_t:X_t \to X_t \text{ satisfying } f_t^*\calH \cong \calH^{\otimes d}, \forall \calH \in \Pic(X_t) \right\} / \sim, \]
+	where $(f:X \to X) \sim (f':X' \to X')$ if there exists an isomorphism $g: X \to X'$ over $T$ such that $f' \circ g = g \circ f$.
+	This is a functor on $\Sch_\bbZ$, and we will freely change the base to $\kk$ with the same notation.
+\end{definition}
+
+
+However, for many questions we care about, the fine moduli space does exist.
+An important statuation is that, if an object $X \in \calM(\kkk)$ has non-trivial automorphism group, then $\calM$ cannot have a fine moduli space.
+
+\begin{lemma}[label=\labelNFM{lem:nontrivial-automorphism-group-means-no-fine-moduli-space}, status=draft, tag=0000000]
+	Let $\calM: \Sch_\kk^\op \to \Set$ be a moduli functor.
+	Suppose that there exists $X \in \calM(\kkk)$ such that its automorphism group in $\Sch_\kk$ is non-trivial, i.e., $\Aut_{\Sch_\kk}(X) \neq \{\id_X\}$.
+	Then the fine moduli space of $\calM$ does not exit.
+\end{lemma}
+\begin{proof}
+	\Yang{}
+\end{proof}
+
+Since the morphism $[-1]_E:E \to E$ is a non-trivial automorphism, above example of moduli space of elliptic curves has no fine moduli space; see also \cref{eg:affine-line-is-coarse-moduli-of-elliptic-curves}.
+
+Hence, there is a weaken version, called \emph{coarse moduli space}, satisfying the following considition:
+\begin{itemize}[nosep]
+	\item there is an $1:1$ corresponding between the isomorphic classes parameterized by $\calM$ and the closed points in $M$;
+	\item for every ``algebraic family $F \to T$ with fiber being objects parameterized by $\calM$'', there exists a unique morphism $f: T \to M$ induced by $F$ such that $F_t$ is isomorphic to the object parameterized by $f(t) \in M$.
+\end{itemize}
+
+In a rigorous language of functor, ``an algebraic family over $T$'' means an element $F$ in $\calM(T)$; a morphism corresponds to an element $f_F \in \Mor(T,M) = h_M(T)$.
+Hence a coarse moduli space should consist of a scheme $M$ and a natural transformation $\eta: \calM \to h_M$ with $\eta(T):\calM(T) \to h_M(T), F \mapsto f_F$.
+The the first condition above is just $\eta(\kkk): \calM(\kkk) \to h_M(\kkk)$ being bijective.
+
+The remain issue is the uniqueness of $M$.
+For example, if we have a morphism $g: N \to M$ which is bijective on the level of closed points, then $(N, g^* \circ \eta)$ is another pair satisfying the conditions.
+(here $g^*:h_M \to h_N$ is the natural transformation given by composition by $g$.)
+In a reasonable sense, since $N$ is onto $M$ by $g$, we regard that $M$ is the more ``suitable'' moduli space.
+Hence we may require that the coarse moduli space $(M,\eta)$ with the universal property that other such pair $(N,\xi)$ should factor through it.
+% On the other hand, note that such a factorization $\xi = \Phi \circ \eta$ must be given by a morphism $g:N \to M$ by Yoneda lemma.
+% If require that such factorization is unique (as any other universal property), we naturally get the uniqueness of the morphism $f_F:T \to M$ above.
+% For a general ``family'' $F \in \calM(T)$, we do need to require that all isomorphic classes appearing as fibers.
+% Therefore, the universal property should also be stated without the assumption of $\xi(\kkk)$ being bijective.
+
+In summary, we have the following definition.
+
+\begin{definition}[label=\labelNFM{def:the-coarse-moduli-space}, status=draft, tag=0000000]
+	Let $\calM$ be a moduli functor over $\kk$.
+	A \emph{coarse moduli space} of $\calM$ is a pair $(M,\eta)$ with $M$ a $\kk$-scheme of finite type and $\eta: \calM \to h_M$ a natural transformation such that
+	\begin{enumerate}
+		\item for any other pair $(N,\xi \colon \calM \to h_{N})$, there exists a unique factorization
+		      \[
+			      \begin{tikzcd}
+				      \calM & h_M \\
+				      & h_{N}.
+				      \arrow[from=1-1, to=1-2, "\eta"]
+				      \arrow[from=1-2, to=2-2, "\exists !", gray]
+				      \arrow[from=1-1, to=2-2, "\xi"']
+			      \end{tikzcd}
+		      \]
+		\item $\eta(\kkk): \calM(\kkk) \to h_M(\kkk) = M(\kkk)$ is a bijection;
+	\end{enumerate}
+\end{definition}
+
+By the universal property, if the coarse moduli space exists, then it is unique.
+
+\begin{remark}[label=\labelNFM{rmk:fine-moduli-space-is-coarse-moduli-space-and-converse-if-universal-family-exists}, status=draft, tag=0000000]
+	Let $\calM$ be a moduli functor.
+	Suppose that $\calM$ has a fine moduli space, that is, $\calM$ is representable and represented by a scheme $M$ of finite type.
+	Then easily see that $M$ is also a coarse moduli space of $\calM$.
+
+	Conversely, suppose that $\calM$ has a coarse moduli space $(M,\eta)$.
+	Then $M$ is a fine moduli space iff $\eta$ is a natural-isomorphism.
+	This is also equivalent to that $\eta(T)$ is injective for all $T$ and there exists an element $\calX \in \calM(M)$ which gives the identity morphism $\eta(M)(\calX) = \id_M \in h_{M}(M)$.
+\end{remark}
+
+Now let us restate the example of moduli functor of elliptic curves over $\kk$.
+
+\begin{example}[label=\labelNFM{eg:affine-line-is-coarse-moduli-of-elliptic-curves}, status=draft, tag=0000000]
+	Let $\calM$ be the functor given by
+	\[ \calM: \Sch_{\kk}^{\op} \to \Set,\quad T \mapsto \left\{ (\pi:\calE \to T, e:T \to \calE \;\middle|\; \substack{\pi \text{ is flat and projective, } e \circ \pi = \id_T,\ \calE_t \text{ is an elliptic} \\ \text{ curve over $\rkk(t)$ with zero elements $e(t)$, } \forall t \in T}  \right\} \big/ \sim, \]
+
+	We claim that $\bbA^1_\kkk$ is the coarse moduli space of $\calM$.
+	\Yang{}
+\end{example}
+
+% Consider the
+%
+% More generally, we have following proposition.
+%
+% \begin{definition}[label=\labelNFM{def:functor-parametering-quotient-object}, status=draft, tag=0000000]
+%
+% \end{definition}
+%
+%
+% \begin{proposition}[label=\labelNFM{prop:geometric-quotients-are-coarse-moduli}, status=draft, tag=0000000]
+% 	Let $\calM$ be a moduli functor with a fine moduli space $M$.
+% 	Let $G$ be an algebraic group acting on $\calM$ and $\calN = \calM/G$ be the quotient functor; see \cref{eg:group-action-on-funtor-to-sets}.
+% 	Suppose that the quotients $M/G$ exists as a scheme of finite type over $\kk$ and is a geometric quotients.
+% 	Then $M/G$ is a coarse moduli space of $\calN$.
+% \end{proposition}
+% \begin{proof}
+% 	First, since $Q = M/G$ is a categorical quotients, we have an equivalent morphism $G \acts M \to Q$.
+% 	Applying $\bfh_-$ and by the universal property of $\calN$, we get an arrow $\eta: \calN \to \bfh_Q$.
+% 	For any other $X$ and arrow $\xi: \calN \to \bfh_X$, we have
+% 	\[
+% 		\begin{tikzcd}
+% 			G \acts \calM & \bfh_Q \\
+% 			\calN & \bfh_X
+% 			\arrow[from=1-1, to=1-2]
+% 			\arrow[from=1-1, to=2-1]
+% 			\arrow[from=2-1, to=1-2, "\eta"]
+% 			\arrow[from=1-2, to=2-2, "\exists !", gray]
+% 			\arrow[from=2-1, to=2-2, "\xi"']
+% 		\end{tikzcd}
+% 		\leadsto
+% 		\begin{tikzcd}
+% 			G \acts M & Q \\
+% 			& X
+% 			\arrow[from=1-1, to=1-2]
+% 			\arrow[from=1-2, to=2-2, "\exists !", gray]
+% 		\end{tikzcd}
+% 	\]
+%
+%
+%
+% 	\Yang{}
+% \end{proof}
+%
+\begin{example}[label=\labelNFM{eg:linear-map-with-universal-properties-is-not-coarse-moduli}, status=draft, tag=0000000]
+	Let us see an example of moduli functor with the universal property in \cref{def:the-coarse-moduli-space} but has no coarse moduli space.
+	Consider
+	\[ \calM(T) = \left\{  (f:\calE \to \calE)/T \;\middle|\; \calE \text{ vector bundle of rank $n$ over } T,\ f_t \in \End_{\vect_{\rkk(t)}}(\calE \otimes \rkk(t)) \right\} / \sim, \]
+	where
+	$(f:E \to E) \sim (f':E' \to E')$ if there exists an isomorphism $g: X \to X'$ over $T$ such that $f' \circ g = g \circ f$.
+
+	\Yang{}
+\end{example}
+
+\begin{remark}[label=\labelNFM{rmk:general-construction-of-quotient-by-quotient-stacks}, status=draft, tag=0000000]
+	Above construction have some
+	\Yang{}
+\end{remark}
+
+
+
+
+
+
+
 
 
 
@@ -368,7 +691,19 @@ First we show that the automorphism group of a dynamics $f: \bbP^n \to \bbP^n$ i
 	\[ \# \Aut_{f/\kk}(\kkk) = \# \left\{ g \in \Aut(\bbP^n/\kk) = \PGL_n(\kk) \;\middle|\; f \circ g = g \circ f \right\} < \infty.  \]
 \end{proposition}
 \begin{proof}
-	\Yang{}
+	Here we take a shortcut.
+	WOLG, we may base change to $\kkk$ and then assume the base field is algebraically closed.
+	By \Yang{F-H, D-, M, X,}, the periodic points of $f$ are Zariski dense in $\bbP^n$.
+	Hence we can take $x_0,\cdots,x_{n} \in \Per(f)$ whose lifts to $\kkk^{n+1}$ are linearly independent.
+	There exists $N \geq 0$ such that $x_i \in \Per_N(f)$ for all $i = 0,\cdots,n$.
+	Note that $\Per_N(f)$ is a finite set.
+	And $\forall x \in \Per_N(f)$,
+	\[ f^N(g(x)) = g(f^N(x)) = g(x). \]
+	Hence $g(\Per_N(f)) \subset \Per_N(f)$ and then $g(\Per_N(f)) = \Per_N(f))$.
+	If $g|_{\Per_N(f)} = \id_{\Per_N(f)}$, since $x_i \in \Per_N(f)$, $g=\id$ on $\bbP^n$.\Yang{wrong}
+	Hence we find an injective homomorphism
+	\[ \Aut_{f/\kk}(\kkk) \injmap \upoperatorname{Permutation}(\Per_N(f)). \]
+	The latter is finite and hence $ \Aut_{f/\kk}(\kkk)$.
 \end{proof}
 
 \begin{example}[label=\labelNFM{eg:power-map-has-nontrivial-automorphism-by-unit-roots}, status=draft, tag=0000000]
@@ -389,6 +724,29 @@ Moreover, the bound is uniform in term of dimension $n$ and degree $d$.
 	\[ \# \Aut([f]/\kk) \leq C. \]
 \end{theorem}
 \begin{proof}
+	\hspace{1em}
+	\begin{step}
+		Any $g \in \Aut $ is diagonalizable.
+	\end{step}
+
+	Directly from \cref{prop:automorphism-group-of-dynamics-on-pn-is-finite}.
+	Also there is an independent proof in \cite{Levy-2011-SpaceMorphismsProjective}.
+
+	\begin{step}
+		Let $G \subset \Aut_{[f]/\kk}(\kk) \cap $ be a diagonal group.
+		Then there exists a constant $C_{n,d}$ depending only on $n$ and $d$ such that $\# G \leq C_{n,d}$.
+	\end{step}
+
+	\Yang{}
+
+
+	\begin{step}
+		Let $G$ be a group such that any abelian subgroup $A < G$ with $\# A \leq C$.
+		Then there exists a constant $C'$ depending only on $C$ such that $\# G \leq C$.
+	\end{step}
+
+
+
 	\Yang{}
 \end{proof}
 
@@ -404,6 +762,42 @@ The \cref{prop:automorphism-group-of-dynamics-on-pn-is-finite} is enough to show
 \end{proof}
 
 A good example is the degree two dynamics on projective line.
+\Yang{}
+
+
+\begin{remark}[label=\labelNFM{rmk:rational-and-unirational-of-coarse-moduli-of-dynamics-on-pn}, status=draft, tag=0000000]
+	The coarse moduli spaces $\calD_{n,d}$ is unirational since \Yang{}
+	Moreover, \Yang{}
+\end{remark}
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:multipliers-and-example-of-degree-two-rational-functions}]{Multipliers and example of degree two rational functions}
+
+On this subsection, we use the \emph{multipliers} to describe the $\calD_{2 \acts 1}$.
+
+\begin{definition}[label=\labelNFM{def:multipliers-spectra-of-rational-functions}, status=draft, tag=0000000]
+	Let $f \in \calEnd(\kkk)$.
+	We define
+	\[ \Lambda^n(f) = \in \bbA^{d^n+1}(\kkk) \]
+	\Yang{}
+\end{definition}
+
+\begin{proposition}[label=\labelNFM{prop:multipliers-map-is-a-morphism-of-schemes}, status=draft, tag=0000000]
+	The map
+	\[ \Lambda^n: \calD_{d \acts 1}(\kkk) \to \kkk^{d^n+1} / \frakS_{d^n+1} \]
+	indeed come from a morphism $\Lambda^n: \calD_{d \acts 1} \to \GL_{d^n+1}/(\GL_{d^n+1},conjugate)$.
+	The later is the categorical quotients.
+\end{proposition}
+\begin{proof}
+	\Yang{}
+\end{proof}
+
+
+\begin{proposition}[label=\labelNFM{prop:multipliers-map-of-degree-two-rational-functions-is-isomphism}, status=draft, tag=0000000]
+	The morphism in \cref{prop:multipliers-map-is-a-morphism-of-schemes} is isomorphism and hence \Yang{}
+\end{proposition}
+
+
 
 \begin{example}[label=\labelNFM{eg:moduli-of-degree-two-maps-on-p1}, status=draft, tag=0000000]
 	Let us consider $D_{1,2}$, i.e., the coarse moduli space of degree two endomorphism on $\bbP^1$.
@@ -413,10 +807,6 @@ A good example is the degree two dynamics on projective line.
 	\Yang{}
 \end{example}
 
-\begin{remark}[label=\labelNFM{rmk:rational-and-unirational-of-coarse-moduli-of-dynamics-on-pn}, status=draft, tag=0000000]
-	The coarse moduli spaces $\calD_{n,d}$ is unirational since \Yang{}
-	Moreover, \Yang{}
-\end{remark}
 
 
 
