@@ -1107,7 +1107,11 @@ Easily see that $\Lambda^m(f)$ depends only on $[f] \in \calD_{d \acts n}$ and i
 
 	Here on $\bbA^3$ we use the coordinate
 	\[ \sigma_1 = \lambda_1 + \lambda_2 + \lambda_3, \quad \sigma_2 = \sum_{i > j} \lambda_i \cdot \lambda_j, \quad \sigma_3 = \lambda_1\cdot \lambda_2 \cdot \lambda_3, \]
-	the $\lambda_i$ are the three multiplier of $f \in D_{2 \acts 1}(\kkk)$ at three fixed point.
+	where $\lambda_i$ are the three multiplier of $f \in D_{2 \acts 1}(\kkk)$ at three fixed point.
+	Apply the residue theorem on $1/(z-f(z))$, we can get
+	\[ \frac{1}{1-\lambda_1} + \frac{1}{1-\lambda_2} + \frac{1}{1-\lambda_3} = 1. \]
+	That is, $\sigma_1 = \sigma_3 + 2$.
+	This will be the unique restriction.
 	Choose an open dense subset $U \subset D_{2\acts 1}$ with $\{\lambda_i(f)\} \neq \{1,1,1\}$ for all $f \in U$.
 	Then by $\sigma_1-2=\sigma_3$, at least one $\lambda_i \neq 1$, denote by $\lambda$.
 	On $\bbP^1$, suppose that $f(z)=z$ with multiplier $\lambda$.
