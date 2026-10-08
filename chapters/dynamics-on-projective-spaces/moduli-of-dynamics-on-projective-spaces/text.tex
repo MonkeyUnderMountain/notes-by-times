@@ -2,17 +2,17 @@
 \section{Moduli of dynamics on projective spaces}
 
 
-The references of this section are \cite{Silverman-2012-ModuliSpacesArithmetic,Levy-2011-SpaceMorphismsProjective}.
-For some basic knowledge of moduli problem and geometric invariant theory, I refer to \cite{Fantechi-Gottsche-Illusie-Kleiman-Nitsure-Vistoli-2006-FundamentalAlgebraicGeometry,Harris-Morrison-1998-ModuliCurves,Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}
+The references for this section are \cite{Silverman-2012-ModuliSpacesArithmetic,Levy-2011-SpaceMorphismsProjective}.
+For some basic knowledge of moduli problems and geometric invariant theory, I refer to \cite{Fantechi-Gottsche-Illusie-Kleiman-Nitsure-Vistoli-2006-FundamentalAlgebraicGeometry,Harris-Morrison-1998-ModuliCurves,Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}.
 
-Throughout this section, let $\kk$ be an arbitrary field of characteristic zero and $\kkk$ be its algebraic closure without specific.
+Throughout this section, let $\kk$ be an arbitrary field of characteristic zero and $\kkk$ be its algebraic closure unless otherwise specified.
 
 
 \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:review-of-functorial-ag}]{Review of algebraic geometry by functors}
 
-On this subsection, we review some facts about the viewpoint of functors in algebraic geometry.
+In this subsection, we review some facts about the viewpoint of functors in algebraic geometry.
 
-First recall that we can associate any scheme $X$ with a contravariant functor $\bfh_X$ to sets.
+First, recall that we can associate any scheme $X$ with a contravariant functor $\bfh_X$ to sets.
 Let us state it in a general setting.
 
 \begin{definition}[label=\labelNFM{def:h-X-and-its-category}, status=draft, tag=0000000]
@@ -26,12 +26,12 @@ Let us state it in a general setting.
 	\[ \bfh_f(T): \bfh_X(T) \to \bfh_Y(T), \quad b \mapsto f \circ b. \]
 \end{definition}
 
-The amazing Yoneda lemma tell us this functor $X \mapsto \bfh_X$ does not loss any information.
+The amazing Yoneda lemma tells us that this functor $X \mapsto \bfh_X$ does not lose any information.
 
 \begin{theorem}[label=\labelNFM{thm:Yoneda-lemma}, status=draft, tag=0000000, title={{Yoneda Lemma, see \cite[\href{https://stacks.math.columbia.edu/tag/001P}{Tag 001P}]{Stacksprojectauthors-2026-StacksProject}}}]
 	Let $\bfS$ be a category.
 	The functor
-	\[ \bfh_{-}: \bfS \to \Fun(\bfS^\op, \Set), \qquad X \mapsto \bfh_X, \quad f \mapsto \bfh_f. \]
+	\[ \bfh_{-}: \bfS \to \Fun(\bfS^\op, \Set), \qquad X \mapsto \bfh_X, \quad f \mapsto \bfh_f \]
 	is fully faithful, that is, the map
 	\[ \Arr_{\bfS}(X,Y) \to \Nat(\bfh_X,\bfh_Y) \]
 	is a bijection of sets for any $X,Y \in \Obj(\bfS)$.
@@ -39,25 +39,25 @@ The amazing Yoneda lemma tell us this functor $X \mapsto \bfh_X$ does not loss a
 
 \begin{definition}[label=\labelNFM{def:representable-functor}, status=draft, tag=0000000]
 	Let $\bfS$ be a category.
-	A functor $F: \bfS^\op \to \Set$ is said representable if it lies in the full subcategroy $\bfh_-(\bfS)$ up to isomorphic.
+	A functor $F: \bfS^\op \to \Set$ is said to be representable if it lies in the full subcategory $\bfh_-(\bfS)$ up to isomorphism.
 \end{definition}
 
 Recall that, tautologically, a functor $F:\bfS^\op \to \Set$ is a presheaf $F$ over $\bfS$ valued in $\Set$.
 For some reason, we will use the terminology $\PSh_\bfS(\Set)$ or simply $\PSh_\bfS$.
 
-Let us focus on the case of scheme.
+Let us focus on the case of schemes.
 For a scheme $X$, we will often identify $X$ with the functor $\bfh_X$.
-In other words, we will denote by $X(T) = \Mor(T,X)$.
+In other words, we will write $X(T) = \Mor(T,X)$.
 In particular, if $X$ is of finite type over a field $\kk$ and $\KK/\kk$ is a field extension, then $X(\KK) = \Mor_\kk(\KK,X)$ is the set of $\KK$-points in $X$.
-This coincides with usual notations.
-It is worth noting that if $X$ is a scheme over a base scheme $S$ and $T/S$, then $X(T) = X_T(S)$ under the identification by $X_T \to X$ by universal property of fiber products.
+This coincides with the usual notation.
+It is worth noting that if $X$ is a scheme over a base scheme $S$ and $T/S$, then $X(T) = \Mor_S(T,X) = \Mor_T(T,X_T) = X_T(T)$ under the identification induced by $X_T \to X$ using the universal property of fiber products.
 In particular, if $S = \Spec \kk$ and $T = \Spec \kkk$, we have $X(\kkk) = X_{\kkk}(\kkk)$.
 And from this viewpoint, an element in $X(T)$ should be viewed as a section of $X_T \to T$.
 
 \begin{remark}[label=\labelNFM{rmk:yoneda-embedding-as-weak-solution-in-pde}, status=draft, tag=0000000]
 	One should view the Yoneda embedding $\bfh_{-}: \bfS \to \PSh_\bfS$ as the embedding $\scrC([0,1]) \injmap L^2([0,1])$.
-	Many objects does not exist as a scheme, but we can first define it as a functor and then try to figure when it is indeed a scheme.
-	This is like that when we try to solve a PDE, we cannot the smooth soluation at begin, but we can first find a $L^2$-weak soluation, and then try to show it is smooth.
+	Many objects do not exist as schemes, but we can first define them as functors and then try to figure out when they are indeed schemes.
+	This is like when we try to solve a PDE: we cannot find a smooth solution at the beginning, but we can first find an $L^2$-weak solution and then try to show that it is smooth.
 \end{remark}
 
 \begin{slogan}
@@ -66,36 +66,36 @@ And from this viewpoint, an element in $X(T)$ should be viewed as a section of $
 
 
 We also need the notions of group objects and group actions in the language of category theory.
-From now, we always assume the category $\bfS$ has fiber products and terminal object.
-And by easily computing, one can see that $\bfh_-$ preserves fiber products and terminal objects.
+From now on, we always assume the category $\bfS$ has fiber products and a terminal object.
+And by an easy computation, one can see that $\bfh_-$ preserves fiber products and terminal objects.
 
 \begin{definition}[label=\labelNFM{def:group-object-in-category-theory}, status=draft, tag=0000000, title={Group objects}]
-	Let $\bfS$ be a category with fiber products and terminal object.
+	Let $\bfS$ be a category with fiber products and a terminal object.
 	A \emph{group object} consists of an object $G \in \Obj(\bfS)$ and a factorization of functors
-	\[ \bfh_G: \bfS \to \Grp \xrightarrow{\text{forget}} \Set. \]
+	\[ \bfh_G: \bfS^\op \to \Grp \xrightarrow{\text{forget}} \Set. \]
 \end{definition}
 
 \begin{remark}[label=\labelNFM{rmk:group-object-in-category-theory-by-arrows}, status=draft, tag=0000000]
-	The group objects can also be described by arrows as \cite[Definition 0.1]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}.
+	Group objects can also be described by arrows as in \cite[Definition 0.1]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}.
 	% \cite[Definition 1.1]{Milne-2017-AlgebraicGroupsTheory}.
 
 	Let $* \in \Obj(\bfS)$ be the terminal object in $\bfS$.
-	Given a factorization as \cref{def:group-object-in-category-theory}, then $\bfh_G(*)$ is a group.
+	Given a factorization as in \cref{def:group-object-in-category-theory}, $\bfh_G(*)$ is a group.
 	In particular, it has an identity element $e: * \to G$.
-	And we have natural transformation $h_{G \times G} = h_G \times h_G \to h_{G}$ and $h_G \to h_G$ (with target $\Set$) by the multiplication and inverse law of groups.
-	By Yoneda lemma, they give arrows $m: G\times G \to G$ and $i: G \to G$.
+	And we have natural transformations $h_{G \times G} = h_G \times h_G \to h_{G}$ and $h_G \to h_G$ (with target $\Set$) by the multiplication and inverse laws of groups.
+	By the Yoneda lemma, they give arrows $m: G\times G \to G$ and $i: G \to G$.
 
-	Conversely, if one have $e:* \to G$, $m: G \times G \to G$ and $i: G \to G$ satisfying the commutative diagrams in \cite[Definition 0.1]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya},
+	Conversely, if one has $e:* \to G$, $m: G \times G \to G$ and $i: G \to G$ satisfying the commutative diagrams in \cite[Definition 0.1]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya},
 	% \cite[Definition 1.1]{Milne-2017-AlgebraicGroupsTheory},
-	then apply $\Arr(T,-)$ will get the group law on the set $G(T)$.
-	This gives a factorization required in \cref{def:group-object-in-category-theory}.
+	then applying $\Arr(T,-)$ gives the group law on the set $G(T)$.
+	This gives the factorization required in \cref{def:group-object-in-category-theory}.
 \end{remark}
 
 \begin{definition}[label=\labelNFM{def:group-action-in-category-theory}, status=draft, tag=0000000, title={Group actions and quotients}]
-	Let $\bfS$ be a category with fiber products and terminal object, $G$ be a group object in $\bfS$ and $X \in \Obj(\bfS)$.
-	A \emph{group action} of $G$ on $X$ is an arrow $G \times X \to X$ such that on every $T$, $G(T) \times X(T) \to X(T)$ is a usual group action on sets.
+	Let $\bfS$ be a category with fiber products and a terminal object, $G$ be a group object in $\bfS$ and $X \in \Obj(\bfS)$.
+	A \emph{group action} of $G$ on $X$ is an arrow $G \times X \to X$ such that for every $T$, $G(T) \times X(T) \to X(T)$ is a usual group action on sets.
 
-	Given a group object $G$ and actions $\sigma: G \times X \to X$ and $\tau: G \times Y \to Y$.A \emph{$G$-equivalent arrow} is an arrow $a: X \to Y$ with the diagram
+	Let $G$ be a group object with actions $\sigma: G \times X \to X$ and $\tau: G \times Y \to Y$. A \emph{$G$-equivariant arrow} is an arrow $a: X \to Y$ with the diagram
 	\[
 		\begin{tikzcd}
 			G \times X & G \times Y \\
@@ -106,10 +106,10 @@ And by easily computing, one can see that $\bfh_-$ preserves fiber products and 
 			\arrow[from=2-1, to=2-2, "a"]
 		\end{tikzcd}
 	\]
-	commuting.
+	commutative.
 
-	Given an action $\sigma: G \times X \to X$ of $G$ on $X$.
-	The \emph{categorical quotient} of $X$ by $G$ is an object $Y$ together with a $G$-invariant morphism $\pi: X \to Y$ such that for any other object $Z$ (with trivial $G$-action) and any $G$-invariant morphism $f: X \to Z$, there exists a unique morphism $\tilde{f}: Y \to Z$ making the following diagram commuting:
+	Consider an action $\sigma: G \times X \to X$ of $G$ on $X$.
+	The \emph{categorical quotient} of $X$ by $G$ is an object $Y$ together with a $G$-invariant morphism $\pi: X \to Y$ such that for any other object $Z$ (with trivial $G$-action) and any $G$-invariant morphism $f: X \to Z$, there exists a unique morphism $\tilde{f}: Y \to Z$ making the following diagram commute:
 	\[
 		\begin{tikzcd}
 			G \acts X & Y \racts \id \\
@@ -123,27 +123,27 @@ And by easily computing, one can see that $\bfh_-$ preserves fiber products and 
 
 \begin{example}[label=\labelNFM{eg:group-action-on-funtor-to-sets}, status=draft, tag=0000000]
 	Let $\bfS$ be a category and $G$ be a group object in $\PSh_\bfS$.
-	On $\PSh_\bfS$, the categorical quotient always exists.
+	In $\PSh_\bfS$, the categorical quotient always exists.
 	Indeed, it is very easy to describe since the target is $\Set$.
-	Let $\sigma: G \acts F$ be a group action in $\bfF$.
-	Then the quotient is given by $(F/G)(T) \coloneqq F(T) / G(T)$ on object $T$.
-	And for an arrow $a:S \to T$ in $\bfS$, we have the commute diagram
+	Let $\sigma: G \acts F$ be a group action in $\PSh_\bfS$.
+	Then the quotient is given by $(F/G)(T) \coloneqq F(T) / G(T)$ on an object $T$.
+	And for an arrow $a:S \to T$ in $\bfS$, we have the commutative diagram
 	\[
 		\begin{tikzcd}
 			G(T) \times F(T) & F(T) \\
 			G(S) \times F(S) & F(S).
-			\arrow[from=1-1, to=1-2, "\sigma(S)"]
+			\arrow[from=1-1, to=1-2, "\sigma(T)"]
 			\arrow[from=1-1, to=2-1, "G(a) \times F(a)"']
 			\arrow[from=1-2, to=2-2, "F(a)"]
-			\arrow[from=2-1, to=2-2, "\sigma(T)"']
+			\arrow[from=2-1, to=2-2, "\sigma(S)"']
 		\end{tikzcd}
 	\]
-	Hence for $F(a): F(T) \to F(S)$, any $G(T)$-orbit will map to a $G(S)$-orbit.
+	Hence for $F(a): F(T) \to F(S)$, any $G(T)$-orbit maps into a $G(S)$-orbit.
 	Then we get a well-defined map of sets $F(T)/G(T) \to F(S)/G(S)$.
-	Set it as $(F/G)(a)$.
+	Define this map to be $(F/G)(a)$.
 	The universal property is easy to check.
 	Hence we get the quotient functor.
-	However, in general, the properties of this quotient is very bad and we will not use it.
+	However, in general, the properties of this quotient are very bad and we will not use it.
 \end{example}
 
 
@@ -151,41 +151,41 @@ And by easily computing, one can see that $\bfh_-$ preserves fiber products and 
 	Let $G$ be an algebraic group acting on an affine variety $X = \Spec A$ via $\sigma: G \times X \to X$ or $\sigma^\sharp: A \to \Gamma(A \otimes \calO_G, X \times G) \cong A \otimes \Gamma(\calO_G,G)$.
 	The \emph{invariant ring} is defined as
 	\[ A^G \coloneqq \left\{ f \in A \;\middle|\; \sigma^\sharp(f) = f \otimes 1 \in A \otimes \Gamma(\calO_{G},G)\right\}. \]
-	Here the subscript $x$ or $(x,g)$ means the localization.
+
 \end{definition}
 \begin{remark}[label=\labelNFM{rmk:dense-rational-point-makes-invariant-ring-coincides-with-usual-invariant-ring}, status=draft, tag=0000000]
-	Suppose that $G(\kk)$ is dense on $G$, then above invariant ring $A^G$ coincides with usual set-theoretic invariant ring $A^{G(\kk)}$.
-	For simply, here we assume $G = \Spec H$ is linear (in general case, note that the action of $G$ will factor through its affinization).
+	Suppose that $G(\kk)$ is dense in $G$. Then the above invariant ring $A^G$ coincides with the usual set-theoretic invariant ring $A^{G(\kk)}$.
+	For simplicity, here we assume $G = \Spec H$ is linear (in the general case, note that the action of $G$ will factor through its affinization).
 
 	First we always have $A^G \subset A^{G(\kk)}$ since the action of $g \in G(\kk)$ on $A$ is given by
 	\[ g^{\sharp}: A \xrightarrow{\sigma^{\sharp}} A \otimes H \xrightarrow{g^\sharp: H \to \kk} A \otimes \kk = A. \]
-	On the other hands, if $f \in A^{G(\kk)}$ with $G(\kk)$ dense, then $\sigma^{\sharp}(f)$ coincides with $f \otimes 1$ on a dense subset and then they are the same.
+	On the other hand, if $f \in A^{G(\kk)}$ with $G(\kk)$ dense, then $\sigma^{\sharp}(f)$ coincides with $f \otimes 1$ on a dense subset and hence they are the same.
 \end{remark}
 
 
 \begin{example}[label=\labelNFM{eg:invariant-ring-are-categorial-quotient}, status=draft, tag=0000000]
 	Let $G$ be an algebraic group acting on an affine variety $X = \Spec A$.
-	Then $Y = \Spec A^G$ is the categorical quotients; see \cite[Proof of Theorem 1.1]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}.
+	Then $Y = \Spec A^G$ is the categorical quotient in the category of affine schemes. If $G$ is reductive, it is also the categorical quotient in the category of varieties; see \cite[Proof of Theorem 1.1]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}.
 \end{example}
 
 \begin{remark}[label=\labelNFM{rmk:quotient-by-nonreductive-group-may-be-not-of-finite-type}, status=draft, tag=0000000]
-	On \cref{eg:invariant-ring-are-categorial-quotient}, if $G$ is reductive, then $Y$ is of finite type over $\kk$; see \cref{thm:quotient-of-reductive-acting-on-affine}.
-	If $G$ is a general algebraic group, then $A^G$ may fail to have finite type over $\kk$.
+	In \cref{eg:invariant-ring-are-categorial-quotient}, if $G$ is reductive, then $Y$ is of finite type over $\kk$; see \cref{thm:quotient-of-reductive-acting-on-affine}.
+	If $G$ is a general algebraic group, then $A^G$ may fail to be of finite type over $\kk$.
 	For some examples, see \cite{Freudenburg-2001-SurveyCounterexamplesHilberts}.
 \end{remark}
 
-On algebraic geometry, we have another notion to describe the quotient with more geometric flavor.
+In algebraic geometry, we have another notion to describe the quotient with a more geometric flavor.
 
 \begin{definition}[Geometric quotients for schemes]
 	Let $G$ be an algebraic group acting on a variety $X$ via $\sigma: G \times X \to X$.
 	Given a categorical quotient $\pi: X \to Y$, we say that $Y$ is a \emph{geometric quotient} of $X$ by $G$ if the following conditions hold:
 	\begin{enumerate}
 		\item The variety $Y$ is equipped with the quotient topology induced by $\pi$, i.e., a subset $U \subseteq Y$ is open if and only if $\pi^{-1}(U)$ is open in $X$.
-		\item The morphism $\pi$ is surjective, and the fibers of $\pi$ are precisely the $G$-orbits in $X$, i.e., for each $y \in Y$, we have $\pi^{-1}(y) = G \cdot x$ for some $x \in X$.
+		\item The morphism $\pi$ is surjective, and its geometric fibers are single $G$-orbits as sets of geometric points: for every algebraically closed extension $\Omega/\kk$ and $y \in Y(\Omega)$, we have $\pi^{-1}(y)(\Omega) = G(\Omega) \cdot x$ for some $x \in X(\Omega)$.
 		\item The sheaf of regular functions on $Y$ is isomorphic to the sheaf of $G$-invariant regular functions on $X$, i.e., for any open subset $U \subseteq Y$, we have $\mathcal{O}_Y(U) \cong \mathcal{O}_X(\pi^{-1}(U))^G$.
 	\end{enumerate}
 	Note that here we require that a geometric quotient is a categorical quotient.
-	On \cite{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}, this is not necessary.
+	In \cite{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}, this is not necessary.
 \end{definition}
 
 \begin{example}[label=\labelNFM{eg:finite-group-acting-on-projective-varieties}, status=draft, tag=0000000]
@@ -199,66 +199,66 @@ In general, a categorical quotient may not be a geometric quotient, and the exis
 \begin{example}
 	Let $G = \bbG_m$ act on $X = \bbA^1$ by scaling, i.e., $t \cdot x = tx$ for $t \in \bbG_m$ and $x \in \bbA^1$.
 	The categorical quotient of this action is a single point, since any $G$-invariant morphism from $\bbA^1$ to another variety must be constant.
-	Easily, we can see that the categorical quotient is not a geometric quotient, since the fibers of the quotient map are not precisely the $G$-orbits in $X$.
+	We can easily see that the categorical quotient is not a geometric quotient, since the fibers of the quotient map are not precisely the $G$-orbits in $X$.
 \end{example}
 
-The most interesting case is that $G$ is a reductive group.
+The most interesting case is when $G$ is a reductive group.
 For some basic knowledge of reductive groups, see \cref{rmk:review-of-reductive-group} and \cref{eg:gln-and-pgln-is-reductive-group}.
 
 \begin{remark}[label=\labelNFM{rmk:review-of-reductive-group}, status=draft, tag=0000000]
-	Recall that any affine linear algebraic group $G$ is a linear algebraic group.
+	Recall that any affine algebraic group $G$ is a linear algebraic group.
 	For a linear algebraic group $G$ and $g \in G$, we say that $g$ is \emph{semisimple} if it is diagonalizable over the algebraic closure of the base field, and $g$ is \emph{unipotent} if all its eigenvalues are equal to 1.
 	We have the \emph{Jordan decomposition} of $g$ as $g = g_s g_u$, where $g_s$ is semisimple and $g_u$ is unipotent, and they commute with each other.
 
-	On the other hands, $G$ has a unique maximal normal solvable connected subgroup, which is called the \emph{radical} of $G$, denoted by $R(G)$.
+	On the other hand, $G$ has a unique maximal normal solvable connected subgroup, which is called the \emph{radical} of $G$, denoted by $R(G)$.
 	All unipotent elements of $R(G)$ form a normal subgroup of $G$, called the \emph{unipotent radical} of $G$, denoted by $R_u(G)$.
 	The unipotent radical $R_u(G)$ can also be characterized as the unique maximal normal unipotent connected subgroup of $G$.
 	We say that $G$ is \emph{reductive} if its unipotent radical is trivial, i.e., $R_u(G) = \{e\}$, where $e$ is the identity element of $G$.
-	This is equivalent to saying that the radical $R(G)$ is a torus, i.e., $R(G) \cong (\bbG_m)^n$ for some $n \geq 0$.
+	This is equivalent to saying that the radical $R(G)$ is a torus, i.e., $R(G)_{\kkk} \cong (\bbG_{m,\kkk})^n$ for some $n \geq 0$.
 \end{remark}
 
 \begin{example}[label=\labelNFM{eg:gln-and-pgln-is-reductive-group}, status=draft, tag=0000000]
 	The general linear group $\GL_n$ is reductive, since its radical is the center of $\GL_n$, which is isomorphic to $\bbG_m$.
 
-	To see this, let $R = R(\GL_n)$ be the radical of $\GL_n$.
+	To see this, we may first base change to $\kkk$. Let $R = R(\GL_n)$ be the radical of $\GL_n$.
 	By Lie-Kolchin theorem and solvability, $R$ is conjugate to a subgroup of the group $B$ of upper triangular matrices in $\GL_n$.
 	Since $R$ is normal in $\GL_n$, it is contained in the intersection of all conjugates of $B$, which is the group of scalar matrices, i.e., $R \subseteq Z(\GL_n) \cong \bbG_m$.
 	Note that we always have $Z(G)^\circ \subseteq R(G)$ for any linear algebraic group $G$, where $Z(G)^\circ$ is the connected component of the identity in the center of $G$.
 	Hence $R$ is a torus, and thus $\GL_n$ is reductive.
 
-	By similar argument, one can show that $R(\PGL_n) = \{e\}$, and thus $\PGL_n$ is also reductive.
+	By a similar argument, one can show that $R(\PGL_n) = \{e\}$, and thus $\PGL_n$ is also reductive.
 \end{example}
 
-We have the following theorem to show its power and for later using.
+We have the following theorem to show the power of reductive groups and for later use.
 
 \begin{theorem}[label=\labelNFM{thm:quotient-of-reductive-acting-on-affine}, status=draft, tag=0000000, title={{ref. \cite[Theorem 1.1 and Amplification 1.3]{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}}}]
 	Let $G$ be a reductive group acting on an affine variety $X = \Spec A$ over $\kk$.
-	Then the categorical quotient $X \to X / G$ exists and $X/G = \Spec A^{G}$ is also an affine variety (in particular, of finite) over $\kk$.
-	And it is a geometric quotient if and only if all $G$-orbits (of closed points) in $X$ are closed.
+	Then the categorical quotient $X \to X / G$ exists and $X/G = \Spec A^{G}$ is also an affine variety (in particular, of finite type) over $\kk$.
+	And it is a geometric quotient if and only if all $G_{\kkk}$-orbits of geometric points in $X_{\kkk}$ are closed.
 \end{theorem}
 
 \begin{example}[label=\labelNFM{eg:eigenvalues-as-categorical-quotients}, status=draft, tag=0000000]
-	Let $M_n = \bbA^{n^2}$ be the variety of matrices of size $n$ and $G(\KK) = \GL_n(\KK)$ acts on $M_n(\KK)$ by conjugation for any field $\KK$.
+	Let $M_n = \bbA^{n^2}$ be the variety of matrices of size $n$ and let $G(\KK) = \GL_n(\KK)$ act on $M_n(\KK)$ by conjugation for any field extension $\KK/\kk$.
 	The variety $M_n$ is affine and we denote it by $M_n = \Spec A$ with $A = \kk[a_{11},\cdots,a_{nn}]$.
-	Then we have $A_\KK^{G(\KK)} = \KK[\sigma_1,\cdots,\sigma_n]$, here $\sigma_k = \Tr(\Phi^k)$ and $\Phi = (a_{ij})_{ij}$ is the matrix with indetermined entries and $\Phi^k$ is the matrix multiplication.
-	Set $E_n = \Spec B \cong \bbA^n$ with $B = \KK[\sigma_1,\cdots,\sigma_n]$.
+	Then we have $A_\KK^{G(\KK)} = \KK[\sigma_1,\cdots,\sigma_n]$, where $\sigma_k = \Tr(\Phi^k)$ and $\Phi = (a_{ij})_{ij}$ is the matrix with indeterminate entries and $\Phi^k$ is the $k$-th matrix power.
+	Set $E_n = \Spec B \cong \bbA^n_\kk$ with $B = \kk[\sigma_1,\cdots,\sigma_n]$. The above equality describes its base change to $\KK$.
 	Then $E_n = M_n/\GL_n$ is the categorical quotient.
 
-	This quotient is not a geometric quotient since it only captures the eigenvalues rather than Jordan form.
+	This quotient is not a geometric quotient since it only captures the eigenvalues rather than the Jordan form.
 \end{example}
 
 
 \begin{remark}[label=\labelNFM{rmk:quotient-for-projective-case-GIT}, status=draft, tag=0000000]
-	For projective case, there is also a whole theory to deal the quotient by reductive group, namely, the \emph{geometric invariant theory}.
+	For the projective case, there is also a whole theory to deal with quotients by reductive groups, namely, the \emph{geometric invariant theory}.
 	The standard reference is \cite{Mumford-Fogarty-Kirwan-1994-GeometricInvariantTheorya}.
 \end{remark}
 
-We also need the following \emph{Luna's \'etale slice theorem}.
+We also need \emph{Luna's \'etale slice theorem}.
 
 \begin{theorem}[label=\labelNFM{thm:luna-etale-slice-theorem}, status=draft, tag=0000000, title={{Luna's \'etale slice theorem, see \cite{Luna-1973-SlicesEtales,Brion-Kraft-Schwarz-2025-LunasSliceTheorem}}}]
 	Work over $\kkk$.
 	Let $G$ be a reductive group acting on an affine variety $X$ via $\sigma$ with quotient $\pi: X \to Y$.
-	Suppose that $x \in X$ with stablilzer $G_x$ has closed orbit.
+	Suppose that $x \in X$ has stabilizer $G_x$ and a closed orbit.
 	Then there exists a locally closed affine $G_x$-stable subset $S \subset X$ containing $x$ such that
 	\begin{enumerate}
 		\item the morphism $\varphi: G \times^{G_x} S \to X, (g,s) \mapsto \sigma(g)(s)$ is $G$-equivariant with open and affine image, where $G \times^{G_x} S \coloneqq (G \times S)/ G_x$; the $G_x$ action on $G \times S$ is given by right translation on $G$ and $\sigma$ on $S$; the $G$-action on $G \times^{G_x} S$ is given by left translation;
@@ -278,12 +278,10 @@ We also need the following \emph{Luna's \'etale slice theorem}.
 \end{theorem}
 
 
-
-
 \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:review-of-moduli-problem}]{Review of moduli problem and Hilbert schemes}
 
-Moduli space is a geometric space whose points represent isomorphism classes of certain geometric objects.
-For example, fix an algebraically closed field \(\kkk\), all elliptic curves over \(\kkk\) can be classified by the \(j\)-invariant, which gives a bijection between isomorphism classes of elliptic curves and elements of \(\bbA^1(\kkk)\).
+A moduli space is a geometric space whose points represent isomorphism classes of certain geometric objects.
+For example, fix an algebraically closed field \(\kkk\); all elliptic curves over \(\kkk\) can be classified by the \(j\)-invariant, which gives a bijection between isomorphism classes of elliptic curves and elements of \(\bbA^1(\kkk)\).
 However, this classification is just a set-theoretic one.
 We would like to have a geometric ``parameter space'' such that we can ``deform'' the objects continuously.
 This is the initial motivation for moduli spaces.
@@ -291,15 +289,15 @@ This is the initial motivation for moduli spaces.
 In algebraic geometry, ``deforming objects continuously'' is usually described by flat families.
 Hence the most perfect object to represent this moduli problem is such a flat family \(\calX \to M\), where \(M\) is a variety parameterizing all elliptic curves, and the fiber over each point \(m \in M(\kkk)\) is the elliptic curve corresponding to \(m\).
 Furthermore, we hope that this family is universal, i.e., any other flat family \(\calY \to T\) of elliptic curves is obtained by pulling back \(\calX \to M\) along a unique morphism \(T \to M\).
-(Despite in this example, such a perfect family does not exist; we will discuss this later.)
-It can be described by the language of functors.
+(In this example, however, such a perfect family does not exist; we will discuss this later.)
+It can be described in the language of functors.
 Consider the functor
 \[ \calM: \sch_{\kkk}^{\op} \to \Set,\quad T \mapsto \{\text{flat families of elliptic curves over } T\}/\sim, \]
-where \(\sim\) is the equivalence relation given by isomorphisms of families over \(T\).
+Here a family of elliptic curves means a smooth proper morphism of relative dimension one with geometrically connected genus one fibers and a section. The equivalence relation \(\sim\) is given by isomorphisms over \(T\) preserving the sections.
 If the family \(\calX \to M\) above exists, then it represents the functor \(\calM\).
 In this case, we say that the moduli problem \(\calM\) is \emph{representable}, \(M\) is called a \emph{fine moduli space} and \(\calX \to M\) is called a \emph{universal object}.
 
-Hence, to study a moduli problem, we follow the steps:
+Hence, to study a moduli problem, we follow these steps:
 \begin{enumerate}[nosep]
 	\item Define the moduli functor \(\calM\).
 	\item Check whether \(\calM\) is representable.
@@ -313,7 +311,7 @@ Hence, to study a moduli problem, we follow the steps:
 			 & $\longleftrightarrow$
 			 & Find a functor $\calM$ with $\calM(\kkk) = \Sigma$ describing ``deformations''; \\
 
-			Algebraic families over $T$ with fiber in $\Sigma$
+			Algebraic families over $T$ with fibers in $\Sigma$
 			 & $\longleftrightarrow$
 			 & elements in $\calM(T)$;                                                         \\
 
@@ -323,56 +321,71 @@ Hence, to study a moduli problem, we follow the steps:
 		\end{tabular}
 	\end{center}
 \end{slogan}
-
-Here we recall the most important example: the hilbert schemes, which parameterizing the subschemes of a fixed scheme $X$ with fixed hilbert polynomial.
+Here we recall the most important example: Hilbert schemes, which parameterize the subschemes of a fixed scheme $X$ with a fixed Hilbert polynomial.
 
 \begin{theorem}[label=\labelNFM{thm:hilbert-scheme}, status=draft, tag=0000000, title={{Hilbert schemes, see \cite[Theorem 5.14]{Fantechi-Gottsche-Illusie-Kleiman-Nitsure-Vistoli-2006-FundamentalAlgebraicGeometry}}}]
-	Let $X$ be a projective variety over $\kk$ and $\calH$ an ample line bundle, $P$ a polynomial of $\bbQ$-coefficients.
-	The \emph{hilbert functor} is defined by
+	Let $X$ be a projective variety over $\kk$ , $\calH$ an ample line bundle and $P$ a polynomial with $\bbQ$-coefficients.
+	The \emph{Hilbert functor} is defined by
 	\[ \calHilb_{(X,\calH,P)/\kk}(T) \coloneqq \left\{ \calV \subset X \times T \;\middle|\; \pi: \calV \to T \text{ is flat, } \chi(\calO_{\calV|_{t}} \otimes \calH^{\otimes m}) = P(m) \text{ for all } t \in T \right\}. \]
 	It is representable and represented by a scheme projective over $\kk$, called the \emph{Hilbert scheme}, denoted by $\Hilb_{(X,\calH,P)/\kk}$.
 \end{theorem}
 
-We list many application of Hilbert schemes.
+We list many applications of Hilbert schemes.
 
 \begin{example}[label=\labelNFM{eg:hilbert-scheme-of-points}, status=draft, tag=0000000, title={Hilbert scheme of points}]
 	Let $X$ be a projective variety over $\kk$ and $\calH$ an ample line bundle.
-	Consider $n$ $\kk$-points $n_1,\cdots,x_n$ in $X$ as a subscheme $Z \subset X$.
-	The its hilbert polynomial is $\chi(\calO_Z \otimes \calH^{\otimes m}) = h^0( \calO_Z \otimes \calH^{\otimes m}) = n$.
-	Hence it forms a hilbert scheme, called \emph{hilbert scheme of $n$ points on $X$}.
+	Consider $n$ distinct $\kk$-points $x_1,\cdots,x_n$ in $X$ as a reduced subscheme $Z \subset X$.
+	Then its Hilbert polynomial is $\chi(\calO_Z \otimes \calH^{\otimes m}) = h^0(\calO_Z \otimes \calH^{\otimes m}) = n$.
+	More generally, every zero-dimensional subscheme of length $n$ has the same Hilbert polynomial, including nonreduced ones.
+	Hence they form a Hilbert scheme $\Hilb^n X \coloneqq \Hilb_{(X,\calH,n)/\kk}$, called the \emph{Hilbert scheme of $n$ points on $X$}.
+	It represents the functor of finite flat families $\calZ \subset X \times T$ of degree $n$ over $T$.
 
-	There is another geometric explaination.
-	Consider $Y = X \times \cdots \times X$ be the product of $n$ copies of $X$ with an action of discrete group $\frakS_n$ by permutation.
+	There is also a related geometric construction.
+	Let $Y = X \times \cdots \times X$ be the product of $n$ copies of $X$ with an action of the discrete group $\frakS_n$ by permutation.
 	By \cref{eg:finite-group-acting-on-projective-varieties}, the quotient $Y / \frakS_n$ exists.
 	Denote it by $\Sym^n X$.
-	Then $\Sym^n X$ represents the hilbert functor of $n$ points on $X$.
+	Its geometric points parameterize effective zero-cycles of degree $n$ on $X$.
+	There is a canonical \emph{Hilbert--Chow morphism}
+	\[ \Hilb^n X \to \Sym^n X, \quad Z \mapsto \sum_{x \in \operatorname{Supp}(Z)} \length(\calO_{Z,x})[x], \]
+	where the formula is taken over $\kkk$.
+
+	In general, this morphism is not an isomorphism since the cycle does not record the scheme structure of $Z$.
+	For example, on an affine chart $\bbA^2 \subset \bbP^2$ with coordinates $u,v$, the two subschemes $V(v,u^2)$ and $V(u,v^2)$ are distinct but both map to $2[(0,0)]$.
+	However, if $X$ is a smooth projective curve, then the Hilbert--Chow morphism is an isomorphism and $\Hilb^n X \cong \Sym^n X$.
 \end{example}
 
 \begin{example}[label=\labelNFM{eg:dual-projective-space}, status=draft, tag=0000000, title={Dual projective spaces}]
-	Let $H = \bbP(V) \cong \bbP^n$ with some vector space $V$.
-	Recall that $U$ parameterizes the hyperplane on $V$.
-	And dually, the space $L = \bbP(V^\vee)$ parameterizes lines on $V$ is also isomorphic to $\bbP^n$.
-	This ``duality'' can be described by hilbert scheme:
-	all hyperplanes on $H$ forms a hilbert scheme $L$ with universal family $\calU \to L$ given by
+	Let $H = \bbP(V) \cong \bbP^n$ for some vector space $V$.
+	Recall that $H$ parameterizes the hyperplanes in $V$.
+	And dually, the space $L = \bbP(V^\vee)$, which parameterizes lines in $V$, is also isomorphic to $\bbP^n$.
+	This ``duality'' can be described by a Hilbert scheme:
+	all hyperplanes in $H$ form a Hilbert scheme $L$ with universal family $\calU \to L$ given by
 	\[ \calU = \left\{ (h,l) \in H\times L \;\middle|\; h \in \calU_l \subset H \times \{l\} \right\}. \]
 
-	Later we will need a generalization version as follows.
-	Let $X \to S$ be a projective smooth morphism with geometric fiber $\bbP^n$ with base $S$ noetherian.
-	Set $\calH \cong \omega_{X/S}^{\otimes -1}$ be a relative ample line bundle.
-	With respect to $\calH$, we can define the hilbert scheme $X^\vee \to S$ parameterizes the hyperplanes on $X \to S$ with a universal family $\calU_S$ which gives above $\calU$ over each fiber.
+	Later we will need a generalization as follows.
+	Let $X \to S$ be a projective smooth morphism with geometric fibers $\bbP^n$ and noetherian base $S$ .
+	Set $\calH \cong \omega_{X/S}^{\otimes -1}$ , a relatively ample line bundle.
+	With respect to $\calH$, we can define the Hilbert scheme $X^\vee \to S$ parameterizing the hyperplanes on $X \to S$ with a universal family $\calU_S$ which gives the above $\calU$ over each fiber.
 \end{example}
 
 
 \begin{example}[label=\labelNFM{eg:moduli-functor-of-morphisms}, status=draft, tag=0000000, title={Schemes of morphisms}]
-	Let $X,Y$ be projective varieties over $\kk$, $\calH$ an ample divisor on $W = X \times Y$ and $P$ be a polynomial of $\bbQ$-coefficients.
+	Let $X,Y$ be projective varieties over $\kk$, $\calH$ an ample divisor on $W = X \times Y$ and $P$ a polynomial with $\bbQ$-coefficients.
 	Set
-	\[ \calMor_{(X,Y;\calH,P)/\kk}(T) \coloneqq \left\{ f:X \times T \to Y \times T  \;\middle|\; f_t: X_t \to Y_t \text{ morphism }, \chi_{W}(\calO_{\Gamma_{f_t}}\otimes \calH^{\otimes m}) = P(m) \right\}. \]
-	The functor $\calMor_{(X,Y;\calH,P)/\kk}$ is represented by an open subschemes of $\calHilb_{(W,\calH,P)/\kk}$; see \cite[Theorem 5.23]{Fantechi-Gottsche-Illusie-Kleiman-Nitsure-Vistoli-2006-FundamentalAlgebraicGeometry}.
+	\[
+	\calMor_{(X,Y;\calH,P)/\kk}(T) \coloneqq \left\{ f:X \times T \to Y \times T \;\middle|\; \chi_{W}(\calO_{\Gamma_{f_t}}\otimes \calH^{\otimes m}) = P(m) \text{ for all }t\in T\right\}.
+% 		\begin{aligned}
+% \calMor_{(X,Y;\calH,P)/\kk}(T) \coloneqq {}&\bigl\{ f:X \times T \to Y \times T \;\bigm|\; \\
+% & f \text{ is a } T\text{-morphism },\ \\
+% & \chi_{W_t}(\calO_{\Gamma_{f_t}}\otimes \calH^{\otimes m}) = P(m)\text{ for all }t\in T\bigr\}.
+% \end{aligned}
+	\]
+	The functor $\calMor_{(X,Y;\calH,P)/\kk}$ is represented by an open subscheme of $\Hilb_{(W,\calH,P)/\kk}$; see \cite[Theorem 5.23]{Fantechi-Gottsche-Illusie-Kleiman-Nitsure-Vistoli-2006-FundamentalAlgebraicGeometry}.
 
 	Here we give a brief description.
-	Set $H = \Hilb_{(W,\calH,P)/\kk}$ with universal family $\calU \subset W \times H = X \times Y \times H$ and $M = \{t \in H \;|\; \calU_{t} \to X \times \{t\} \text{ is isomorphic } \}$.
+	Set $H = \Hilb_{(W,\calH,P)/\kk}$ with universal family $\calU \subset W \times H = X \times Y \times H$ and $M = \{t \in H \;|\; \calU_{t} \to X \times \{t\} \text{ is an isomorphism } \}$.
 	We only need to show that $M$ is an open subset of $H$.
-	If so, $M$ has natural open subscheme structure and universal family $X \times M \cong \calU|_M \to Y \times M$ and the natural factorization
+	If so, $M$ has a natural open subscheme structure and a universal family $X \times M \cong \calU|_M \to Y \times M$ and the natural factorization
 	\[
 		\begin{tikzcd}[column sep = 3cm]
 			\calMor_{(X,Y;\calH,P)/\kk} & \calHilb_{(W,\calH,P)/\kk} \\
@@ -383,18 +396,22 @@ We list many application of Hilbert schemes.
 			\arrow[from=2-1, to=2-2, hook]
 		\end{tikzcd}
 	\]
-	shows that $\phi$ is an isomorphic natural transformation (the diagram gives $\phi$ and shows injectivity meanwhile universal family shows surjectivity) and hence $\calMor_{(X,Y;\calH,P)/\kk}$ is represented by $M$.
+	shows that $\phi$ is a natural isomorphism (the diagram gives $\phi$ and shows injectivity, while the universal family shows surjectivity) and hence $\calMor_{(X,Y;\calH,P)/\kk}$ is represented by $M$.
 
 	Suppose that $M$ is nonempty and $t \in M$.
-	Denote by $p: \calU \to X_H$ be the projection to $X$ over $H$.
-	Then by local criteria of flatness (see \cite[Lemma 5.21(3)]{Fantechi-Gottsche-Illusie-Kleiman-Nitsure-Vistoli-2006-FundamentalAlgebraicGeometry}), $p$ is flat over any $x \in X_H$ mapping to $t \in H$.
-	Hence by the openness of flat locus, there exists an open subset $V \subset H$ such that $f_V: \calU_V \to X_V$ is flat.
-	Note that over $t$ it is finite, hence $f_V$ is of relative dimension $0$ and hence finite.
-	Then by semicontinuity (\cite[Chapter III, Theorem 12.8]{Hartshorne-1977-AlgebraicGeometry}), the locus with $h^0(\calO_\calU \otimes \rkk(x), \calU_{x}) = 1$ is open in $X_V$.
-	And hence its projection to $V$ is also open.
-	Take $M$ be the image, we see that $M$ is exactly the locus with $\calU_t \to X \times \{t\}$ isomorphic and $\calU_M \to X \times M$ is also an isomorphism.
 
-	Let $Z$ be another projective variety over $\kk$, $\calH'$, $\calH''$ be ample line bundles on $Y \times Z$ and $X \times Z$ respectively and $P'$ be another polynomial.
+
+	Denote by $p: \calU \to X_H$ the projection to $X$ over $H$.
+	By the local criterion of flatness (see \cite[Lemma 5.21(3)]{Fantechi-Gottsche-Illusie-Kleiman-Nitsure-Vistoli-2006-FundamentalAlgebraicGeometry}), $p$ is flat at every point of $\calU_t$.
+	The nonflat locus is closed in $\calU$. Since $\calU \to H$ is proper, its image is closed and avoids $t$.
+	Hence, after replacing $H$ by an open neighborhood $V$ of $t$, $p_V: \calU_V \to X_V$ is flat.
+	Similarly, the locus where $p$ is not quasi-finite is closed in $\calU$, and its proper image in $H$ avoids $t$.
+	After shrinking $V$ again, $p_V$ is proper and quasi-finite, hence finite flat.
+	The rank of $(p_V)_*\calO_{\calU_V}$ is locally constant on $X_V$ and equals one on $X_t$.
+	The locus where the rank differs from one is closed in $X_V$. Removing its image under the proper morphism $X_V \to V$, we may assume that the rank is one everywhere.
+	Then the unit map $\calO_{X_V} \to (p_V)_*\calO_{\calU_V}$ is an isomorphism, so $p_V$ is an isomorphism.
+	This shows that $M$ is open, and the same argument gives $\calU_M \cong X_M$.
+	Let $Z$ be another projective variety over $\kk$, $\calH'$, $\calH''$ be ample line bundles on $Y \times Z$ and $X \times Z$ respectively and $P'$ another polynomial.
 	Then the composition
 	\[ \calMor_{(X,Y;\calH,P)/\kk} \times \calMor_{(Y,Z;\calH',P')/\kk} \to \calMor_{(X,Z;\calH'',P_1,\cdots,P_n)/\kk}, \quad ([f],[g]) \mapsto [g \circ f] \]
 	is a morphism.
@@ -425,30 +442,30 @@ We list many application of Hilbert schemes.
 			\arrow[from=3-4, to=4-4]
 			\arrow[from=4-3, to=4-4]
 		\end{tikzcd}\]
-	where $\calV$ is given by the scheme-theoretical intersection of $X_T \times \Gamma_g$ and $\Gamma_f \times Z_T$, i.e., their fiber products.
-	Note that $X_T \times G_g \to X_T \to Y_T$ is an isomorphism since $\Gamma_g \to Y_T$ is.
+	where $\calV$ is given by the scheme-theoretic intersection of $X_T \times \Gamma_g$ and $\Gamma_f \times Z_T$, i.e., their fiber product.
+	Note that $X_T \times_T \Gamma_g \to X_T \times_T Y_T$ is an isomorphism since $\Gamma_g \to Y_T$ is.
 	It follows that $\calV \to \Gamma_f$ is an isomorphism.
 	And $\Gamma_f \to X_T$ is also an isomorphism.
-	Then $\calV \to X_T$ is isomorphism.
+	Then $\calV \to X_T$ is an isomorphism.
 	Then by the universal property of graphs, we see that the yellow arrow $\calV \to X_T \times Z_T$ is isomorphic to the graph $\Gamma_{g \circ f} \to X_T \times Z_T$.
 	And $\calV \to T$ is flat since $X_T \to T$ is.
-	Suppose that it has hilbert polynomial $\{P_1,\cdots,P_n\}$ with respect to $\calH''$. (It may have multi polynomial since $T$ may have multi connected component.)
-	Then by the universal property of $\calMor_{(X,Z;\calH'',P_1,\cdots,P_n)/\kk}$, then family $\calV$ induces a morphism $T \to \Mor_{(X,Z;\calH'',P_1,\cdots,P_n)/\kk}$ of schemes.
-	Take $T = \Mor_{(X,Y;\calH,P)/\kk} \times \Mor_{(Y,Z;\calH',P')/\kk}$ and $f,g$ being the pullpack of the universal families along the canonical projection, we get the desired morphism
+	Suppose that its Hilbert polynomials with respect to $\calH''$ are $\{P_1,\cdots,P_n\}$. (It may have multiple polynomials since $T$ may have multiple connected components.)
+	Then by the universal property of $\calMor_{(X,Z;\calH'',P_1,\cdots,P_n)/\kk}$, the family $\calV$ induces a morphism $T \to \Mor_{(X,Z;\calH'',P_1,\cdots,P_n)/\kk}$ of schemes.
+	Let $T = \Mor_{(X,Y;\calH,P)/\kk} \times \Mor_{(Y,Z;\calH',P')/\kk}$ and let $f,g$ be the pullbacks of the universal families along the canonical projections; we get the desired morphism
 	\[ \Mor_{(X,Y;\calH,P)/\kk} \times \Mor_{(Y,Z;\calH',P')/\kk} \to \Mor_{(X,Z;\calH'',P_1,\cdots,P_n)/\kk} \quad ([f],[g]) \mapsto [g \circ f] . \]
 \end{example}
 
 \begin{example}[label=\labelNFM{eg:moduli-functor-of-endmorphisms-on-pn}, status=draft, tag=0000000, title={Schemes of endomorphisms}]
 	Let $X = Y$ and $\calH_W = \calH \boxtimes \calH$ on $W = X \times X$ with $\calH$ ample on $X$ in \cref{eg:moduli-functor-of-morphisms}.
-	For an endomorphism $f: X \to X$, the hilbert polynomial of $i: X \cong \Gamma_f \subset W$ with respect to $\calH_W$ is given by
+	For an endomorphism $f: X \to X$, the Hilbert polynomial of $i: X \cong \Gamma_f \subset W$ with respect to $\calH_W$ is given by
 	\begin{align*}
 		\chi_W(\calO_{\Gamma_f} \otimes \calH_W^{\otimes m}) & = \chi_W(i_*\calO_X \otimes p_1^*\calH^{\otimes m} \otimes p_2^*\calH^{\otimes m}) = \chi_W\left(i_*\bigl(\calO_X \otimes \calH^{\otimes m} \otimes f^*\calH^{\otimes m}\bigr)\right) \\
 		                                                     & = \chi_X(\calH^{\otimes m} \otimes f^*\calH^{\otimes m}).
 	\end{align*}
 	Suppose further that $X$ is smooth (to use GRR) and $\kk = \kkk$ is algebraically closed (only to ensure $\NS(X)$ is stable as a set under base field change).
-	By Grothendieck-Riemann-Roch, the latter is totally determined by the intersection number of $\calH,f^*\calH$ and the todd class of $X$.
-	In particular, if one fix the N\'eron-Severi class $[f^*\calH] = [\calL] \in \NS(X)$, then hilbert polynomial of $\Gamma_f$ is uniquely determined.
-	On the other hands, if $f,g$ are on a connected flat family, that is, there is $(\Phi: X_T \to Y_T) \in \calMor_{(X,Y,*)/\kk}(T)$ with $T$ connected and $t,s \in T(\kk)$ such that $\Phi_t \cong f$, $\Phi_s \cong g$, then $f^*\calH \cong \Phi_t^*\calH$ is algebraically equivalent to $g^*\calH \cong \Phi_s^*\calH$.
+	By Grothendieck-Riemann-Roch, the latter is totally determined by the intersection numbers of $\calH,f^*\calH$ and the Todd class of $X$.
+	In particular, if one fixes the N\'eron-Severi class $[f^*\calH] = [\calL] \in \NS(X)$, then the Hilbert polynomial of $\Gamma_f$ is uniquely determined.
+	On the other hand, if $f,g$ belong to a connected flat family, that is, there is $(\Phi: X_T \to Y_T) \in \calMor_{(X,Y,*)/\kk}(T)$ with $T$ connected and $t,s \in T(\kk)$ such that $\Phi_t \cong f$, $\Phi_s \cong g$, then $f^*\calH \cong \Phi_t^*\calH$ is algebraically equivalent to $g^*\calH \cong \Phi_s^*\calH$.
 	That is, $[f^*\calH] = [g^*\calH] \in \NS(X)$.
 	Hence,
 	\[ \calEnd_{(X,\calH,[\calL])/\kk}(T) \coloneqq \left\{ f: X \times T \to X \times T \;\middle|\; f_t \acts X \times \{t\}, \ [f_t^*\calH] = [\calL] \in \NS(X \times \{t\}) \right\} \]
@@ -456,52 +473,67 @@ We list many application of Hilbert schemes.
 
 	In the case $X = \bbP^n$, we have a canonical choice of $\calH$ and $[\calL]$ is uniquely determined by the degree $d$ of the endomorphisms.
 	Then we get a representable functor $\calEnd_{\bbP^n,d}$.
-	By directly writing down the coordinate, we can describe its scheme as
+	By directly writing down the coordinates, we can describe its scheme as
 	\[ \End_{\bbP^n,d} \cong \bbP^N \setminus V(R), N = (n+1) \binom{n+d}{d} - 1, R \text{ is the resultant of polynomials defining endomorphisms }.\]
-	An important fact is that $R$ is given by a homogenous polynomial; see \cite[Theorem 1.8]{Silverman-2012-ModuliSpacesArithmetic} for some references.
+	An important fact is that $R$ is given by a homogeneous polynomial; see \cite[Theorem 1.8]{Silverman-2012-ModuliSpacesArithmetic} for some references.
 	We will use this fact later.
 \end{example}
 
 \begin{example}[label=\labelNFM{eg:moduli-of-functor-of-automorphisms}, status=draft, tag=0000000, title={Automorphism group fixing an ample class}]
 	Let $X$ be a projective variety over $\kk$ and $\calH$ an ample line bundle.
 	Its \emph{moduli functor of automorphisms with polarization $\calH$} is defined as $\calAut_{(X,\calH)/\kk}(T) \coloneqq \calEnd_{(X,\calH,[\calH])/\kk}(T)$.
-	It is represented by $Aut_{(X,\calH)/\kk}$ and universal family $f: X \times Aut_{(X,\calH)/\kk} \to X \times Aut_{(X,\calH)/\kk}$.
-	This morphism $f$ is indeed an isomorphism since fiberwise it is finite and of degree $1$.
-	Then combining \cref{eg:moduli-functor-of-morphisms}, we see that $\Aut_{(X,\calH)/\kk}$ is an algebraic group.
+
+
+	It is represented by $Aut_{(X,\calH)/\kk}$ with universal family $f: X \times Aut_{(X,\calH)/\kk} \to X \times Aut_{(X,\calH)/\kk}$.
+	This morphism $f$ is indeed an isomorphism. To see this, consider a geometric fiber $f_t:X_t \to X_t$.
+	Since $f_t^*\calH$ is ample, $f_t$ is finite and surjective.
+	Since $f_t^*\calH$ is algebraically equivalent to $\calH$, their Hilbert polynomials agree.
+	For sufficiently large $m$, both $\calH^{\otimes m}$ and $f_t^*\calH^{\otimes m}$ are very ample and have no higher cohomology.
+	Hence pullback gives an isomorphism $H^0(X_t,\calH^{\otimes m}) \cong H^0(X_t,f_t^*\calH^{\otimes m})$.
+	The corresponding projective embeddings show that $f_t$ is an isomorphism.
+	Then the fiberwise isomorphism criterion used in \cref{eg:moduli-functor-of-morphisms} shows that $f$ is an isomorphism.
+	Then, combining \cref{eg:moduli-functor-of-morphisms}, we see that $\Aut_{(X,\calH)/\kk}$ is an algebraic group.
 	And the universal family $f: X \times Aut_{(X,\calH)/\kk} \to X \times Aut_{(X,\calH)/\kk} \to X$ gives a canonical action of $\Aut_{(X,\calH)/\kk}$ on $X$.
 
 	In the case $X = \bbP^n$, we do not need to choose $\calH$ and $\Aut_{\bbP^n} \cong \PGL_{n+1}$ by \cref{eg:moduli-functor-of-endmorphisms-on-pn}.
 \end{example}
 
-The main moduli functor we will care about is the moduli functor of dynamics on $\bbP^n$.
+The main moduli functor we will care about is the moduli functor of dynamics on $\bbP^n$. From now on, for dynamics we assume $n \geq 1$ and $d \geq 2$.
 
 \begin{definition}[label=\labelNFM{def:the-moduli-functor-of-dynamics-on-projective-spaces}, status=draft, tag=0000000]
-	The functor of dynamics on $\bbP^n$ with $d$-polarized is defined as
-	\[ \calD_{d \acts n}(T) \coloneqq \left\{ (f:X \to X)/T \;\middle|\; X \to T \text{ smooth projective with }  X_t \cong \bbP^n_{\rkk(t)},\ f_t^*\calO(1) \cong \calO(d) \right\} / \sim, \]
+	The functor of $d$-polarized dynamics on $\bbP^n$ is defined as
+	\[
+% 	\begin{aligned}
+% \calD_{d \acts n}(T) \coloneqq {}&\bigl\{ (f:X \to X)/T \;\bigm|\; X \to T\text{ smooth projective},\\
+% &X_{\bar t} \cong \bbP^n_{\overline{\rkk(t)}},\ f_{\bar t}^*\calO(1) \cong \calO(d)\text{ for all }t\in T\bigr\}/\sim.
+% \end{aligned}
+% 	\]
+	\calD_{d \acts n}(T) \coloneqq \left\{ (f:X \to X)/T \;\middle|\; X \to T \text{ smooth projective with geometric fiber } \bbP^n,\ f_{\overline{t}}^*\calO(1) \cong \calO(d) \right\} / \sim,
+	\]
 	where $(f:X \to X) \sim (f':X' \to X')$ if there exists an isomorphism $g: X \to X'$ over $T$ such that $f' \circ g = g \circ f$.
-	This is a functor on $\Sch_\bbZ$, and we will freely change the base to $\kk$ with the same notation.
+	This is a functor on $\sch_\bbZ^\op$, and we will freely change the base to $\kk$ with the same notation.
 \end{definition}
 
-However, as many questions we care about, the fine moduli space may do not exist.
-An important statuation is that, if there is some ``isotrivial'' but not trivial family, then it cannot be get by pull back the universal family.
+However, as in many moduli problems we care about, the fine moduli space may not exist.
+An important situation is that if there is some ``isotrivial'' but not trivial family, then it cannot be obtained by pulling back the universal family.
 And hence, $\calM$ is not representable.
 For an example of isotrivial but not trivial family, see \cref{rmk:isotrivial-family-of-dynamics}.
 
-Hence, there is a weaken version, called \emph{coarse moduli space}, satisfying the following considition:
+Hence, there is a weaker version, called \emph{coarse moduli space}, satisfying the following conditions:
 \begin{itemize}[nosep]
-	\item there is an $1:1$ corresponding between the isomorphic classes parameterized by $\calM$ and the closed points in $M$;
-	\item for every ``algebraic family $F \to T$ with fiber being objects parameterized by $\calM$'', there exists a unique morphism $f: T \to M$ induced by $F$ such that $F_t$ is isomorphic to the object parameterized by $f(t) \in M$.
+	\item there is a $1:1$ correspondence between the isomorphism classes parameterized by $\calM$ and the closed points in $M$;
+	\item for every ``algebraic family $F \to T$ whose fibers are objects parameterized by $\calM$'', there exists a unique morphism $f: T \to M$ induced by $F$ such that $F_t$ is isomorphic to the object parameterized by $f(t) \in M$.
 \end{itemize}
 
-In a rigorous language of functor, ``an algebraic family over $T$'' means an element $F$ in $\calM(T)$; a morphism corresponds to an element $f_F \in \Mor(T,M) = h_M(T)$.
+In the rigorous language of functors, ``an algebraic family over $T$'' means an element $F$ in $\calM(T)$; a morphism corresponds to an element $f_F \in \Mor(T,M) = h_M(T)$.
 Hence a coarse moduli space should consist of a scheme $M$ and a natural transformation $\eta: \calM \to h_M$ with $\eta(T):\calM(T) \to h_M(T), F \mapsto f_F$.
-The the first condition above is just $\eta(\kkk): \calM(\kkk) \to h_M(\kkk)$ being bijective.
+The first condition above is just $\eta(\kkk): \calM(\kkk) \to h_M(\kkk)$ being bijective.
 
-The remain issue is the uniqueness of $M$.
-For example, if we have a morphism $g: N \to M$ which is bijective on the level of closed points, then $(N, g^* \circ \eta)$ is another pair satisfying the conditions.
-(here $g^*:h_M \to h_N$ is the natural transformation given by composition by $g$.)
-In a reasonable sense, since $N$ is onto $M$ by $g$, we regard that $M$ is the more ``suitable'' moduli space.
-Hence we may require that the coarse moduli space $(M,\eta)$ with the universal property that other such pair $(N,\xi)$ should factor through it.
+The remaining issue is the uniqueness of $M$.
+For example, if we have a morphism $g: M \to N$ which is bijective on geometric points, then $(N, \bfh_g \circ \eta)$ also gives the same pointwise classification.
+Here $\bfh_g:h_M \to h_N$ is the natural transformation given by composition with $g$.
+Thus the pointwise classification does not determine the scheme structure.
+Hence we require the coarse moduli space $(M,\eta)$ to have the universal property that every natural transformation $\xi:\calM \to \bfh_N$ factors uniquely through $\eta$.
 
 In summary, we have the following definition.
 
@@ -519,40 +551,40 @@ In summary, we have the following definition.
 				      \arrow[from=1-1, to=2-2, "\xi"']
 			      \end{tikzcd}
 		      \]
-		\item $\eta(\kkk): \calM(\kkk) \to \bfh_M(\kkk) = M(\kkk)$ is a bijection;
+		\item for every algebraically closed extension $\Omega/\kk$, $\eta(\Omega): \calM(\Omega) \to \bfh_M(\Omega) = M(\Omega)$ is a bijection;
 	\end{enumerate}
 \end{definition}
 
-Here we only consider the $\kk$-scheme (essentially) of finite type.
+Here we only consider $\kk$-schemes (essentially) of finite type.
 
 By the universal property, if the coarse moduli space exists, then it is unique.
 
 \begin{remark}[label=\labelNFM{rmk:fine-moduli-space-is-coarse-moduli-space-and-converse-if-universal-family-exists}, status=draft, tag=0000000]
 	Let $\calM$ be a moduli functor.
 	Suppose that $\calM$ has a fine moduli space, that is, $\calM$ is representable and represented by a scheme $M$ of finite type.
-	Then easily see that $M$ is also a coarse moduli space of $\calM$.
+	Then we easily see that $M$ is also a coarse moduli space of $\calM$.
 
 	Conversely, suppose that $\calM$ has a coarse moduli space $(M,\eta)$.
-	Then $M$ is a fine moduli space iff $\eta$ is a natural-isomorphism.
-	This is also equivalent to that $\eta(T)$ is injective for all $T$ and there exists an element $\calX \in \calM(M)$ which gives the identity morphism $\eta(M)(\calX) = \id_M \in h_{M}(M)$.
+	Then $M$ is a fine moduli space iff $\eta$ is a natural isomorphism.
+	This is also equivalent to the condition that $\eta(T)$ is injective for all $T$ and there exists an element $\calX \in \calM(M)$ which gives the identity morphism $\eta(M)(\calX) = \id_M \in h_{M}(M)$.
 \end{remark}
 
 \begin{example}[label=\labelNFM{eg:linear-map-with-universal-properties-is-not-coarse-moduli}, status=draft, tag=0000000]
-	Let us see an example of moduli functor with the universal property in \cref{def:the-coarse-moduli-space} but has no coarse moduli space.
+	Let us see an example of a moduli functor with the universal property in \cref{def:the-coarse-moduli-space} but with no coarse moduli space.
 	Consider
-	\[ \calM(T) = \left\{  (f:\calE \to \calE)/T \;\middle|\; \calE \text{ vector bundle of rank $n$ over } T \right\} / \sim, \]
+	\[ \calM(T) = \left\{ (f:\calE \to \calE)/T \;\middle|\; \calE \text{ vector bundle of rank $n$ over } T \right\} / \sim, \]
 	where
-	$(f:\calE \to \calE) \sim (f':\calE' \to \calE')$ if there exists an isomorphism $g: X \to X'$ over $T$ such that $f' \circ g = g \circ f$.
-	Also denoted by $M_n \cong \bbA^{n^2}$ the variety of matrices of size $n$.
+	$(f:\calE \to \calE) \sim (f':\calE' \to \calE')$ if there exists an isomorphism $g: \calE \to \calE'$ over $T$ such that $f' \circ g = g \circ f$.
+	Also denote by $M_n \cong \bbA^{n^2}$ the variety of matrices of size $n$.
 
 
-	Set $E_n = M_n/\GL_n \cong \bbA^n$ as \cref{eg:eigenvalues-as-categorical-quotients} and $\eta: \calM \to \bfh_M$ by
+	Set $E_n = M_n/\GL_n \cong \bbA^n$ as in \cref{eg:eigenvalues-as-categorical-quotients} and $\eta: \calM \to \bfh_{E_n}$ by
 	\[ \eta(T): \calM(T) \to \bfh_{E_n}(T), \quad (\calE,f) \mapsto \upoperatorname{Eigen}(f) = (\Tr f, \Tr f^2, \cdots, \Tr f^n). \]
 	Since $f$ locally is given by $f_U = (f_{U,ij})_{ij}: \calO_U^{\oplus n} \to \calO_U^{\oplus n}$ with $f_{U,ij} \in \calO_T(U)$, $\Tr f$ is indeed a well-defined morphism.
 
-	Give any pair $(N,\xi: \calM \to \bfh_N)$, let us construct the factorization $\tilde{\xi}: \bfh_M \to \bfh_N$.
+	Given any pair $(N,\xi: \calM \to \bfh_N)$, let us construct the factorization $\tilde{\xi}: \bfh_{E_n} \to \bfh_N$.
 	First the universal family $\calU$ on $M_n$, more explicitly, $\calU = (a_{ij})_{ij}: \calO^{\oplus n}_{M_n} \to \calO^{\oplus n}_{M_n}$ with $\calO_{M_n} = \kk[a_{11},\cdots,a_{nn}]$, gives a morphism $M_n \to \calM$.
-	Followed by $\calM \to E_n$, we get the quotient map in \cref{eg:eigenvalues-as-categorical-quotients}.
+	Composing with $\calM \to E_n$, we get the quotient map in \cref{eg:eigenvalues-as-categorical-quotients}.
 	Then we have
 	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXEVuZCJdLFsxLDAsIlxcY2FsRCJdLFsyLDAsIkQiXSxbMiwxLCJOIl0sWzAsMSwiXFxjYWxVIl0sWzEsMywiXFx4aSIsMl0sWzEsMiwiXFxldGEiXSxbMiwzLCJcXHRpbGRle1xceGl9Il1d
 	\[\begin{tikzcd}
@@ -566,13 +598,13 @@ By the universal property, if the coarse moduli space exists, then it is unique.
 	We need to check the commutativity of the right triangle.
 
 	Fix $T/\kk$ and $(f:\calE \to \calE/T) \in \calM(T)$.
-	Set $p:P \to T$ be the scheme over $T$ parameterizing the isomorphism between $\calO_{T}^{\oplus n}$ and $\calE$.
+	Let $p:P \to T$ be the scheme over $T$ parameterizing isomorphisms between $\calO_{T}^{\oplus n}$ and $\calE$.
 	It is a $\GL_n$-torsor since locally $\calO_{U}^{\oplus n} \cong \calE_{U}$ and we have a universal family $\calI: \calE_P \cong \calO_P^{\oplus n}$.
 	Then we get
 	\[ f': \calO_P^{\oplus n} \xrightarrow{\calI^{-1}} \calE_P \xrightarrow{f} \calE_P \xrightarrow{\calI} \calO_P^{\oplus n}. \]
 	Then it induces a morphism $P \to M_n$.
-	This morphism is $GL_n$-equivariant, where the action on left is given by the translation on $P$ and on right is given by the conjugation.
-	We get the left diagram
+	This morphism is $\GL_n$-equivariant, where the action on the left is given by translation on $P$ and on the right is given by conjugation.
+	We get the diagram on the left
 	% https://q.uiver.app/#q=WzAsNCxbMiwxLCJEIl0sWzAsMCwiXFxFbmQiXSxbMSwxLCJQIl0sWzEsMiwiTiJdLFsyLDFdLFsxLDMsIlxceGkiLDJdLFsxLDAsIlxccGkiXSxbMCwzLCJcXHRpbGRle1xceGl9Il1d
 	\[\begin{tikzcd}
 			M_n && \\
@@ -594,12 +626,12 @@ By the universal property, if the coarse moduli space exists, then it is unique.
 			\arrow["{\tilde{\xi}}", from=1-2, to=2-1]
 		\end{tikzcd}
 	\]
-	and quotient by $\GL_{n+1}$, we get the right one which is commutative.
+	and taking the quotient by $\GL_n$, we get the diagram on the right , which is commutative.
 	%
 	% \Yang{}
 	%
 	% First consider $T = \Spec A$ with $A$ local ring.
-	% Given $(\calE,f) \in \calM(T)$, the trivialization of $\calE$ forms a $\GL_n(A)$-torsor (A $G$-torsor means a $G$-variety isomorphic to $G$ equipped with left translation action but without a canonical identity element), denoted it by $P$.
+	% Given $(\calE,f) \in \calM(T)$, the trivializations of $\calE$ form a $\GL_n(A)$-torsor (a $G$-torsor means a $G$-variety isomorphic to $G$ equipped with the left translation action but without a canonical identity element); denote it by $P$.
 	% Fix a trivialization $\varphi: \calE \to A^{\oplus n}$, then $f$ can be represented by a matrix $(f_{ij})_{ij} \in M_n(A)$.
 	% That is, we have an isomorphism $\calM(A) \times P(A) \to M_n(A)$.
 	% Then we have a diagram by the universal property of
@@ -618,60 +650,51 @@ By the universal property, if the coarse moduli space exists, then it is unique.
 	% This diagram is functorial in the category of local rings.
 	% For a general $T$, for every $t \in T$, we can define $\tilde{\xi}(\calO_{T,t})$ as above.
 	% Then it extends to a neighborhood $U \subset T$ of $t$.
-	% And then, we can glue them since $\tilde{\xi}(\calO_{T,t})$ is uniquely determined and then get $\tilde{\xi}(T)$.
+	% And then we can glue them since $\tilde{\xi}(\calO_{T,t})$ is uniquely determined, and get $\tilde{\xi}(T)$.
 	%
 	% \Yang{above is wrong}
 
-	However, $E_n$ is not a coarse moduli spaces since $\calM(\kkk)$ is the set of Jordan form of matrices with size $n$ and $E_n(\kkk)$ only captures the eigenvalues.
+	However, $E_n$ is not a coarse moduli space since $\calM(\kkk)$ is the set of Jordan forms of matrices of size $n$ and $E_n(\kkk)$ only captures the eigenvalues.
 \end{example}
 
 \begin{remark}[label=\labelNFM{rmk:general-construction-of-quotient-by-quotient-stacks}, status=draft, tag=0000000]
-	Above construction in \cref{eg:linear-map-with-universal-properties-is-not-coarse-moduli} have some very general statements, namely \emph{quotient stack}.
+	The above construction in \cref{eg:linear-map-with-universal-properties-is-not-coarse-moduli} has a very general formulation, namely \emph{quotient stacks}.
 	But we will not explore this theory.
-	I only want to emphasis that on above construction, the fact that the object (vector bundle) is locally trivial is very important.
-	Hence in general theory, we need to equip the base category $\bfS$ with some Grothendieck topology.
+	I only want to emphasize that in the above construction, the fact that the object (vector bundle) is locally trivial is very important.
+	Hence in the general theory, we need to equip the base category $\bfS$ with some Grothendieck topology.
 \end{remark}
-
-
-
-
-
-
-
-
-
 
 
 \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:automorphism-group-and-construction-of-coarse-moduli}]{Automorphism groups and coarse moduli}
 
-First we show that the automorphism group of a dynamics $f: \bbP^n \to \bbP^n$ is finite.
+First we show that the automorphism group of a dynamical system $f: \bbP^n \to \bbP^n$ is finite.
 
 \begin{definition}[label=\labelNFM{def:automorphism-group-of-dynamics}, status=draft, tag=0000000]
 	Let $f \in \End_{(\bbP^n, d)/\kk}(\KK)$.
-	Then its automorphism group, is defined as an algebraic subgroup of $\PGL_{n+1}$ over $\KK$ by
-	\[ \Aut_f(T) \coloneqq \left\{ g \in \PGL_{n+1}(T) \;\middle|\; g \circ f_T = f_T \circ g \right\}.  \]
+	Then its automorphism group is defined as an algebraic subgroup of $\PGL_{n+1}$ over $\KK$ by
+	\[ \Aut_f(T) \coloneqq \left\{ g \in \PGL_{n+1}(T) \;\middle|\; g \circ f_T = f_T \circ g \right\}. \]
 \end{definition}
 
 Since the condition $g \circ f_T = f_T \circ g$ is algebraic and $\End_{(\bbP^n,d)/\kk}$ is separated, the functor $\Aut_f$ is representable by an algebraic subgroup of $\PGL_{n+1}$.
 
 \begin{proposition}[label=\labelNFM{prop:automorphism-group-of-dynamics-on-pn-is-finite}, status=draft, tag=0000000]
-	Let $f: \bbP^n \to \bbP^n$ a surjective endomorphism with dynamics degree $d \geq 2$ over a field $\kk$.
-	Then its automorphism is finite, that is,
-	\[ \# \Aut_{f}(\kkk) < \infty.  \]
+	Let $f: \bbP^n \to \bbP^n$ be a surjective endomorphism with dynamical degree $d \geq 2$ over a field $\kk$.
+	Then its automorphism group is finite, that is,
+	\[ \# \Aut_{f}(\kkk) < \infty. \]
 \end{proposition}
 \begin{proof}
 	Here we take a shortcut.
-	WOLG, we may base change to $\kkk$ and then assume the base field is algebraically closed.
+	WLOG, we may base change to $\kkk$ and then assume the base field is algebraically closed.
 	By \cite{Fakhruddin-2003-QuestionsSelfMaps,Briend-Duval-2001-DeuxCaracterisationsMesure,Dinh-Sibony-2010-DynamicsSeveralComplex}, the periodic points of $f$ are Zariski dense in $\bbP^n$.
-	Hence we can take $x_1,\cdots,x_{n+1} \in \Per(f)$ whose lifts to $\kkk^{n+1}$ are linearly independent and $x_{n+2} \in \Per(f)$ whose lifts has nonzero coordinate for all $i=1,\cdots,n+1$ under the basis $x_1,\cdots,x_{n+1}$.
-	If an automorphism $g \in \Aut_{\bbP^n}(\kkk) = \PGL_{n+1}(\kkk)$ fix all $x_1,\cdots,x_{n+2}$, then $g$ must be identity on $\bbP^n$.
+	Hence we can take $x_1,\cdots,x_{n+1} \in \Per(f)$ whose lifts to $\kkk^{n+1}$ are linearly independent and $x_{n+2} \in \Per(f)$ whose lift has a nonzero coordinate for all $i=1,\cdots,n+1$ with respect to the basis $x_1,\cdots,x_{n+1}$.
+	If an automorphism $g \in \Aut_{\bbP^n}(\kkk) = \PGL_{n+1}(\kkk)$ fixes all $x_1,\cdots,x_{n+2}$, then $g$ must be the identity on $\bbP^n$.
 
-	There exists $N \geq 0$ such that $x_i \in \Per_N(f)$ for all $i = 1,\cdots,n+2$.
+	There exists $N \geq 1$ such that $x_i \in \Per_N(f)$ for all $i = 1,\cdots,n+2$.
 	Note that $\Per_N(f)$ is a finite set.
 	And $\forall x \in \Per_N(f)$,
 	\[ f^N(g(x)) = g(f^N(x)) = g(x). \]
-	Hence $g(\Per_N(f)) \subset \Per_N(f)$ and then $g(\Per_N(f)) = \Per_N(f))$.
-	Hence we find an homomorphism
+	Hence $g(\Per_N(f)) \subset \Per_N(f)$ and then $g(\Per_N(f)) = \Per_N(f)$.
+	Hence we find a homomorphism
 	\[ \Aut_{f/\kk}(\kkk) \injmap \upoperatorname{Permutation}(\Per_N(f)). \]
 	It is injective since $x_i \in \Per_N(f)$.
 	The latter is finite and hence so is $\Aut_{f/\kk}(\kkk)$.
@@ -679,26 +702,26 @@ Since the condition $g \circ f_T = f_T \circ g$ is algebraic and $\End_{(\bbP^n,
 
 \begin{example}[label=\labelNFM{eg:power-map-has-nontrivial-automorphism-by-unit-roots}, status=draft, tag=0000000]
 	Consider the power map $f: z \mapsto z^d$ for $d \geq 3$.
-	Then $\mu_{d-1} \in \Aut_{f/\kk}(\kkk)$ since $m_\xi \circ f \circ m_{\xi^{-1}} (z) = \xi \cdot \xi^{-d} z^{d} = z^d = f(z)$ for $\xi \in \mu_{d-1}$ and $m_a$ is the map given by muliplication of $a$.
+	Then $\mu_{d-1} \subset \Aut_{f/\kk}(\kkk)$ since $m_\xi \circ f \circ m_{\xi^{-1}} (z) = \xi \cdot \xi^{-d} z^{d} = z^d = f(z)$ for $\xi \in \mu_{d-1}$ and $m_a$ is the map given by multiplication by $a$.
 \end{example}
 
 \begin{example}[label=\labelNFM{eg:power-map-has-nontrivial-automorphism-by-permutation}, status=draft, tag=0000000]
 	More generally, let $f: [x_0:\cdots:x_n] \mapsto [x_0^d:\cdots:x_n^d]$.
-	Then any involution $\tau \in \frakS_{n+1}$, i.e., an permutation of $n+1$ symbol satisfying $\tau^2 = \id$, induces an automorphism $g_\tau \in \Aut_{\bbP^n}(\kk)$ by $[x_0:\cdots : x_n] \mapsto [x_{\tau(0)}:\cdots:x_{\tau(n)}]$ which is commutative with $f$.
-	In particular, $f$ has non-trivial automorphism group and $\calD_{d,n}$ can't have a fine moduli space by \cref{rmk:isotrivial-family-of-dynamics}.
+	Then any involution $\tau \in \frakS_{n+1}$, i.e., a permutation of $n+1$ symbols satisfying $\tau^2 = \id$, induces an automorphism $g_\tau \in \Aut_{\bbP^n}(\kk)$ by $[x_0:\cdots : x_n] \mapsto [x_{\tau(0)}:\cdots:x_{\tau(n)}]$ which commutes with $f$.
+	In particular, $f$ has a non-trivial automorphism group and $\calD_{d\acts n}$ can't have a fine moduli space by \cref{rmk:isotrivial-family-of-dynamics}.
 \end{example}
 
 \begin{remark}[label=\labelNFM{rmk:isotrivial-family-of-dynamics}, status=draft, tag=0000000]
 	Let $\calM$ be a moduli functor.
-	If some elements $X \in \calM(\kkk)$ has ``non-trivial automorphism group'', it is usually easy to construct a ``isotrivial but not trivial family''.
+	If some element $X \in \calM(\kkk)$ has a ``non-trivial automorphism group'', it is usually easy to construct an ``isotrivial but not trivial family''.
 	Let us illustrate it using $\calD_{d \acts n}$ as an example.
 
 	Let $f \in \calD_{d \acts n}(\kkk)$ with $\sigma \in \Aut_f(\kkk)$ of order two.
-	Set $T'$ be an elliptic curve with a $2$-torsion $\tau$ and $q_{T}:T' \to T = T'/\tau$.
+	Let $T'$ be an elliptic curve with a nonzero $2$-torsion point $\tau$ and $q_{T}:T' \to T = T'/\tau$.
 	Consider $G = \bbZ/2\bbZ$ acting on $\bbP^n \times T'$ by $\sigma \times \tau$ and denote the quotient by $q_\calX: \bbP^n \times T' \to \calX$.
 	The morphisms $f \times \id \acts \bbP^n \times T'$ and $\bbP^n \times T' \to T'$ are equivariant and descend to
 	\[ \calf: \calX \to \calX, \quad \calX \to T. \]
-	Pullback the family $\calX \to T$ along $G \acts T' \to T$, we get a diagram
+	Pulling back the family $\calX \to T$ along $G \acts T' \to T$, we get a diagram
 	\[
 		\begin{tikzcd}
 			\sigma \times \tau \acts \bbP^n \times T' & & \\
@@ -713,9 +736,9 @@ Since the condition $g \circ f_T = f_T \circ g$ is algebraic and $\End_{(\bbP^n,
 			\arrow[from=3-2, to=3-3]
 		\end{tikzcd}
 	\]
-	Since both $q_\calX$ and $p_\calX$ are \'etale cover of degree $2$, $\varphi$ is an isomorphism.
+	Since both $q_\calX$ and $p_\calX$ are \'etale covers of degree $2$, $\varphi$ is an isomorphism.
 	Then $\calX \to T$ is isotrivial.
-	And also easily see that $\calf_t$ is also isotrivial.
+	And we easily see that the family $\calf$ is also isotrivial.
 	% Note that $G \acts \calX_{T'}$ is given by pullback of $G \acts \calX$.
 	Suppose that $\calX \cong T \times \bbP^n$ is trivial.
 	Then we get a diagram
@@ -729,21 +752,21 @@ Since the condition $g \circ f_T = f_T \circ g$ is algebraic and $\End_{(\bbP^n,
 			\arrow[from=2-1, to=2-2, "\id \times \tau"]
 		\end{tikzcd}
 	\]
-	Note that $\varphi$ is over $T'$, then $\varphi \in \Aut_{\bbP^n}(T') = \PGL_{n+1}(T') = \PGL_{n+1}(\kkk)$ since $T'$ is proper.
+	Note that $\varphi$ is over $T'$, so $\varphi \in \Aut_{\bbP^n}(T') = \PGL_{n+1}(T') = \PGL_{n+1}(\kkk)$ since $T'$ is proper.
 	Then $\varphi = \phi \times \id$ and the commutative diagram gives $(\phi \circ \sigma) \times \tau = \phi \times \tau$.
 	That is, $\phi \circ \sigma = \phi$ and then $\sigma = \id$.
 	This contradicts the condition.
-	Hence $\calX$ is not trivial and then $\calf$.
+	Hence $\calX$ is not trivial and neither is $\calf$.
 
-	View $T'$ as a $G$-torsor over $T$, then $\calX = T' \times_T (\bbP^n \times T) / T' \eqqcolon T' \times^G (\bbP^n \times T)$.
-	This construction is classic, and called the \emph{associated bundle}.
+	Viewing $T'$ as a $G$-torsor over $T$, we have $\calX = \bigl(T' \times_T (\bbP^n \times T)\bigr)/G \eqqcolon T' \times^G (\bbP^n \times T)$, where the nontrivial element of $G$ acts by translation by $\tau$ on $T'$ and by $\sigma$ on $\bbP^n$.
+	This construction is classical and is called the \emph{associated bundle}.
 \end{remark}
 
 
-% Moreover, the bound is uniform in term of dimension $n$ and degree $d$.
+% Moreover, the bound is uniform in terms of dimension $n$ and degree $d$.
 %
 % \begin{theorem}[label=\labelNFM{thm:uniform-bound-for-the-auto-group-of-dynamics-on-pn}, status=draft, tag=0000000, title={{ref. \cite[Theorem 3.1]{Levy-2011-SpaceMorphismsProjective}}}]
-% 	Let $f: \bbP^n \to \bbP^n$ a surjective endomorphism of dynamical degree $d \geq 2$ over a field $\kk$.
+% 	Let $f: \bbP^n \to \bbP^n$ be a surjective endomorphism of dynamical degree $d \geq 2$ over a field $\kk$.
 % 	There exists a number $C$ depending only on $n$ and $d$ such that for any field $\KK$ and $[f] \in \calD_{d \acts n}(\KK)$,
 % 	\[ \# \Aut_{f}(\KK) \leq C. \]
 % \end{theorem}
@@ -755,20 +778,20 @@ Since the condition $g \circ f_T = f_T \circ g$ is algebraic and $\End_{(\bbP^n,
 % 	\end{step}
 %
 % 	Directly from \cref{prop:automorphism-group-of-dynamics-on-pn-is-finite}.
-% 	Also there is an independent proof in \cite{Levy-2011-SpaceMorphismsProjective} which also works in positive characteristic.
+% 	There is also an independent proof in \cite{Levy-2011-SpaceMorphismsProjective} which works in positive characteristic.
 %
 % 	\begin{step}
-% 		Let $A \subset \Aut_{[f]}(\kkk) \cap D_n(\kkk)$ with $D_n \subset \PGL_n$ is the group of diagonal matrix.
+% 		Let $A \subset \Aut_{[f]}(\kkk) \cap D_n(\kkk)$, where $D_n \subset \PGL_n$ is the group of diagonal matrices.
 % 		Then there exists a constant $C_{n,d}$ depending only on $n$ and $d$ such that $\# A \leq C_{n,d}$.
 % 	\end{step}
 %
 % 	Fix a representation $f=[f_0:\cdots:f_n]$ and choose $j_i$ such that $f_{j_i} = ax_i^d + \text{other items}$ with $a \neq 0$.
 % 	For any $g \in A$, choose $g = \diag(t_0,\cdots,t_n)$ with $f \circ g = g\circ f$.
-% 	Compare the $j_i$-th coordinate we get $t_{j_i} = t_i^d$.
+% 	Comparing the $j_i$-th coordinates, we get $t_{j_i} = t_i^d$.
 % 	Set $\varphi: \{0,\cdots,n\} \to \{0,\cdots,n\}, i \mapsto j_i$.
 % 	All $i$ are preperiodic points under $\varphi$.
 % 	Hence $t_i^{d^k-d^l} = 1$ for some $l \leq k \leq n+1$.
-% 	Then there are only finitely many choice of $t_i$ and the number is bounded by some number depending only on $d$ and $n$.
+% 	Then there are only finitely many choices of $t_i$ and the number is bounded by some number depending only on $d$ and $n$.
 %
 % 	\begin{step}
 % 		Let $G$ be a group such that any abelian subgroup $A < G$ with $\# A \leq C$.
@@ -780,7 +803,7 @@ Since the condition $g \circ f_T = f_T \circ g$ is algebraic and $\End_{(\bbP^n,
 % 	For details, see \cite[Proposition 3.4]{Levy-2011-SpaceMorphismsProjective}.
 % \end{proof}
 
-Now let us turn to construct the coarse moduli of dynamics on $\bbP^n$ by GIT.
+Now let us turn to constructing the coarse moduli space of dynamics on $\bbP^n$ by GIT.
 % The \cref{prop:automorphism-group-of-dynamics-on-pn-is-finite} is enough to show the existence of the coarse moduli space.
 
 \begin{theorem}[label=\labelNFM{thm:existence-of-coarse-moduli-of-dynamics-on-projective-space}, status=draft, tag=0000000]
@@ -796,7 +819,7 @@ Now let us turn to construct the coarse moduli of dynamics on $\bbP^n$ by GIT.
 	By \cref{eg:moduli-functor-of-endmorphisms-on-pn}, $\End_{\bbP^n,d} = \bbP^N \setminus H$ with $H$ an ample divisor.
 	Then $\End_{\bbP^n,d}$ is affine.
 	By \cref{thm:quotient-of-reductive-acting-on-affine}, the quotient $D_{d\acts n} = \End_{\bbP^n,d} / \PGL_{n+1}$ exists as an affine variety.
-	To show it is a geometric quotient, only need to check the orbit.
+	To show it is a geometric quotient, we only need to check the orbits.
 	If there is a non-closed orbit $\PGL_{n+1}.f$, then choose $g \in \overline{\PGL_{n+1}.f}\setminus \PGL_{n+1}.f$.
 	We have $\dim \PGL_{n+1}.f > \dim \PGL_{n+1}.g$.
 	Note that for any $h \in \End_{\bbP^n,d}(\kkk)$, we have $\dim \PGL_{n+1}.h + \dim \Aut_h = \dim \PGL_{n+1}$.
@@ -804,33 +827,33 @@ Now let us turn to construct the coarse moduli of dynamics on $\bbP^n$ by GIT.
 	This contradicts \cref{prop:automorphism-group-of-dynamics-on-pn-is-finite}.
 
 	\begin{step}
-		We construct the natural transformation $\eta: \calD_{d \acts n} \to \bfh_D$ and show the bijection $\calD_{d \acts n}(\kkk) \to D_{d \acts n}(\kkk)$.
+		We construct the natural transformation $\eta: \calD_{d \acts n} \to \bfh_D$ and show that it gives a bijection $\calD_{d \acts n}(\kkk) \to D_{d \acts n}(\kkk)$.
 	\end{step}
 
 	Given $T/\kk$ and $(f:\calX \to \calX) \in \calD_{d\acts n}(T)$, we construct $T \to D$ as follows.
 	Fix an \'etale covering $\{T_i \to T\}$ trivializing $\calX$ by \cref{lem:pn-bundle-is-etale-trivial}.
 
-	On $T_i$, set $P$ be the scheme parameterizing isomorphism between $\calX_{T_i}$ and $\bbP^n \times T_i$ over $T_i$.
+	On $T_i$, let $P$ be the scheme parameterizing isomorphisms between $\calX_{T_i}$ and $\bbP^n \times T_i$ over $T_i$.
 	It is a $\PGL_{n+1}$-torsor $P$ and we have a universal family $\calI: \calX_{T_i} \times_{T_i} P \to (\bbP^n \times T_i) \times_{T_i} P$.
 	Then we get
 	\[ f': (\bbP^n \times T_i) \times_{T_i} P \xrightarrow{\calI^{-1}} \calX_{T_i} \times_{T_i} P \xrightarrow{f \times \id} \calX_{T_i} \times_{T_i} P \xrightarrow{\calI} (\bbP^n \times T_i) \times_{T_i} P. \]
-	Easily see that this morphism is over $P = T_i \times_{T_i} P$ and has graph flat over $P$.
+	We easily see that this morphism is over $P = T_i \times_{T_i} P$ and has graph flat over $P$.
 	Then it induces a morphism $P \to \End_{\bbP^n,d}$.
-	This morphism is $\PGL_n$-invariant, where the action on left is given by the translation on $P$ and on right is given by the conjugation.
-	Taking quotient we get $T_i \to D_{d \acts n}$.
+	This morphism is $\PGL_{n+1}$-equivariant, where the action on the left is given by translation on $P$ and on the right is given by conjugation.
+	Taking the quotient, we get $T_i \to D_{d \acts n}$.
 
-	Above arguments are compatible with \'etale localization and base change.
-	Then gluing them we get the morphism $T \to D$.
+	The above arguments are compatible with \'etale localization and base change.
+	Then, gluing them, we get the morphism $T \to D$.
 	And the map $\calD_{d \acts n}(T) \to D_{d \acts n}(T)$ is natural and we get the natural transformation $\eta$.
-	By the definition and construction, we have $\calD_{d\acts n}(\kkk) = \End_{\bbP^n,d}(\kkk)/\PGL_{n+1}(\kkk) = D_{d \acts n}(\kkk)$ coinciding with the $\eta(\kkk)$.
-	Here the later equality is since the quotient is a geometric quotient.
+	By the definition and construction, we have $\calD_{d\acts n}(\kkk) = \End_{\bbP^n,d}(\kkk)/\PGL_{n+1}(\kkk) = D_{d \acts n}(\kkk)$ which coincides with $\eta(\kkk)$.
+	Here the latter equality holds because the quotient is a geometric quotient.
 
 	\begin{step}
-		Check that the universal property of $\eta: \calD_{d \acts n} \to D_{d\acts n}$ and hence finish the proof.
+		Check the universal property of $\eta: \calD_{d \acts n} \to D_{d\acts n}$ and hence finish the proof.
 	\end{step}
 
 	The universal family $\calU$ on $\End_{\bbP^n,d}$ gives a morphism $\End \to \calD$.
-	Followed by $\eta$, we recover the quotient map $\End \to D$ since $\calU$ is $\PGL_{n+1}$-invariant.
+	Composing with $\eta$, we recover the quotient map $\End \to D$ since $\calU$ is $\PGL_{n+1}$-invariant.
 	Then we have
 	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXEVuZCJdLFsxLDAsIlxcY2FsRCJdLFsyLDAsIkQiXSxbMiwxLCJOIl0sWzAsMSwiXFxjYWxVIl0sWzEsMywiXFx4aSIsMl0sWzEsMiwiXFxldGEiXSxbMiwzLCJcXHRpbGRle1xceGl9Il1d
 	\[\begin{tikzcd}
@@ -845,7 +868,7 @@ Now let us turn to construct the coarse moduli of dynamics on $\bbP^n$ by GIT.
 
 	Fix $T/\kk$ and $(f:\calX \to \calX/T) \in \calD_{d\acts n}(T)$.
 	Fix an \'etale covering $\{T_i \to T\}$ trivializing $\calX$ by \cref{lem:pn-bundle-is-etale-trivial}.
-	On $T_i$, set $P$ as previous step, we get the left diagram
+	On $T_i$, take $P$ as in the previous step; we get the diagram on the left
 	% https://q.uiver.app/#q=WzAsNCxbMiwxLCJEIl0sWzAsMCwiXFxFbmQiXSxbMSwxLCJQIl0sWzEsMiwiTiJdLFsyLDFdLFsxLDMsIlxceGkiLDJdLFsxLDAsIlxccGkiXSxbMCwzLCJcXHRpbGRle1xceGl9Il1d
 	\[\begin{tikzcd}
 			\End && \\
@@ -867,13 +890,13 @@ Now let us turn to construct the coarse moduli of dynamics on $\bbP^n$ by GIT.
 			\arrow["{\tilde{\xi}}", from=1-2, to=2-1]
 		\end{tikzcd}
 	\]
-	and quotient by $\PGL_{n+1}$, we get the right one.
+	and taking the quotient by $\PGL_{n+1}$, we get the diagram on the right .
 	On each $T_i$, $\xi_{T_i}(f) = \tilde{\xi} \circ \eta_{T_i}(f)$.
 	Then they coincide on $T$.
 \end{proof}
 
 \begin{lemma}[label=\labelNFM{lem:pn-bundle-is-etale-trivial}, status=draft, tag=0000000]
-	Let $\pi: X \to S$ be a proper flat morphism with geometric fiber isomorphic to $\bbP^n$ and $S$ noetherian.
+	Let $\pi: X \to S$ be a proper flat morphism with geometric fibers isomorphic to $\bbP^n$ and $S$ noetherian.
 	Then
 	\begin{enumerate}
 		\item if $\pi$ has a section, then it is Zariski locally trivial;
@@ -883,49 +906,52 @@ Now let us turn to construct the coarse moduli of dynamics on $\bbP^n$ by GIT.
 \begin{proof}
 	We show (a) and then (b) follows from (a) and \cite[\href{https://stacks.math.columbia.edu/tag/055U}{Tag 055U}]{Stacksprojectauthors-2026-StacksProject}.
 
-	Let $p:X^\vee \to S$ be the hilbert scheme of hyperplanes in $X$ over $S$ as \cref{eg:dual-projective-space} with universal family $\calU \subset X \times_S X^\vee$.
-	Consider the line bundle $\calL = (\sigma \times \id)^*\calU$ on $S \times_S X^\vee$, here $\sigma:S \to X$ is a section of $X$ over $S$.
-	Over $s \in S$, we have $\calL|_{X^\vee_{\bar{s}}} \cong \calO(1)$ on $X^\vee_{\bar{s}} \cong \bbP^n_{\bar{\rkk(s)}}$.
-	Then by some standard arguments (see \cite[Chapter V, Proposition 2.2]{Hartshorne-1977-AlgebraicGeometry}), we have $X^\vee \cong \bbP_S(p_*\calL)$ and hence $X \cong \bbP_S(p_*\calL^\vee)$.
+
+	Since $\pi$ is flat with smooth geometric fibers, it is smooth. Its relative anticanonical bundle is relatively ample, so we may work locally on $S$ with a projective morphism.
+	Let $p:X^\vee \to S$ be the Hilbert scheme of hyperplanes in $X$ over $S$ as in \cref{eg:dual-projective-space} with universal divisor $\calU \subset X \times_S X^\vee$.
+	Consider the line bundle $\calL = (\sigma \times \id)^*\calO_{X \times_S X^\vee}(\calU)$ on $X^\vee$, where $\sigma:S \to X$ is a section of $X$ over $S$.
+	Over $s \in S$, we have $\calL|_{X^\vee_{\bar{s}}} \cong \calO(1)$ on $X^\vee_{\bar{s}} \cong \bbP^n_{\overline{\rkk(s)}}$.
+	By cohomology and base change, $\calE = p_*\calL$ is locally free of rank $n+1$, and the evaluation map $p^*\calE \to \calL$ is surjective.
+	Then the complete linear system gives $X^\vee \cong \bbP_S(\calE)$.
+	Taking the relative dual projective space gives $X \cong \bbP_S(\calE^\vee)$, so $X \to S$ is Zariski locally trivial.
 \end{proof}
 
 
-
-A good example is the degree two dynamics on projective line; see \cref{eg:moduli-of-degree-two-maps-on-p1}.
+A good example is the degree two dynamics on the projective line; see \cref{eg:moduli-of-degree-two-maps-on-p1}.
 
 \begin{remark}[label=\labelNFM{rmk:rational-and-unirational-of-coarse-moduli-of-dynamics-on-pn}, status=draft, tag=0000000]
-	The coarse moduli spaces $D_{d\acts n}$ is unirational since $\End_{\bbP^n,d}$ is rational and the quotient map $\End_{\bbP^n,d} \to D_{d\acts n}$ is surjective.
-	Moreover, $D_{d \acts 1}$ is indeed ratioinal for all $d \geq 1$; see \cite[Theorem 4.1]{Levy-2011-SpaceMorphismsProjective}.
+	The coarse moduli space $D_{d\acts n}$ is unirational since $\End_{\bbP^n,d}$ is rational and the quotient map $\End_{\bbP^n,d} \to D_{d\acts n}$ is surjective.
+	Moreover, $D_{d \acts 1}$ is indeed rational for all $d \geq 2$; see \cite[Theorem 4.1]{Levy-2011-SpaceMorphismsProjective}.
 \end{remark}
 
 Let us describe the distribution of dynamics with automorphism groups.
 
 \begin{theorem}[label=\labelNFM{prop:semicontinuity-of-automorphism-group-of-dynamics}, status=draft, tag=0000000]
 	Work over $\kkk$.
-	Set $\Sigma \coloneqq \left\{ G < \PGL_{n+1}(\kkk) \;\middle|\; \#G < \infty  \right\}/ \PGL_{n+1}(\kkk)$ with the conjugation action.
-	The set $\Sigma$ inherts a partial order from the inclusion on $\left\{ G < \PGL_{n+1}(\kkk) \;\middle|\; \#G < \infty  \right\}$.
-	Associating every dynamics $f \in D_{d \acts n}(\kkk)$ with the conjugation class of its automorphism group, we get a map
-	\[ \Phi: D_{d \acts n}(\kkk) \to \Sigma \coloneqq \left\{ G < \PGL_{n+1}(\kkk) \;\middle|\; \#G < \infty  \right\} \big/ \PGL_{n+1}(\kkk), \quad f \mapsto [\Aut_f(\kkk)]. \]
+	Set $\Sigma \coloneqq \left\{ G < \PGL_{n+1}(\kkk) \;\middle|\; \#G < \infty \right\}/ \PGL_{n+1}(\kkk)$ with the conjugation action.
+	The set $\Sigma$ inherits a partial order from inclusion on $\left\{ G < \PGL_{n+1}(\kkk) \;\middle|\; \#G < \infty \right\}$.
+	Associating every dynamical system $f \in D_{d \acts n}(\kkk)$ with the conjugation class of its automorphism group, we get a map
+	\[ \Phi: D_{d \acts n}(\kkk) \to \Sigma \coloneqq \left\{ G < \PGL_{n+1}(\kkk) \;\middle|\; \#G < \infty \right\} \big/ \PGL_{n+1}(\kkk), \quad f \mapsto [\Aut_f(\kkk)]. \]
 	\begin{enumerate}
 		\item For any $[f_0] \in D_{d\acts n}(\kkk)$, there is an open neighborhood $U$ of $[f_0]$ such that $\Phi([f]) \leq \Phi([f_0])$ for any $[f] \in U$.
-		\item The map $\Phi$ can be extended to $D_{d \acts n}$ in the sense that for all scheme-theoretical point $\xi \in D_{d \acts n}$, there exists nonempty open subset $U \subset \overline{\{\xi\}}$ such that $\Phi$ is constant on $U$;
+		\item The map $\Phi$ can be extended to $D_{d \acts n}$ in the sense that for every scheme-theoretic point $\xi \in D_{d \acts n}$, there exists a nonempty open subset $U \subset \overline{\{\xi\}}$ such that $\Phi$ is constant on the closed points of $U$;
 		      then define $\Phi(\xi) = \Phi(U)$.
-		\item For any $x$ specializing $\xi$, we have inclusion $\Phi(\xi) \leq \Phi(x)$.
+		\item For any $x$ specializing $\xi$, we have the inclusion $\Phi(\xi) \leq \Phi(x)$.
 		      % \item The generic point $\eta$ of $D_{d \acts n}$ maps to the trivial group $\{*\} \in \Sigma$.
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
 	First let us write down the partial order on $\Sigma$ explicitly.
 	For $[H],[G] \in \Sigma$, we say that $[H] \leq [G]$ if there exists $g \in \PGL_{n+1}(\kkk)$ such that $H \leq gGg^{-1}$.
-	If we have $[H] \leq [G]$ and $[K] \leq [H]$, then there exists $g,h$ with $H \leq gGg^{-1}$, $K \leq hHh^{-1}$.
-	Then $K \leq hgG(hg)^{-1}$ and hence $[K] \leq [G]$.
+	If we have $[H] \leq [G]$ and $[K] \leq [H]$, then there exist $g,h$ with $H \leq gGg^{-1}$, $K \leq hHh^{-1}$.
+	Then $K \leq hgG(hg)^{-1}$ and hence $[K] \leq [G]$. Reflexivity is clear. If $[H] \leq [G]$ and $[G] \leq [H]$, finiteness gives $\#H = \#G$, so $H$ and $G$ are conjugate. Thus this is a partial order.
 
 	\begin{step}
 		Proof of (a).
 	\end{step}
 
-	Given $f_0 \in \End_{\bbP^n,d}(\kkk)$, choose $S$ as Luna's \'etale slice theorem (\cref{thm:luna-etale-slice-theorem}).
-	Set $U$ be the image of $S/\Aut_{f_0} \to D_{d \acts n}$.
+	Given $f_0 \in \End_{\bbP^n,d}(\kkk)$, choose $S$ as in Luna's \'etale slice theorem (\cref{thm:luna-etale-slice-theorem}).
+	Let $U$ be the image of $S/\Aut_{f_0} \to D_{d \acts n}$.
 	We have a diagram
 	% https://q.uiver.app/#q=WzAsNixbMCwwLCJcXFBHTF97bisxfSBcXHRpbWVzIFMiXSxbMSwwLCJWIl0sWzIsMCwiXFxFbmRfe1xcYmJQXm4sZH0iXSxbMiwxLCJEX3tkXFxhY3RzIG59Il0sWzEsMSwiVSJdLFswLDEsIlMvXFxBdXRfe2ZfMH0iXSxbMCw1XSxbMCwxLCJcXHZhcnBoaSJdLFs1LDQsIlxcYmFye1xcdmFycGhpfSJdLFsxLDIsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzQsMywiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMiwzXSxbMSw0XV0=
 	\[\begin{tikzcd}
@@ -939,8 +965,11 @@ Let us describe the distribution of dynamics with automorphism groups.
 			\arrow["{\bar{\varphi}}", from=2-1, to=2-2]
 			\arrow[hook, from=2-2, to=2-3]
 		\end{tikzcd}\]
-	Since this is a fiber product, for any $s \in (\PGL_{n+1} \times^{\Aut_{f_0}} S)(\kkk)$ mapsto $f \in \pi^{-1}(U)$, $\pi^{-1}({[f]}) \cong \PGL_{n+1}(\kkk)/G_{f} = p^{-1}([s]) \cong \PGL_{n+1}(\kkk)/G_s$, here $G_x$ means the stablilzer of $G$ on $x$.
-	Then $G_s = \Aut_{f}(\kkk)$ as subgroup of $\PGL_{n+1}(\kkk)$.
+
+
+	For any $f \in \pi^{-1}(U)(\kkk)$, choose $s \in (\PGL_{n+1} \times^{\Aut_{f_0}} S)(\kkk)$ mapping to $f$.
+	The Cartesian square identifies the fiber over $p(s)$ with the fiber over $[f]$ by a $\PGL_{n+1}$-equivariant isomorphism.
+	On geometric points, both fibers are single orbits. In particular, the equivariant bijection gives $G_s = \Aut_f(\kkk)$ as subgroups of $\PGL_{n+1}(\kkk)$, where $G_s$ is the stabilizer of $s$.
 	However, for $s = [a,h] \in (\PGL_{n+1} \times^{\Aut_{f_0}} S)(\kkk)$, if $g \in G_s$, then $[ga,h] = [a,h]$ and then there exists $k \in \Aut_{f_0}(\kkk)$ with $ga = ak^{-1}$, that is, $g \in a\Aut_{f_0}(\kkk)a^{-1}$.
 	Hence $[\Aut_{f}(\kkk)] = [G_s] \leq [\Aut_{f_0}(\kkk)]$.
 
@@ -948,21 +977,29 @@ Let us describe the distribution of dynamics with automorphism groups.
 		Proof of (b) and (c).
 	\end{step}
 
-	For every $\xi \in D_{d \acts n}$, choose $[G]$ be a minimal element in $\Phi(\overline{\xi})$ and $y \in \overline{\xi}$ with $\Phi(y) = G$.
-	By (a), there is an nonempty open subset $U$ with $\Phi(z) \leq \Phi(y)$ for $z \in U$.
-	For $z \in U \cap \overline{\xi}$, by the minimality of $G$, we have $\Phi(z) = \Phi(y)$.
-	This shows (b).
 
-	By (a), choose an neighborhood $U$ of $x$ with $\Phi(z) \leq \Phi(x)$ for $z \in U$.
-	Since $x$ specializes $\xi$, $U \cap \overline{\xi}$ is nonempty and then by definition in (b), we have $\Phi(\xi) = \Phi(z) \leq \Phi(x)$.
+	For every $\xi \in D_{d \acts n}$, set $Z = \overline{\{\xi\}}$ and choose a closed point $y \in Z$ whose automorphism group has the smallest possible order among the closed points of $Z$.
+	By (a), there is an open neighborhood $U$ of $y$ with $\Phi(z) \leq \Phi(y)$ for every closed point $z \in U$.
+	For every closed point $z \in U \cap Z$, minimality gives $\Phi(z) = \Phi(y)$.
+	Since $Z$ is irreducible, $U \cap Z$ is dense in $Z$. Define $\Phi(\xi) = \Phi(y)$.
+	Any two such dense open subsets intersect in a closed point, so this definition is independent of the choice. This proves (b).
+
+
+	For (c), fix $[H] \in \Sigma$. By (a), the closed points $z$ satisfying $[H] \not\leq \Phi(z)$ form the closed points of an open subset $O_{[H]}$ of $D_{d \acts n}$: take the union of the neighborhoods in (a) of these points.
+	Set $C_{[H]} = D_{d \acts n} \setminus O_{[H]}$.
+	For any scheme point $\xi$, take a dense open subset of $\overline{\{\xi\}}$ as in (b).
+	Since schemes of finite type over $\kkk$ are Jacobson, the closed points of this open subset are dense, and we obtain
+	\[ \xi \in C_{[H]} \quad \Longleftrightarrow \quad [H] \leq \Phi(\xi). \]
+	Now take $[H] = \Phi(\xi)$. The closed subset $C_{[H]}$ contains $\xi$ and hence every specialization $x$ of $\xi$.
+	Thus $\Phi(\xi) \leq \Phi(x)$, proving (c).
 	%
-	% For any $[G] \in \Sigma$, fix a subgroup $G < \PGL_{n+1}(\kkk)$ represents $[G]$.
+	% For any $[G] \in \Sigma$, fix a subgroup $G < \PGL_{n+1}(\kkk)$ representing $[G]$.
 	% Set
 	% \[ F_G = \left\{ f \in \End_{\bbP^n,d}(\kkk) \;\middle|\; f \circ g = g \circ f, \forall g \in G \right\}. \]
 	% This is a closed subset of $\End_{\bbP^n,d}(\kkk)$.
 	% Set $F_{[G]} = \pi(F_G) \subset D_{d\acts n}$.
-	% The set $F_{[G]}$ is independent of choice of $G$ since $hF_{G}h^{-1} = F_{hGh^{-1}}$.
-	% By (a), $F_{[G]}$ is closed since for any $[f_0] \notin F_{[G]}$, choose $U$ as (a), if $[f] \in U \cap F_{[G]}$, $[G] \leq \Phi([f]) \leq \Phi([f_0])$ will lead a contradiction.
+	% The set $F_{[G]}$ is independent of the choice of $G$ since $hF_{G}h^{-1} = F_{hGh^{-1}}$.
+	% By (a), $F_{[G]}$ is closed since for any $[f_0] \notin F_{[G]}$, choosing $U$ as in (a), if $[f] \in U \cap F_{[G]}$, then $[G] \leq \Phi([f]) \leq \Phi([f_0])$ leads to a contradiction.
 	% Also note that $\Phi([f]) \geq [G]$ iff $[f] \in F_{[G]}$.
 	%
 	% \begin{step}
@@ -980,156 +1017,177 @@ Let us describe the distribution of dynamics with automorphism groups.
 \end{proof}
 
 \begin{remark}[label=\labelNFM{rmk:semicontinuity-of-automorphism-group-of-dynamics}, status=draft, tag=0000000]
-	The (a)-(c) in \cref{prop:semicontinuity-of-automorphism-group-of-dynamics} can be explained as some semicontinuity of stablilzer group under inclusion.
+% Parts (a)-(c) in
+	The \cref{prop:semicontinuity-of-automorphism-group-of-dynamics} can be explained as some semicontinuity of stabilizer groups under inclusion.
 \end{remark}
 
 \begin{corollary}[label=\labelNFM{cor:uniform-bound-for-the-auto-group-of-dynamics-on-pn}, status=draft, tag=0000000]
-	There are only finite many possible of conjugates class of $\Aut_{[f]}(\kkk) < \PGL_{n+1}(\kkk)$ with $[f] \in \calD_{d\acts n}$.
-	In particular, there is a number $C_{n,d}$ depending only on $d,n$ such that $\# \Aut_{[f]}(\kkk) < G_{n,d}$ for all $[f] \in \calD_{d\acts n}$.
+	There are only finitely many possible conjugacy classes of $\Aut_{[f]}(\kkk) < \PGL_{n+1}(\kkk)$ with $[f] \in \calD_{d\acts n}$.
+	In particular, there is a number $C_{n,d}$ depending only on $d,n$ such that $\# \Aut_{[f]}(\kkk) < C_{n,d}$ for all $[f] \in \calD_{d\acts n}(\kkk)$.
 \end{corollary}
 
 \begin{remark}[label=\labelNFM{rmk:uniform-bound-for-the-auto-group-of-dynamics-on-pn-by-Levy}, status=draft, tag=0000000]
-	On his paper \cite{Levy-2011-SpaceMorphismsProjective}, Levy provided a more concrete proof for the uniform bound of size of automorphism groups.
-	His proof depends on the explicitly expression of endomorphisms and automorphisms on $\bbP^n$.
+	In his paper \cite{Levy-2011-SpaceMorphismsProjective}, Levy provided a more concrete proof for the uniform bound on the size of automorphism groups.
+	His proof depends on the explicit expressions of endomorphisms and automorphisms on $\bbP^n$.
 \end{remark}
 
 \begin{remark}[label=\labelNFM{rmk:general-dynamics-has-trivial-auto}, status=draft, tag=0000000]
-	On his paper \cite{Levy-2011-SpaceMorphismsProjective}, Levy also proves that for general $[f] \in D_{d\acts n}(\kkk)$, $\Aut_{f} = \{*\}$ is the trivial group.
-	By \cref{prop:semicontinuity-of-automorphism-group-of-dynamics}, we only need to find one dynamics with trivial automorphism group.
+	In his paper \cite{Levy-2011-SpaceMorphismsProjective}, Levy also proves that for general $[f] \in D_{d\acts n}(\kkk)$, $\Aut_{f} = \{*\}$ is the trivial group.
+	By \cref{prop:semicontinuity-of-automorphism-group-of-dynamics}, we only need to find one dynamical system with trivial automorphism group.
 \end{remark}
-
-
-
-
-
 
 
 \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:multipliers-and-example-of-degree-two-rational-functions}]{Multipliers and example of degree two rational functions}
 
-On this subsection, we use the \emph{multiplier spectra} to describe the $\calD_{2 \acts 1}$.
+In this subsection, we use the \emph{multiplier spectra} to describe $\calD_{2 \acts 1}$.
 We temporarily use the notation $N_m = N_m(d \acts n) = ((d^m)^{n+1}-1)/(d^m-1)$ to denote the number of elements in the set $\Per_m(f)$ for a general $f \in \calD_{d \acts n}(\kkk)$.
 
-First we define the morphism to set of periodic points.
+First we define the morphism to the set of periodic points.
 
 \begin{definition}[label=\labelNFM{def:periodic-points}, status=draft, tag=0000000]
-	Let $f: X \to X$ be a surjective endomorphism.
-	Its \emph{periodic points (of order $m$)} and \emph{preperiodic points} is defined as the multi-sets
-	\[ \Per_m(f) \coloneqq \{x \in X(\kkk) \; |\; f^m(x) = x\}, \quad \Per(f) \coloneqq \bigcup_{m} \Per_m(f). \]
-	% \quad \Preper(f) \coloneqq \bigcup_{m,n \geq 0} \{x \in X(\kkk) \; |\; f^m(x) = f^n(x)\} = \bigcup_{n} f^{-n}(\Per(f)). \]
-	We say that $f$ has \emph{isolated periodic points} if $\Per_m(f)$ is discrete for all $m$.
-\end{definition}
 
-Note that $f \in \calD_{d \acts n}(\kkk)$ always have isolated periodic points provided $d \geq 2$.
+
+	Let $f: X \to X$ be a surjective endomorphism of a smooth projective variety and $m \geq 1$.
+	Its fixed-point scheme $\upoperatorname{Fix}(f^m)$ is the scheme-theoretic intersection of the graph of $f^m$ with the diagonal.
+	Its \emph{periodic points (of order dividing $m$)} and \emph{preperiodic points} are the sets
+	\[ \Per_m(f) \coloneqq \{x \in X(\kkk) \; |\; f^m(x) = x\}, \quad \Per(f) \coloneqq \bigcup_{m \geq 1} \Per_m(f), \quad \Preper(f) \coloneqq \bigcup_{r \geq 0} f^{-r}(\Per(f)). \]
+	% \quad \Preper(f) \coloneqq \bigcup_{m,n \geq 0} \{x \in X(\kkk) \; |\; f^m(x) = f^n(x)\} = \bigcup_{n} f^{-n}(\Per(f)). \]
+
+	We say that $f$ has \emph{isolated periodic points} if $\upoperatorname{Fix}(f^m)$ is zero-dimensional for every $m \geq 1$.
+	In this case, we also view $\Per_m(f)$ as a multiset by assigning each $x$ the multiplicity $\length(\calO_{\upoperatorname{Fix}(f^m),x})$ after base change to $\kkk$.
+\end{definition}
+Note that $f \in \calD_{d \acts n}(\kkk)$ always has isolated periodic points. Indeed, if $f^m$ fixes a positive-dimensional subvariety $Z$ pointwise, then restricting $(f^m)^*\calO(1) \cong \calO(d^m)$ to $Z$ gives $\calO_Z(1) \cong \calO_Z(d^m)$, contradicting ampleness since $d \geq 2$.
 
 \begin{proposition}[label=\labelNFM{prop:periodic-points-is-a-morphism}, status=draft, tag=0000000]
-	For any $m$, the map
+	For any $m\geq 1$, the map
 	\[ \End_{\bbP^n,d}(\kkk) \to \Sym^{N_m} \bbP^n(\kkk), \quad [f] \mapsto [\Per_m(f)] \]
 	comes from a morphism $\Per_m: \End_{d \acts n} \to \Sym^{N_m} \bbP^n$.
 \end{proposition}
 \begin{proof}
-	Let $\calU \subset \bbP^n \times \bbP^n \times \End_{\bbP^n,d}$ be the universal family and $\Delta_{12} \subset \bbP^n \times \bbP^n \times \End_{\bbP^n,d}$ be the pullback of diagonal on $\bbP^n \times \bbP^n$ along the projection.
-	Set $F = \calU \cap \Delta_{12}$ be the scheme-theorical intersection.
-	Since $\calU \cong \bbP^n \times \End_{\bbP^n,d}$ is smooth and $\Delta_{12} \subset \bbP^n \times \bbP^n \times \End_{\bbP^n,d}$ is a regular embedding, we have that $F$ is Cohen-Macaulay; see \cite[\href{https://stacks.math.columbia.edu/tag/00N6}{Tag 00N6} and \href{https://stacks.math.columbia.edu/tag/02JN}{Tag 02JN}]{Stacksprojectauthors-2026-StacksProject}.
-	Then $F \to \End_{\bbP^n,d}$ is flat by miracle flatness (\cite[\href{https://stacks.math.columbia.edu/tag/00R4}{Tag 00R4}]{Stacksprojectauthors-2026-StacksProject}).
+
+
+	Let $\calU \subset \bbP^n \times \bbP^n \times \End_{\bbP^n,d}$ be the universal family and $\Delta_{12} \subset \bbP^n \times \bbP^n \times \End_{\bbP^n,d}$ be the pullback of the diagonal on $\bbP^n \times \bbP^n$ along the projection.
+	Let $F = \calU \cap \Delta_{12}$ be the scheme-theoretic intersection.
+	Set $H = \End_{\bbP^n,d}$. Since every fixed-point scheme is zero-dimensional, $F \to H$ is proper and quasi-finite, hence finite.
+	The diagonal is locally defined by $n$ equations, so $F$ is locally defined by $n$ equations in the smooth scheme $\calU \cong \bbP^n \times H$.
+	By finiteness, every irreducible component of $F$ has dimension at most $\dim H$; by the number of equations, it has dimension at least $\dim H$.
+	Hence these equations have codimension $n$ and form a regular sequence. Thus $F$ is Cohen-Macaulay; see \cite[\href{https://stacks.math.columbia.edu/tag/00N6}{Tag 00N6} and \href{https://stacks.math.columbia.edu/tag/02JN}{Tag 02JN}]{Stacksprojectauthors-2026-StacksProject}.
+	Since $H$ is smooth, $F \to H$ is flat by miracle flatness (\cite[\href{https://stacks.math.columbia.edu/tag/00R4}{Tag 00R4}]{Stacksprojectauthors-2026-StacksProject}).
+	Its degree is constant since $H$ is integral. For the power map $[x_0:\cdots:x_n] \mapsto [x_0^d:\cdots:x_n^d]$, all fixed points are simple, and counting by the number of nonzero coordinates gives
+	\[ \deg(F/H) = \sum_{r=1}^{n+1} \binom{n+1}{r}(d-1)^{r-1} = \frac{d^{n+1}-1}{d-1} = N_1. \]
 	Hence we get a morphism
-	\[ \End_{\bbP^n,d}(\kkk) \to \Sym^{N_1} \bbP^n(\kkk), \quad [f] \mapsto [\upoperatorname{Fix}(f)] \]
-	by universal property of $\Sym^{N_1} \bbP^n(\kkk)$ (see \cref{eg:hilbert-scheme-of-points}).
-	The morphisms of periodic points can be got by
-	\[ \End_{\bbP^n,d} \xrightarrow{f \mapsto (f,\cdots,f)} \End_{\bbP^n,d} \times \cdots \times \End_{\bbP^n,d} \xrightarrow{ \text{ composition }} \End_{\bbP^n,d^m} \xrightarrow{\upoperatorname{Fix}} \Sym^{N_m} \bbP^n(\kkk). \]
+	\[ \End_{\bbP^n,d} \to \Hilb^{N_1} \bbP^n \to \Sym^{N_1} \bbP^n, \quad f \mapsto F_f \mapsto [\upoperatorname{Fix}(f)], \]
+	where the first morphism comes from the flat family $F$ and the second is the Hilbert--Chow morphism (see \cref{eg:hilbert-scheme-of-points}).
+	The morphisms of periodic points can be obtained by
+	\[ \End_{\bbP^n,d} \xrightarrow{f \mapsto (f,\cdots,f)} \End_{\bbP^n,d} \times \cdots \times \End_{\bbP^n,d} \xrightarrow{ \text{ composition }} \End_{\bbP^n,d^m} \xrightarrow{\upoperatorname{Fix}} \Sym^{N_m} \bbP^n. \]
 	We are done.
 \end{proof}
-
 
 
 \begin{definition}[label=\labelNFM{def:multipliers-spectra-of-rational-functions}, status=draft, tag=0000000]
 	Let $f \in \End_{\bbP^n,d}(\kkk)$.
 	We define
-	\[ \Lambda^m(f) \coloneqq \bigcup_{p \in \Per_m(f)} \left\{ \text{ eigenvalues of } (f^m)_*: T_p \bbP^n \to T_p \bbP^n \right\}.  \]
-	Here both $\Per_m$ and set of eigenvalues are multi-sets.
+	\[ \Lambda^m(f) \coloneqq \bigcup_{p \in \Per_m(f)} \left\{ \text{ eigenvalues of } (f^m)_*: T_p \bbP^n \to T_p \bbP^n \right\}. \]
+	Here both $\Per_m$ and the set of eigenvalues are multisets.
 \end{definition}
-
-Easily see that $\Lambda^m(f)$ depends only on $[f] \in \calD_{d \acts n}$ and it takes value in $\Sym^{N_m}E_n(\kkk)$, where $E_n = M_n/\GL_n$ as \cref{eg:eigenvalues-as-categorical-quotients}and \cref{eg:linear-map-with-universal-properties-is-not-coarse-moduli}.
+We easily see that $\Lambda^m(f)$ depends only on $[f] \in \calD_{d \acts n}$ and it takes values in $E_{nN_m}(\kkk) \cong \Sym^{nN_m}\bbA^1(\kkk) \cong \bbA^{nN_m}(\kkk)$, where $E_n = M_n/\GL_n$ as in \cref{eg:eigenvalues-as-categorical-quotients} and \cref{eg:linear-map-with-universal-properties-is-not-coarse-moduli}.
 
 \begin{proposition}[label=\labelNFM{prop:multipliers-map-is-a-morphism-of-schemes}, status=draft, tag=0000000]
-	For any $m \geq 1$, The map
-	\[ \calD_{d \acts n}(\kkk) \to \Sym^{N_m}E_n(\kkk), \quad [f] \mapsto \Lambda^m(f) \]
-	indeed come from a morphism $\Lambda^m: D_{d \acts n} \to \Sym^{N_m}E_n$.
+	For any $m \geq 1$, the map
+	\[ \calD_{d \acts n}(\kkk) \to \bbA^{nN_m}(\kkk), \quad [f] \mapsto \Lambda^m(f) \]
+	indeed comes from a morphism $\Lambda^m: D_{d \acts n} \to E_{nN_m} \cong \bbA^{nN_m}$.
 \end{proposition}
 \begin{proof}
-	Consider $X = \bbP^n \times \cdots \times \bbP^n \times \End_{\bbP^n,d}$ be product of $N_1$ copies of $\bbP^n\times \End_{\bbP^n,d}$ over $\End_{\bbP^n,d}$ with $\calf: \calX \to \calX$ be given by $N_1$ copies of the universal family $\bbP^n \times \End_{\bbP^n,d} \to \bbP^n \times \End_{\bbP^n,d}$.
-	Set $\calY = \Sym^{N_1} \bbP^n \times \End_{\bbP^n,d}$ with $\pi: \calX \to \calX/\frakS_{N_1} \cong \calY$ being the quotient morphism.
-	Then $\calf$ descending to $\calg: \calY \to \calY$.
-	By \cref{prop:periodic-points-is-a-morphism}, we have a morphism $\Fix: \End_{d \acts n} \to \Sym^{N_1} \bbP^n$.
-	Denote by $F \subset \calY$ the image of $(\Fix, \id)$ and $i: Z = \pi^{-1}(F) \subset \calX$.
-	By the definition of $F$ and $Z$, we have $\calg|_F = \id$ and $\calf|_Z = \id$.
-	Let $\calT_{\calX/\End_{\bbP^n,d}}$ be the tangent bundle of $\calX$ over $\End_{\bbP^n,d}$ and $\calE = i^*\calT_{\calX/\End_{\bbP^n,d}}$ on $Z$.
-	In summary, we have diagram
-	\[
-		\begin{tikzcd}
-			(\calf_*)|_{\calE} \acts \calE \ar[r,hook] \ar[d] & \calT \racts \calf_* \ar[d] \\
-			\id \acts Z \ar[r,"i",hook] \ar[d] & \calX \racts \calf \ar[d, "\pi"] \\
-			\id \acts F \ar[r,hook] & \calY \racts \calg.
-		\end{tikzcd}
-	\]
-	By \cref{eg:linear-map-with-universal-properties-is-not-coarse-moduli}, we get a morphism $Z \to E_{nN_1}$.
-	% Set $Z \to E_{nN_1}$ by $Z \mapsto (\Tr f_*, \cdots, \Tr f_*^{nN_1})$ as \cref{eg:linear-map-with-universal-properties-is-not-coarse-moduli}.
-	The tangent bundle $\calT$ has a canonical decomposition $\calT = \calT_{\bbP^n} \oplus \cdots \oplus \calT_{\bbP^n}$.
-	So $\calE$ also has such a decomposition and then the morphism $Z \to E_{nN_1}$ becomes $Z \to (E_n)^{N_1}$.
-	Quotient by $\frakS_{N_1}$, we get $F \to \Sym^{N_1} E_n$.
+	First consider $m = 1$.
+	Set $H = \End_{\bbP^n,d}$, $\calX = \bbP^n \times H$ and let $\calf: \calX \to \calX$ be the universal endomorphism over $H$.
+	Denote by $i:F \injmap \calX$ its scheme-theoretic fixed locus and $p:F \to H$ the projection.
+	As in the proof of \cref{prop:periodic-points-is-a-morphism}, $p$ is finite flat of degree $N_1$.
+	By the definition of $F$, we have $\calf \circ i = i$.
+	Hence the relative differential restricts to an endomorphism
+	\[ i^*(\calf_*): \calE \to \calE, \quad \calE \coloneqq i^*\calT_{\calX/H}. \]
+	Since $p$ is finite flat, pushing forward the endomorphism to $H$, we get $A = p_*(i^*(\calf_*)) : p_*\calE \to p_*\calE$ with $p_*\calE$ locally free of rank $nN_1$.
+	By \cref{eg:linear-map-with-universal-properties-is-not-coarse-moduli}, we get the morphism
+	\[ a:H \to E_{nN_1}, \quad a = (\Tr A,\Tr A^2,\cdots,\Tr A^{nN_1}). \]
+
+	We check that $a(f)$ is indeed $\Lambda^1(f)$, including the multiplicities.
+	At a geometric point $f$, filter each local algebra $\calO_{F_f,x}$ by powers of its maximal ideal.
+	On the associated graded pieces, $A_f$ acts by the tangent map $(f_*)_x$ tensored with the identity.
+	Hence, for every $j \geq 1$,
+	\[ \Tr(A_f^j) = \sum_{x \in \operatorname{Supp}(F_f)} \length(\calO_{F_f,x})\Tr\bigl((f_*)_x^j\bigr). \]
+	Thus its eigenvalue multiset is exactly $\Lambda^1(f)$.
+
+	% At a geometric point $(x,f)$, this records the eigenvalues of $f_*:T_x\bbP^n \to T_x\bbP^n$.
+
+	% \Yang{}
+	% To pass from $F$ to $H$, we use the norm of the finite flat morphism $p$.
+	% More explicitly, on an affine open $\Spec R \subset H$, write $p^{-1}(\Spec R) = \Spec B$ with $B$ finite locally free of rank $N_1$ over $R$.
+	% Let $C = R[\sigma_1,\cdots,\sigma_n]$ be the coordinate ring of $E_n \times \Spec R$ and $a^\sharp:C \to B$ the homomorphism given by $a$.
+	% The norm
+	% \[ C \to R, \quad h \mapsto \det(m_{a^\sharp(h)}), \]
+	% where $m_b$ means multiplication by $b$ on $B$, is a multiplicative polynomial law homogeneous of degree $N_1$.
+	% By polarization in characteristic zero, it gives an $R$-algebra homomorphism
+	% \[ (C^{\otimes_R N_1})^{\frakS_{N_1}} \to R. \]
+	% These homomorphisms commute with base change and glue to a morphism $L^1:H \to \Sym^{N_1} E_n$.
+	% On geometric points, it is given by
+	% \[ L^1(f) = \sum_{x \in \operatorname{Supp}(F_f)} \length(\calO_{F_f,x})[a(x,f)] = \Lambda^1(f). \]
+	% In particular, this construction also keeps the multiplicities of nonreduced fixed points.
+
+	For general $m$, apply the same construction to $\End_{\bbP^n,d^m}$ and compose with the morphism $f \mapsto f^m$.
 	Then we get a diagram
-	% https://q.uiver.app/#q=WzAsNyxbMiwwLCJaIl0sWzMsMCwiKEVfbilee05fbX0iXSxbMiwxLCJGIl0sWzMsMSwiXFxTeW1ee05fbX1FX24iXSxbMSwxLCJcXEVuZF97XFxiYlBebixkXm19Il0sWzAsMSwiXFxFbmRfe1xcYmJQXm4sZH0iXSxbMCwyLCJEX3tkIFxcYWN0cyBufSJdLFsyLDNdLFswLDJdLFswLDFdLFsxLDNdLFs0LDIsIlxcRml4Il0sWzUsNl0sWzYsMywiXFxleGlzdHMgISIsMl0sWzUsNCwiZiBcXG1hcHN0byBmXm0iXV0=
 	\[\begin{tikzcd}
-			&& Z & {(E_n)^{N_m}} \\
-			{\End_{\bbP^n,d}} & {\End_{\bbP^n,d^m}} & F & {\Sym^{N_m}E_n} \\
+			{\End_{\bbP^n,d}} & {\End_{\bbP^n,d^m}} & {E_{nN_m}} \\
 			{D_{d \acts n}}
-			\arrow[from=1-3, to=1-4]
-			\arrow[from=1-3, to=2-3]
-			\arrow[from=1-4, to=2-4]
-			\arrow["{f \mapsto f^m}", from=2-1, to=2-2]
-			\arrow[from=2-1, to=3-1]
-			\arrow["\Fix", from=2-2, to=2-3]
-			\arrow[from=2-3, to=2-4]
-			\arrow["{\exists !}"',gray, from=3-1, to=2-4]
+			\arrow["{f \mapsto f^m}", from=1-1, to=1-2]
+			\arrow["a", from=1-2, to=1-3]
+			\arrow[from=1-1, to=2-1]
+			\arrow["{\exists !\Lambda^m}"',gray, from=2-1, to=1-3]
 		\end{tikzcd}\]
-	Since the middle morphism is $\PGL_{n+1}$-conjugation invariant.
+	Conjugation preserves the fixed-point multiplicities and conjugates the tangent maps, so the top composite is $\PGL_{n+1}$-invariant.
+	By the universal property of the categorical quotient $D_{d \acts n}$, it descends uniquely.
 	Hence we get the desired gray morphism.
 \end{proof}
 
 \begin{remark}[label=\labelNFM{rmk:multiplier-spectra-work-for-isolated-dynamics}, status=draft, tag=0000000]
-	Above arguments work for smooth $X$ with smooth hilbert scheme of endomorphisms which are amplified since amplified dynamics has dense and isolated periodic points;
+	The above arguments work for smooth $X$ with a smooth Hilbert scheme of amplified endomorphisms since amplified dynamical systems have dense and isolated periodic points;
 	% \Yang{}
 	see \cite{Meng-2023-EndomorphismsProjectiveVarieties}.
 \end{remark}
 
 \begin{example}[label=\labelNFM{eg:moduli-of-degree-two-maps-on-p1}, status=draft, tag=0000000]
-	For $n = 1$, $d = 2$, the morphism $\Lambda^1: D_{2 \acts 1} \to \Sym^3 E_1 \cong \bbA^3$ in \cref{prop:multipliers-map-is-a-morphism-of-schemes} is a closed embedding with image $\bbA^2$.
+	For $n = 1$, $d = 2$, the morphism $\Lambda^1: D_{2 \acts 1} \to E_3 \cong \Sym^3 E_1 \cong \bbA^3$ in \cref{prop:multipliers-map-is-a-morphism-of-schemes} is a closed embedding with image $\bbA^2$.
 	Here we sketch a proof; for details, see \cite[Section 2.5]{Silverman-2012-ModuliSpacesArithmetic}.
 
-	Here on $\bbA^3$ we use the coordinate
+	Here on $\bbA^3$ we use the coordinates
 	\[ \sigma_1 = \lambda_1 + \lambda_2 + \lambda_3, \quad \sigma_2 = \sum_{i > j} \lambda_i \cdot \lambda_j, \quad \sigma_3 = \lambda_1\cdot \lambda_2 \cdot \lambda_3, \]
-	where $\lambda_i$ are the three multiplier of $f \in D_{2 \acts 1}(\kkk)$ at three fixed point.
-	Apply the residue theorem on $1/(z-f(z))$, we can get
+where $\lambda_i$ are the three multipliers of $f \in D_{2 \acts 1}(\kkk)$, counted with the fixed-point multiplicities.
+	On the dense open subset where the three fixed points are simple, the fixed-point index formula (obtained from the residue theorem) gives
 	\[ \frac{1}{1-\lambda_1} + \frac{1}{1-\lambda_2} + \frac{1}{1-\lambda_3} = 1. \]
-	That is, $\sigma_1 = \sigma_3 + 2$.
+	Clearing denominators gives $\sigma_1 = \sigma_3 + 2$. Since the multiplier map is a morphism, this polynomial identity holds on all of $D_{2 \acts 1}$.
 	This will be the unique restriction.
-	Choose an open dense subset $U \subset D_{2\acts 1}$ with $\{\lambda_i(f)\} \neq \{1,1,1\}$ for all $f \in U$.
-	Then by $\sigma_1-2=\sigma_3$, at least one $\lambda_i \neq 1$, denote by $\lambda$.
-	On $\bbP^1$, suppose that $f(z)=z$ with multiplier $\lambda$.
-	Then $z$ is a fixed point with multi larger than $1$ iff $\lambda = 1$.
-	Hence $f$ has at least two fixed points.
-	Put them on $0,\infty$ will make $f$ has form $(z^2+\lambda z)/(\mu z + 1)$, where $\mu \in \{\lambda_i(f)\}$ is another multiplier.
-	If $\{\lambda_i(f)\}=\{1,1,1\}$, then put the fixed point on $1$, one can choose that $f = z+1/z$.
-	Hence we show the bijection $D_{2\acts 1} \to V(\sigma_1-2 = \sigma_3) \subset \bbA^3(\kkk)$.
-	Since its image $\bbA^2$ is smooth, then it is an isomorphism.
+
+
+	Suppose that $\{\lambda_1,\lambda_2,\lambda_3\} \neq \{1,1,1\}$. Choose one multiplier $\lambda \neq 1$.
+	Its fixed point is simple, so there is another distinct fixed point with multiplier $\mu$.
+	Putting these two points at $0,\infty$ and rescaling gives the normal form
+	\[ f(z) = \frac{z^2+\lambda z}{\mu z+1}, \qquad \lambda\mu \neq 1. \]
+	Conversely, this formula has degree two whenever $\lambda\mu \neq 1$, and the third multiplier is
+	\[ \nu = \frac{2-\lambda-\mu}{1-\lambda\mu}. \]
+	For any triple satisfying $\lambda_1+\lambda_2+\lambda_3 = \lambda_1\lambda_2\lambda_3+2$ other than $\{1,1,1\}$, we can choose $\lambda \neq 1$ and another multiplier $\mu$ with $\lambda\mu \neq 1$.
+	Indeed, if both other multipliers equal $1/\lambda$, the relation gives $\lambda+1/\lambda=2$, contradicting $\lambda \neq 1$.
+	The relation then determines the third multiplier by the above formula. Hence the normal form realizes every such triple and determines its conjugacy class.
+
+	If $\{\lambda_i\}=\{1,1,1\}$, there is only one fixed point: otherwise the same two-point normal form would have $\lambda\mu=1$ and degree less than two.
+	Putting this fixed point at $\infty$, an easy translation and rescaling give $f(z)=z+1/z$.
+	Thus this triple also determines a unique conjugacy class.
+	Hence we obtain a morphism $D_{2\acts 1} \to V(\sigma_1-\sigma_3-2) \cong \bbA^2$ which is bijective on geometric points.
+	It is quasi-finite, and it is birational since the characteristic is zero and both varieties are integral.
+	Since the target is normal, Zariski's main theorem makes this morphism an open immersion. By surjectivity it is an isomorphism.
+	Therefore $\Lambda^1$ is a closed embedding with the stated image.
 \end{example}
 
 \begin{remark}[label=\labelNFM{rmk:finiteness-and-injectivity-of-multiplier-spactra}, status=draft, tag=0000000]
 	Consider $L^m = (\Lambda^1,\cdots,\Lambda^m): D_{d \acts 1} \to \bbA^N$.
-	On McMullen shows that $L^n$ is finite-to-one to its image outside the Latt\`es family for all $d \geq 2$ and $m$ sufficiently large; see \cite{McMullen-1987-FamiliesRationalMaps}.
+	 McMullen shows that $L^m$ is finite-to-one onto its image outside the Latt\`es family for all $d \geq 2$ and $m$ sufficiently large; see \cite{McMullen-1987-FamiliesRationalMaps}.
 	Ji and Xie show it is generically injective for $m$ sufficiently large; see \cite{Ji-Xie-2025-MultiplierSpectrumMorphism}.
 \end{remark}
-
-
-
-
 
