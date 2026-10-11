@@ -17,19 +17,28 @@ All these sheaves are $\cinf_{X,\bbC}$-modules.
 For details, see \cite{Demailly-2012-ComplexAnalyticDifferential,Barlet-Magnusson-2019-ComplexAnalyticCycles}.
 
 There is a natural way to endow topology on $\scrA_X^{p,q}(U)$ making it as a Frechet space.
+
+\begin{construction}[label=\labelNFM{constr:topo-on-forms}, status=draft, tag=0000000]
+	On $\scrA_X^{p,q}(U)$, we have a collection of semi-norms:
+	\toai{complete this}
+	\Yang{}
+\end{construction}
+
+
 \Yang{}
 
 \begin{proposition}[label=\labelNFM{prop:basic-properties-of-forms-with-topology}, status=draft, tag=0000000]
 	Let \Yang{}
 	\begin{enumerate}
-		\item there is a functorial differential map,
+		\item there is a functorial differential map, $d = \partial + \partialbar: \scrA^{k} \to \scrA^{k+1}$ with 
 		\item them forms a sheaves of rings
-		\item the subring is commutative
-		\item there is an evaluation map $\Gamma_c(\scrA_X^{p,q},U) \to \bbC$; in particular, if $X$ is compact, then we have $\scrA_X^{p,q}(X) \to \bbC$.
+		\item the subring $\oplus \scrA^{p,p}$ is commutative
+		\item there is an evaluation map $\Gamma_c(\scrA_X^{d,d},U) \to \bbC$; in particular, if $X$ is compact, then we have $\scrA_X^{d,d}(X) \to \bbC$.
 		\item there is a unconditional pullback
 		\item the differential and pullback are continuous
 	\end{enumerate}
 	\Yang{}
+	\toai{finish and polish}
 \end{proposition}
 
 \begin{construction}[label=\labelNFM{constr:currents}, status=draft, tag=0000000]
@@ -43,15 +52,30 @@ There is a natural way to endow topology on $\scrA_X^{p,q}(U)$ making it as a Fr
 \end{construction}
 
 \begin{example}[label=\labelNFM{eg:forms-as-currents}, status=draft, tag=0000000]
-
-	\Yang{}
+	Any $(p,q)$-forms $\alpha$ can be viewed as a $(d-p,d-q)$-currents by the integral
+	\[ - \wedge \alpha : \scrA_X^{d-p,d-q}(U) \to \bbC, \quad \beta \mapsto \int_U \beta \wedge \alpha. \]
 \end{example}
 
 \begin{example}[label=\labelNFM{eg:submainfolds-as-currents}, status=draft, tag=0000000]
+	Let $Z$ be a closed (real) submainfold of $X$ of real dimension $k$.
+	Then the integral gives a current
+	\[ \delta_Z: \scrA_X^{k} \to \bbC, \quad \beta \mapsto \int_Z \beta|_Z. \]
+	This is called the \emph{delta current} associated to $Z$.
+
+	If $Z$ is a closed complex subvariety of $X$ of complex dimension $p$ (or real dimension $k=2p$)
+	Then $\delta_Z|_{\scrA_X^{r,s}} = 0$ for $(r,s) \neq (p,p)$.
+	In other words, $\delta_Z \in \scrA_{p,p}^X$.
 	\Yang{}
 \end{example}
 
 \begin{example}[label=\labelNFM{eg:measure-and-distribution-as-currents}, status=draft, tag=0000000]
+	Let $X$ be complex analytic space.
+	Let $\mu$ be any finite measure on the boral algebras.
+	Then 
+	\[ f \mapsto \int_X f \mu \]
+	making $\mu$ a dimension $(0,0)$ current in $\calA_{0,0}$.
+
+	Recall a \emph{distribution} is a 
 	\Yang{}
 \end{example}
 
@@ -69,39 +93,127 @@ Let us record some basic properties of currents on a complex analytic spaces.
 		\item there is a differential
 		\item it is a $\scrA^\cdot$-module.
 		\item there is a proper pushforward and flat pullback.
-		\item the pushforward is a $\scrA$-homomorphism.
-		\item the pullback coincides with pullback of forms
+		\item the pushforward is a $\scrA$-homomorphism. in other words, we have the projection formula.
+		\item the pullback coincides with pullback of forms.
 	\end{enumerate}
 	\Yang{}
 \end{proposition}
 
-
-
 Forms and currents are more finer object than algebraic cycles and cocyles.
+They can capture the ``local positivity''.
+
+\begin{definition}[label=\labelNFM{def:positivity-of-forms-and-currents}, status=draft, tag=0000000]
+	Let $X$ be a complex analytic variety.
+	
+\end{definition}
+
+
+
+
+\begin{definition}[label=\labelNFM{def:psh-function}, status=draft, tag=0000000]
+	A \emph{pluri-subharmic} functions.
+	\Yang{}
+\end{definition}
+
+\begin{proposition}[label=\labelNFM{prop:wedge-with-psh-function}, status=draft, tag=0000000]
+	\Yang{}
+\end{proposition}
 
 \Yang{}
 
 
+Let us recall the cohomological theory and hodge theory related to the forms and currents
+
+\Yang{}
+
+\begin{theorem}[label=\labelNFM{thm:cohomology-by-forms}, status=draft, tag=0000000]
+	Let $X$ be a complex projective manifold.
+\end{theorem}
 
 
 
 
 
-\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:review-of-metrics}]{Hermitian line bundles and adelic divisors}
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:review-of-metrics}]{Hermitian line bundles}
 
-
-Given a line bundles, we can get a cohomological class.
+Given a line bundles $L$ on $X$, we can get a cohomological class $c_1(L) \in H^{1,1}(X,\bbR)$.
 But it is not a differential forms.
+We hope to find a canonical differential form $\alpha$ to represent it, i.e., $[\alpha] = c_1(L)$.
+For this purpose, we need some more finer structure on the line bundle, namely, the \emph{metric}.
 
 \begin{definition}[label=\labelNFM{def:hermitian-line-bundles}, status=draft, tag=0000000]
-	A \emph{$\cinf$-hermitian metric} (resp. \emph{continous hermitian metric}) on \(E\) is a $\cinf$-ly (resp. continuously) varying family of hermitian inner products \(\langle \cdot, \cdot \rangle_x\) on the fibers \(E_x\) for each \(x \in X\),
+	Let $X$ be a complex analytic space and $E$ be a vector bundle on $X$.
+	Fix a class of functions $\cinf \subset \scrF \subset Map()$
+	A \emph{$\scrF$-hermitian metric} on $E$ is a $\scrF$-ly varying family of hermitian inner products \(\langle \cdot, \cdot \rangle_x\) on the fibers \(E_x\) for each \(x \in X\),
 	i.e.,
 	\[\langle \cdot, \cdot \rangle_x: E_x \times E_x \to \mathbb{C}\]
-	is a hermitian inner product for each \(x\), and for any local smooth (resp. continuous) sections \(s,t\) of \(E\), the function
+	is a hermitian inner product for each \(x\), and for any local $\scrF$-sections \(s,t\) of \(E\), the function
 	\[x \mapsto \langle s(x), t(x) \rangle_x\]
-	is smooth (resp. continuous) on \(X\).
+	is of class $\scrF$ on \(X\).
 	A complex vector bundle equipped with a hermitian metric is called a \emph{hermitian vector bundle}.
 \end{definition}
+
+\begin{remark}\label{rmk:Riemannian_metric_induced_by_hermitian_metric}
+	Let \(h\) be a smooth hermitian metric on a complex manifold \(X\).
+	Then \(h\) induces a Riemannian metric \(g\) on the underlying real manifold of \(X\) by
+	\[g(u,v) = \Real(h(u,v))\]
+	for real tangent vectors \(u,v \in T_x X\).
+\end{remark}
+
+\begin{example}\label{eg:Fubini-Study_metric_on_P^n}
+	Let \(\bbP^n\) be the complex projective space (parameterizing lines).
+	Recall that \(\bbP^n(\bbC) \cong (\bbC^{n+1} \setminus \{0\})/\bbC^*\).
+	We focus on the underlying smooth manifold structure.
+	We have \(\bbC^* \cong S^1 \times \bbR_{>0}\) and \((\bbC^{n+1} \setminus \{0\})/ \bbR_{>0} \cong S^{2n+1}\).
+	Hence \(\bbP^n(\bbC) \cong S^{2n+1}/S^1\).
+	Note that \(S^1 \acts S^{2n+1} \subset \bbC^{n+1}\) is isometric with respect to the standard hermitian metric on \(\bbC^{n+1}\).
+	Hence the quotient \(\bbP^n(\bbC)\) inherits a natural hermitian metric \(h_{\text{FS}}\), called the \emph{Fubini-Study metric}.
+
+	On the standard affine chart \(U_i = \{[z_0: \cdots : z_n] \in \bbP^n \mid z_i \neq 0\}\) with coordinates \(z_{j,i} = z_j/z_i\) for \(j \neq i\),
+	we know that \(T\bbP^n|_{U_i}\) is spanned by \(\{\partial_{j,i} = \partial/\partial z_{j,i}\}_{j \neq i}\).
+	The Fubini-Study metric is given by
+	\[h_{\text{FS}}(z_{-,i})(\partial_{k,i}, \partial_{l,i}) = \frac{\delta_{kl}}{1 + \sum_{r \neq i} |z_{r,i}|^2} - \frac{\overline{z_{k,i}} z_{l,i}}{(1 + \sum_{r \neq i} |z_{r,i}|^2)^2}.\]
+\end{example}
+
+\begin{example}\label{eg:Fubini-Study_metric_on_O_1}
+	Let \(\bbP^n\) be the complex projective space in the sense of Grothendieck, i.e., the set of hyperplanes in \(\bbC^{n+1}\) and \(L \to \bbP^n\) be the geometric line bundle corresponding to \(\calO_{\bbP^n}(1)\).
+	On \(L\), there is another ``Fubini-Study'' hermitian metric \(h_{\text{FS}}\) defined as follows.
+	Fix a hermitian metric \(\langle \cdot, \cdot \rangle\) on \(\bbC^{n+1}\).
+	For a point \(x \in \bbP^n\) represented by a linear functional \(f_x: \bbC^{n+1} \to \bbC\), the fiber \(L_x\) can be identified with \(\bbC^{n+1}/\ker(f_x) \cong \bbC\).
+	There is a canonical isomorphism \(\bbC^{n+1}/\ker(f_x) \cong (\ker f_x)^\perp\) induced by the given hermitian metric on \(\bbC^{n+1}\).
+	Hence on \(L_x\), we can define a hermitian metric by pulling back the restriction of \(\langle \cdot, \cdot \rangle\) on \((\ker f_x)^\perp\).
+
+	Concretely, Let us take the standard hermitian metric on \(\bbC^{n+1}\).
+	On the standard affine chart \(U_i = \{[z_0: \cdots : z_n] \in \bbP^n \mid z_i \neq 0\}\) with coordinates \(z_{j,i} = z_j/z_i\) for \(j \neq i\),
+	a local holomorphic frame of \(L\) is given by
+	\[s_i([z_0: \cdots : z_n]) = (z_0, \ldots, z_{i-1}, 1, z_{i+1}, \ldots, z_n) \in L_{[z_0: \cdots : z_n]}.\]
+
+	\Yang{to be continued}
+\end{example}
+
+On this note, we will focus the case of hermitian line bundles.
+
+\begin{proposition}\label{prop:hermitian_metric_different_by_a_smooth_function_on_a_fixed_line_bundle}
+	Let \(h_1,h_2\) be two smooth (resp. continuous) hermitian metrics on $\calL$.
+	Then there exists a unique smooth (resp. continuous) function \(\varphi: X \to \bbR\) such that
+	\[h_2(s,t) = \exp(\varphi) \cdot h_1(s,t)\]
+	for all local smooth (resp. continuous) sections \(s,t\) of \(L\).
+	In particular, the metrized line bundle on a proper variety forms a group 
+	\[ \Pic(X) \times \cinf_X(X) \]
+\end{proposition}
+\begin{proof}
+	\Yang{to be added.}
+\end{proof}
+
+Under the correspondence of sections in a line bundle and Cartier divisors, the metric will becomes the \emph{green functions}.
+
+\begin{definition}\label{def:green-functions-for-a-divisor}
+	Let $D = \{(U_i,f_i)\}$ be a Caritier divisor on $X$.
+	A \emph{green function} of $D$ is a (real-valued) function $g \in \scrO_{X}^{\cnt,\bbR}(X \setminus \Supp D)$ such that $g|_{U_i} + \log |f_i|$ can be extended to a continous function on $U_i$.
+\end{definition}
+
+
+
 
 Let \(X\) be a complex analytic variety and $\calL$ a holomorphic line bundle on $X$.
 
@@ -113,21 +225,6 @@ Let \(X\) be a complex analytic variety and $\calL$ a holomorphic line bundle on
 	\Yang{To be checked.}
 \end{proposition}
 
-
-\begin{proposition}\label{prop:hermitian_metric_different_by_a_smooth_function_on_a_fixed_line_bundle}
-	Let \(h_1,h_2\) be two smooth (resp. continuous) hermitian metrics on $\calL$.
-	Then there exists a unique smooth (resp. continuous) function \(\varphi: X \to \bbR\) such that
-	\[h_2(s,t) = \exp(\varphi) \cdot h_1(s,t)\]
-	for all local smooth (resp. continuous) sections \(s,t\) of \(L\).
-\end{proposition}
-\begin{proof}
-	\Yang{to be added.}
-\end{proof}
-
-\begin{definition}\label{def:green-functions-for-a-divisor}
-	Let $D = \{(U_i,f_i)\}$ be a Caritier divisor on $X$.
-	A \emph{green function} of $D$ is a (real-valued) function $g \in \scrO_{X}^{\cnt,\bbR}(X \setminus \Supp D)$ such that $g|_{U_i} + \log |f_i|$ can be extended to a continous function on $U_i$.
-\end{definition}
 
 \begin{example}
 	Let $\bbP$
@@ -147,10 +244,10 @@ Let \(X\) be a complex analytic variety and $\calL$ a holomorphic line bundle on
 
 
 
-\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:on-complex-dynamics}]{Canonical height}
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:on-complex-dynamics}]{Adelic line bundles and canonical height}
 
 \begin{definition}[label=\labelNFM{def:height-function-by-metrized-line-bundle}, status=draft, tag=0000000]
-	Let $\bar calL$ be a hermitian line bundles
+	Let $\bar{\calL}$ be a hermitian line bundles
 	The \emph{height function} is defined as
 	\Yang{}
 \end{definition}
