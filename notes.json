@@ -5,17 +5,6 @@
   },
   "notes": [
     {
-      "id": "dynamics-on-projective-spaces",
-      "title": "Dynamics on Projective Spaces",
-      "tex": "chapters/dynamics-on-projective-spaces/dynamics-on-projective-spaces.tex",
-      "url": "pdf/2026fall/dynamics-on-projective-spaces/dynamics-on-projective-spaces.pdf",
-      "compile": true,
-      "status": {
-        "published": 0,
-        "finished": 0
-      }
-    },
-    {
       "id": "moduli-of-dynamics-on-projective-spaces",
       "title": "Moduli of Dynamics on Projective Spaces",
       "tex": "chapters/dynamics-on-projective-spaces/moduli-of-dynamics-on-projective-spaces/moduli-of-dynamics-on-projective-spaces.tex",
