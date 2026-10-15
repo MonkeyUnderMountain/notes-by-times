@@ -12,10 +12,10 @@ Let us fix some notations we will frequently use later.
 		\item Let $X$ be a complex analytic space, its sheaf of holomorphic funciton $\scrO_X$, $\cinf_X$, $\scrC^p_X$, $\scrL_X^p$ means the sheaf...
 		\item sheaf of forms and currents,
 		\item $\upd^c$ is normalized by ...
-		\item 
+		\item
 	\end{itemize}
-	
-	
+
+
 \end{notation}
 
 
@@ -29,14 +29,14 @@ Recall that on a complex mainfolds $X$, or more generally a complex analytic spa
 \[ \scrA_X^{\bullet,\bullet} = \bigoplus_{k} \scrA_X^k = \bigoplus_{k} \bigoplus_{p+q = k} \scrA_X^{p,q}, \quad \scrA_X^{0,1} = \overline{\scrA_{X}^{1,0}}, \quad \scrA_X^{p,q} \coloneqq \bigwedge^p \scrA_X^{1,0} \otimes \bigwedge^q \scrA_X^{0,1}. \]
 with $\scrA_X^{1,0}$ given by the complex-valued $\cinf$-sections of $T^*X$ when $X$ smooth and the over line means the conjugation of the almost complex structure on $T^*X$.
 All these sheaves are $\cinf_{X,\bbC}$-modules.
-And the usual differential map $\upd$ decomposition as 
+And the usual differential map $\upd$ decomposition as
 \[ \upd = \partial + \partialbar,  \] \Yang{}
 Set
 \begin{latexmathchange}
-\[
-  \upd^c\coloneqq\frac{\im}{2\pi}(\partialbar-\partial),\qquad
-  \upd\upd^c=\frac{\im}{\pi}\partial\partialbar.
-\]
+	\[
+		\upd^c\coloneqq\frac{\im}{2\pi}(\partialbar-\partial),\qquad
+		\upd\upd^c=\frac{\im}{\pi}\partial\partialbar.
+	\]
 \end{latexmathchange}
 For details, see \cite{Barlet-Magnusson-2019-ComplexAnalyticCycles,Demailly-2012-ComplexAnalyticDifferential}.
 
@@ -46,113 +46,113 @@ There is a natural way to endow topology on $\scrA_X^{p,q}(U)$ making it as a Fr
 \begin{construction}[label=\labelNFM{constr:topo-on-forms}, status=draft, tag=0000000]
 	Let $X$ be a complex manifold of complex dimension $d$, $U\subset X$ an open set, and $0\leq p,q\leq d$.
 	On $\scrA_X^{p,q}(U)$, we have the following family of seminorms:
-  given $\frakD = (V,z,K,m)$, where $(V,z)$ is a holomorphic coordinate chart in $U$, $K \subset V$ a compact set and $m \geq 0$ integer, define 
-  \[ \|\alpha\|_{\frakD} \coloneqq \max_{\substack{|I|=p,\,|J|=q\\|\nu|\leq m}} \sup_{x\in K} \bigl|D^\nu\alpha_{I,J}(x)\bigr|, \quad \text{ where }\alpha|_V=\sum_{|I|=p,\,|J|=q}\alpha_{I,J}\,\upd z_I\wedge \upd\overline{z}_J. \]
+	given $\frakD = (V,z,K,m)$, where $(V,z)$ is a holomorphic coordinate chart in $U$, $K \subset V$ a compact set and $m \geq 0$ integer, define
+	\[ \|\alpha\|_{\frakD} \coloneqq \max_{\substack{|I|=p,\,|J|=q\\|\nu|\leq m}} \sup_{x\in K} \bigl|D^\nu\alpha_{I,J}(x)\bigr|, \quad \text{ where }\alpha|_V=\sum_{|I|=p,\,|J|=q}\alpha_{I,J}\,\upd z_I\wedge \upd\overline{z}_J. \]
 	Here $D^\nu$ denotes differentiation in the real coordinates underlying $z$.
-  These seminorms make $\scrA_X^{p,q}(U)$ a Fr\'echet space.
+	These seminorms make $\scrA_X^{p,q}(U)$ a Fr\'echet space.
 	See \cite[Chapter~I, \S 2]{Demailly-2012-ComplexAnalyticDifferential}.
 
-  Under this topology, we have $\alpha_n \to \alpha$ in $\scrA^{p,q}_X(U)$ iff for any $x \in U$, choose any sufficiently small coordinate chart with boundary, 
-  the arbitrary derivatives of coefficient functions of $\alpha_n$ uniformly converge to the corresponding one of $\alpha$.
-  \Yang{}
+	Under this topology, we have $\alpha_n \to \alpha$ in $\scrA^{p,q}_X(U)$ iff for any $x \in U$, choose any sufficiently small coordinate chart with boundary,
+	the arbitrary derivatives of coefficient functions of $\alpha_n$ uniformly converge to the corresponding one of $\alpha$.
+	\Yang{}
 \end{construction}
 
 
 \begin{remark}[label=\labelNFM{rmk:recall-Frechet-space}, status=draft, tag=0000000]
-	Here we recall some basic facts about Fr\'echet spaces.		
+	Here we recall some basic facts about Fr\'echet spaces.
 
 	Recall that a \emph{seminorm} on a complex vector space $E$ is a map $p:E\to\bbR_{\geq0}$ such that
-		\[
-			p(\lambda v)=|\lambda|p(v),\qquad p(v+w)\leq p(v)+p(w).
-		\]
-		In other words, a semi-norm is a norm on $E/W$ for some subspace $W \subset E$.
-		A collection of seminorms $(p_i)_{i \in I}$ can define a topology on $E$ by its weak topology.
-		This topology is Hausdorff iff $(p_i)_{i \in I}$ separates points, i.e., for any $x,y \in E$, there exist $p_i$ with $p_i(x) \neq p_j(y)$.
-		In particular, if $I$ is countable, then this topology can be induced by a metric 
-		\[
-			\rho(v,w)=\sum_{j\geq1}2^{-j} \frac{p_j(v-w)}{1+p_j(v-w)}.
-		\]
-		And if $I$ if finite, it can further be induced by a norm 
-		\begin{equation}
-			\|v\| \coloneqq \sum_{1\leq j\leq N}p_j(v).
-		\end{equation}
+	\[
+		p(\lambda v)=|\lambda|p(v),\qquad p(v+w)\leq p(v)+p(w).
+	\]
+	In other words, a semi-norm is a norm on $E/W$ for some subspace $W \subset E$.
+	A collection of seminorms $(p_i)_{i \in I}$ can define a topology on $E$ by its weak topology.
+	This topology is Hausdorff iff $(p_i)_{i \in I}$ separates points, i.e., for any $x,y \in E$, there exist $p_i$ with $p_i(x) \neq p_j(y)$.
+	In particular, if $I$ is countable, then this topology can be induced by a metric
+	\[
+		\rho(v,w)=\sum_{j\geq1}2^{-j} \frac{p_j(v-w)}{1+p_j(v-w)}.
+	\]
+	And if $I$ if finite, it can further be induced by a norm
+	\begin{equation}
+		\|v\| \coloneqq \sum_{1\leq j\leq N}p_j(v).
+	\end{equation}
 
-		A \emph{Fr\'echet space} is a complete Hausdorff locally convex topological vector space whose topology is defined by a countable family of seminorms $(p_j)_{j\geq1}$.
-		A Fr\'echet space whose topology is defined by finitely many seminorms $p_1,\ldots,p_N$ is a Banach space.
+	A \emph{Fr\'echet space} is a complete Hausdorff locally convex topological vector space whose topology is defined by a countable family of seminorms $(p_j)_{j\geq1}$.
+	A Fr\'echet space whose topology is defined by finitely many seminorms $p_1,\ldots,p_N$ is a Banach space.
 
-		\begin{latexmathchange}
-			Let $E$ be a Fr\'echet space with defining seminorms $(p_i)$, and let $E^\vee$ be its continuous complex-linear dual.
-			There are two usual topologies on $E^\vee$.
-			The \emph{weak-* topology} $\sigma(E^\vee,E)$ is defined by the seminorms
-			\[
-				q_v(\ell)\coloneqq|\ell(v)|,\qquad v\in E.
-			\]
-			Thus $\ell_n\to\ell$ weakly-* iff $\ell_n(v)\to\ell(v)$ for every $v\in E$.
-			The \emph{strong dual topology} $\beta(E^\vee,E)$ is defined by
-			\[
-				q_B(\ell)\coloneqq\sup_{v\in B}|\ell(v)|,\qquad B\subset E\text{ bounded},
-			\]
-			where $B$ is bounded iff $\sup_{v\in B}p_i(v)<+\infty$ for every $i$.
-			Strong convergence means uniform convergence on every bounded subset of $E$, and implies weak-* convergence.
-			The strong dual is complete, but need not be a Fr\'echet space.
-			See \cite[\S 2, especially Theorem~2.3]{Vogt-2000-LecturesFrechetSpaces}.
-			For currents below, we use the weak-* topology, conventionally called the weak topology of currents.
-		\end{latexmathchange}
-		% \toai{find refer for the dual topo of Frechet space} -- resolved.
+	\begin{latexmathchange}
+		Let $E$ be a Fr\'echet space with defining seminorms $(p_i)$, and let $E^\vee$ be its continuous complex-linear dual.
+		There are two usual topologies on $E^\vee$.
+		The \emph{weak-* topology} $\sigma(E^\vee,E)$ is defined by the seminorms
+		\[
+			q_v(\ell)\coloneqq|\ell(v)|,\qquad v\in E.
+		\]
+		Thus $\ell_n\to\ell$ weakly-* iff $\ell_n(v)\to\ell(v)$ for every $v\in E$.
+		The \emph{strong dual topology} $\beta(E^\vee,E)$ is defined by
+		\[
+			q_B(\ell)\coloneqq\sup_{v\in B}|\ell(v)|,\qquad B\subset E\text{ bounded},
+		\]
+		where $B$ is bounded iff $\sup_{v\in B}p_i(v)<+\infty$ for every $i$.
+		Strong convergence means uniform convergence on every bounded subset of $E$, and implies weak-* convergence.
+		The strong dual is complete, but need not be a Fr\'echet space.
+		See \cite[\S 2, especially Theorem~2.3]{Vogt-2000-LecturesFrechetSpaces}.
+		For currents below, we use the weak-* topology, conventionally called the weak topology of currents.
+	\end{latexmathchange}
+	% \toai{find refer for the dual topo of Frechet space} -- resolved.
 \end{remark}
 
 \Yang{}
 
 \begin{proposition}[label=\labelNFM{prop:basic-properties-of-forms-with-topology}, status=draft, tag=0000000]
-		Let $X$ be a complex analytic space of complex dimension $d$ and $U\subset X$ an open set.
-    \begin{enumerate}
-      \item The forms form a sheaf of rings.
-				More precisely, the wedge product makes $\scrA_X^{\bullet,\bullet}$ a sheaf of bi-graded topological $\cinf_{X,\bbC}$-algebras:
-				\[
-					\alpha\wedge\beta=(-1)^{(p+q)(r+s)}\beta\wedge\alpha,
-					\qquad \alpha\in\scrA_X^{p,q},\quad\beta\in\scrA_X^{r,s}.
-				\]
-      In particular, the subring $\bigoplus_p\scrA^{p,p}$ is commutative.
-      \item The integration gives a continuous evaluation map
-				\[
-					\int_U:\Gamma_c(\scrA_X^{d,d},U)\longrightarrow\bbC,
-					\qquad \alpha\longmapsto\int_U\alpha.
-				\]
-        In particular, if $X$ is compact, we have $\int: \scrA^{d,d}_X(X) \to \bbC$.
-      \item Every holomorphic map $f:Y \to X$ defines a functorial continuous pullback $f^*: f^*:\scrA_X^{\bullet,\bullet} \longrightarrow \scrA_Y^{\bullet,\bullet}|_X$ which is a homomorphism of bi-graded $\cinf_X$-algebras and commutative with $\partial,\partialbar$.
-      \item There is a functorial continuous differential map
-				\[
-					\upd=\partial+\partialbar:\scrA_X^k\longrightarrow\scrA_X^{k+1},
-					\qquad
-						\partial : \scrA_X^{p,q}\longrightarrow\scrA_X^{p+1,q},\quad
-						\partialbar : \scrA_X^{p,q}\longrightarrow\scrA_X^{p,q+1}.
-				\]
-				They satisfy the Lebubinz rule and $d^2=\partial^2=\partialbar^2=0$ and
-				$\partial\partialbar+\partialbar\partial=0$.
-    \end{enumerate}
-  \Yang{}
+	Let $X$ be a complex analytic space of complex dimension $d$ and $U\subset X$ an open set.
+	\begin{enumerate}
+		\item The forms form a sheaf of rings.
+		      More precisely, the wedge product makes $\scrA_X^{\bullet,\bullet}$ a sheaf of bi-graded topological $\cinf_{X,\bbC}$-algebras:
+		      \[
+			      \alpha\wedge\beta=(-1)^{(p+q)(r+s)}\beta\wedge\alpha,
+			      \qquad \alpha\in\scrA_X^{p,q},\quad\beta\in\scrA_X^{r,s}.
+		      \]
+		      In particular, the subring $\bigoplus_p\scrA^{p,p}$ is commutative.
+		\item The integration gives a continuous evaluation map
+		      \[
+			      \int_U:\Gamma_c(\scrA_X^{d,d},U)\longrightarrow\bbC,
+			      \qquad \alpha\longmapsto\int_U\alpha.
+		      \]
+		      In particular, if $X$ is compact, we have $\int: \scrA^{d,d}_X(X) \to \bbC$.
+		\item Every holomorphic map $f:Y \to X$ defines a functorial continuous pullback $f^*: f^*:\scrA_X^{\bullet,\bullet} \longrightarrow \scrA_Y^{\bullet,\bullet}|_X$ which is a homomorphism of bi-graded $\cinf_X$-algebras and commutative with $\partial,\partialbar$.
+		\item There is a functorial continuous differential map
+		      \[
+			      \upd=\partial+\partialbar:\scrA_X^k\longrightarrow\scrA_X^{k+1},
+			      \qquad
+			      \partial : \scrA_X^{p,q}\longrightarrow\scrA_X^{p+1,q},\quad
+			      \partialbar : \scrA_X^{p,q}\longrightarrow\scrA_X^{p,q+1}.
+		      \]
+		      They satisfy the Lebubinz rule and $d^2=\partial^2=\partialbar^2=0$ and
+		      $\partial\partialbar+\partialbar\partial=0$.
+	\end{enumerate}
+	\Yang{}
 \end{proposition}
 
 \begin{construction}[label=\labelNFM{constr:currents}, status=draft, tag=0000000]
-Let $X$ be a complex manifold of complex dimension $d$, $U\subset X$ an open set, and $0\leq p,q\leq d$.
-Set 
-\[ \Gamma_c(\scrA_X^{p,q},U) =\varinjlim_{K\subset U \text{ compact}}\scrA_{X,K}^{p,q}(U), 
-\quad \scrA_{X,K}^{p,q}(U) \coloneqq \{\beta\in\scrA_X^{p,q}(U)\mid\Supp\beta\subset K\}. \]
-On each $K \subset U$ compact, we use the subspace topology $\scrA_{X,K}^{p,q}(U) \subset \scrA_{X}^{p,q}(U)$.
-And on $\Gamma_c(\scrA_X^{p,q},U)$, we use the inductive limit topology, i.e., a map $f: \Gamma_c(\scrA_X^{p,q},U) \to X$ is continuous iff $\scrA_{X,K}^{p,q}(U) \Gamma_c(\scrA_X^{p,q},U) \to X$ is continuous for all $K \subset U$ compact.
+	Let $X$ be a complex manifold of complex dimension $d$, $U\subset X$ an open set, and $0\leq p,q\leq d$.
+	Set
+	\[ \Gamma_c(\scrA_X^{p,q},U) =\varinjlim_{K\subset U \text{ compact}}\scrA_{X,K}^{p,q}(U),
+		\quad \scrA_{X,K}^{p,q}(U) \coloneqq \{\beta\in\scrA_X^{p,q}(U)\mid\Supp\beta\subset K\}. \]
+	On each $K \subset U$ compact, we use the subspace topology $\scrA_{X,K}^{p,q}(U) \subset \scrA_{X}^{p,q}(U)$.
+	And on $\Gamma_c(\scrA_X^{p,q},U)$, we use the inductive limit topology, i.e., a map $f: \Gamma_c(\scrA_X^{p,q},U) \to X$ is continuous iff $\scrA_{X,K}^{p,q}(U) \Gamma_c(\scrA_X^{p,q},U) \to X$ is continuous for all $K \subset U$ compact.
 
 
 	For any $U \subset V$, the natural map is extension by zero:
 	\[ i_*: \Gamma_c(\scrA_X^{p,q},U) \to \Gamma_c(\scrA_X^{p,q},V), \quad (i_*\alpha)|_{V\setminus U} = 0. \]
 	This map is continuous.
-Let $\scrA_{p,q}^X(U)$ be the topological dual of $\Gamma_c(\scrA_X^{p,q},U)$.
+	Let $\scrA_{p,q}^X(U)$ be the topological dual of $\Gamma_c(\scrA_X^{p,q},U)$.
 	Then the dual of zero-extension $i_*$ gives a functorial restriction $\res^V_U: \scrA_{p,q}^X(V) \to \scrA_{p,q}^X(U)$.
-		Compatible local currents glue uniquely using a locally finite smooth partition of unity: each compactly supported test form meets only finitely many terms.
-		This proves the sheaf axiom.
-		We equip the dual with the weak topology, defined by the seminorms $T\mapsto|\langle T,\beta\rangle|$ for all compactly supported test forms $\beta$.
+	Compatible local currents glue uniquely using a locally finite smooth partition of unity: each compactly supported test form meets only finitely many terms.
+	This proves the sheaf axiom.
+	We equip the dual with the weak topology, defined by the seminorms $T\mapsto|\langle T,\beta\rangle|$ for all compactly supported test forms $\beta$.
 	The sheaf $\scrA_{p,q}^X$ is called the \emph{sheaf of currents of bidimension $(p,q)$}.
-		See \cite[Chapter~I, \S 2 and \S 3]{Demailly-2012-ComplexAnalyticDifferential}.
-		\Yang{}
+	See \cite[Chapter~I, \S 2 and \S 3]{Demailly-2012-ComplexAnalyticDifferential}.
+	\Yang{}
 \end{construction}
 
 Many object can be viewed as a currents.
@@ -204,11 +204,11 @@ Many object can be viewed as a currents.
 \begin{example}[label=\labelNFM{eg:measure-and-distribution-as-currents}, status=draft, tag=0000000]
 	Let $X$ be complex analytic space.
 	Let $\mu$ be any finite measure on the boral algebras.
-	Then 
+	Then
 	\[ f \mapsto \int_X f \mu \]
 	making $\mu$ a dimension $(0,0)$ current in $\calA_{0,0}$.
 
-	Recall a \emph{distribution} is a 
+	Recall a \emph{distribution} is a
 	\Yang{}
 \end{example}
 
@@ -220,84 +220,91 @@ Many object can be viewed as a currents.
 Let us record some basic properties of currents on a complex analytic spaces.
 
 \begin{proposition}[label=\labelNFM{prop:basic-properties}, status=draft, tag=0000000]
+	Let $X$ be a complex analytic variety of complex dimension $d$.
+	We have the following properties about the currents.
+	\begin{enumerate}
+		\item The currents $\bigoplus \scrA^X_{p,q}$ forms a bi-graded $\scrA_X^{\bullet,\bullet}$-modules
+		\item we have the differential map.
+	\end{enumerate}
+
 	\leavevmode\par
 	\begin{latexmathchange}
 		Let $X$ be a complex manifold of complex dimension $d$, with currents indexed by bidimension as in \cref{constr:currents}.
 	\end{latexmathchange}
 	\begin{enumerate}
 		\item \latexgrammar{There is an inclusion}
-			\begin{latexmathchange}
-				\[
-					\scrA_X^{p,q}\hookrightarrow\scrA_{d-p,d-q}^X,
-					\qquad \alpha\longmapsto T_\alpha,
-					\qquad \langle T_\alpha,\beta\rangle=\int_U\beta\wedge\alpha,
-				\]
-				where $\beta\in\Gamma_c(\scrA_X^{d-p,d-q},U)$.
-				The same construction works for forms with locally integrable coefficients.
-			\end{latexmathchange}
+		      \begin{latexmathchange}
+			      \[
+				      \scrA_X^{p,q}\hookrightarrow\scrA_{d-p,d-q}^X,
+				      \qquad \alpha\longmapsto T_\alpha,
+				      \qquad \langle T_\alpha,\beta\rangle=\int_U\beta\wedge\alpha,
+			      \]
+			      where $\beta\in\Gamma_c(\scrA_X^{d-p,d-q},U)$.
+			      The same construction works for forms with locally integrable coefficients.
+		      \end{latexmathchange}
 		\item \latexgrammar{There is a differential.}
-			\begin{latexmathchange}
-				Write $\scrA_k^X=\bigoplus_{p+q=k}\scrA_{p,q}^X$ for currents of real dimension $k$.
-				For $T\in\scrA_k^X(U)$, define
-				\[
-					\upd T\in\scrA_{k-1}^X(U),
-					\qquad \langle\upd T,\beta\rangle=(-1)^k\langle T,\upd\beta\rangle,
-					\quad \beta\in\Gamma_c(\scrA_X^{k-1},U).
-				\]
-				This sign is chosen for the convention $\langle T_\alpha,\beta\rangle=\int_U\beta\wedge\alpha$ above; Stokes' formula gives $\upd T_\alpha=T_{\upd\alpha}$.
-				For the integration current of a locally finite oriented smooth $k$-chain $C$, Stokes' formula also gives $\upd\delta_C=(-1)^k\delta_{\partial C}$. Hence this differential has the same cycles and boundaries as the usual current boundary operator.
-				The decomposition $\upd=\partial+\partialbar$ has types
-				\[
-					\partial:\scrA_{p,q}^X\longrightarrow\scrA_{p-1,q}^X,
-					\qquad \partialbar:\scrA_{p,q}^X\longrightarrow\scrA_{p,q-1}^X.
-				\]
-				It satisfies $\upd^2=\partial^2=\partialbar^2=0$ and $\partial\partialbar+\partialbar\partial=0$.
-				Spaces with a bidimension index outside $0,\ldots,d$ (or a total dimension index outside $0,\ldots,2d$) are understood to be zero.
-			\end{latexmathchange}
+		      \begin{latexmathchange}
+			      Write $\scrA_k^X=\bigoplus_{p+q=k}\scrA_{p,q}^X$ for currents of real dimension $k$.
+			      For $T\in\scrA_k^X(U)$, define
+			      \[
+				      \upd T\in\scrA_{k-1}^X(U),
+				      \qquad \langle\upd T,\beta\rangle=(-1)^k\langle T,\upd\beta\rangle,
+				      \quad \beta\in\Gamma_c(\scrA_X^{k-1},U).
+			      \]
+			      This sign is chosen for the convention $\langle T_\alpha,\beta\rangle=\int_U\beta\wedge\alpha$ above; Stokes' formula gives $\upd T_\alpha=T_{\upd\alpha}$.
+			      For the integration current of a locally finite oriented smooth $k$-chain $C$, Stokes' formula also gives $\upd\delta_C=(-1)^k\delta_{\partial C}$. Hence this differential has the same cycles and boundaries as the usual current boundary operator.
+			      The decomposition $\upd=\partial+\partialbar$ has types
+			      \[
+				      \partial:\scrA_{p,q}^X\longrightarrow\scrA_{p-1,q}^X,
+				      \qquad \partialbar:\scrA_{p,q}^X\longrightarrow\scrA_{p,q-1}^X.
+			      \]
+			      It satisfies $\upd^2=\partial^2=\partialbar^2=0$ and $\partial\partialbar+\partialbar\partial=0$.
+			      Spaces with a bidimension index outside $0,\ldots,d$ (or a total dimension index outside $0,\ldots,2d$) are understood to be zero.
+		      \end{latexmathchange}
 		\item \latexgrammar{Currents form a module over smooth forms.}
-			\begin{latexmathchange}
-				For $\alpha\in\scrA_X^{a,b}(U)$ and $T\in\scrA_{p,q}^X(U)$, the product $\alpha\wedge T\in\scrA_{p-a,q-b}^X(U)$ is defined by
-				\[
-					\langle\alpha\wedge T,\beta\rangle
-					=\langle T,\beta\wedge\alpha\rangle,
-					\qquad \beta\in\Gamma_c(\scrA_X^{p-a,q-b},U).
-				\]
-				It extends the wedge product of forms and satisfies
-				\[
-					\upd(\alpha\wedge T)=\upd\alpha\wedge T+(-1)^{a+b}\alpha\wedge\upd T.
-				\]
-			\end{latexmathchange}
+		      \begin{latexmathchange}
+			      For $\alpha\in\scrA_X^{a,b}(U)$ and $T\in\scrA_{p,q}^X(U)$, the product $\alpha\wedge T\in\scrA_{p-a,q-b}^X(U)$ is defined by
+			      \[
+				      \langle\alpha\wedge T,\beta\rangle
+				      =\langle T,\beta\wedge\alpha\rangle,
+				      \qquad \beta\in\Gamma_c(\scrA_X^{p-a,q-b},U).
+			      \]
+			      It extends the wedge product of forms and satisfies
+			      \[
+				      \upd(\alpha\wedge T)=\upd\alpha\wedge T+(-1)^{a+b}\alpha\wedge\upd T.
+			      \]
+		      \end{latexmathchange}
 		\item \latexdeleted{there is a proper pushforward and flat pullback.}
-			\begin{latexmathchange}
-				Every proper holomorphic map $f:X\to Y$ defines a pushforward
-				\[
-					f_*:\scrA_{p,q}^X(X)\longrightarrow\scrA_{p,q}^Y(Y),
-					\qquad \langle f_*T,\beta\rangle=\langle T,f^*\beta\rangle.
-				\]
-				More generally, this is defined when $f$ is proper on $\Supp T$, using a cutoff equal to one near $\Supp T\cap f^{-1}(\Supp\beta)$.
-				For a holomorphic submersion $f:X\to Y$ of relative complex dimension $r$, there is a pullback
-				\[
-					f^*:\scrA_{p,q}^Y(Y)\longrightarrow\scrA_{p+r,q+r}^X(X),
-					\qquad \langle f^*T,\beta\rangle=\langle T,f_!\beta\rangle,
-				\]
-				where $f_!\beta$ is the smooth compactly supported $(p,q)$-form obtained by integrating a test $(p+r,q+r)$-form $\beta$ along the fibers, with their complex orientation.
-				Flatness alone does not provide pullback of arbitrary currents.
-			\end{latexmathchange}
+		      \begin{latexmathchange}
+			      Every proper holomorphic map $f:X\to Y$ defines a pushforward
+			      \[
+				      f_*:\scrA_{p,q}^X(X)\longrightarrow\scrA_{p,q}^Y(Y),
+				      \qquad \langle f_*T,\beta\rangle=\langle T,f^*\beta\rangle.
+			      \]
+			      More generally, this is defined when $f$ is proper on $\Supp T$, using a cutoff equal to one near $\Supp T\cap f^{-1}(\Supp\beta)$.
+			      For a holomorphic submersion $f:X\to Y$ of relative complex dimension $r$, there is a pullback
+			      \[
+				      f^*:\scrA_{p,q}^Y(Y)\longrightarrow\scrA_{p+r,q+r}^X(X),
+				      \qquad \langle f^*T,\beta\rangle=\langle T,f_!\beta\rangle,
+			      \]
+			      where $f_!\beta$ is the smooth compactly supported $(p,q)$-form obtained by integrating a test $(p+r,q+r)$-form $\beta$ along the fibers, with their complex orientation.
+			      Flatness alone does not provide pullback of arbitrary currents.
+		      \end{latexmathchange}
 		\item \latexdeleted{the pushforward is a $\scrA$-homomorphism.}
-			\latexgrammar{In other words, we have the projection formula.}
-			\begin{latexmathchange}
-				For a proper holomorphic map $f:X\to Y$, a smooth form $\alpha$ on $Y$, and a current $T$ on $X$,
-				\[
-					f_*(f^*\alpha\wedge T)=\alpha\wedge f_*T.
-				\]
-				Thus pushforward is linear over smooth forms on $Y$, acting on currents on $X$ through $f^*$.
-				It also commutes with $\upd$, $\partial$, and $\partialbar$.
-			\end{latexmathchange}
+		      \latexgrammar{In other words, we have the projection formula.}
+		      \begin{latexmathchange}
+			      For a proper holomorphic map $f:X\to Y$, a smooth form $\alpha$ on $Y$, and a current $T$ on $X$,
+			      \[
+				      f_*(f^*\alpha\wedge T)=\alpha\wedge f_*T.
+			      \]
+			      Thus pushforward is linear over smooth forms on $Y$, acting on currents on $X$ through $f^*$.
+			      It also commutes with $\upd$, $\partial$, and $\partialbar$.
+		      \end{latexmathchange}
 		\item \latexgrammar{The pullback agrees with the pullback of forms.}
-			\begin{latexmathchange}
-				For a holomorphic submersion $f:X\to Y$ and a smooth form $\alpha$ on $Y$, we have $f^*T_\alpha=T_{f^*\alpha}$.
-				Moreover, $f^*(\alpha\wedge T)=f^*\alpha\wedge f^*T$, and pullback commutes with $\upd$, $\partial$, and $\partialbar$.
-			\end{latexmathchange}
+		      \begin{latexmathchange}
+			      For a holomorphic submersion $f:X\to Y$ and a smooth form $\alpha$ on $Y$, we have $f^*T_\alpha=T_{f^*\alpha}$.
+			      Moreover, $f^*(\alpha\wedge T)=f^*\alpha\wedge f^*T$, and pullback commutes with $\upd$, $\partial$, and $\partialbar$.
+		      \end{latexmathchange}
 	\end{enumerate}
 	\begin{latexmathchange}
 		The differentials, multiplication by a fixed smooth form, proper pushforward, and pullback by a fixed holomorphic submersion are continuous in the weak topology on currents.
@@ -350,30 +357,30 @@ Let us record some basic properties of currents on a complex analytic spaces.
 		Write $d=\dim_{\bbC}X$, and grade currents by real dimension as in \cref{prop:basic-properties}.
 		\begin{enumerate}
 			\item Define the $k$-th \emph{homology group of currents} by
-				\[
-					H_k^{\mathrm{cur}}(X,\bbC)
-					\coloneqq\frac{\ker(\upd:\scrA_k^X(X)\to\scrA_{k-1}^X(X))}{\upd\scrA_{k+1}^X(X)}.
-				\]
-				This complex computes Borel--Moore homology: locally finite chains define currents because test forms have compact support. The map $\alpha\mapsto T_\alpha$ and Poincar\'e duality give natural isomorphisms
-				\[
-					H_k^{\mathrm{cur}}(X,\bbC)
-					\cong H_k^{\mathrm{BM}}(X,\bbC)
-					\cong H_{\mathrm{dR}}^{2d-k}(X,\bbC)
-					\cong H^{2d-k}(X,\bbC).
-				\]
-				Here $H^{2d-k}(X,\bbC)$ is singular cohomology. A $\upd$-closed $k$-current is homologous to $T_\alpha$ for a closed smooth $(2d-k)$-form $\alpha$; $T_\alpha$ is a current boundary iff $\alpha$ is exact. If $X$ is compact, $H_k^{\mathrm{BM}}(X,\bbC)=H_k(X,\bbC)$.
+			      \[
+				      H_k^{\mathrm{cur}}(X,\bbC)
+				      \coloneqq\frac{\ker(\upd:\scrA_k^X(X)\to\scrA_{k-1}^X(X))}{\upd\scrA_{k+1}^X(X)}.
+			      \]
+			      This complex computes Borel--Moore homology: locally finite chains define currents because test forms have compact support. The map $\alpha\mapsto T_\alpha$ and Poincar\'e duality give natural isomorphisms
+			      \[
+				      H_k^{\mathrm{cur}}(X,\bbC)
+				      \cong H_k^{\mathrm{BM}}(X,\bbC)
+				      \cong H_{\mathrm{dR}}^{2d-k}(X,\bbC)
+				      \cong H^{2d-k}(X,\bbC).
+			      \]
+			      Here $H^{2d-k}(X,\bbC)$ is singular cohomology. A $\upd$-closed $k$-current is homologous to $T_\alpha$ for a closed smooth $(2d-k)$-form $\alpha$; $T_\alpha$ is a current boundary iff $\alpha$ is exact. If $X$ is compact, $H_k^{\mathrm{BM}}(X,\bbC)=H_k(X,\bbC)$.
 			\item For fixed $p$, $\partialbar$ lowers the second bidimension index. Define the corresponding \emph{Dolbeault homology of currents} by
-				\[
-					H_{p,q}^{\partialbar,\mathrm{cur}}(X)
-					\coloneqq\frac{\ker(\partialbar:\scrA_{p,q}^X(X)\to\scrA_{p,q-1}^X(X))}{\partialbar\scrA_{p,q+1}^X(X)}.
-				\]
-				The inclusion of smooth forms as currents identifies this group with the usual Dolbeault cohomology in complementary bidegree:
-				\[
-					H_{p,q}^{\partialbar,\mathrm{cur}}(X)
-					\cong H_{\partialbar}^{d-p,d-q}(X)
-					\cong H^{d-q}(X,\Omega_X^{d-p}).
-				\]
-				A $\partialbar$-closed current is homologous to a smooth current of the same bidimension; such a smooth current is a $\partialbar$-boundary iff its representing form is $\partialbar$-exact. When $q=d$, the denominator in the definition of $H_{p,q}^{\partialbar,\mathrm{cur}}(X)$ is zero.
+			      \[
+				      H_{p,q}^{\partialbar,\mathrm{cur}}(X)
+				      \coloneqq\frac{\ker(\partialbar:\scrA_{p,q}^X(X)\to\scrA_{p,q-1}^X(X))}{\partialbar\scrA_{p,q+1}^X(X)}.
+			      \]
+			      The inclusion of smooth forms as currents identifies this group with the usual Dolbeault cohomology in complementary bidegree:
+			      \[
+				      H_{p,q}^{\partialbar,\mathrm{cur}}(X)
+				      \cong H_{\partialbar}^{d-p,d-q}(X)
+				      \cong H^{d-q}(X,\Omega_X^{d-p}).
+			      \]
+			      A $\partialbar$-closed current is homologous to a smooth current of the same bidimension; such a smooth current is a $\partialbar$-boundary iff its representing form is $\partialbar$-exact. When $q=d$, the denominator in the definition of $H_{p,q}^{\partialbar,\mathrm{cur}}(X)$ is zero.
 			\item If $X$ is moreover compact K\"ahler, the $\partial\partialbar$-lemma holds for both smooth forms and currents. In current homology, a $\upd$-closed current of pure bidimension is a $\upd$-boundary iff it is a $\partial\partialbar$-boundary. The analogous statement holds for smooth forms.
 		\end{enumerate}
 		For the de Rham and Dolbeault isomorphisms, see \cite[Chapter~IV, \S 6, especially (6.8), (6.15), and (6.17)]{Demailly-2012-ComplexAnalyticDifferential}.
@@ -410,25 +417,25 @@ They can capture the ``local positivity''.
 		Let $0\leq r\leq d$ and $\alpha$ be a real $(r,r)$-form.
 		\begin{enumerate}
 			\item We call $\alpha$ \emph{strongly positive} if, at every $x\in X$, it is a finite sum
-				\[
-					\alpha_x=\sum_\ell c_\ell\,\im^{r^2}\eta_\ell\wedge\overline{\eta}_\ell,
-					\qquad c_\ell\geq0,\quad
-					\eta_\ell=\theta_{\ell,1}\wedge\cdots\wedge\theta_{\ell,r},
-				\]
-				where $\theta_{\ell,j}\in T_x^{*1,0}X$.
+			      \[
+				      \alpha_x=\sum_\ell c_\ell\,\im^{r^2}\eta_\ell\wedge\overline{\eta}_\ell,
+				      \qquad c_\ell\geq0,\quad
+				      \eta_\ell=\theta_{\ell,1}\wedge\cdots\wedge\theta_{\ell,r},
+			      \]
+			      where $\theta_{\ell,j}\in T_x^{*1,0}X$.
 			\item We call $\alpha$ \emph{positive}, or \emph{weakly positive}, if $\alpha_x\wedge\beta$ is a nonnegative top-degree form for every strongly positive $(d-r,d-r)$-form $\beta$ at $x$.
-				Here nonnegative means a nonnegative multiple of
-				\[
-					(\im\,\upd z_1\wedge\upd\overline{z}_1)\wedge\cdots\wedge
-					(\im\,\upd z_d\wedge\upd\overline{z}_d)
-				\]
-				in holomorphic coordinates.
+			      Here nonnegative means a nonnegative multiple of
+			      \[
+				      (\im\,\upd z_1\wedge\upd\overline{z}_1)\wedge\cdots\wedge
+				      (\im\,\upd z_d\wedge\upd\overline{z}_d)
+			      \]
+			      in holomorphic coordinates.
 			\item A current $T\in\scrA_{p,p}^X(U)$ is \emph{positive}, written $T\geq0$, if
-				\[
-					\langle T,\beta\rangle\geq0
-					\quad\text{for every strongly positive }\beta\in\Gamma_c(\scrA_X^{p,p},U).
-				\]
-				It is \emph{strongly positive} if the same holds for every weakly positive test form.
+			      \[
+				      \langle T,\beta\rangle\geq0
+				      \quad\text{for every strongly positive }\beta\in\Gamma_c(\scrA_X^{p,p},U).
+			      \]
+			      It is \emph{strongly positive} if the same holds for every weakly positive test form.
 		\end{enumerate}
 		The current $T_\alpha$ is positive iff $\alpha$ is weakly positive.
 		For $(1,1)$-forms, both notions of positivity are equivalent to positive semidefiniteness of the Hermitian coefficient matrix in $\alpha=\im\sum_{j,k}a_{j\overline{k}}\,\upd z_j\wedge\upd\overline{z}_k$.
@@ -474,7 +481,7 @@ They can capture the ``local positivity''.
 
 \begin{proposition}[label=\labelNFM{prop:wedge-with-psh-function}, status=draft, tag=0000000]
 	Let $u$ be a psh function and $T$ be a closed positive current of bidimension $(p,p)$.
-	Then 
+	Then
 	\[ \upd \upd^c u \wedge T \coloneqq \upd \upd^c (uT) \]
 	is again a closed positive closed current.
 	\Yang{}
@@ -488,7 +495,7 @@ They can capture the ``local positivity''.
 
 Recall that we have the exponential sequence
 \[ 0 \to \underline{\bbZ} \xrightarrow{n \mapsto 2n\pi\im } \scrO_X \xrightarrow{\exp} \scrO_X^* \to 0\]
-and then the long exact sequence 
+and then the long exact sequence
 \[ \to H^1(X,\scrO_X^*) \xrightarrow{c_1} H^2(X, \underline{\bbZ}) \to \]
 
 Given a line bundles $L$ on $X$, we can get a cohomological class $c_1(L) \in H^{1,1}(X,\bbR)$.
@@ -516,7 +523,7 @@ For this purpose, we need some more finer structure on the line bundle, namely, 
 \end{remark}
 
 \begin{remark}[label=\labelNFM{rmk:metric-on-tangent-gives-a-form}, status=draft, tag=0000000]
-	Let $h$ be a smooth hermitian metric on $TX$. 
+	Let $h$ be a smooth hermitian metric on $TX$.
 	Then it gives a smooth section in $\wedge^2 T^*X$ and hence a smooth $2$-forms in $\scrA^2_X(X)$.
 	Moreover, it is a $(1,1)$ form.
 
@@ -567,7 +574,7 @@ On this note, we will focus the case of hermitian line bundles.
 		\item any two metric different by a smooth function
 		\item the metrized line bundle forms a group with an exact sequence.
 	\end{enumerate}
-	
+
 	\Yang{}
 \end{proposition}
 
@@ -582,7 +589,7 @@ Under the correspondence of sections in a line bundle and Cartier divisors, the 
 	\Yang{}
 \end{definition}
 \begin{remark}[label=\labelNFM{rmk:name-of-green-function}, status=draft, tag=0000000]
-	Why such $g$ is called a green function? the Lelong equation. 
+	Why such $g$ is called a green function? the Lelong equation.
 	\Yang{}
 \end{remark}
 
@@ -596,15 +603,15 @@ Under the correspondence of sections in a line bundle and Cartier divisors, the 
 Let \(X\) be a complex analytic variety and $\calL$ a holomorphic line bundle on $X$.
 
 \begin{theorem}[label=\labelNFM{thm:metrics-green-functions-and-forms}, status=draft, tag=0000000]
-  Let \(X\) be a complex projective variety and  \Yang{}
+	Let \(X\) be a complex projective variety and  \Yang{}
 
 
-  \begin{enumerate}
+	\begin{enumerate}
 		\item there is a isomorphism $\aCl(X) \to \aPic(X)$.
 		\item there is a chern class map $c_1: \aPic(X) \to \scrA^{1,1}(X)$ with $c_1(L) = []$.
-    \item we have the Lelong equation $\upd \upd^c g = \frac{\im}{\pi} \partial \overline{\partial} g = \omega_h - \delta_D$.
-  \end{enumerate}
-  
+		\item we have the Lelong equation $\upd \upd^c g = \frac{\im}{\pi} \partial \overline{\partial} g = \omega_h - \delta_D$.
+	\end{enumerate}
+
 \end{theorem}
 
 
@@ -633,21 +640,21 @@ Here $\Lambda$ may be an algebraic variety or a complex analytic space.
 We call that $f$ a holomorphic family or an algebraic family according to $\Lambda \to \End_{\bbP^n,d}(\bbC)$.
 
 \begin{definition}[label=\labelNFM{def:green-currents}, status=draft, tag=0000000]
-  Let $f:\bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a holomorphic family of $d$-polarized endomorphism on $\bbP^n$ over $\Lambda$.
-  Then \emph{Green currents} of $f$ is defined as 
-  \[ T_f \coloneqq \lim_{n \to +\infty} \frac{(f^n)^*\omega_2}{d^n} \]
-  By the P-L equation, there is a with \Yang{}
-  \[ \upd \upd^c u = \omega_2 - T_f. \]
-  \Yang{}
+	Let $f:\bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a holomorphic family of $d$-polarized endomorphism on $\bbP^n$ over $\Lambda$.
+	Then \emph{Green currents} of $f$ is defined as
+	\[ T_f \coloneqq \lim_{n \to +\infty} \frac{(f^n)^*\omega_2}{d^n} \]
+	By the P-L equation, there is a with \Yang{}
+	\[ \upd \upd^c u = \omega_2 - T_f. \]
+	\Yang{}
 \end{definition}
 
 \begin{lemma}[label=\labelNFM{lem:thepropertiesy-of-u-and-T-fact}, status=draft, tag=0000000]
-  Notation as \cref{def:green-currents}.
-  The function $u$ is Holder continuous quasi-psh.
-  \Yang{}
+	Notation as \cref{def:green-currents}.
+	The function $u$ is Holder continuous quasi-psh.
+	\Yang{}
 \end{lemma}
 \begin{proof}
-  \Yang{}
+	\Yang{}
 \end{proof}
 
 \begin{theorem}[label=\labelNFM{thm:green-function-and-currents}, status=draft, tag=0000000]
@@ -684,16 +691,16 @@ We call that $f$ a holomorphic family or an algebraic family according to $\Lamb
 \end{theorem}
 
 \begin{definition}[label=\labelNFM{def:equilibrium-measure}, status=draft, tag=0000000]
-  Let $f:\bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a holomorphic family of $d$-polarized endomorphism on $\bbP^n$ over $\Lambda$.
-  \begin{latexmathchange}
-    Assume $d\geq2$.
-    The \emph{equilibrium measures} of the family are defined fiberwise by
-    \[
-      \mu_{f_\lambda}\coloneqq T_{f_\lambda}^n,\qquad\lambda\in\Lambda.
-    \]
-    These products are well-defined since the Green currents have continuous local potentials, and each $\mu_{f_\lambda}$ is a probability measure.
-    See \cite[\S 1.2]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
-  \end{latexmathchange}
+	Let $f:\bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a holomorphic family of $d$-polarized endomorphism on $\bbP^n$ over $\Lambda$.
+	\begin{latexmathchange}
+		Assume $d\geq2$.
+		The \emph{equilibrium measures} of the family are defined fiberwise by
+		\[
+			\mu_{f_\lambda}\coloneqq T_{f_\lambda}^n,\qquad\lambda\in\Lambda.
+		\]
+		These products are well-defined since the Green currents have continuous local potentials, and each $\mu_{f_\lambda}$ is a probability measure.
+		See \cite[\S 1.2]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
+	\end{latexmathchange}
 \end{definition}
 
 \begin{proposition}[label=\labelNFM{prop:equilibrium-measure-and-julia-set}, status=draft, tag=0000000]
@@ -703,25 +710,25 @@ We call that $f$ a holomorphic family or an algebraic family according to $\Lamb
 		Let $f:\bbP^n\to\bbP^n$ be a holomorphic endomorphism of algebraic degree $d\geq2$, $T_f$ its Green current, and $\mu_f=T_f^n$ its equilibrium measure.
 		\begin{enumerate}
 			\item For $1\leq p\leq n$, set $J_p(f)\coloneqq\Supp(T_f^p)$, called the \emph{Julia set of order $p$}.
-				Then
-				\[
-					J_1(f)\supset J_2(f)\supset\cdots\supset J_n(f),\qquad
-					\Supp\mu_f=J_n(f).
-				\]
-				The set $J_1(f)$ is the usual Julia set, namely the complement of the largest open set on which $(f^j)_{j\geq0}$ is a normal family.
-				Thus in dimension $1$, the support of $\mu_f$ is the usual Julia set; in higher dimension $J_n(f)$ may be strictly smaller than $J_1(f)$.
+			      Then
+			      \[
+				      J_1(f)\supset J_2(f)\supset\cdots\supset J_n(f),\qquad
+				      \Supp\mu_f=J_n(f).
+			      \]
+			      The set $J_1(f)$ is the usual Julia set, namely the complement of the largest open set on which $(f^j)_{j\geq0}$ is a normal family.
+			      Thus in dimension $1$, the support of $\mu_f$ is the usual Julia set; in higher dimension $J_n(f)$ may be strictly smaller than $J_1(f)$.
 			\item There is a proper algebraic set $\calE_f\subset\bbP^n$, possibly empty, with
-				\[
-					f^{-1}(\calE_f)=f(\calE_f)=\calE_f,
-				\]
-				maximal among proper totally invariant algebraic sets, such that
-				\[
-					\nu_{j,a}\coloneqq d^{-nj}(f^j)^*\delta_a
-					=d^{-nj}\sum_{f^j(y)=a}m_y(f^j)\,\delta_y
-					\longrightarrow\mu_f
-				\]
-				weakly iff $a\notin\calE_f$.
-				Here $m_y(f^j)$ is the local topological degree, so preimages are counted with multiplicity and $\nu_{j,a}$ is a probability measure.
+			      \[
+				      f^{-1}(\calE_f)=f(\calE_f)=\calE_f,
+			      \]
+			      maximal among proper totally invariant algebraic sets, such that
+			      \[
+				      \nu_{j,a}\coloneqq d^{-nj}(f^j)^*\delta_a
+				      =d^{-nj}\sum_{f^j(y)=a}m_y(f^j)\,\delta_y
+				      \longrightarrow\mu_f
+			      \]
+			      weakly iff $a\notin\calE_f$.
+			      Here $m_y(f^j)$ is the local topological degree, so preimages are counted with multiplicity and $\nu_{j,a}$ is a probability measure.
 		\end{enumerate}
 		For the Julia sets, see \cite[\S 1.2]{Dinh-Sibony-2010-DynamicsSeveralComplex}; for point equidistribution, see \cite[Theorem~1.45]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
 		For a holomorphic family, these statements apply to each fiber $f_\lambda$.
@@ -739,8 +746,8 @@ We call that $f$ a holomorphic family or an algebraic family according to $\Lamb
 \end{proof}
 
 \begin{definition}[label=\labelNFM{def:lyapunov-exponent}, status=draft, tag=0000000]
-  The \emph{Lyapunov exponent} is defined as $L: \Lambda \to \bbC$.
-  \Yang{}
+	The \emph{Lyapunov exponent} is defined as $L: \Lambda \to \bbC$.
+	\Yang{}
 \end{definition}
 
 
@@ -787,15 +794,15 @@ We call that $f$ a holomorphic family or an algebraic family according to $\Lamb
 \end{definition}
 
 \begin{theorem}[label=\labelNFM{thm:temporay}, status=draft, tag=0000000]
-  Let $f$ be a holomorphic family of $d$-polarized dynamics and $a \in \bbP^1(\Lambda)$, 
-  TFAE:
-  \begin{enumerate}
-    \item $\mu_{a,f} = 0$;
-    \item $a$ is stable.
-  \end{enumerate}
-  
-  A point $a \in \bbP^1(\Lambda)$ is passive iff $a$ is preperiodic.
-  \Yang{}
+	Let $f$ be a holomorphic family of $d$-polarized dynamics and $a \in \bbP^1(\Lambda)$,
+	TFAE:
+	\begin{enumerate}
+		\item $\mu_{a,f} = 0$;
+		\item $a$ is stable.
+	\end{enumerate}
+
+	A point $a \in \bbP^1(\Lambda)$ is passive iff $a$ is preperiodic.
+	\Yang{}
 \end{theorem}
 
 
