@@ -29,32 +29,45 @@ Recall that on a complex mainfolds $X$, or more generally a complex analytic spa
 \[ \scrA_X^{\bullet,\bullet} = \bigoplus_{k} \scrA_X^k = \bigoplus_{k} \bigoplus_{p+q = k} \scrA_X^{p,q}, \quad \scrA_X^{0,1} = \overline{\scrA_{X}^{1,0}}, \quad \scrA_X^{p,q} \coloneqq \bigwedge^p \scrA_X^{1,0} \otimes \bigwedge^q \scrA_X^{0,1}. \]
 with $\scrA_X^{1,0}$ given by the complex-valued $\cinf$-sections of $T^*X$ when $X$ smooth and the over line means the conjugation of the almost complex structure on $T^*X$.
 All these sheaves are $\cinf_{X,\bbC}$-modules.
-And the usual differential map $\upd$ decomposition as
-\[ \upd = \partial + \partialbar,  \] \Yang{}
+And the usual differential map $\upd$ decomposition as $\upd = \partial + \partialbar$ with
+\begin{align*}
+	\partial    & : \sum f_{I,J} \upd z^I \wedge \upd \bar{z}^J \mapsto \sum \partial_{z_i}(f_{I,J})  \upd z_i \wedge \upd z^I \wedge \upd \bar{z}^J,            \\
+	\partialbar & : \sum f_{I,J} \upd x^I \wedge \upd \bar{x}^J \mapsto \sum \partial_{\bar{z_i}}(f_{I,J}) \upd x^I \wedge \upd \bar{z_i} \wedge \upd \bar{z}^J.
+\end{align*}
+By $\upd^2 = 0$, we get $\partial^2 = \partialbar^2 = 0$ and $\partial\partialbar+\partialbar\partial = 0$.
 Set
+\[
+	\upd^c\coloneqq\frac{1}{2\pi \upi}(\partial-\partialbar): \scrA_X^{k} \mapsto \scrA_X^{k+1}.
+\]
+Under this normalization, we have
 \begin{latexmathchange}
 	\[
-		\upd^c\coloneqq\frac{\im}{2\pi}(\partialbar-\partial),\qquad
-		\upd\upd^c=\frac{\im}{\pi}\partial\partialbar.
+		\ddc = -\frac{1}{\pi\upi}\partial\partialbar
+		=\frac{\upi}{\pi}\partial\partialbar:
+		\scrA_X^{p,q}\longrightarrow\scrA_X^{p+1,q+1}.
 	\]
 \end{latexmathchange}
 For details, see \cite{Barlet-Magnusson-2019-ComplexAnalyticCycles,Demailly-2012-ComplexAnalyticDifferential}.
 
 There is a natural way to endow topology on $\scrA_X^{p,q}(U)$ making it as a Fr\'echet space.
 
-
 \begin{construction}[label=\labelNFM{constr:topo-on-forms}, status=draft, tag=0000000]
 	Let $X$ be a complex manifold of complex dimension $d$, $U\subset X$ an open set, and $0\leq p,q\leq d$.
-	On $\scrA_X^{p,q}(U)$, we have the following family of seminorms:
-	given $\frakD = (V,z,K,m)$, where $(V,z)$ is a holomorphic coordinate chart in $U$, $K \subset V$ a compact set and $m \geq 0$ integer, define
-	\[ \|\alpha\|_{\frakD} \coloneqq \max_{\substack{|I|=p,\,|J|=q\\|\nu|\leq m}} \sup_{x\in K} \bigl|D^\nu\alpha_{I,J}(x)\bigr|, \quad \text{ where }\alpha|_V=\sum_{|I|=p,\,|J|=q}\alpha_{I,J}\,\upd z_I\wedge \upd\overline{z}_J. \]
+	A \emph{compact subset with a coordinate} means a triple $(V,z,K)$, where $(V,z)$ is a holomorphic coordinate chart in $U$, $K \subset V$ a compact set.
+	We still denote it by $K$ for simple.
+	On $\scrA_X^{p,q}(U)$, we have the following collection of seminorms:
+	given a compact subset $K$ with a coordinate $(V,z)$ and an integer $m \geq 0$, define
+	\[ p_{K,m}(\alpha) \coloneqq \max_{I; J; |\nu| \leq m; x\in K} \bigl|D^\nu\alpha_{I,J}(x)\bigr|, \quad \text{ where }\alpha|_V=\sum_{|I|=p,\,|J|=q}\alpha_{I,J}\,\upd z_I\wedge \upd\overline{z}_J. \]
 	Here $D^\nu$ denotes differentiation in the real coordinates underlying $z$.
-	These seminorms make $\scrA_X^{p,q}(U)$ a Fr\'echet space.
+
+	Given two compact subset $K \subset K'$ with coordinates, easily see that we have $p_{K,m} \leq C_m p_{K',m}$ for some constant $C_m$ and for all $m$.
+	Hence to define the topology by these seminorms, we only need to choose a covering of $X$ by compact subset $K_i$ with coordinates and consider the collection $\{p_{K_i,m}\}_{i,m}$ of seminorms.
+	By the second countability, we can choose $\{K_i\}$ to be countable.
+	Hence these seminorms make $\scrA_X^{p,q}(U)$ a Fr\'echet space.
 	See \cite[Chapter~I, \S 2]{Demailly-2012-ComplexAnalyticDifferential}.
 
-	Under this topology, we have $\alpha_n \to \alpha$ in $\scrA^{p,q}_X(U)$ iff for any $x \in U$, choose any sufficiently small coordinate chart with boundary,
-	the arbitrary derivatives of coefficient functions of $\alpha_n$ uniformly converge to the corresponding one of $\alpha$.
-	\Yang{}
+	Under this topology, we have $\alpha_n \to \alpha$ in $\scrA^{p,q}_X(U)$ iff for any $x \in U$, choose any compact subset $K$ with coordinates,
+	the arbitrary derivatives of coefficient functions of $\alpha_n$ uniformly converge to the corresponding one of $\alpha$ on $K$.
 \end{construction}
 
 
@@ -67,41 +80,19 @@ There is a natural way to endow topology on $\scrA_X^{p,q}(U)$ making it as a Fr
 	\]
 	In other words, a semi-norm is a norm on $E/W$ for some subspace $W \subset E$.
 	A collection of seminorms $(p_i)_{i \in I}$ can define a topology on $E$ by its weak topology.
-	This topology is Hausdorff iff $(p_i)_{i \in I}$ separates points, i.e., for any $x,y \in E$, there exist $p_i$ with $p_i(x) \neq p_j(y)$.
+	This topology is Hausdorff iff $(p_i)_{i \in I}$ separates points, i.e., for any $x,y \in E$, there exist $p_i$ with $p_i(x) \neq p_i(y)$.
 	In particular, if $I$ is countable, then this topology can be induced by a metric
 	\[
 		\rho(v,w)=\sum_{j\geq1}2^{-j} \frac{p_j(v-w)}{1+p_j(v-w)}.
 	\]
 	And if $I$ if finite, it can further be induced by a norm
-	\begin{equation}
-		\|v\| \coloneqq \sum_{1\leq j\leq N}p_j(v).
-	\end{equation}
+	\[ \|v\| \coloneqq \sum_{1\leq j\leq N}p_j(v). \]
 
 	A \emph{Fr\'echet space} is a complete Hausdorff locally convex topological vector space whose topology is defined by a countable family of seminorms $(p_j)_{j\geq1}$.
 	A Fr\'echet space whose topology is defined by finitely many seminorms $p_1,\ldots,p_N$ is a Banach space.
-
-	\begin{latexmathchange}
-		Let $E$ be a Fr\'echet space with defining seminorms $(p_i)$, and let $E^\vee$ be its continuous complex-linear dual.
-		There are two usual topologies on $E^\vee$.
-		The \emph{weak-* topology} $\sigma(E^\vee,E)$ is defined by the seminorms
-		\[
-			q_v(\ell)\coloneqq|\ell(v)|,\qquad v\in E.
-		\]
-		Thus $\ell_n\to\ell$ weakly-* iff $\ell_n(v)\to\ell(v)$ for every $v\in E$.
-		The \emph{strong dual topology} $\beta(E^\vee,E)$ is defined by
-		\[
-			q_B(\ell)\coloneqq\sup_{v\in B}|\ell(v)|,\qquad B\subset E\text{ bounded},
-		\]
-		where $B$ is bounded iff $\sup_{v\in B}p_i(v)<+\infty$ for every $i$.
-		Strong convergence means uniform convergence on every bounded subset of $E$, and implies weak-* convergence.
-		The strong dual is complete, but need not be a Fr\'echet space.
-		See \cite[\S 2, especially Theorem~2.3]{Vogt-2000-LecturesFrechetSpaces}.
-		For currents below, we use the weak-* topology, conventionally called the weak topology of currents.
-	\end{latexmathchange}
-	% \toai{find refer for the dual topo of Frechet space} -- resolved.
 \end{remark}
 
-\Yang{}
+Let us record the basic properties of forms on a complex analytic variety.
 
 \begin{proposition}[label=\labelNFM{prop:basic-properties-of-forms-with-topology}, status=draft, tag=0000000]
 	Let $X$ be a complex analytic space of complex dimension $d$ and $U\subset X$ an open set.
@@ -113,13 +104,6 @@ There is a natural way to endow topology on $\scrA_X^{p,q}(U)$ making it as a Fr
 			      \qquad \alpha\in\scrA_X^{p,q},\quad\beta\in\scrA_X^{r,s}.
 		      \]
 		      In particular, the subring $\bigoplus_p\scrA^{p,p}$ is commutative.
-		\item The integration gives a continuous evaluation map
-		      \[
-			      \int_U:\Gamma_c(\scrA_X^{d,d},U)\longrightarrow\bbC,
-			      \qquad \alpha\longmapsto\int_U\alpha.
-		      \]
-		      In particular, if $X$ is compact, we have $\int: \scrA^{d,d}_X(X) \to \bbC$.
-		\item Every holomorphic map $f:Y \to X$ defines a functorial continuous pullback $f^*: f^*:\scrA_X^{\bullet,\bullet} \longrightarrow \scrA_Y^{\bullet,\bullet}|_X$ which is a homomorphism of bi-graded $\cinf_X$-algebras and commutative with $\partial,\partialbar$.
 		\item There is a functorial continuous differential map
 		      \[
 			      \upd=\partial+\partialbar:\scrA_X^k\longrightarrow\scrA_X^{k+1},
@@ -129,92 +113,117 @@ There is a natural way to endow topology on $\scrA_X^{p,q}(U)$ making it as a Fr
 		      \]
 		      They satisfy the Lebubinz rule and $d^2=\partial^2=\partialbar^2=0$ and
 		      $\partial\partialbar+\partialbar\partial=0$.
+		\item The integration gives a continuous evaluation map
+		      \[
+			      \int_U:\Gamma_c(\scrA_X^{d,d},U)\longrightarrow\bbC,
+			      \qquad \alpha\longmapsto\int_U\alpha.
+		      \]
+		      In particular, if $X$ is compact, we have $\int: \scrA^{d,d}_X(X) \to \bbC$.
+		\item Every holomorphic map $f:Y \to X$ defines a functorial continuous pullback $f^*: \scrA_X^{\bullet,\bullet}(U) \longrightarrow \scrA_Y^{\bullet,\bullet}(f^{-1}(U))$ which is a homomorphism of bi-graded $\cinf_X$-algebras and commutative with $\partial,\partialbar$.
 	\end{enumerate}
-	\Yang{}
 \end{proposition}
 
+Philosophically, the forms serves as cocycles and now we introduce the \emph{currents}, which are topological dual of forms and serves as cycles.
+
 \begin{construction}[label=\labelNFM{constr:currents}, status=draft, tag=0000000]
-	Let $X$ be a complex manifold of complex dimension $d$, $U\subset X$ an open set, and $0\leq p,q\leq d$.
+	Let $X$ be a complex analytic space of complex dimension $d$, $U\subset X$ an open set, and $0\leq p,q\leq d$.
 	Set
 	\[ \Gamma_c(\scrA_X^{p,q},U) =\varinjlim_{K\subset U \text{ compact}}\scrA_{X,K}^{p,q}(U),
 		\quad \scrA_{X,K}^{p,q}(U) \coloneqq \{\beta\in\scrA_X^{p,q}(U)\mid\Supp\beta\subset K\}. \]
 	On each $K \subset U$ compact, we use the subspace topology $\scrA_{X,K}^{p,q}(U) \subset \scrA_{X}^{p,q}(U)$.
-	And on $\Gamma_c(\scrA_X^{p,q},U)$, we use the inductive limit topology, i.e., a map $f: \Gamma_c(\scrA_X^{p,q},U) \to X$ is continuous iff $\scrA_{X,K}^{p,q}(U) \Gamma_c(\scrA_X^{p,q},U) \to X$ is continuous for all $K \subset U$ compact.
+	And on $\Gamma_c(\scrA_X^{p,q},U)$, we use the inductive limit topology, i.e., a map $\Gamma_c(\scrA_X^{p,q},U) \to S$ is continuous iff $\scrA_{X,K}^{p,q}(U) \injmap \Gamma_c(\scrA_X^{p,q},U) \to S$ is continuous for all $K \subset U$ compact.
 
+	Define the \emph{space of currents} $\scrA_{p,q}^X(U)$ to be the topological dual of $\Gamma_c(\scrA_X^{p,q},U)$, i.e.,
+	\[ \scrA_{p,q}^X(U) \coloneqq \left\{\text{ linear and continuous map } T: \Gamma_c(\scrA_X^{p,q},U) \to \bbC \right\}; \]
+	and an element in $\scrA_{p,q}^X(U)$ is called \emph{a currents of bidimension $(p,q)$}.
+	We equip $\scrA_{p,q}^X(U)$ with the weak topology defined by the seminorms $\{p_\alpha\}_{\alpha \in \Gamma_c(\scrA_X^{p,q},U)}$, where $p_\alpha(T) \coloneqq |T(\alpha)|$ with $T \in \scrA_{p,q}^X(U)$.
 
 	For any $U \subset V$, the natural map is extension by zero:
 	\[ i_*: \Gamma_c(\scrA_X^{p,q},U) \to \Gamma_c(\scrA_X^{p,q},V), \quad (i_*\alpha)|_{V\setminus U} = 0. \]
 	This map is continuous.
-	Let $\scrA_{p,q}^X(U)$ be the topological dual of $\Gamma_c(\scrA_X^{p,q},U)$.
 	Then the dual of zero-extension $i_*$ gives a functorial restriction $\res^V_U: \scrA_{p,q}^X(V) \to \scrA_{p,q}^X(U)$.
-	Compatible local currents glue uniquely using a locally finite smooth partition of unity: each compactly supported test form meets only finitely many terms.
-	This proves the sheaf axiom.
-	We equip the dual with the weak topology, defined by the seminorms $T\mapsto|\langle T,\beta\rangle|$ for all compactly supported test forms $\beta$.
-	The sheaf $\scrA_{p,q}^X$ is called the \emph{sheaf of currents of bidimension $(p,q)$}.
+	By partition of unity, the compatible local currents can be glued uniquely.
+	Then we get a sheaf $\scrA_{p,q}^X$, called \emph{the sheaf of currents of bidimension $(p,q)$}.
 	See \cite[Chapter~I, \S 2 and \S 3]{Demailly-2012-ComplexAnalyticDifferential}.
-	\Yang{}
 \end{construction}
 
+\begin{remark}[label=\labelNFM{rmk:inductive-topo-on-the-space-for-compact-support-forms}, status=draft, tag=0000000]
+	Note that in general, this topology on $\Gamma_c(\scrA_X^{p,q},U)$ is strictly finer than the subspace topology via $\Gamma_c(\scrA_X^{p,q},U) \subset \scrA_X^{p,q}(U)$ since \Yang{}
+	\Yang{}
+\end{remark}
+
+Let $X$ be complex analytic space of purely complex dimension $d$.
 Many object can be viewed as a currents.
 
-\begin{example}[label=\labelNFM{eg:forms-as-currents}, status=draft, tag=0000000]
-	Any $(p,q)$-forms $\alpha$ can be viewed as a $(d-p,d-q)$-currents by the integral
-	\[ - \wedge \alpha : \scrA_X^{d-p,d-q}(U) \to \bbC, \quad \beta \mapsto \int_U \beta \wedge \alpha. \]
+\begin{example}[label=\labelNFM{eg:forms-as-currents}, status=draft, tag=0000000, title={Forms as currents}]
+	Any $(p,q)$-forms $\alpha \in \scrA_X^{p,q}(U)$ can be viewed as a linear map by the integral
+	\[ T_\alpha = \alpha \wedge - : \Gamma_c(\scrA_X^{d-p,d-q},U) \to \bbC, \quad \beta \mapsto \int_U \alpha \wedge \beta. \]
+	Since the uniformly convergance commutates with integration, we get a $(d-p,d-q)$-currents.
 \end{example}
 
-\begin{example}[label=\labelNFM{eg:submainfolds-as-currents}, status=draft, tag=0000000]
-	\leavevmode\par
-	\begin{latexmathchange}
-		Let $X$ be a complex manifold.
-	\end{latexmathchange}
-	Let $Z$ be a closed \latexmath{oriented} (real) \latexgrammar{submanifold} of $X$ of real dimension $k$, \latexmath{without boundary}.
-	Then \latexgrammar{integration defines a current}:
-	\latexdeleted{$\delta_Z: \scrA_X^{k} \to \bbC, \quad \beta \mapsto \int_Z \beta|_Z.$}
-	\begin{latexmathchange}
-		For every open set $U\subset X$, set
-		\[
-			\delta_Z:\Gamma_c(\scrA_X^k,U)\longrightarrow\bbC,
-			\qquad \beta\longmapsto\int_{Z\cap U}\beta|_Z.
-		\]
-		Since $Z$ is closed in $X$, the restriction of a compactly supported test form has compact support on $Z$.
-		Integration is continuous in the test-form topology and depends only on the orientation of $Z$.
-	\end{latexmathchange}
-	This is called the \emph{delta current} associated to $Z$.
+\begin{example}[label=\labelNFM{eg:submainfolds-as-currents}, status=draft, tag=0000000, title={Cycles as currents}]
+	Let $Z$ be a closed oriented real submanifold of $X$ of real dimension $k$ with or without boundary.
+	For every open set $U\subset X$, set
+	\[
+		\delta_Z:\Gamma_c(\scrA_X^k,U)\longrightarrow\bbC,
+		\qquad \beta\longmapsto\int_{Z\cap U}\beta|_Z.
+	\]
+	Since $Z$ is closed in $X$, the restriction of a compactly supported test form has compact support on $Z$.
+	This define a currents on $X$, called the \emph{delta current} associated to $Z$.
 
-	If $Z$ is a closed complex subvariety of $X$ of \latexmath{pure} complex dimension $p$ (or real dimension $k=2p$),
-	\begin{latexmathchange}
-		we use the complex orientation and, if $Z$ is singular, define integration over its regular locus:
-		\[
-			\langle\delta_Z,\beta\rangle
-			=\int_{Z_{\reg}\cap U}\beta|_{Z_{\reg}}.
-		\]
-		Analytic subvarieties have locally finite volume, so this integral defines a continuous current even near the singular locus.
-	\end{latexmathchange}
-	\latexdeleted{Then $\delta_Z|_{\scrA_X^{r,s}} = 0$ for $(r,s) \neq (p,p)$.}
-	\begin{latexmathchange}
-		Among test forms of total degree $2p$, only type $(p,p)$ can contribute: if $r+s=2p$ and $(r,s)\neq(p,p)$, then either $r>p$ or $s>p$, so the restriction to $Z_{\reg}$ vanishes.
-	\end{latexmathchange}
+	If $Z$ is a closed complex subvariety of $X$ of complex dimension $p$ (or real dimension $k=2p$),
+	we use the complex orientation and, if $Z$ is singular, define integration over its regular locus:
+	\[
+		\langle\delta_Z,\beta\rangle
+		=\int_{Z_{\reg}\cap U}\beta|_{Z_{\reg}}.
+	\]
+	This defines a $k$-currents; for singular case, see \cite[Theorem 3.2.26]{Barlet-Magnusson-2019-ComplexAnalyticCycles}.
+	Among test forms of total degree $k=2p$, only type $(p,p)$ can contribute: if $r+s=2p$ and $(r,s)\neq(p,p)$, then either $r>p$ or $s>p$, so the restriction to $Z_{\reg}$ vanishes.
 	In other words, $\delta_Z \in \scrA_{p,p}^X$.
-	\begin{latexmathchange}
-		In fact, $\delta_Z$ is a closed positive current, including when $Z$ is singular; see \cite[Chapter~III, Theorem~2.7]{Demailly-2012-ComplexAnalyticDifferential}.
-	\end{latexmathchange}
-	% \toai{finish and polish} -- resolved.
+	\Yang{}
+	In fact, $\delta_Z$ is a closed positive current, including when $Z$ is singular; see \cite[Chapter~III, Theorem~2.7]{Demailly-2012-ComplexAnalyticDifferential}.
 \end{example}
 
-\begin{example}[label=\labelNFM{eg:measure-and-distribution-as-currents}, status=draft, tag=0000000]
-	Let $X$ be complex analytic space.
-	Let $\mu$ be any finite measure on the boral algebras.
+\begin{example}[label=\labelNFM{eg:currents-of-dimension-2d}, status=draft, tag=0000000, title={Functions  as currents of top dimension}]
+	Let us consider the $(p,p)$-currents.
+	By \cref{eg:forms-as-currents}, any $(0,0)$-forms, that is, $\cinf$-functions, can be viewed as a $(p,p)$-currents.
+	As the construction in \cref{eg:forms-as-currents}, we only need to do integration.
+	Hence, any locally integrable functions $f$ define a $(p,p)$-currents.
+	\Yang{}
+\end{example}
+
+\begin{example}[label=\labelNFM{eg:measure-and-distribution-as-currents}, status=draft, tag=0000000, title={Currents of dimension zero}]
+	Let $\mu$ be any measure on the boral algebras with $\mu(K) < +\infty$ for any $K$ compact.
 	Then
 	\[ f \mapsto \int_X f \mu \]
-	making $\mu$ a dimension $(0,0)$ current in $\calA_{0,0}$.
+	making $\mu$ a $0$-current.
 
-	Recall a \emph{distribution} is a
-	\Yang{}
+	On $\scrA_{0}^X(X)$, there are more elements than measures since the topology on $\scrA_X^0(X)$ also capture the information of derivatives of the smooth functions.
+	For example, fix a regular point $p \in X$ and a derivatives $D \in T_pX$ (i.e., a $\bbC$-linear map $(\cinf_{X,\bbC})_p \to \bbC$ satisfies the Lebubinz's rule), the linear $f \mapsto D(f)$ is a $0$-currents.
+	It is not a measure since we can find a sequence $\{f_n\}$ of functions on a compact neighborhood of $p$ such that $f_n \to 0$ uniformly and $D(f_n) = 1$ for all $n$.
+	For the $0$-currents, we have another name, \emph{distribution}.
+	In the view point of above, the notion of distribution generalize the notion of measures.
+
+	For simple, assume that
+	\[ X = B(0,\underline{1}) = \left\{ (z_1,\cdots,z_d) \in \bbC^d \;\middle|\; |z_i| < 1 \right\}  \subset \bbC^d \]
+	is the unit polydisc with coordinates $z_1,\cdots,z_d$.
+	Given a $(p,q)$-currents $T$, for any $|I|=d-p,|J|=d-q$, we can define a distribution as \Yang{Demailly, I-2.9}
+	\[ T_{I,J} : \Gamma_c(\cinf_{X,\bbC},X) \to \bbC, \quad f \mapsto \left< T, f \upd z^{I'}\wedge \upd \bar{z}^{J'}\right>, \]
+	where $I \sqcup I' = J \sqcup J' = \{1,\cdots,d\}$ and $z^{I'}\wedge \upd \bar{z}^{J'}$ has a ``suitable'' order.
+	Then formally consider the ``forms with distribution coefficients'', $\sum_{I,J} T_{I,J} \upd z^I \wedge \upd \bar{z}^J$, we have
+	\begin{align*}
+		\left< \sum_{I,J} T_{I,J} \upd z^I \wedge \upd \bar{z}^J, \sum_{I',J'} f_{I',J'}\upd z^{I'}\wedge \upd \bar{z}^{J'}\right> & = \int_X \left( \sum_{I,J,I',J'} T_{I,J} \cdot f_{I',J'} \upd z^{I\cup I'} \wedge \upd \bar{z}^{J\cup J'} \right) = \sum_{I,J} T_{I,J}(f_{[n]\setminus I,[n]\setminus J}) \\
+		                                                                                                                           & = \sum_{I',J'} T(f_{I',J'}\upd z^{I'}\wedge \upd \bar{z}^{J'}) = \left<T, \sum_{I',J'} f_{I',J'}\upd z^{I'}\wedge \upd \bar{z}^{J'}\right>.
+	\end{align*}
+	The first line in the equation are some ``imagination'' without a real mathematical means.
+	Hence formally we have $T = \sum_{I,J} T_{I,J} \upd z^I \wedge \upd \bar{z}^J$.
+	From this view point, the distribution generalize the notion of functions and currents of dimension $(p,q)$ generalize the notion of forms of degree $(d-p,d-q)$.
+
+	Historically, Schwarz first propose the notion of distribution, and then Georges de Rham introduce in notion of currents generalize distribution and forms; see \cite{Dinh-Sibony-2005-IntroductionTheoryCurrents}.
 \end{example}
 
 \begin{slogan}
 	There is a philosophy analogue: forms are cocyles, like Cartier divisor or line bundles; and currents are cycles, like Weil divisor or subvarieties.
-	\Yang{}
 \end{slogan}
 
 Let us record some basic properties of currents on a complex analytic spaces.
@@ -223,190 +232,252 @@ Let us record some basic properties of currents on a complex analytic spaces.
 	Let $X$ be a complex analytic variety of complex dimension $d$.
 	We have the following properties about the currents.
 	\begin{enumerate}
-		\item The currents $\bigoplus \scrA^X_{p,q}$ forms a bi-graded $\scrA_X^{\bullet,\bullet}$-modules
-		\item we have the differential map.
+		\item The currents $\bigoplus \scrA^X_{p,q}$ forms a bi-graded topological $\scrA_X^{\bullet,\bullet}$-modules by the multiplication
+		      \[ T \wedge \alpha \coloneqq \bigl( \beta \mapsto T(\alpha\wedge\beta) \bigr), \qquad T \in \scrA^X_{p,q}(U),\ \alpha \in \scrA_X^{r,s}(U),\ \beta \in \Gamma_c(\scrA_X^{p-r,q-s},U). \]
+		      We also define $\alpha \wedge T \coloneqq (-1)^{(p+q)(r+s)}(T \wedge \alpha) \in \scrA^X_{p-r,q-s}(U)$ with $T \in \scrA^X_{p,q}(U),\alpha \in \scrA_X^{r,s}(U)$.
+		      And it induces an inclusion
+		      \[
+			      \scrA_X^{p,q}\hookrightarrow\scrA_{d-p,d-q}^X, \qquad \alpha\longmapsto T_\alpha, \qquad \langle T_\alpha,\beta\rangle=\int_U \alpha \wedge \beta.
+		      \]
+		\item The differential on $\scrA^{\bullet,\bullet}$ gives differentials on $\scrA_{\bullet,\bullet}$ by
+		      \begin{latexmathchange}
+			      \[
+				      \langle\partial T,u\rangle\coloneqq(-1)^{p+q+1}\langle T,\partial u\rangle,
+				      \qquad
+				      \langle\partialbar T,u\rangle\coloneqq(-1)^{p+q+1}\langle T,\partialbar u\rangle,
+			      \]
+			      where $T\in\scrA_{p,q}^X(U)$ and $u$ is a test form of the appropriate type.
+			      The sign uses the total dimension $p+q$; with this convention,
+			      $\upd^2=\partial^2=\partialbar^2=0$,
+			      $\partial\partialbar+\partialbar\partial=0$, and
+			      $\upd T_\alpha=T_{\upd\alpha}$.
+		      \end{latexmathchange}
+		      And we set $\upd \coloneqq \partial + \partialbar$ and $\upd^c\coloneqq (\partial-\partialbar)/(2\pi \upi)$.
+		      Then we have
+		      \[
+			      \upd, \upd^c:\scrA_k^X \longrightarrow\scrA^X_{k-1},
+			      \qquad
+			      \partial : \scrA^X_{p,q}\longrightarrow\scrA^X_{p-1,q},\quad
+			      \partialbar : \scrA^X_{p,q}\longrightarrow\scrA^X_{p,q-1}.
+		      \]
+		\item For a holomorphic submersion $\pi:E \to X$ of relative complex dimension $r$, there is a functorial pullback
+		      \[
+			      \pi^*:\scrA_{p,q}^X(U)\longrightarrow\scrA_{p+r,q+r}^E(\pi^{-1}(U)),
+			      \qquad \langle \pi^*T,\beta\rangle=\langle T,\pi_!\beta\rangle,
+		      \]
+		      where $\pi_!\beta$ is the smooth compactly supported $(p,q)$-form obtained by integrating a test $(p+r,q+r)$-form $\beta$ along the fibers, with their complex orientation.
+		      \Yang{commutative}
+		      And we have $f^*T_{\alpha} = T_{f^*\alpha}$.
+		      \Yang{ref}
+		\item For any holomorphic map $f: X \to Y$, there is a functorial pushforward
+		      \[
+			      f_*:\scrA_{p,q}^X(X)\longrightarrow\scrA_{p,q}^Y(Y),\qquad \langle f_*T,\beta\rangle=\langle T,f^*\beta\rangle.
+		      \]
+		      The pushforward is a continuous homomorphism of bi-graded $\scrA_X^{\bullet,\bullet}$ homomorphism, that is, we have the projection formula
+		      \[ f_*(T \wedge f^*\alpha) = (f_* T) \wedge \alpha. \]
+		      \Yang{ref}
 	\end{enumerate}
-
-	\leavevmode\par
-	\begin{latexmathchange}
-		Let $X$ be a complex manifold of complex dimension $d$, with currents indexed by bidimension as in \cref{constr:currents}.
-	\end{latexmathchange}
-	\begin{enumerate}
-		\item \latexgrammar{There is an inclusion}
-		      \begin{latexmathchange}
-			      \[
-				      \scrA_X^{p,q}\hookrightarrow\scrA_{d-p,d-q}^X,
-				      \qquad \alpha\longmapsto T_\alpha,
-				      \qquad \langle T_\alpha,\beta\rangle=\int_U\beta\wedge\alpha,
-			      \]
-			      where $\beta\in\Gamma_c(\scrA_X^{d-p,d-q},U)$.
-			      The same construction works for forms with locally integrable coefficients.
-		      \end{latexmathchange}
-		\item \latexgrammar{There is a differential.}
-		      \begin{latexmathchange}
-			      Write $\scrA_k^X=\bigoplus_{p+q=k}\scrA_{p,q}^X$ for currents of real dimension $k$.
-			      For $T\in\scrA_k^X(U)$, define
-			      \[
-				      \upd T\in\scrA_{k-1}^X(U),
-				      \qquad \langle\upd T,\beta\rangle=(-1)^k\langle T,\upd\beta\rangle,
-				      \quad \beta\in\Gamma_c(\scrA_X^{k-1},U).
-			      \]
-			      This sign is chosen for the convention $\langle T_\alpha,\beta\rangle=\int_U\beta\wedge\alpha$ above; Stokes' formula gives $\upd T_\alpha=T_{\upd\alpha}$.
-			      For the integration current of a locally finite oriented smooth $k$-chain $C$, Stokes' formula also gives $\upd\delta_C=(-1)^k\delta_{\partial C}$. Hence this differential has the same cycles and boundaries as the usual current boundary operator.
-			      The decomposition $\upd=\partial+\partialbar$ has types
-			      \[
-				      \partial:\scrA_{p,q}^X\longrightarrow\scrA_{p-1,q}^X,
-				      \qquad \partialbar:\scrA_{p,q}^X\longrightarrow\scrA_{p,q-1}^X.
-			      \]
-			      It satisfies $\upd^2=\partial^2=\partialbar^2=0$ and $\partial\partialbar+\partialbar\partial=0$.
-			      Spaces with a bidimension index outside $0,\ldots,d$ (or a total dimension index outside $0,\ldots,2d$) are understood to be zero.
-		      \end{latexmathchange}
-		\item \latexgrammar{Currents form a module over smooth forms.}
-		      \begin{latexmathchange}
-			      For $\alpha\in\scrA_X^{a,b}(U)$ and $T\in\scrA_{p,q}^X(U)$, the product $\alpha\wedge T\in\scrA_{p-a,q-b}^X(U)$ is defined by
-			      \[
-				      \langle\alpha\wedge T,\beta\rangle
-				      =\langle T,\beta\wedge\alpha\rangle,
-				      \qquad \beta\in\Gamma_c(\scrA_X^{p-a,q-b},U).
-			      \]
-			      It extends the wedge product of forms and satisfies
-			      \[
-				      \upd(\alpha\wedge T)=\upd\alpha\wedge T+(-1)^{a+b}\alpha\wedge\upd T.
-			      \]
-		      \end{latexmathchange}
-		\item \latexdeleted{there is a proper pushforward and flat pullback.}
-		      \begin{latexmathchange}
-			      Every proper holomorphic map $f:X\to Y$ defines a pushforward
-			      \[
-				      f_*:\scrA_{p,q}^X(X)\longrightarrow\scrA_{p,q}^Y(Y),
-				      \qquad \langle f_*T,\beta\rangle=\langle T,f^*\beta\rangle.
-			      \]
-			      More generally, this is defined when $f$ is proper on $\Supp T$, using a cutoff equal to one near $\Supp T\cap f^{-1}(\Supp\beta)$.
-			      For a holomorphic submersion $f:X\to Y$ of relative complex dimension $r$, there is a pullback
-			      \[
-				      f^*:\scrA_{p,q}^Y(Y)\longrightarrow\scrA_{p+r,q+r}^X(X),
-				      \qquad \langle f^*T,\beta\rangle=\langle T,f_!\beta\rangle,
-			      \]
-			      where $f_!\beta$ is the smooth compactly supported $(p,q)$-form obtained by integrating a test $(p+r,q+r)$-form $\beta$ along the fibers, with their complex orientation.
-			      Flatness alone does not provide pullback of arbitrary currents.
-		      \end{latexmathchange}
-		\item \latexdeleted{the pushforward is a $\scrA$-homomorphism.}
-		      \latexgrammar{In other words, we have the projection formula.}
-		      \begin{latexmathchange}
-			      For a proper holomorphic map $f:X\to Y$, a smooth form $\alpha$ on $Y$, and a current $T$ on $X$,
-			      \[
-				      f_*(f^*\alpha\wedge T)=\alpha\wedge f_*T.
-			      \]
-			      Thus pushforward is linear over smooth forms on $Y$, acting on currents on $X$ through $f^*$.
-			      It also commutes with $\upd$, $\partial$, and $\partialbar$.
-		      \end{latexmathchange}
-		\item \latexgrammar{The pullback agrees with the pullback of forms.}
-		      \begin{latexmathchange}
-			      For a holomorphic submersion $f:X\to Y$ and a smooth form $\alpha$ on $Y$, we have $f^*T_\alpha=T_{f^*\alpha}$.
-			      Moreover, $f^*(\alpha\wedge T)=f^*\alpha\wedge f^*T$, and pullback commutes with $\upd$, $\partial$, and $\partialbar$.
-		      \end{latexmathchange}
-	\end{enumerate}
-	\begin{latexmathchange}
-		The differentials, multiplication by a fixed smooth form, proper pushforward, and pullback by a fixed holomorphic submersion are continuous in the weak topology on currents.
-		See \cite[Chapter~I, \S 2 and \S 3]{Demailly-2012-ComplexAnalyticDifferential}; the differential signs above follow the convention $\int\beta\wedge\alpha$ in this note.
-	\end{latexmathchange}
-	% \toai{finish and polish} -- resolved.
+	\Yang{}
 \end{proposition}
 
-\begin{remark}[label=\labelNFM{rmk:currents-as-forms-with-distribution-as-coefficients}, status=draft, tag=0000000]
-	\leavevmode\par
-	\begin{latexmathchange}
-		Locally, currents can be viewed as forms with distribution coefficients.
-		Let $X$ be a complex manifold of dimension $d$ and $(U,z)$ a holomorphic coordinate chart.
-		Recall that a \emph{distribution} on $U$ is a continuous complex-linear functional on $\scrC_c^\infty(U)$, with its test-function topology.
-		Every $T\in\scrA_{p,q}^X(U)$ has a unique expression
-		\[
-			T=\sum_{\substack{|I|=d-p\\|J|=d-q}}u_{I,J}\,\upd z_I\wedge\upd\overline{z}_J,
-		\]
-		where $u_{I,J}$ are distributions on $U$.
-		Thus its bidegree as a distribution-valued form is $(d-p,d-q)$, while its bidimension is $(p,q)$.
-		More precisely, fix the standard real volume form $\upd V$ in the chart and write
-		\[
-			\beta\wedge\upd z_I\wedge\upd\overline{z}_J=b_{I,J}(\beta)\,\upd V.
-		\]
-		Our convention for the pairing is
-		\[
-			\langle T,\beta\rangle=\sum_{I,J}\langle u_{I,J},b_{I,J}(\beta)\rangle,
-			\qquad\beta\in\Gamma_c(\scrA_X^{p,q},U).
-		\]
-		For a form with locally integrable coefficients, the $u_{I,J}$ are its ordinary coefficients viewed as distributions.
-		The operators $\upd,\partial,\partialbar$ differentiate these coefficients in the distributional sense; for a real coordinate $x_j$,
-		\[
-			\langle\partial_{x_j}u,\varphi\rangle=-\langle u,\partial_{x_j}\varphi\rangle.
-		\]
-		Multiplication by a smooth form is therefore defined, whereas the product of two arbitrary currents need not be defined.
-		See \cite[Chapter~I, Proposition~2.9 and \S 3]{Demailly-2012-ComplexAnalyticDifferential}.
-	\end{latexmathchange}
-	% \toai{add content} -- resolved.
+\begin{remark}[label=\labelNFM{rmk:wedge-of-ddc-functions}, status=draft, tag=0000000]
+	In general, the wedge of two currents has no definition.
+	Consider a
+	However,
 \end{remark}
 
-\begin{latexgrammarchange}
-	We now compare the homology of currents with the cohomology of forms.
-\end{latexgrammarchange}
+% \begin{remark}[label=\labelNFM{rmk:currents-as-forms-with-distribution-as-coefficients}, status=draft, tag=0000000]
+% 	\leavevmode\par
+% 	\begin{latexmathchange}
+% 		Locally, currents can be viewed as forms with distribution coefficients.
+% 		Let $X$ be a complex manifold of dimension $d$ and $(U,z)$ a holomorphic coordinate chart.
+% 		Recall that a \emph{distribution} on $U$ is a continuous complex-linear functional on $\scrC_c^\infty(U)$, with its test-function topology.
+% 		Every $T\in\scrA_{p,q}^X(U)$ has a unique expression
+% 		\[
+% 			T=\sum_{\substack{|I|=d-p\\|J|=d-q}}u_{I,J}\,\upd z_I\wedge\upd\overline{z}_J,
+% 		\]
+% 		where $u_{I,J}$ are distributions on $U$.
+% 		Thus its bidegree as a distribution-valued form is $(d-p,d-q)$, while its bidimension is $(p,q)$.
+% 		More precisely, fix the standard real volume form $\upd V$ in the chart and write
+% 		\[
+% 			\beta\wedge\upd z_I\wedge\upd\overline{z}_J=b_{I,J}(\beta)\,\upd V.
+% 		\]
+% 		Our convention for the pairing is
+% 		\[
+% 			\langle T,\beta\rangle=\sum_{I,J}\langle u_{I,J},b_{I,J}(\beta)\rangle,
+% 			\qquad\beta\in\Gamma_c(\scrA_X^{p,q},U).
+% 		\]
+% 		For a form with locally integrable coefficients, the $u_{I,J}$ are its ordinary coefficients viewed as distributions.
+% 		The operators $\upd,\partial,\partialbar$ differentiate these coefficients in the distributional sense; for a real coordinate $x_j$,
+% 		\[
+% 			\langle\partial_{x_j}u,\varphi\rangle=-\langle u,\partial_{x_j}\varphi\rangle.
+% 		\]
+% 		Multiplication by a smooth form is therefore defined, whereas the product of two arbitrary currents need not be defined.
+% 		See \cite[Chapter~I, Proposition~2.9 and \S 3]{Demailly-2012-ComplexAnalyticDifferential}.
+% 	\end{latexmathchange}
+% 	% \toai{add content} -- resolved.
+% \end{remark}
 
-\Yang{}
+We now compare the homology of currents with the cohomology of forms.
+First recall the definitions.
+
+\begin{construction}[label=\labelNFM{constr:cohomology-by-forms-and-currents}, status=draft, tag=0000000]
+	\leavevmode\par\nopagebreak[4]
+	\begin{latexmathchange}
+		Let $X$ be a reduced complex analytic space of pure complex dimension $d$.
+		Set $\scrA_k^X\coloneqq\bigoplus_{p+q=k}\scrA_{p,q}^X$.
+		The differentials give four complexes of sheaves, with $p$ fixed in the second and fourth:
+		\begin{align*}
+			\calC_{\dR,\bullet}
+			&:0\longrightarrow\scrA_X^0\xrightarrow{\upd}\scrA_X^1
+			\xrightarrow{\upd}\cdots\xrightarrow{\upd}\scrA_X^{2d}\longrightarrow0,\\
+			\calC_{\Db,\bullet}^{p}
+			&:0\longrightarrow\scrA_X^{p,0}\xrightarrow{\partialbar}\scrA_X^{p,1}
+			\xrightarrow{\partialbar}\cdots\xrightarrow{\partialbar}\scrA_X^{p,d}\longrightarrow0,\\
+			\calC_{\mathrm{cur},\bullet}
+			&:0\longrightarrow\scrA_{2d}^X\xrightarrow{\upd}\scrA_{2d-1}^X
+			\xrightarrow{\upd}\cdots\xrightarrow{\upd}\scrA_0^X\longrightarrow0,\\
+			\calC_{\mathrm{cur},\bullet}^{p}
+			&:0\longrightarrow\scrA_{p,d}^X\xrightarrow{\partialbar}\scrA_{p,d-1}^X
+			\xrightarrow{\partialbar}\cdots\xrightarrow{\partialbar}\scrA_{p,0}^X\longrightarrow0.
+		\end{align*}
+	\end{latexmathchange}
+	\begin{latexmathchange}
+		We use homological grading: every differential lowers the index by $1$.
+		More precisely,
+		\[
+			\calC_{\dR,-k}=\scrA_X^k,\qquad
+			\calC_{\Db,-q}^{p}=\scrA_X^{p,q},\qquad
+			\calC_{\mathrm{cur},k}=\scrA_k^X,\qquad
+			\calC_{\mathrm{cur},q}^{p}=\scrA_{p,q}^X.
+		\]
+		Terms outside the indicated ranges are zero.
+		For a chain complex $(C_\bullet,\delta)$, recall that
+		$H_j(C_\bullet)=\ker\delta_j/\operatorname{im}\delta_{j+1}$.
+	\end{latexmathchange}
+	\begin{latexmathchange}
+		Taking the homology of the complexes of \emph{global sections}, define
+		\begin{align*}
+			H^k_{\dR}(X,\bbC)
+			&\coloneqq H_{-k}\bigl(\Gamma(X,\calC_{\dR,\bullet})\bigr)
+			=\frac{\ker(\upd:\scrA_X^k(X)\to\scrA_X^{k+1}(X))}{\upd\scrA_X^{k-1}(X)},\\
+			H^{p,q}_{\partialbar}(X,\bbC)
+			&\coloneqq H_{-q}\bigl(\Gamma(X,\calC_{\Db,\bullet}^{p})\bigr)
+			=\frac{\ker(\partialbar:\scrA_X^{p,q}(X)\to\scrA_X^{p,q+1}(X))}{\partialbar\scrA_X^{p,q-1}(X)},\\
+			H_k^{\mathrm{cur}}(X,\bbC)
+			&\coloneqq H_k\bigl(\Gamma(X,\calC_{\mathrm{cur},\bullet})\bigr)
+			=\frac{\ker(\upd:\scrA_k^X(X)\to\scrA_{k-1}^X(X))}{\upd\scrA_{k+1}^X(X)},\\
+			H_{p,q}^{\partialbar,\mathrm{cur}}(X,\bbC)
+			&\coloneqq H_q\bigl(\Gamma(X,\calC_{\mathrm{cur},\bullet}^{p})\bigr)
+			=\frac{\ker(\partialbar:\scrA_{p,q}^X(X)\to\scrA_{p,q-1}^X(X))}{\partialbar\scrA_{p,q+1}^X(X)}.
+		\end{align*}
+	\end{latexmathchange}
+	\begin{latexmathchange}
+		A current $T$ is \emph{closed} if $\upd T=0$ and \emph{exact}, or a \emph{boundary}, if $T=\upd S$ for a current $S$ of dimension one larger.
+		Likewise, $T\in\scrA_{p,q}^X(X)$ is \emph{$\partialbar$-closed} if $\partialbar T=0$, and \emph{$\partialbar$-exact} if $T=\partialbar S$ with $S\in\scrA_{p,q+1}^X(X)$.
+		For a current of pure bidimension, $\upd T=0$ is equivalent to $\partial T=\partialbar T=0$.
+		Replacing $\Gamma$ by $\Gamma_c$ gives the compactly supported versions, denoted
+		$H^k_{\dR,c}$, $H^{p,q}_{\partialbar,c}$, $H_k^{\mathrm{cur},c}$, and $H_{p,q}^{\partialbar,\mathrm{cur},c}$.
+		On a singular space these are definitions using the chosen sheaves of smooth forms and currents; the comparison statements below require the stated smoothness hypotheses.
+	\end{latexmathchange}
+	% \toai{finish it} -- resolved.
+\end{construction}
 
 \begin{theorem}[label=\labelNFM{thm:cohomology-by-forms-and-currents}, status=draft, tag=0000000]
-	Let $X$ be a complex manifold.
+	\leavevmode\par\nopagebreak[4]
 	\begin{latexmathchange}
-		Write $d=\dim_{\bbC}X$, and grade currents by real dimension as in \cref{prop:basic-properties}.
-		\begin{enumerate}
-			\item Define the $k$-th \emph{homology group of currents} by
+		Let $X$ be a reduced complex analytic space of pure complex dimension $d$, with the groups of \cref{constr:cohomology-by-forms-and-currents}.
+	\end{latexmathchange}
+	\begin{enumerate}
+		\item \latexmath{\emph{Pairings induced by evaluation.}}\par\nopagebreak[4]
+		      \begin{latexmathchange}
+			      The pairing of currents with compactly supported forms descends to
 			      \[
-				      H_k^{\mathrm{cur}}(X,\bbC)
-				      \coloneqq\frac{\ker(\upd:\scrA_k^X(X)\to\scrA_{k-1}^X(X))}{\upd\scrA_{k+1}^X(X)}.
+				      H_k^{\mathrm{cur}}(X,\bbC)\times H^k_{\dR,c}(X,\bbC)\longrightarrow\bbC,
+				      \qquad([T],[\alpha])\longmapsto\langle T,\alpha\rangle,
 			      \]
-			      This complex computes Borel--Moore homology: locally finite chains define currents because test forms have compact support. The map $\alpha\mapsto T_\alpha$ and Poincar\'e duality give natural isomorphisms
+			      and similarly to
 			      \[
-				      H_k^{\mathrm{cur}}(X,\bbC)
-				      \cong H_k^{\mathrm{BM}}(X,\bbC)
-				      \cong H_{\mathrm{dR}}^{2d-k}(X,\bbC)
-				      \cong H^{2d-k}(X,\bbC).
+				      H_{p,q}^{\partialbar,\mathrm{cur}}(X,\bbC)
+				      \times H^{p,q}_{\partialbar,c}(X,\bbC)\longrightarrow\bbC.
 			      \]
-			      Here $H^{2d-k}(X,\bbC)$ is singular cohomology. A $\upd$-closed $k$-current is homologous to $T_\alpha$ for a closed smooth $(2d-k)$-form $\alpha$; $T_\alpha$ is a current boundary iff $\alpha$ is exact. If $X$ is compact, $H_k^{\mathrm{BM}}(X,\bbC)=H_k(X,\bbC)$.
-			\item For fixed $p$, $\partialbar$ lowers the second bidimension index. Define the corresponding \emph{Dolbeault homology of currents} by
+			      If $X$ is compact and smooth, these are perfect pairings of finite-dimensional vector spaces; in particular,
 			      \[
-				      H_{p,q}^{\partialbar,\mathrm{cur}}(X)
-				      \coloneqq\frac{\ker(\partialbar:\scrA_{p,q}^X(X)\to\scrA_{p,q-1}^X(X))}{\partialbar\scrA_{p,q+1}^X(X)}.
+				      H_k^{\mathrm{cur}}(X,\bbC)\cong H^k_{\dR}(X,\bbC)^\vee,
+				      \qquad
+				      H_{p,q}^{\partialbar,\mathrm{cur}}(X,\bbC)\cong H^{p,q}_{\partialbar}(X,\bbC)^\vee.
 			      \]
-			      The inclusion of smooth forms as currents identifies this group with the usual Dolbeault cohomology in complementary bidegree:
-			      \[
-				      H_{p,q}^{\partialbar,\mathrm{cur}}(X)
-				      \cong H_{\partialbar}^{d-p,d-q}(X)
+			      Here $(-)^\vee=\operatorname{Hom}_{\bbC}(-,\bbC)$.
+		      \end{latexmathchange}
+		\item \latexmath{\emph{Comparison on a complex manifold.}}\par\nopagebreak[4]
+		      \begin{latexmathchange}
+			      Suppose that $X$ is smooth.
+			      The de Rham theorem, the inclusion $\alpha\mapsto T_\alpha$, and Poincar\'e duality give natural isomorphisms
+			      \begin{align*}
+				      H^k_{\dR}(X,\bbC)&\cong H^k(X,\bbC),\\
+				      H_k^{\mathrm{cur}}(X,\bbC)&\cong H^{2d-k}_{\dR}(X,\bbC)
+				      \cong H_k^{\mathrm{BM}}(X,\bbC),\\
+				      H_{p,q}^{\partialbar,\mathrm{cur}}(X,\bbC)
+				      &\cong H_{\partialbar}^{d-p,d-q}(X,\bbC)
 				      \cong H^{d-q}(X,\Omega_X^{d-p}).
+			      \end{align*}
+			      Here $H^k(X,\bbC)$ is singular cohomology and $H_k^{\mathrm{BM}}(X,\bbC)$ is Borel--Moore homology, defined by locally finite singular chains.
+		      \end{latexmathchange}
+		      \begin{latexmathchange}
+			      Compactly supported current homology satisfies
+			      \[
+				      H_k^{\mathrm{cur},c}(X,\bbC)\cong H^{2d-k}_{\dR,c}(X,\bbC)
+				      \cong H_k(X,\bbC).
 			      \]
-			      A $\partialbar$-closed current is homologous to a smooth current of the same bidimension; such a smooth current is a $\partialbar$-boundary iff its representing form is $\partialbar$-exact. When $q=d$, the denominator in the definition of $H_{p,q}^{\partialbar,\mathrm{cur}}(X)$ is zero.
-			\item If $X$ is moreover compact K\"ahler, the $\partial\partialbar$-lemma holds for both smooth forms and currents. In current homology, a $\upd$-closed current of pure bidimension is a $\upd$-boundary iff it is a $\partial\partialbar$-boundary. The analogous statement holds for smooth forms.
-		\end{enumerate}
-		For the de Rham and Dolbeault isomorphisms, see \cite[Chapter~IV, \S 6, especially (6.8), (6.15), and (6.17)]{Demailly-2012-ComplexAnalyticDifferential}.
-		For Borel--Moore homology and the noncompact form of Poincar\'e duality, see \href{https://www.math.columbia.edu/~chaoli/docs/PerverseSheaves.html}{the discussion of Borel--Moore homology in these lecture notes}.
-		For the $\partial\partialbar$-lemma under the additional compact K\"ahler hypothesis, see \cite[Chapter~VI, \S 8.2, Lemma~8.6]{Demailly-2012-ComplexAnalyticDifferential}.
-		In the compact K\"ahler case, the Hodge decomposition also applies to distribution-valued forms and gives the current version of the $\partial\partialbar$-lemma.
-	\end{latexmathchange}
-	\latexdeleted{Under the isomorphism $H_k(X,\bbC)\cong H_{\dR}^k(X,\bbC)$, $[D]=\delta_D$.}
+			      Thus, when $X$ is compact, unrestricted current homology also agrees with ordinary singular homology.
+			      Every closed current is homologous to a smooth current, and a closed smooth form is exact as a current iff it is exact as a smooth form; the analogous assertions hold for $\partialbar$.
+		      \end{latexmathchange}
+		      \begin{latexmathchange}
+			      If $Z\subset X$ is a closed analytic subvariety of pure dimension $p$, then
+			      \[
+				      [\delta_Z]\in H_{2p}^{\mathrm{cur}}(X,\bbC)
+				      \cong H_{2p}^{\mathrm{BM}}(X,\bbC)
+			      \]
+			      is its locally finite fundamental class, whose Poincar\'e dual is the cycle class
+			      $\operatorname{cl}(Z)\in H^{2d-2p}_{\dR}(X,\bbC)$.
+			      Multiplicities are included for analytic cycles; for a Cartier divisor $D$, this dual class is $c_1(\scrO_X(D))$.
+		      \end{latexmathchange}
+		\item \latexmath{\emph{The $\ddc$-lemma on a compact K\"ahler manifold.}}\par\nopagebreak[4]
+		      \begin{latexmathchange}
+			      Suppose further that $X$ is compact K\"ahler.
+			      For a $\upd$-closed smooth form $\alpha$ of pure bidegree $(r,s)$, the following are equivalent:
+			      \[
+				      \alpha\text{ is }\upd\text{-exact}
+				      \quad\Longleftrightarrow\quad
+				      \alpha\text{ is }\partial\text{-exact}
+				      \quad\Longleftrightarrow\quad
+				      \alpha\text{ is }\partialbar\text{-exact}
+				      \quad\Longleftrightarrow\quad
+				      \alpha=\ddc\beta,
+			      \]
+			      with $\beta\in\scrA_X^{r-1,s-1}(X)$.
+			      The same equivalences hold for currents: a closed current $T$ of pure bidimension $(p,q)$ is a boundary iff
+			      $T=\ddc S$ for some $S\in\scrA_{p+1,q+1}^X(X)$.
+			      In particular, two cohomologous closed real $(1,1)$-currents differ by $\ddc u$ for a real distribution $u$.
+		      \end{latexmathchange}
+	\end{enumerate}
 	\begin{latexmathchange}
-		Let $Z\subset X$ be a closed analytic subvariety of pure dimension $p$.
-		Its integration current is a closed current of real dimension $2p$, so it defines a homology class
-		\[
-			[\delta_Z]\in H_{2p}^{\mathrm{cur}}(X,\bbC)\cong H_{2p}^{\mathrm{BM}}(X,\bbC).
-		\]
-		It corresponds to the locally finite fundamental class of $Z$. Under Poincar\'e duality, it yields the cohomological cycle class $\operatorname{cl}(Z)\in H_{\mathrm{dR}}^{2d-2p}(X,\bbC)$.
-		If $X$ is compact, $[\delta_Z]$ is an ordinary class in $H_{2p}(X,\bbC)$.
-		In particular, a Cartier divisor $D$ defines $[\delta_D]\in H_{2d-2}^{\mathrm{BM}}(X,\bbC)$, with multiplicities included in $\delta_D$; its Poincar\'e dual is in $H_{\mathrm{dR}}^2(X,\bbC)$.
-		See \cite[Chapter~III, \S 2; Chapter~VI, \S 3]{Demailly-2012-ComplexAnalyticDifferential}.
+		The pairings follow from the definitions of the differentials by duality.
+		For the smooth comparison, see \cite[Chapter~IV, \S\S 6--7, especially (6.8), (6.15), and (6.17)]{Demailly-2012-ComplexAnalyticDifferential}.
+		Poincar\'e duality and compact Serre duality give the perfect pairings; see \cite[Chapter~IV, \S 16; Chapter~VI, \S 7]{Demailly-2012-ComplexAnalyticDifferential}.
+		For cycle classes, see \cite[Chapter~III, \S 2; Chapter~V, \S 13]{Demailly-2012-ComplexAnalyticDifferential}.
+		For the last assertion, apply the K\"ahler Hodge decomposition and its Green operator to smooth forms or distribution-valued forms; see \cite[Chapter~VI, \S 3 and \S 8.2, Lemma~8.6]{Demailly-2012-ComplexAnalyticDifferential}.
 	\end{latexmathchange}
+	% \toai{re-orangize the theorem as above} -- resolved.
 	% \toai{i remove the assumption of projectivity, please rewrite, } -- resolved.
 \end{theorem}
 
+\begin{remark}[label=\labelNFM{rmk:acyclic-resolution-and-de-rham-isomorphism-and-dolbeault-isomorphism}, status=draft, tag=0000000]
+	Suppose some basic knowledge of homological algebra and some theorem, we can give a explain of the theorem.
+	\Yang{Demailly IV-6}
+\end{remark}
 
-
-
-
+Now let us turn to the positivity.
 Forms and currents are more finer object than algebraic cycles and cocyles.
 They can capture the ``local positivity''.
 
@@ -449,45 +520,6 @@ They can capture the ``local positivity''.
 	% \toai{add the definition of positivity } -- resolved.
 \end{definition}
 
-
-\begin{definition}[label=\labelNFM{def:psh-function}, status=draft, tag=0000000]
-	\leavevmode\par
-	\begin{latexmathchange}
-		Let $X$ be a complex manifold and $u:X\to[-\infty,+\infty)$ a function.
-		A \emph{\latexgrammar{plurisubharmonic}} \latexgrammar{function}
-		is one satisfying the following conditions:
-		\begin{enumerate}
-			\item $u$ is upper semicontinuous;
-			\item for every holomorphic map $\gamma:\Delta\to X$ from the unit disc $\Delta\subset\bbC$, the function $u\circ\gamma$ is subharmonic or identically $-\infty$.
-		\end{enumerate}
-		For an upper semicontinuous $u$, the second condition can equivalently be checked on complex affine lines in each coordinate chart: each restriction is subharmonic or identically $-\infty$ on every connected component of its domain.
-		We abbreviate this by \emph{psh} and denote the set of these functions by $\operatorname{PSH}(X)$; here we allow the function identically $-\infty$.
-	\end{latexmathchange}
-	\begin{latexmathchange}
-		If $u\in\scrC^2(X,\bbR)$, this is equivalent to the Levi matrix
-		\[
-			\left(\frac{\partial^2u}{\partial z_j\partial\overline{z}_k}\right)_{j,k}
-		\]
-		being positive semidefinite in each coordinate chart, or equivalently to $\im\partial\partialbar u\geq0$ as a real $(1,1)$-form.
-		More generally, a psh function which is not identically $-\infty$ on any connected component is locally integrable, and $\im\partial\partialbar u$ is a closed positive current of bidegree $(1,1)$.
-		See \cite[Chapter~I, \S 5]{Demailly-2012-ComplexAnalyticDifferential}.
-	\end{latexmathchange}
-	\begin{latexmathchange}
-		On a reduced complex analytic space, plurisubharmonicity is defined locally by requiring that $u$ be the restriction of an ambient psh function under a local closed embedding into a complex manifold.
-	\end{latexmathchange}
-	% For the definition on singular spaces, see https://arxiv.org/abs/1007.0262, Introduction.
-	% \toai{finish and polish} -- resolved.
-\end{definition}
-
-\begin{proposition}[label=\labelNFM{prop:wedge-with-psh-function}, status=draft, tag=0000000]
-	Let $u$ be a psh function and $T$ be a closed positive current of bidimension $(p,p)$.
-	Then
-	\[ \upd \upd^c u \wedge T \coloneqq \upd \upd^c (uT) \]
-	is again a closed positive closed current.
-	\Yang{}
-\end{proposition}
-
-\Yang{}
 
 
 
@@ -625,10 +657,180 @@ Let \(X\) be a complex analytic variety and $\calL$ a holomorphic line bundle on
 
 
 
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:psh-function-and-ppbar-equation}]{Plurisubharmonic functions and the \texorpdfstring{$\ppbar$}{ddbar} equation}
+\begin{latexgrammarchange}
+	We now describe potentials for closed positive $(1,1)$-currents and the products that can be defined using these potentials.
+	Except for the definition of psh functions on singular spaces, we work on a complex manifold $X$ of dimension $d$ in this subsection.
+\end{latexgrammarchange}
 
+\begin{definition}[label=\labelNFM{def:psh-function}, status=draft, tag=0000000]
+	\leavevmode\par
+	\begin{latexmathchange}
+		Let $X$ be a complex manifold and $u:X\to[-\infty,+\infty)$ a function.
+		A \emph{\latexgrammar{plurisubharmonic}} \latexgrammar{function}
+		is one satisfying the following conditions:
+		\begin{enumerate}
+			\item $u$ is upper semicontinuous;
+			\item for every holomorphic map $\gamma:\Delta\to X$ from the unit disc $\Delta\subset\bbC$, the function $u\circ\gamma$ is subharmonic or identically $-\infty$.
+		\end{enumerate}
+		For an upper semicontinuous $u$, the second condition can equivalently be checked on complex affine lines in each coordinate chart: each restriction is subharmonic or identically $-\infty$ on every connected component of its domain.
+		We abbreviate this by \emph{psh} and denote the set of these functions by $\operatorname{PSH}(X)$; here we allow the function identically $-\infty$.
+	\end{latexmathchange}
+	\begin{latexmathchange}
+		If $u\in\scrC^2(X,\bbR)$, this is equivalent to the Levi matrix
+		\[
+			\left(\frac{\partial^2u}{\partial z_j\partial\overline{z}_k}\right)_{j,k}
+		\]
+		being positive semidefinite in each coordinate chart, or equivalently to $\im\partial\partialbar u\geq0$ as a real $(1,1)$-form.
+		More generally, a psh function which is not identically $-\infty$ on any connected component is locally integrable, and $\im\partial\partialbar u$ is a closed positive current of bidegree $(1,1)$.
+		See \cite[Chapter~I, \S 5]{Demailly-2012-ComplexAnalyticDifferential}.
+	\end{latexmathchange}
+	\begin{latexmathchange}
+		On a reduced complex analytic space, plurisubharmonicity is defined locally by requiring that $u$ be the restriction of an ambient psh function under a local closed embedding into a complex manifold.
+	\end{latexmathchange}
+	% For the definition on singular spaces, see https://arxiv.org/abs/1007.0262, Introduction.
+	% \toai{finish and polish} -- resolved.
+\end{definition}
 
+\begin{definition}[label=\labelNFM{def:quasi-psh-function}, status=draft, tag=0000000]
+	\leavevmode\par\nopagebreak[4]
+	\begin{latexmathchange}
+		A \emph{quasi-plurisubharmonic function}, or \emph{quasi-psh function}, is a function locally expressible as $u=v+\rho$, where $v$ is psh and $\rho$ is smooth and real-valued.
+		We exclude functions identically $-\infty$ on a connected component when taking their distributional derivatives.
+		If $\omega$ is a smooth closed real $(1,1)$-form, a quasi-psh function $u$ is called \emph{$\omega$-psh} if
+		\[
+			\omega+\ddc u\geq0
+		\]
+		as a current; write $\operatorname{PSH}(X,\omega)$ for these functions.
+		If $\omega=\ddc\rho$ locally, this is equivalent to $u+\rho$ being psh.
+	\end{latexmathchange}
+\end{definition}
 
+\begin{proposition}[label=\labelNFM{prop:local-ddc-potentials}, status=draft, tag=0000000]
+	\leavevmode\par\nopagebreak[4]
+	\begin{latexmathchange}
+		Every closed real $(1,1)$-current $T$ has a real distributional potential locally:
+		for every $x\in X$, there are a neighborhood $U$ and a real distribution $u$ on $U$ such that
+		\[
+			T|_U=\ddc u=\frac{\im}{\pi}\partial\partialbar u.
+		\]
+		If $T$ is smooth, $u$ can be chosen smooth; if $T$ is positive, $u$ has a unique psh representative in its distribution class.
+		Two real local potentials for the same current differ by a smooth \emph{pluriharmonic} function, that is, a real function $h$ with $\partial\partialbar h=0$.
+		Such a function is locally the real part of a holomorphic function.
+		See \cite[Chapter~III, \S 1.18 and Proposition~1.19]{Demailly-2012-ComplexAnalyticDifferential}.
+	\end{latexmathchange}
+\end{proposition}
+\begin{proof}
+	\leavevmode\par
+	\begin{latexmathchange}
+		Locally the Poincar\'e lemma gives a real current $S$ of degree $1$ (dimension $2d-1$) with $T=\upd S$.
+		Write $S=S^{1,0}+S^{0,1}$ in bidegrees.
+		Since $T^{0,2}=0$, the Dolbeault--Grothendieck lemma gives $S^{0,1}=\partialbar v$ after shrinking the neighborhood.
+		Reality gives $S^{1,0}=\partial\overline v$, whence
+		\[
+			T=\partial\partialbar(v-\overline v)
+			=\ddc\bigl(2\pi\operatorname{Im}v\bigr).
+		\]
+		The smooth version follows by using the smooth Poincar\'e and Dolbeault lemmas.
+		A real distribution with positive $\im\partial\partialbar$ has a psh representative.
+		Finally, $\ddc h=0$ implies that $h$ is a harmonic distribution in a coordinate chart, so elliptic regularity makes it smooth and then pluriharmonic.
+	\end{latexmathchange}
+\end{proof}
 
+\begin{proposition}[label=\labelNFM{prop:global-ddc-potentials}, status=draft, tag=0000000]
+	\leavevmode\par\nopagebreak[4]
+	\begin{latexmathchange}
+		Let $X$ be a connected compact K\"ahler manifold, $\omega$ a smooth closed real $(1,1)$-form, and $T$ a closed real $(1,1)$-current.
+		Then the global $\partial\partialbar$-equation is solvable exactly when the de Rham classes agree:
+		\[
+			[T]=[\omega]
+			\quad\Longleftrightarrow\quad
+			T=\omega+\ddc u
+			\quad\text{for a real distribution }u.
+		\]
+		The potential is unique up to an additive real constant.
+		If $T\geq0$, the distribution $u$ has an $\omega$-psh representative.
+		If, in addition, $T$ has continuous local potentials, this representative is continuous.
+	\end{latexmathchange}
+\end{proposition}
+\begin{proof}
+	\leavevmode\par
+	\begin{latexmathchange}
+		Existence follows from the current version of the $\ddc$-lemma in \cref{thm:cohomology-by-forms-and-currents}; the converse follows from $\ddc u=\upd(\upd^c u)$.
+		Locally choose a smooth potential $\rho$ for $\omega$ and, when $T\geq0$, a psh potential $v$ for $T$.
+		Then $u+\rho-v$ is pluriharmonic, so $u$ has a quasi-psh representative with $\omega+\ddc u=T\geq0$.
+		The same identity proves continuity when $v$ is continuous.
+		The difference of two global potentials is a pluriharmonic function on a connected compact manifold, hence constant.
+	\end{latexmathchange}
+\end{proof}
+
+\begin{proposition}[label=\labelNFM{prop:wedge-with-psh-function}, status=draft, tag=0000000]
+	\leavevmode\par\nopagebreak[4]
+	\begin{latexmathchange}
+		Let $u$ be a \emph{locally bounded} psh function on $X$ and $T$ a closed positive current of bidimension $(p,p)$, with $1\leq p\leq d$.
+		Since positive currents have measure coefficients, $uT$ is well-defined.
+		The Bedford--Taylor product
+		\[
+			\ddc u\wedge T\coloneqq\ddc(uT)
+		\]
+		is a closed positive current of bidimension $(p-1,p-1)$.
+		It agrees with the usual wedge product when $u$ is smooth.
+		The local boundedness assumption cannot simply be omitted: on $\bbC^2$, for $u=\log|z_1|$ and $T=\delta_{\{z_1=0\}}$, the product $uT$ is undefined.
+		See \cite[Chapter~III, \S 3, Proposition~3.2]{Demailly-2012-ComplexAnalyticDifferential}.
+	\end{latexmathchange}
+\end{proposition}
+\begin{proof}
+	\leavevmode\par
+	\begin{latexmathchange}
+		The assertion is local.
+		On a smaller coordinate ball, regularize $u$ by convolution to obtain smooth psh functions $u_j\downarrow u$.
+		Local boundedness and dominated convergence for the coefficient measures of $T$ give $u_jT\to uT$ weakly.
+		Consequently,
+		\[
+			\ddc(uT)=\lim_{j\to\infty}\ddc(u_jT)
+			=\lim_{j\to\infty}\ddc u_j\wedge T.
+		\]
+		Each approximating current is closed and positive, so the limit has the same properties.
+	\end{latexmathchange}
+\end{proof}
+
+\begin{theorem}[label=\labelNFM{thm:bedford-taylor-products}, status=draft, tag=0000000]
+	\leavevmode\par\nopagebreak[4]
+	\begin{latexmathchange}
+		Let $T$ be a closed positive current of bidimension $(p,p)$ and let $u_1,\ldots,u_r$ be locally bounded psh functions, with $1\leq r\leq p$.
+		The recursive formula
+		\[
+			\ddc u_1\wedge\cdots\wedge\ddc u_r\wedge T
+			\coloneqq\ddc\bigl(u_1\,\ddc u_2\wedge\cdots\wedge\ddc u_r\wedge T\bigr)
+		\]
+		defines a closed positive current of bidimension $(p-r,p-r)$, symmetric in the $u_j$.
+		It is continuous under decreasing psh approximations with locally bounded limits:
+		if $u_{j,\ell}\downarrow u_j$ for every $j$, then
+		\[
+			\ddc u_{1,\ell}\wedge\cdots\wedge\ddc u_{r,\ell}\wedge T
+			\longrightarrow\ddc u_1\wedge\cdots\wedge\ddc u_r\wedge T
+		\]
+		weakly.
+		See \cite[Chapter~III, \S 3, Theorem~3.7 and Corollary~3.10]{Demailly-2012-ComplexAnalyticDifferential}.
+	\end{latexmathchange}
+\end{theorem}
+
+\begin{construction}[label=\labelNFM{constr:products-of-currents-with-local-potentials}, status=draft, tag=0000000]
+	\leavevmode\par\nopagebreak[4]
+	\begin{latexmathchange}
+		Let $S_1,\ldots,S_r$ be closed positive $(1,1)$-currents with locally bounded local potentials and $T$ a closed positive current of bidimension $(p,p)$, where $r\leq p$.
+		Locally write $S_j=\ddc u_j$ with $u_j$ locally bounded and psh, and define
+		\[
+			S_1\wedge\cdots\wedge S_r\wedge T
+			\coloneqq\ddc u_1\wedge\cdots\wedge\ddc u_r\wedge T.
+		\]
+		These definitions agree on overlaps: changing a potential by a pluriharmonic function $h$ does not affect the product, since $\ddc(hR)=0$ for every closed current $R$ of pure bidimension.
+		Thus they define a global closed positive current, symmetric in the $S_j$.
+		In particular, for a closed positive $(1,1)$-current $S$ with continuous local potentials, the powers $S^r$, $1\leq r\leq d$, are defined, and $S^d$ is a positive measure.
+		This construction will be used for Green currents and bifurcation currents below.
+	\end{latexmathchange}
+\end{construction}
+% \toai{make it work} -- resolved for this subsection.
 
 \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:specific-on-dynamics}]{Specific on dynamics}
 
@@ -788,7 +990,7 @@ We call that $f$ a holomorphic family or an algebraic family according to $\Lamb
 		\[
 			T_{\mathrm{bif}}=\sum_{i=1}^{2d-2}T_{c_i,f}.
 		\]
-		See \cite[\S 4.2.3]{Berteloot-2013-BifurcationCurrentsHolomorphicFamilies}.
+		See \cite[\S 4.2.3]{Berteloot-2013-BifurcationCurrentsHolomorphic}.
 	\end{latexmathchange}
 	% \toai{add definition of bifurcation currents} -- resolved.
 \end{definition}
