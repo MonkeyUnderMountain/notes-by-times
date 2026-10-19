@@ -1,0 +1,34 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{latex-revisions}[2026/10/11 Visible LaTeX revision marks]
+\RequirePackage{xcolor}
+\RequirePackage[normalem]{ulem}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+\DeclareRobustCommand{\latexdeleted}[1]{\sout{#1}}
+\DeclareRobustCommand{\latexgrammar}[1]{%
+  \begingroup
+  \setlength{\fboxsep}{2pt}%
+  \colorbox{yellow}{#1}%
+  \endgroup
+}
+\DeclareRobustCommand{\latexmath}[1]{%
+  \begingroup
+  \setlength{\fboxsep}{2pt}%
+  \colorbox{red!50}{#1}%
+  \endgroup
+}
+\tcbset{latexrevision/.style={%
+  enhanced jigsaw,
+  breakable,
+  frame hidden,
+  boxrule=0pt,
+  sharp corners,
+  boxsep=0pt,
+  left=4pt,right=4pt,top=4pt,bottom=4pt,
+  before skip=4pt,after skip=4pt,
+  coltext=black
+}}
+\newtcolorbox{latexmathchange}{latexrevision,colback=red!50}
+\newtcolorbox{latexgrammarchange}{latexrevision,colback=yellow}
+\endinput

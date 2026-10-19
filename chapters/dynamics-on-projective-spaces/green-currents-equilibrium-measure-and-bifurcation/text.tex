@@ -1,0 +1,167 @@
+% !TeX root = green-currents-equilibrium-measure-and-bifurcation.tex
+\section{green-currents-equilibrium-measure-and-bifurcation}
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:specific-on-dynamics}]{Specific on dynamics}
+
+
+% \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:equilibrium-measure-and-julia-sets}]{Equilibrium measure}
+
+Let $f: \bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a family of endomorphism on $\bbP^n$ over $\Lambda$.
+Here $\Lambda$ may be an algebraic variety or a complex analytic variety.
+We call that $f$ a holomorphic family or an algebraic family according to $\Lambda \to \End_{\bbP^n,d}(\bbC)$.
+
+\begin{definition}[label=\labelNFM{def:green-currents}, status=draft, tag=0000000]
+	Let $f:\bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a holomorphic family of $d$-polarized endomorphism on $\bbP^n$ over $\Lambda$.
+	Then \emph{relative Green currents} of $f$ is defined as
+	\[ T_f \coloneqq \lim_{n \to +\infty} \frac{(f^n)^*\omega_2}{d^n} \]
+	When $\Lambda$ is a point, we say that $T_f$ is the Green currents.
+	\Yang{}
+\end{definition}
+
+\begin{lemma}[label=\labelNFM{lem:thepropertiesy-of-u-and-T-fact}, status=draft, tag=0000000]
+	By the P-L equation, there is a Green function \Yang{}
+	\[ \upd \upd^c u = \omega_2 - T_f. \]
+	Notation as \cref{def:green-currents}.
+	The function $u$ is Holder continuous quasi-psh.
+	\Yang{}
+\end{lemma}
+\begin{proof}
+	\Yang{}
+\end{proof}
+
+\begin{theorem}[label=\labelNFM{thm:green-function-and-currents}, status=draft, tag=0000000]
+	Let $f:\bbP^k\to\bbP^k$ be a holomorphic endomorphism of algebraic degree $d\geq2$.
+	For a positive $(1,1)$-current $S$, its mass is $\int_{\bbP^k}S\wedge\omega_{\mathrm{FS}}^{k-1}$.
+	Let $S$ be a closed positive $(1,1)$-current of mass $1$ on $\bbP^k$, with bounded local potentials.
+	Then
+	\[
+		d^{-n}(f^n)^*S\longrightarrow T_f
+	\]
+	weakly, where $T_f$ is a closed positive $(1,1)$-current of mass $1$.
+	It has continuous local potentials and is independent of $S$.
+	Moreover, it is totally invariant:
+	\[
+		f^*T_f=dT_f,\qquad f_*T_f=d^{k-1}T_f.
+	\]
+	See \cite[Theorem~1.16]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
+	\Yang{}
+\end{theorem}
+
+\begin{definition}[label=\labelNFM{def:equilibrium-measure}, status=draft, tag=0000000]
+	Let $f:\bbP^n \to \bbP^n$ be a $d$-polarized endomorphism on $\bbP^n$.
+	Assume $d\geq2$.
+	The \emph{equilibrium measures} are defined fiberwise by
+	\[
+		\mu_{f}\coloneqq T_{f}^n.
+	\]
+	These products are well-defined since the Green currents have continuous local potentials, and each $\mu_{f}$ is a probability measure.
+	See \cite[\S 1.2]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
+	\Yang{}
+\end{definition}
+
+\begin{proposition}[label=\labelNFM{prop:equilibrium-measure-and-julia-set}, status=draft, tag=0000000]
+	Let $f:\bbP^n\to\bbP^n$ be a holomorphic endomorphism of algebraic degree $d\geq2$, $T_f$ its Green current, and $\mu_f=T_f^n$ its equilibrium measure.
+	\begin{enumerate}
+		\item $\Supp T_f$ is the Julia set of $f$, that is,  the complement of the largest open set on which $(f^j)_{j\geq0}$ is a normal family.
+		\item Let $\calE_f$ the totally invariant locus of $f$.
+		      Then for any $a \notin \calE_f$, we have
+		      \[ \frac{1}{d^{nj}} \sum_{y \in f^{-1}(a)} \delta_y \to \mu_f. \]
+		      Here $f^{-1}(a)$ counts multiplicity.
+	\end{enumerate}
+	For the Julia sets, see \cite[\S 1.2]{Dinh-Sibony-2010-DynamicsSeveralComplex}; for point equidistribution, see \cite[Theorem~1.45]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
+\end{proposition}
+\begin{proof}
+	The identification of $J_1(f)$ with the usual Julia set is proved in \cite[\S 1.2]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
+	The equidistribution statement is exactly \cite[Theorem~1.45]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
+
+	\Yang{}
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Now let us turn to the family of dynamics.
+
+
+\begin{definition}[label=\labelNFM{def:lyapunov-exponent}, status=draft, tag=0000000]
+	Let $f:\bbP^n\times\Lambda\to\bbP^n\times\Lambda$ be a holomorphic family of endomorphisms of algebraic degree $d\geq2$, where $\Lambda$ is a complex manifold of dimension $m\geq1$.
+
+
+
+	The \emph{Lyapunov exponent} is defined as $L: \Lambda \to \bbC$.
+	\Yang{}
+\end{definition}
+
+
+\begin{definition}[label=\labelNFM{def:bifurcation-measure}, status=draft, tag=0000000]
+	\leavevmode\par
+	\begin{latexmathchange}
+		Let $f:\bbP^n\times\Lambda\to\bbP^n\times\Lambda$ be a holomorphic family of endomorphisms of algebraic degree $d\geq2$, where $\Lambda$ is a complex manifold of dimension $m\geq1$.
+		Let $\mu_\lambda=T_{f_\lambda}^n$ be the equilibrium probability measure of $f_\lambda$.
+		Write
+		\[
+			L(\lambda)\coloneqq\sum_{j=1}^n\chi_j(\lambda)
+			=\int_{\bbP^n}\log\bigl\|\textstyle\bigwedge^n Df_\lambda(z)\bigr\|_{\mathrm{FS}}\,\upd\mu_\lambda(z),
+		\]
+		where $\chi_1(\lambda),\ldots,\chi_n(\lambda)$ are the complex Lyapunov exponents with respect to $\mu_\lambda$.
+		The real-valued function $L$ is locally H\"older continuous and psh.
+		The \emph{bifurcation current} of the family is
+		\[
+			T_{\mathrm{bif}}\coloneqq\upd_\Lambda\upd_\Lambda^c L.
+		\]
+		It is a closed positive current of bidegree $(1,1)$, or bidimension $(m-1,m-1)$, on $\Lambda$.
+		Since $L$ is locally bounded, the Bedford--Taylor products $T_{\mathrm{bif}}^j$, $1\leq j\leq m$, are well-defined.
+		We call these the \emph{higher bifurcation currents}, and use the normalization
+		\[
+			\mu_{\mathrm{bif}}\coloneqq T_{\mathrm{bif}}^m
+		\]
+		for the \emph{bifurcation measure}.
+		See \cite[\S 2.5]{Dinh-Sibony-2010-DynamicsSeveralComplex} and, for rational maps, \cite{DeMarco-2003-DynamicsRationalMaps}.
+	\end{latexmathchange}
+	\begin{latexmathchange}
+		For a holomorphic marked point $a:\Lambda\to\bbP^n$, set $a_j(\lambda)\coloneqq f_\lambda^j(a(\lambda))$.
+		Its \emph{activity current} is the closed positive $(1,1)$-current
+		\[
+			T_{a,f}\coloneqq\lim_{j\to\infty}d^{-j}a_j^*\omega_{\mathrm{FS}},
+		\]
+		where the limit is weak and $\omega_{\mathrm{FS}}$ is the normalized Fubini--Study form on $\bbP^n$.
+		When $m=1$, this is a measure, also denoted $\mu_{a,f}$.
+		When $n=1$ and the critical points $c_1,\ldots,c_{2d-2}$ can be holomorphically marked, counted with multiplicity, we have
+		\[
+			T_{\mathrm{bif}}=\sum_{i=1}^{2d-2}T_{c_i,f}.
+		\]
+		See \cite[\S 4.2.3]{Berteloot-2013-BifurcationCurrentsHolomorphic}.
+	\end{latexmathchange}
+	% \toai{add definition of bifurcation currents} -- resolved.
+\end{definition}
+
+\begin{theorem}[label=\labelNFM{thm:temporay}, status=draft, tag=0000000]
+	Let $f$ be a holomorphic family of $d$-polarized dynamics and $a \in \bbP^1(\Lambda)$,
+	TFAE:
+	\begin{enumerate}
+		\item $\mu_{a,f} = 0$;
+		\item $a$ is stable.
+	\end{enumerate}
+
+	A point $a \in \bbP^1(\Lambda)$ is passive iff $a$ is preperiodic.
+	\Yang{}
+\end{theorem}
+
+
+
+
+
+
