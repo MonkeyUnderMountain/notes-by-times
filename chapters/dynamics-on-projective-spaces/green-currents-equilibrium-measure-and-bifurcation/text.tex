@@ -1,103 +1,174 @@
 % !TeX root = green-currents-equilibrium-measure-and-bifurcation.tex
-\section{green-currents-equilibrium-measure-and-bifurcation}
+\section{Green currents, equilibrium measure and bifurcation}
 
 
-\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:specific-on-dynamics}]{Specific on dynamics}
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:green-currents-and-equilibrium-measure}]{Green currents and equilibrium measure}
 
 
-% \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:equilibrium-measure-and-julia-sets}]{Equilibrium measure}
+\begin{definition}[label=\labelNFM{def:green-currents-of-dynamics}, status=draft, tag=0000000]
+	Let $f: \bbP^n \to \bbP^n$ be a $d$-polarized endomorphism.
+	The \emph{Green currents} of $f$ is defined as
+	\[ T_f \coloneqq \lim_{k \to \infty} \frac{(f^k)^*T_{\omega_\FS}}{d^k} \in \scrA_{n-1,n-1}(X). \]
+	It is a closed positive currents of degree $(1,1)$.
+	Its potential function, i.e., the function $g$ with
+	\[ T_f = \omega_\FS + \ddc g, \]
+	is called the \emph{Green function} of $f$.
+\end{definition}
+
+\begin{example}[label=\labelNFM{eg:green-currents-of-power-map}, status=draft, tag=0000000]
+	\Yang{}
+\end{example}
+
+\begin{example}[label=\labelNFM{eg:green-currents-of-z2+c}, status=draft, tag=0000000]
+	\Yang{}
+\end{example}
+
+\begin{proposition}[label=\labelNFM{prop:basic-properties-of-green-currents}, status=draft, tag=0000000]
+	Let $f: \bbP^n \to \bbP^n$ be a $d$-polarized endomorphism.
+	\begin{enumerate}
+		\item The green currents $T_f$ has Holder continous local potential.
+		\item Let $S$ be any positive closed currents of degree $(1,1)$ and mass $1$ on $\bbP^n$ with bounded local potential \Yang{}. Then $(f^n)^*S/(d^n) \xrightarrow{w} T_f$ as currents.
+		\item The green currents is totally-invariant: $f^*T_f = dT_f$, $f_*T_f = d^{k-1}T_f$.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	\Yang{}
+\end{proof}
+
+
+\begin{definition}[label=\labelNFM{def:equilibrium-measure}, status=draft, tag=0000000]
+	Let $f: \bbP^n \to \bbP^n$ be a $d$-polarized endomorphism.
+	We define $T_f^p = T_f^{\wedge p}$ and $J_p(f) \coloneqq \Supp T_f^p$, called the \emph{Julia set of order $p$} of $f$.
+	For $p = n$, we set $\mu_f \coloneqq T_f^n$, called the emph{equilibrium-measure} of $f$.
+\end{definition}
+
+\begin{proposition}[label=\labelNFM{prop:Julia-set-of-order1}, status=draft, tag=0000000]
+	Let $f: \bbP^n \to \bbP^n$ be a $d$-polarized endomorphism.
+	The Julia set of order $1$, $J_1(f)$, coincides with the usual Julia set.
+	\Yang{}
+\end{proposition}
+
+\begin{theorem}[label=\labelNFM{thm:equidistribution-of-backforward-orbit}, status=draft, tag=0000000]
+	Let $f: \bbP^n \to \bbP^n$ be a $d$-polarized endomorphism.
+	Let $\calE_f$ the totally invariant locus of $f$.
+	\begin{enumerate}
+		\item for any $a \notin \calE_f$, we have
+		      \[ \frac{1}{d^{nj}} \sum_{y \in f^{-1}(a)} \delta_y \to \mu_f. \]
+		      Here $f^{-1}(a)$ counts multiplicity.
+		\item we have
+		      \[ \frac{1}{d^{nj}} \sum_{y \in \Per_n(f)} \delta_y \to \mu_f. \]
+		      Here $\Per_n(f)$ counts multiplicity.
+	\end{enumerate}
+	\Yang{}
+\end{theorem}
+
+
+
+\Yang{}
+
+
+
+
+%
+%
+% % \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:equilibrium-measure-and-julia-sets}]{Equilibrium measure}
+%
+% Let $f: \bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a family of endomorphism on $\bbP^n$ over $\Lambda$.
+% Here $\Lambda$ may be an algebraic variety or a complex analytic variety.
+% We call that $f$ a holomorphic family or an algebraic family according to $\Lambda \to \End_{\bbP^n,d}(\bbC)$.
+%
+% \begin{definition}[label=\labelNFM{def:green-currents}, status=draft, tag=0000000]
+% 	Let $f:\bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a holomorphic family of $d$-polarized endomorphism on $\bbP^n$ over $\Lambda$.
+% 	Then \emph{relative Green currents} of $f$ is defined as
+% 	\[ T_f \coloneqq \lim_{n \to +\infty} \frac{(f^n)^*\omega_2}{d^n} \]
+% 	When $\Lambda$ is a point, we say that $T_f$ is the Green currents.
+% 	\Yang{}
+% \end{definition}
+%
+% \begin{lemma}[label=\labelNFM{lem:thepropertiesy-of-u-and-T-fact}, status=draft, tag=0000000]
+% 	By the P-L equation, there is a Green function \Yang{}
+% 	\[ \upd \upd^c u = \omega_2 - T_f. \]
+% 	Notation as \cref{def:green-currents}.
+% 	The function $u$ is Holder continuous quasi-psh.
+% 	\Yang{}
+% \end{lemma}
+% \begin{proof}
+% 	\Yang{}
+% \end{proof}
+%
+% \begin{theorem}[label=\labelNFM{thm:green-function-and-currents}, status=draft, tag=0000000]
+% 	Let $f:\bbP^k\to\bbP^k$ be a holomorphic endomorphism of algebraic degree $d\geq2$.
+% 	For a positive $(1,1)$-current $S$, its mass is $\int_{\bbP^k}S\wedge\omega_{\mathrm{FS}}^{k-1}$.
+% 	Let $S$ be a closed positive $(1,1)$-current of mass $1$ on $\bbP^k$, with bounded local potentials.
+% 	Then
+% 	\[
+% 		d^{-n}(f^n)^*S\longrightarrow T_f
+% 	\]
+% 	weakly, where $T_f$ is a closed positive $(1,1)$-current of mass $1$.
+% 	It has continuous local potentials and is independent of $S$.
+% 	Moreover, it is totally invariant:
+% 	\[
+% 		f^*T_f=dT_f,\qquad f_*T_f=d^{k-1}T_f.
+% 	\]
+% 	See \cite[Theorem~1.16]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
+% 	\Yang{}
+% \end{theorem}
+%
+% % \begin{definition}[label=\labelNFM{def:equilibrium-measure}, status=draft, tag=0000000]
+% % 	Let $f:\bbP^n \to \bbP^n$ be a $d$-polarized endomorphism on $\bbP^n$.
+% % 	Assume $d\geq2$.
+% % 	The \emph{equilibrium measures} are defined fiberwise by
+% % 	\[
+% % 		\mu_{f}\coloneqq T_{f}^n.
+% % 	\]
+% % 	These products are well-defined since the Green currents have continuous local potentials, and each $\mu_{f}$ is a probability measure.
+% % 	See \cite[\S 1.2]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
+% % 	\Yang{}
+% % \end{definition}
+%
+% \begin{proposition}[label=\labelNFM{prop:equilibrium-measure-and-julia-set}, status=draft, tag=0000000]
+% 	Let $f:\bbP^n\to\bbP^n$ be a holomorphic endomorphism of algebraic degree $d\geq2$, $T_f$ its Green current, and $\mu_f=T_f^n$ its equilibrium measure.
+% 	\begin{enumerate}
+% 		\item $\Supp T_f$ is the Julia set of $f$, that is,  the complement of the largest open set on which $(f^j)_{j\geq0}$ is a normal family.
+% 		\item Let $\calE_f$ the totally invariant locus of $f$.
+% 		      Then for any $a \notin \calE_f$, we have
+% 		      \[ \frac{1}{d^{nj}} \sum_{y \in f^{-1}(a)} \delta_y \to \mu_f. \]
+% 		      Here $f^{-1}(a)$ counts multiplicity.
+% 	\end{enumerate}
+% 	For the Julia sets, see \cite[\S 1.2]{Dinh-Sibony-2010-DynamicsSeveralComplex}; for point equidistribution, see \cite[Theorem~1.45]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
+% \end{proposition}
+% \begin{proof}
+% 	The identification of $J_1(f)$ with the usual Julia set is proved in \cite[\S 1.2]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
+% 	The equidistribution statement is exactly \cite[Theorem~1.45]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
+%
+% 	\Yang{}
+%
+% \end{proof}
+%
+%
+%
+%
+
+
+
+
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:family-of-dynamics-and-bifurcation-theorey}]{Family of dynamics and bifurcation theory}
+
+Now let us turn to the family of dynamics.
 
 Let $f: \bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a family of endomorphism on $\bbP^n$ over $\Lambda$.
 Here $\Lambda$ may be an algebraic variety or a complex analytic variety.
 We call that $f$ a holomorphic family or an algebraic family according to $\Lambda \to \End_{\bbP^n,d}(\bbC)$.
 
-\begin{definition}[label=\labelNFM{def:green-currents}, status=draft, tag=0000000]
-	Let $f:\bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a holomorphic family of $d$-polarized endomorphism on $\bbP^n$ over $\Lambda$.
-	Then \emph{relative Green currents} of $f$ is defined as
-	\[ T_f \coloneqq \lim_{n \to +\infty} \frac{(f^n)^*\omega_2}{d^n} \]
-	When $\Lambda$ is a point, we say that $T_f$ is the Green currents.
-	\Yang{}
-\end{definition}
 
-\begin{lemma}[label=\labelNFM{lem:thepropertiesy-of-u-and-T-fact}, status=draft, tag=0000000]
-	By the P-L equation, there is a Green function \Yang{}
-	\[ \upd \upd^c u = \omega_2 - T_f. \]
-	Notation as \cref{def:green-currents}.
-	The function $u$ is Holder continuous quasi-psh.
-	\Yang{}
-\end{lemma}
-\begin{proof}
-	\Yang{}
-\end{proof}
-
-\begin{theorem}[label=\labelNFM{thm:green-function-and-currents}, status=draft, tag=0000000]
-	Let $f:\bbP^k\to\bbP^k$ be a holomorphic endomorphism of algebraic degree $d\geq2$.
-	For a positive $(1,1)$-current $S$, its mass is $\int_{\bbP^k}S\wedge\omega_{\mathrm{FS}}^{k-1}$.
-	Let $S$ be a closed positive $(1,1)$-current of mass $1$ on $\bbP^k$, with bounded local potentials.
-	Then
-	\[
-		d^{-n}(f^n)^*S\longrightarrow T_f
-	\]
-	weakly, where $T_f$ is a closed positive $(1,1)$-current of mass $1$.
-	It has continuous local potentials and is independent of $S$.
-	Moreover, it is totally invariant:
-	\[
-		f^*T_f=dT_f,\qquad f_*T_f=d^{k-1}T_f.
-	\]
-	See \cite[Theorem~1.16]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
-	\Yang{}
-\end{theorem}
-
-\begin{definition}[label=\labelNFM{def:equilibrium-measure}, status=draft, tag=0000000]
-	Let $f:\bbP^n \to \bbP^n$ be a $d$-polarized endomorphism on $\bbP^n$.
-	Assume $d\geq2$.
-	The \emph{equilibrium measures} are defined fiberwise by
-	\[
-		\mu_{f}\coloneqq T_{f}^n.
-	\]
-	These products are well-defined since the Green currents have continuous local potentials, and each $\mu_{f}$ is a probability measure.
-	See \cite[\S 1.2]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
-	\Yang{}
-\end{definition}
-
-\begin{proposition}[label=\labelNFM{prop:equilibrium-measure-and-julia-set}, status=draft, tag=0000000]
-	Let $f:\bbP^n\to\bbP^n$ be a holomorphic endomorphism of algebraic degree $d\geq2$, $T_f$ its Green current, and $\mu_f=T_f^n$ its equilibrium measure.
-	\begin{enumerate}
-		\item $\Supp T_f$ is the Julia set of $f$, that is,  the complement of the largest open set on which $(f^j)_{j\geq0}$ is a normal family.
-		\item Let $\calE_f$ the totally invariant locus of $f$.
-		      Then for any $a \notin \calE_f$, we have
-		      \[ \frac{1}{d^{nj}} \sum_{y \in f^{-1}(a)} \delta_y \to \mu_f. \]
-		      Here $f^{-1}(a)$ counts multiplicity.
-	\end{enumerate}
-	For the Julia sets, see \cite[\S 1.2]{Dinh-Sibony-2010-DynamicsSeveralComplex}; for point equidistribution, see \cite[Theorem~1.45]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
-\end{proposition}
-\begin{proof}
-	The identification of $J_1(f)$ with the usual Julia set is proved in \cite[\S 1.2]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
-	The equidistribution statement is exactly \cite[Theorem~1.45]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
-
-	\Yang{}
-
-\end{proof}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Now let us turn to the family of dynamics.
-
+\Yang{}
 
 \begin{definition}[label=\labelNFM{def:lyapunov-exponent}, status=draft, tag=0000000]
-	Let $f:\bbP^n\times\Lambda\to\bbP^n\times\Lambda$ be a holomorphic family of endomorphisms of algebraic degree $d\geq2$, where $\Lambda$ is a complex manifold of dimension $m\geq1$.
+
+
+	Let $f:\bbP^n \to \bbP^n$ be a holomorphic family of endomorphisms of algebraic degree $d\geq2$, where $\Lambda$ is a complex manifold of dimension $m\geq1$.
 
 
 
