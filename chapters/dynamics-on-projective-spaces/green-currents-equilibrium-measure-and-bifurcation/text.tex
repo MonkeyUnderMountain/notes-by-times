@@ -152,20 +152,20 @@
 
 
 
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:lyapunov-exponent-and-entropy}]{Lyapunov exponents and entropy}
 
 
-\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:family-of-dynamics-and-bifurcation-theorey}]{Family of dynamics and bifurcation theory}
+\begin{proposition}[label=\labelNFM{prop:equilibrium-measure-is-of-maximal-entropy}, status=draft, tag=0000000]
+	Let $f: \bbP^n \to \bbP^n$ be a $d$-polarized endomorphism.
+	Then $\mu_f$ is of maximal measure entropy $h(\mu_f) = n\log d$.
+	\Yang{}
+\end{proposition}
 
-Now let us turn to the family of dynamics.
-
-Let $f: \bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a family of endomorphism on $\bbP^n$ over $\Lambda$.
-Here $\Lambda$ may be an algebraic variety or a complex analytic variety.
-We call that $f$ a holomorphic family or an algebraic family according to $\Lambda \to \End_{\bbP^n,d}(\bbC)$.
-
-
-\Yang{}
 
 \begin{definition}[label=\labelNFM{def:lyapunov-exponent}, status=draft, tag=0000000]
+	Let $f: \bbP^n \to \bbP^n$ be a $d$-polarized endomorphism.
+	Its \emph{Lyapunov exponent} is defined as
+	\[ L(f) \coloneqq \int_{\bbP^n} \log \|\Lambda^n \upd f_z \|_{\FS} \upd \mu_f. \]
 
 
 	Let $f:\bbP^n \to \bbP^n$ be a holomorphic family of endomorphisms of algebraic degree $d\geq2$, where $\Lambda$ is a complex manifold of dimension $m\geq1$.
@@ -177,47 +177,106 @@ We call that $f$ a holomorphic family or an algebraic family according to $\Lamb
 \end{definition}
 
 
-\begin{definition}[label=\labelNFM{def:bifurcation-measure}, status=draft, tag=0000000]
-	\leavevmode\par
-	\begin{latexmathchange}
-		Let $f:\bbP^n\times\Lambda\to\bbP^n\times\Lambda$ be a holomorphic family of endomorphisms of algebraic degree $d\geq2$, where $\Lambda$ is a complex manifold of dimension $m\geq1$.
-		Let $\mu_\lambda=T_{f_\lambda}^n$ be the equilibrium probability measure of $f_\lambda$.
-		Write
-		\[
-			L(\lambda)\coloneqq\sum_{j=1}^n\chi_j(\lambda)
-			=\int_{\bbP^n}\log\bigl\|\textstyle\bigwedge^n Df_\lambda(z)\bigr\|_{\mathrm{FS}}\,\upd\mu_\lambda(z),
-		\]
-		where $\chi_1(\lambda),\ldots,\chi_n(\lambda)$ are the complex Lyapunov exponents with respect to $\mu_\lambda$.
-		The real-valued function $L$ is locally H\"older continuous and psh.
-		The \emph{bifurcation current} of the family is
-		\[
-			T_{\mathrm{bif}}\coloneqq\upd_\Lambda\upd_\Lambda^c L.
-		\]
-		It is a closed positive current of bidegree $(1,1)$, or bidimension $(m-1,m-1)$, on $\Lambda$.
-		Since $L$ is locally bounded, the Bedford--Taylor products $T_{\mathrm{bif}}^j$, $1\leq j\leq m$, are well-defined.
-		We call these the \emph{higher bifurcation currents}, and use the normalization
-		\[
-			\mu_{\mathrm{bif}}\coloneqq T_{\mathrm{bif}}^m
-		\]
-		for the \emph{bifurcation measure}.
-		See \cite[\S 2.5]{Dinh-Sibony-2010-DynamicsSeveralComplex} and, for rational maps, \cite{DeMarco-2003-DynamicsRationalMaps}.
-	\end{latexmathchange}
-	\begin{latexmathchange}
-		For a holomorphic marked point $a:\Lambda\to\bbP^n$, set $a_j(\lambda)\coloneqq f_\lambda^j(a(\lambda))$.
-		Its \emph{activity current} is the closed positive $(1,1)$-current
-		\[
-			T_{a,f}\coloneqq\lim_{j\to\infty}d^{-j}a_j^*\omega_{\mathrm{FS}},
-		\]
-		where the limit is weak and $\omega_{\mathrm{FS}}$ is the normalized Fubini--Study form on $\bbP^n$.
-		When $m=1$, this is a measure, also denoted $\mu_{a,f}$.
-		When $n=1$ and the critical points $c_1,\ldots,c_{2d-2}$ can be holomorphically marked, counted with multiplicity, we have
-		\[
-			T_{\mathrm{bif}}=\sum_{i=1}^{2d-2}T_{c_i,f}.
-		\]
-		See \cite[\S 4.2.3]{Berteloot-2013-BifurcationCurrentsHolomorphic}.
-	\end{latexmathchange}
-	% \toai{add definition of bifurcation currents} -- resolved.
+
+
+
+
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:family-of-dynamics-and-bifurcation-theorey}]{Family of dynamics and bifurcation theory}
+
+Now let us turn to the family of dynamics.
+
+Let $f: \bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a family of endomorphism on $\bbP^n$ over $\Lambda$.
+Here $\Lambda$ may be an algebraic variety or a complex analytic variety.
+We call that $f$ a holomorphic family or an algebraic family according to $\Lambda \to \End_{\bbP^n,d}(\bbC)$.
+
+\begin{definition}[label=\labelNFM{def:relative-green-currents}, status=draft, tag=0000000]
+	Let $f: \bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a holomorphic family of $d$-polarized endomorphism on $\bbP^n$ over $\Lambda$.
+	Then the \emph{relative Green current} of $f$ is defined as
+	\[T_f \coloneqq \lim_{n \to +\infty} \frac{(f^n)^*\omega_2}{d^n} \]
+
+	\Yang{}
 \end{definition}
+
+\begin{lemma}[label=\labelNFM{lem:relative-green-currents-and-green-currents}, status=draft, tag=0000000]
+	Let $f: \bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a holomorphic family of $d$-polarized endomorphism on $\bbP^n$ over $\Lambda$.
+	Then
+	\[ T_f \wedge \delta_{\bbP^n \times \{\lambda\}} = T_{f_\lambda} \]
+	\Yang{}
+\end{lemma}
+
+\begin{definition}[label=\labelNFM{def:bifurcation-currents}, status=draft, tag=0000000]
+	Let $f: \bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a holomorphic family of $d$-polarized endomorphism on $\bbP^n$ over $\Lambda$.
+	For every $\lambda \in \Lambda$, we define
+	\[ L(\lambda) \coloneqq L(f_\lambda) \coloneqq \int_{\bbP^n} \log \|(\upd f_\lambda)_z^{\wedge n}\|_{\FS} \upd \mu_{f_\lambda}. \]
+	The \emph{bifurcation currents} of $f$ is defined as
+	\[ T_{\ bif} \coloneqq \ddc L \in \scrA^\Lambda_{-1,-1}(\Lambda) \]
+	which is a currents on $\Lambda$ of degree $(1,1)$.
+	\Yang{}
+\end{definition}
+
+\Yang{}
+
+\begin{definition}[label=\labelNFM{def:bifurcation-currents-for-a-pair-af}, status=draft, tag=0000000]
+	Let $f: \bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a holomorphic family of $d$-polarized endomorphism on $\bbP^n$ over $\Lambda$.
+	For $a \in \bbP^n(\Lambda)$, we define the \emph{bifurcation measure} for the pair $(a,f)$ as
+	\[ T_{f,a} \coloneqq (p_\Lambda)_*(T_f \wedge \delta_{\Gamma_a}) = a^*T_f. \]
+	We say that $a$ is \emph{active} if $T_{f,a} \neq 0$.
+	\Yang{}
+\end{definition}
+
+
+\begin{proposition}[label=\labelNFM{prop:bifurcation-currents-are-sum-of-critical-points}, status=draft, tag=0000000]
+	Let $f: \bbP^1 \times \Lambda \to \bbP^1 \times \Lambda$ be a holomorphic family of $d$-polarized endomorphism on $\bbP^n$ over $\Lambda$.
+	Then
+	\[ T_{\ bif} = \sum_{c_i \in critical(f)} \mu_{f,c_i}. \]
+	\Yang{}
+\end{proposition}
+
+%
+%
+% \begin{definition}[label=\labelNFM{def:bifurcation-measure}, status=draft, tag=0000000]
+% 	\leavevmode\par
+% 	\begin{latexmathchange}
+% 		Let $f:\bbP^n\times\Lambda\to\bbP^n\times\Lambda$ be a holomorphic family of endomorphisms of algebraic degree $d\geq2$, where $\Lambda$ is a complex manifold of dimension $m\geq1$.
+% 		Let $\mu_\lambda=T_{f_\lambda}^n$ be the equilibrium probability measure of $f_\lambda$.
+% 		Write
+% 		\[
+% 			L(\lambda)\coloneqq\sum_{j=1}^n\chi_j(\lambda)
+% 			=\int_{\bbP^n}\log\bigl\|\textstyle\bigwedge^n Df_\lambda(z)\bigr\|_{\mathrm{FS}}\,\upd\mu_\lambda(z),
+% 		\]
+% 		where $\chi_1(\lambda),\ldots,\chi_n(\lambda)$ are the complex Lyapunov exponents with respect to $\mu_\lambda$.
+% 		The real-valued function $L$ is locally H\"older continuous and psh.
+% 		The \emph{bifurcation current} of the family is
+% 		\[
+% 			T_{\mathrm{bif}}\coloneqq\upd_\Lambda\upd_\Lambda^c L.
+% 		\]
+% 		It is a closed positive current of bidegree $(1,1)$, or bidimension $(m-1,m-1)$, on $\Lambda$.
+% 		Since $L$ is locally bounded, the Bedford--Taylor products $T_{\mathrm{bif}}^j$, $1\leq j\leq m$, are well-defined.
+% 		We call these the \emph{higher bifurcation currents}, and use the normalization
+% 		\[
+% 			\mu_{\mathrm{bif}}\coloneqq T_{\mathrm{bif}}^m
+% 		\]
+% 		for the \emph{bifurcation measure}.
+% 		See \cite[\S 2.5]{Dinh-Sibony-2010-DynamicsSeveralComplex} and, for rational maps, \cite{DeMarco-2003-DynamicsRationalMaps}.
+% 	\end{latexmathchange}
+% 	\begin{latexmathchange}
+% 		For a holomorphic marked point $a:\Lambda\to\bbP^n$, set $a_j(\lambda)\coloneqq f_\lambda^j(a(\lambda))$.
+% 		Its \emph{activity current} is the closed positive $(1,1)$-current
+% 		\[
+% 			T_{a,f}\coloneqq\lim_{j\to\infty}d^{-j}a_j^*\omega_{\mathrm{FS}},
+% 		\]
+% 		where the limit is weak and $\omega_{\mathrm{FS}}$ is the normalized Fubini--Study form on $\bbP^n$.
+% 		When $m=1$, this is a measure, also denoted $\mu_{a,f}$.
+% 		When $n=1$ and the critical points $c_1,\ldots,c_{2d-2}$ can be holomorphically marked, counted with multiplicity, we have
+% 		\[
+% 			T_{\mathrm{bif}}=\sum_{i=1}^{2d-2}T_{c_i,f}.
+% 		\]
+% 		See \cite[\S 4.2.3]{Berteloot-2013-BifurcationCurrentsHolomorphic}.
+% 	\end{latexmathchange}
+% 	% \toai{add definition of bifurcation currents} -- resolved.
+% \end{definition}
 
 \begin{theorem}[label=\labelNFM{thm:temporay}, status=draft, tag=0000000]
 	Let $f$ be a holomorphic family of $d$-polarized dynamics and $a \in \bbP^1(\Lambda)$,
