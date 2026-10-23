@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{latex-revisions}[2026/10/11 Visible LaTeX revision marks]
+\ProvidesPackage{latex-revisions}[2026/10/23 Visible LaTeX revision marks]
 \RequirePackage{xcolor}
 \RequirePackage[normalem]{ulem}
 \RequirePackage{tcolorbox}
@@ -17,6 +17,20 @@
   \setlength{\fboxsep}{2pt}%
   \colorbox{red!50}{#1}%
   \endgroup
+}
+% Math-mode counterparts preserve display, text, and subscript styles.
+% Wrap individual expressions, not alignment tabs or whole environments.
+\DeclareRobustCommand{\latexdeletedmath}[1]{%
+  \mathpalette\latexrevision@deletedmath{#1}%
+}
+\newcommand{\latexrevision@deletedmath}[2]{%
+  \mbox{\latexdeleted{\ensuremath{#1#2}}}%
+}
+\DeclareRobustCommand{\latexaddedmath}[1]{%
+  \mathpalette\latexrevision@addedmath{#1}%
+}
+\newcommand{\latexrevision@addedmath}[2]{%
+  \mbox{\latexmath{\ensuremath{#1#2}}}%
 }
 \tcbset{latexrevision/.style={%
   enhanced jigsaw,
