@@ -96,14 +96,14 @@ For details, see \cite{Barlet-Magnusson-2019-ComplexAnalyticCycles,Demailly-2012
 	Then regard $V_\bbC$ as a real vector space, $\Gal(\bbC/\bbR) \acts \bbC$ gives an action of $\Gal(\bbC/\bbR)$ on $V_\bbC$.
 	That is, we have a natural conjugation $V_\bbC \to V_\bbC$, $x \otimes a \mapsto x \otimes \bar{a}$.
 	And the conjugation-invariant elements are exactly $V \otimes_\bbR \bbR \cong V$.
-    We have a decomposition $V_\bbC = V_+ \oplus V_-$ according to the action of $J$: $V_\pm$ means that $(J\otimes \bbC)|_{V_{\pm}} = \pm \upi$.
-    We have
-    \[ v \otimes a = \underbrace{\frac{1}{2}(v \otimes a - Jv \otimes \upi a)}_{\in V_+} + \underbrace{\frac{1}{2}(v \otimes a + Jv \otimes \upi a)}_{\in V_-}. \]
+	We have a decomposition $V_\bbC = V_+ \oplus V_-$ according to the action of $J$: $V_\pm$ means that $(J\otimes \bbC)|_{V_{\pm}} = \pm \upi$.
+	We have
+	\[ v \otimes a = \underbrace{\frac{1}{2}(v \otimes a - Jv \otimes \upi a)}_{\in V_+} + \underbrace{\frac{1}{2}(v \otimes a + Jv \otimes \upi a)}_{\in V_-}. \]
 	For any complex basis $x_1,\cdots,x_d$ of $V$, set $y_i = Jx_i$.
-    Then $x_1,\cdots,x_d,y_1,\cdots,y_d$ is a real basis of $V$.
-    Set $z_i \coloneqq \latexdeletedmath{x_i \otimes 1 + y_i \otimes \upi}\latexaddedmath{\frac{1}{2}(x_i \otimes 1 - y_i \otimes \upi)}$.
+	Then $x_1,\cdots,x_d,y_1,\cdots,y_d$ is a real basis of $V$.
+	Set $z_i \coloneqq \latexdeletedmath{x_i \otimes 1 + y_i \otimes \upi}\latexaddedmath{\frac{1}{2}(x_i \otimes 1 - y_i \otimes \upi)}$.
 	Then $\bar{z_i} = \latexdeletedmath{x_i \otimes 1 - y_i \otimes \upi}\latexaddedmath{\frac{1}{2}(x_i \otimes 1 + y_i \otimes \upi)}$ and $z_1,\cdots,z_d,\bar{z}_1,\cdots,\bar{z}_d$ is a complex basis of $V_\bbC$ corresponding to the decomposition $V_\bbC = V_+ \oplus V_-$,
-    where $V_\pm$ means that $(J\otimes \bbC)|_{V_{\pm}} = \pm \upi$.
+	where $V_\pm$ means that $(J\otimes \bbC)|_{V_{\pm}} = \pm \upi$.
 \end{example}
 
 
@@ -541,78 +541,83 @@ Then we turn to the most important case, the real $(1,1)$-froms.
 \end{definition}
 
 \begin{example}[label=\labelNFM{eg:hermitian-form}, status=draft, tag=0000000]
-    Set $V,J,x_i,y_i,z_i$ as \cref{eg:complex-vector-space-with-conjugation}.
+	Set $V,J,x_i,y_i,z_i$ as \cref{eg:complex-vector-space-with-conjugation}.
 	Denote by $\{\upd z_i; \upd \bar{z}_j\}$ the dual basis of $\{z_i;\bar{z}_j\}$.
 	As above, we regard $A^2 \coloneqq (V^\vee_\bbC)^{\wedge 2}$ as a subspace of $(V^\vee_\bbC)^{\otimes 2}$ via $\alpha \wedge \beta \mapsto \alpha \otimes \beta - \beta \otimes \alpha$.
 	The conjugation also acts on $V^\vee$ dually, then we get a decomposition of real vector space $A^2 = A^{0,2} \oplus A^{1,1} \oplus A^{2,0}$.
-    Let us explain the means of $\alpha \in A^{1,1}_\bbR$.
-    \begin{itemize}[nosep]
-        \item A $2$-form $\alpha \in A^2$ means that $\alpha$ is an anti-symmetric bilinear form $V_\bbC \times V_\bbC \to \bbC$.
-        \item A $2$-form $\alpha \in A^{2}_\bbR$ means that the map
-        \[ V \times V \cong (V\otimes_\bbR \bbR) \times (V\otimes_\bbR \bbR) \injmap V_\bbC \times V_\bbC \xrightarrow{\alpha} \bbC \]
-        has image contained in $\bbR$.
-        \item A $2$-form $\alpha \in A^{1,1}$ means that $\alpha|_{V_+ \times V_+} = 0$, $\alpha|_{V_-\times V_-} = 0$.
-        In particular,
-        \begin{align*}
-            \alpha(Ju, Jv) = \alpha(u,v), \quad \alpha(Ju,v) \mathrel{\latexdeletedmath{...}\latexaddedmath{= -}} \alpha(u,Jv).
-        \end{align*}
-        \begin{latexmathchange}
-            For $u,v \in V$, identify them with $u \otimes 1,v \otimes 1 \in V_\bbC$.
-            Write $u = u_+ + u_-$ and $v = v_+ + v_-$ according to $V_\bbC = V_+ \oplus V_-$.
-            Since $J$ acts by $\upi$ on $V_+$ and by $-\upi$ on $V_-$,
-            the two vanishing conditions give
-            \begin{align*}
-                \alpha(Ju,Jv) & = \alpha(\upi u_+ - \upi u_-, \upi v_+ - \upi v_-) \\
-                              & = \alpha(u_+,v_-) + \alpha(u_-,v_+) = \alpha(u,v), \\
-                \alpha(Ju,v) & = \upi \alpha(u_+,v_-) - \upi \alpha(u_-,v_+) \\
-                             & = -\alpha(u_+ + u_-, \upi v_+ - \upi v_-) = -\alpha(u,Jv).
-            \end{align*}
-        \end{latexmathchange}
-    \end{itemize}
-    Then, for $\alpha \in A^{1,1}_\bbR$,
-    \[ h_\alpha: V \times V \cong (V\otimes_\bbR \bbR) \times (V\otimes_\bbR \bbR) \injmap V_\bbC \times V_\bbC \to \bbC, \quad (u,v) \mapsto \alpha(u,Jv) - \upi \alpha(u,v) \]
-    indeed \latexdeleted{define}\latexgrammar{defines} a hermitian form on $V$ since \latexmath{for $a,b \in \bbR$,}
-    \begin{align*}
-        h_{\alpha}((a + b\upi)u,v) & = h_{\alpha}((a + bJ)u,v) \\
-                                  & = \latexaddedmath{a\alpha(u,Jv) + b\alpha(Ju,Jv) - \upi a\alpha(u,v) - \upi b\alpha(Ju,v)} \\
-                                  & = \latexaddedmath{(a + b\upi)\alpha(u,Jv) + (b - a\upi)\alpha(u,v)} \\
-                                  & = \latexaddedmath{(a + b\upi)h_\alpha(u,v)}.
-    \end{align*}
-    \begin{latexmathchange}
-        Moreover, skew-symmetry and the above identities give
-        \begin{align*}
-            h_\alpha(v,u) & = \alpha(v,Ju) - \upi\alpha(v,u) \\
-                          & = \alpha(u,Jv) + \upi\alpha(u,v) = \overline{h_\alpha(u,v)},
-        \end{align*}
-        where the last equality uses that $\alpha$ is real on $V \times V$.
-        Real bilinearity, the first computation and this symmetry show that $h_\alpha$ is linear in the first variable and conjugate-linear in the second;
-        in particular,
-        \[ h_\alpha(u,(a + b\upi)v) = (a - b\upi)h_\alpha(u,v). \]
-    \end{latexmathchange}
+	Let us explain the means of $\alpha \in A^{1,1}_\bbR$.
+	\begin{itemize}[nosep]
+		\item A $2$-form $\alpha \in A^2$ means that $\alpha$ is an anti-symmetric bilinear form $V_\bbC \times V_\bbC \to \bbC$.
+		\item A $2$-form $\alpha \in A^{2}_\bbR$ means that the map
+		      \[ V \times V \cong (V\otimes_\bbR \bbR) \times (V\otimes_\bbR \bbR) \injmap V_\bbC \times V_\bbC \xrightarrow{\alpha} \bbC \]
+		      has image contained in $\bbR$.
+		\item A $2$-form $\alpha \in A^{1,1}$ means that $\alpha|_{V_+ \times V_+} = 0$, $\alpha|_{V_-\times V_-} = 0$.
+		      In particular, for $u,v \in V$, identify them with $u \otimes 1,v \otimes 1 \in V_\bbC$ and write $u = u_+ + u_-$ and $v = v_+ + v_-$ according to $V_\bbC = V_+ \oplus V_-$,
+		      then we have
+		      \[
+		      \alpha(Ju,Jv) & = \alpha(\upi u_+ - \upi u_-, \upi v_+ - \upi v_-)         \\
+		      & = \alpha(u_+,v_-) + \alpha(u_-,v_+) = \alpha(u,v),         \\
 
-    Under a concrete coordinate, a form $\alpha \in A^{1,1}$ can be written as
+		      \begin{align*}
+			      \alpha(Ju, Jv) = \alpha(u,v), \quad \alpha(Ju,v) \mathrel{\latexdeletedmath{...}\latexaddedmath{= -}} \alpha(u,Jv).
+		      \end{align*}
+		      \begin{latexmathchange}
+			      For $u,v \in V$, identify them with $u \otimes 1,v \otimes 1 \in V_\bbC$.
+			      Write $u = u_+ + u_-$ and $v = v_+ + v_-$ according to $V_\bbC = V_+ \oplus V_-$.
+			      Since $J$ acts by $\upi$ on $V_+$ and by $-\upi$ on $V_-$,
+			      the two vanishing conditions give
+			      \begin{align*}
+				      \alpha(Ju,Jv) & = \alpha(\upi u_+ - \upi u_-, \upi v_+ - \upi v_-)         \\
+				                    & = \alpha(u_+,v_-) + \alpha(u_-,v_+) = \alpha(u,v),         \\
+				      \alpha(Ju,v)  & = \upi \alpha(u_+,v_-) - \upi \alpha(u_-,v_+)              \\
+				                    & = -\alpha(u_+ + u_-, \upi v_+ - \upi v_-) = -\alpha(u,Jv).
+			      \end{align*}
+		      \end{latexmathchange}
+	\end{itemize}
+	Then, for $\alpha \in A^{1,1}_\bbR$,
+	\[ h_\alpha: V \times V \cong (V\otimes_\bbR \bbR) \times (V\otimes_\bbR \bbR) \injmap V_\bbC \times V_\bbC \to \bbC, \quad (u,v) \mapsto \alpha(u,Jv) - \upi \alpha(u,v) \]
+	indeed \latexdeleted{define}\latexgrammar{defines} a hermitian form on $V$ since \latexmath{for $a,b \in \bbR$,}
+	\begin{align*}
+		h_{\alpha}((a + b\upi)u,v) & = h_{\alpha}((a + bJ)u,v)                                                                  \\
+		                           & = \latexaddedmath{a\alpha(u,Jv) + b\alpha(Ju,Jv) - \upi a\alpha(u,v) - \upi b\alpha(Ju,v)} \\
+		                           & = \latexaddedmath{(a + b\upi)\alpha(u,Jv) + (b - a\upi)\alpha(u,v)}                        \\
+		                           & = \latexaddedmath{(a + b\upi)h_\alpha(u,v)}.
+	\end{align*}
+	\begin{latexmathchange}
+		Moreover, skew-symmetry and the above identities give
+		\begin{align*}
+			h_\alpha(v,u) & = \alpha(v,Ju) - \upi\alpha(v,u)                             \\
+			              & = \alpha(u,Jv) + \upi\alpha(u,v) = \overline{h_\alpha(u,v)},
+		\end{align*}
+		where the last equality uses that $\alpha$ is real on $V \times V$.
+		Real bilinearity, the first computation and this symmetry show that $h_\alpha$ is linear in the first variable and conjugate-linear in the second;
+		in particular,
+		\[ h_\alpha(u,(a + b\upi)v) = (a - b\upi)h_\alpha(u,v). \]
+	\end{latexmathchange}
+
+	Under a concrete coordinate, a form $\alpha \in A^{1,1}$ can be written as
 	\[ \alpha = \frac{\upi}{2} \sum_{j,k=1}^{\latexdeletedmath{n}\latexaddedmath{d}} a_{j, k} \, \upd z_j \wedge \upd\bar z_k. \]
-    It is real iff
+	It is real iff
 	\[ \bar\alpha = \alpha \quad\Longleftrightarrow\quad a_{j, k} = \overline{a_{k j}}\quad\text{for all }j,k. \]
-    \begin{latexmathchange}
-        Indeed, conjugating and exchanging the indices gives
-        \[ \bar\alpha = -\frac{\upi}{2} \sum_{j,k=1}^d \overline{a_{j,k}} \, \upd\bar z_j \wedge \upd z_k = \frac{\upi}{2} \sum_{j,k=1}^d \overline{a_{k,j}} \, \upd z_j \wedge \upd\bar z_k. \]
-    \end{latexmathchange}
-    Under the basis $x_i$, the matrix of $h_\alpha$ is given by
-    \[ \latexaddedmath{\bigl(h_\alpha(x_j,x_k)\bigr)_{1 \leq j,k \leq d} = (a_{j,k})_{1 \leq j,k \leq d}.} \]
-    \begin{latexmathchange}
-        To see this, the normalization of $z_i$ gives
-        \[ x_k \otimes 1 = z_k + \bar z_k, \qquad y_k \otimes 1 = \upi(z_k - \bar z_k). \]
-        Since $\{\upd z_j;\upd\bar z_j\}$ is the dual basis,
-        \[ \upd z_j(x_k) = \delta_{jk}, \quad \upd z_j(y_k) = \upi\delta_{jk}, \quad \upd\bar z_j(x_k) = \delta_{jk}, \quad \upd\bar z_j(y_k) = -\upi\delta_{jk}. \]
-        Direct evaluation then gives
-        \[ \alpha(x_j,x_k) = \frac{\upi}{2}(a_{j,k} - a_{k,j}), \qquad \alpha(x_j,Jx_k) = \frac{1}{2}(a_{j,k} + a_{k,j}), \]
-        and hence
-        \[ h_\alpha(x_j,x_k) = \frac{1}{2}(a_{j,k} + a_{k,j}) - \upi \cdot \frac{\upi}{2}(a_{j,k} - a_{k,j}) = a_{j,k}. \]
-        More generally, for $u = \sum_{j=1}^d u_jx_j$ and $v = \sum_{k=1}^d v_kx_k$ with $u_j,v_k \in \bbC$,
-        \[ h_\alpha(u,v) = \sum_{j,k=1}^d a_{j,k}u_j\bar v_k. \]
-        Thus $\alpha$ is positive (resp. semi-positive) iff the Hermitian matrix $(a_{j,k})$ is positive definite (resp. positive semidefinite).
-    \end{latexmathchange}
+	\begin{latexmathchange}
+		Indeed, conjugating and exchanging the indices gives
+		\[ \bar\alpha = -\frac{\upi}{2} \sum_{j,k=1}^d \overline{a_{j,k}} \, \upd\bar z_j \wedge \upd z_k = \frac{\upi}{2} \sum_{j,k=1}^d \overline{a_{k,j}} \, \upd z_j \wedge \upd\bar z_k. \]
+	\end{latexmathchange}
+	Under the basis $x_i$, the matrix of $h_\alpha$ is given by
+	\[ \latexaddedmath{\bigl(h_\alpha(x_j,x_k)\bigr)_{1 \leq j,k \leq d} = (a_{j,k})_{1 \leq j,k \leq d}.} \]
+	\begin{latexmathchange}
+		To see this, the normalization of $z_i$ gives
+		\[ x_k \otimes 1 = z_k + \bar z_k, \qquad y_k \otimes 1 = \upi(z_k - \bar z_k). \]
+		Since $\{\upd z_j;\upd\bar z_j\}$ is the dual basis,
+		\[ \upd z_j(x_k) = \delta_{jk}, \quad \upd z_j(y_k) = \upi\delta_{jk}, \quad \upd\bar z_j(x_k) = \delta_{jk}, \quad \upd\bar z_j(y_k) = -\upi\delta_{jk}. \]
+		Direct evaluation then gives
+		\[ \alpha(x_j,x_k) = \frac{\upi}{2}(a_{j,k} - a_{k,j}), \qquad \alpha(x_j,Jx_k) = \frac{1}{2}(a_{j,k} + a_{k,j}), \]
+		and hence
+		\[ h_\alpha(x_j,x_k) = \frac{1}{2}(a_{j,k} + a_{k,j}) - \upi \cdot \frac{\upi}{2}(a_{j,k} - a_{k,j}) = a_{j,k}. \]
+		More generally, for $u = \sum_{j=1}^d u_jx_j$ and $v = \sum_{k=1}^d v_kx_k$ with $u_j,v_k \in \bbC$,
+		\[ h_\alpha(u,v) = \sum_{j,k=1}^d a_{j,k}u_j\bar v_k. \]
+		Thus $\alpha$ is positive (resp. semi-positive) iff the Hermitian matrix $(a_{j,k})$ is positive definite (resp. positive semidefinite).
+	\end{latexmathchange}
 	See \cite[Chapter~III, \S 1.A, (1.7)--(1.8)]{Demailly-2012-ComplexAnalyticDifferential}.
 \end{example}
 
@@ -642,22 +647,22 @@ More generally, we have the following lemma.
 \end{definition}
 
 \begin{example}[label=\labelNFM{eg:fubini-study-form-on-pn-as-kahler-manifold}, status=draft, tag=0000000]
-    Let $X = \bbP^n(\bbC)$.
-    There is a standard K\"ahler form, called the \emph{Fubini-Study form}, on $X$ given by
-    \[ \omega_{FS}|_{U_j} = \ddc\log\frac{\|Z\|}{|Z_j|}= \frac{\upi}{2\pi}\partial\partialbar\log\left(1 + \sum_{k \neq j}|z_k|^2\right). \]
-        Here $[Z_0:\cdots:Z_n]$ are homogeneous coordinates, $\|Z\|^2 = \sum_{k=0}^n|Z_k|^2$,
-        and $z_k = Z_k/Z_j$ for $k \neq j$ on $U_j = \{Z_j \neq 0\}$.
-        On an overlap, the potentials differ by $\log|Z_\ell/Z_j|$,
-        whose $\ddc$ is zero, so the local forms glue.
-        The resulting form is smooth, real, closed and positive definite;
-        it is called the Fubini--Study form.
-        And we have $c_1(\scrO(1)) = [\omega_{FS}] \in H^{1,1}(X)$.
+	Let $X = \bbP^n(\bbC)$.
+	There is a standard K\"ahler form, called the \emph{Fubini-Study form}, on $X$ given by
+	\[ \omega_{FS}|_{U_j} = \ddc\log\frac{\|Z\|}{|Z_j|}= \frac{\upi}{2\pi}\partial\partialbar\log\left(1 + \sum_{k \neq j}|z_k|^2\right). \]
+	Here $[Z_0:\cdots:Z_n]$ are homogeneous coordinates, $\|Z\|^2 = \sum_{k=0}^n|Z_k|^2$,
+	and $z_k = Z_k/Z_j$ for $k \neq j$ on $U_j = \{Z_j \neq 0\}$.
+	On an overlap, the potentials differ by $\log|Z_\ell/Z_j|$,
+	whose $\ddc$ is zero, so the local forms glue.
+	The resulting form is smooth, real, closed and positive definite;
+	it is called the Fubini--Study form.
+	And we have $c_1(\scrO(1)) = [\omega_{FS}] \in H^{1,1}(X)$.
 
-        \Yang{}
+	\Yang{}
 
-        \toai{polish and add a reference}
+	\toai{polish and add a reference}
 
-    In particular, any projective manifold is K\"ahler by restriction.
+	In particular, any projective manifold is K\"ahler by restriction.
 \end{example}
 
 For higher codimension, there are serval different notions of positivity.
@@ -667,9 +672,9 @@ For higher codimension, there are serval different notions of positivity.
 	and $\gamma \in \scrA_{X,\bbR}^{p,p}(X)$.
 	We first define two pointwise nonnegative conditions.
 	\begin{enumerate}
-		\item We say that $\gamma$ is \emph{strongly positive} (resp. \emph{strongly semi-positive}) if, at every $x \in X$, it can written as $\sum_i \alpha_{i,1}\wedge\cdots\wedge \alpha_{i,p}$ with $\alpha_{i,j}$ positive $(1,1)$-form (resp. semi-positive $(1,1)$-form ).
-		\item We say that $\gamma$ is \emph{weakly semi-positive}, or simply \emph{semi-positive},
-		      if $\gamma_x\wedge\beta \geq 0$ for every strongly semi-positive $(d-p,d-p)$-covector $\beta$ at $x$.
+		% \item We say that $\gamma$ is \emph{strongly positive} if, at every $x \in X$, it can written as $\sum_i \alpha_{i,1}\wedge\cdots\wedge \alpha_{i,p}$ with $\alpha_{i,j}$ positive $(1,1)$-form.
+		\item We say that $\gamma$ is \emph{weakly semi-positive}, or simply \emph{semi-positive}, if $\gamma_x\wedge \left(\sum_i \alpha_{i,1}\wedge\cdots\wedge \alpha_{i,p}\right) \geq 0$ for every $(1,1)$-form $\alpha_{i,j}$ positive at $x$.
+		\item We say that $\gamma$ is \emph{strongly semi-positive}, if $\gamma_x\wedge\beta_x \geq 0$ for every $(d-p,d-p)$-form $\beta$ which is weakly semi-positive at $x$.
 		      \Yang{}
 	\end{enumerate}
 \end{definition}
@@ -684,17 +689,18 @@ For currents, we only consider the global positivity.
 	and $T \in \scrA^{X,\bbR}_{p,p}(X)$.
 	For currents, we use the customary nonnegative convention and test against global compactly supported forms.
 	\begin{enumerate}
-		\item We say that $T$ is \emph{positive}, or \emph{weakly positive}, if
+		\item We say that $T$ is \emph{semi-positive}, or \emph{weakly semi-positive}, if
 		      \[ \langle T,\beta\rangle \geq 0 \]
 		      for every smooth compactly supported strongly semi-positive $(p,p)$-form $\beta$.
 		      We write $T \geq 0$.
-		\item We say that $T$ is \emph{strongly positive} if the same inequality holds
+		\item We say that $T$ is \emph{strongly semi-positive} if the same inequality holds
 		      for every smooth compactly supported weakly semi-positive $(p,p)$-form $\beta$.
 	\end{enumerate}
 	The inequality is non-strict, since a test form may vanish on $\Supp T$.
 	In particular, integration over a closed complex $p$-dimensional subvariety gives a closed strongly positive current.
 	See \cite[Chapter~III, \S 1.B and Theorem~2.7]{Demailly-2012-ComplexAnalyticDifferential}.
 	\Yang{}
+	\Yang{strict and semi positive for currents}
 \end{definition}
 
 
@@ -815,41 +821,39 @@ See \cite[Chapter~I, \S 4, Theorem and Definition~4.12]{Demailly-2012-ComplexAna
 	\[ \omega + \ddc u \geq 0 \]
 	as a current.
 	Denote this set by $\operatorname{PSH}(X,\omega)$.
-    \Yang{}
+	\Yang{}
 \end{definition}
 
 The positivity of $\ddc u$ corresponding to the psh properties of $u$.
 
+\Yang{remark of maximum principle}
+\latexdeleted{maximum principle}
+\begin{latexmathchange}
+	(\textbf{Maximum principle}) If $X$ is connected and $u \in \operatorname{PSH}(X)$ attains its finite supremum, then $u$ is constant.
+	Hence a psh function on a compact connected complex manifold is constant or identically $-\infty$.
+\end{latexmathchange}
+\Yang{}
+
 \begin{proposition}[label=\labelNFM{prop:properties-of-psh-function}, status=draft, tag=0000000]
 	We have the following properties.
+	Suppose that $u: X \to [-\infty,\infty)$ is not identically $-\infty$.
 	\begin{enumerate}
-		\item \latexdeleted{maximum principle}
-		      \begin{latexmathchange}
-			      (\textbf{Maximum principle}) If $X$ is connected and $u \in \operatorname{PSH}(X)$ attains its finite supremum, then $u$ is constant.
-			      Hence a psh function on a compact connected complex manifold is constant or identically $-\infty$.
-		      \end{latexmathchange}
-		\item \latexdeleted{$u \neq -\infty$ is a currents.}
-		      \begin{latexmathchange}
-			      (\textbf{Currents}) If $u \in \operatorname{PSH}(X)$ is not identically $-\infty$ on any connected component,
-			      then $u \in L^1_{\mathrm{loc}}(X)$ and defines a real current of bidegree $(0,0)$ by
-			      \[ \langle u,\alpha\rangle \coloneqq \int_X u\alpha,\qquad \alpha \in \scrA_{X,c}^{d,d}(X). \]
-			      The current $\ddc u$ is closed and positive.
-			      Conversely, every real distribution $g$ with $\ddc g \geq 0$ has a unique psh representative.
-		      \end{latexmathchange}
-		\item \latexdeleted{positive closed currents has local psh potential.}
-		      \begin{latexmathchange}
-			      (\textbf{Local potentials}) Every closed positive $(1,1)$-current $T$ has local psh potentials:
-			      each point has a neighborhood $U$ on which $T|_U = \ddc v$ for some psh function $v$.
-			      Two such potentials differ by a smooth pluriharmonic function.
-			      If $T$ is smooth, its local potentials can be chosen smooth.
-		      \end{latexmathchange}
-		\item \latexdeleted{give positive closed $T$ $\omega$, the $g$ in}
-		      \cref{eq:lelong-equation} \latexdeleted{is $\omega$-psh and converse}
-		      \begin{latexmathchange}
-			      (\textbf{Global potentials}) Let $\omega$ be a smooth closed real $(1,1)$-form and $T$ a closed positive $(1,1)$-current.
-			      Every real distribution $g$ satisfying $T = \omega + \ddc g$ has a unique $\omega$-psh representative.
-			      Conversely, every $g \in \operatorname{PSH}(X,\omega)$ defines a closed positive $(1,1)$-current by this equation.
-		      \end{latexmathchange}
+		\item  (\textbf{Currents}) If $u \in \operatorname{PSH}(X)$ is , then $u \in L^1_{\mathrm{loc}}(X)$ and defines a real distribution by \cref{eg:currents-of-dimension-2d}.
+		\item Suppose that $u$ is locally integrable, than $u \in PSH$ iff $\ddc u$ is positive closed.
+		      % \item \latexdeleted{positive closed currents has local psh potential.}
+		      %       \begin{latexmathchange}
+		      % 	      (\textbf{Local potentials}) Every closed positive $(1,1)$-current $T$ has local psh potentials:
+		      % 	      each point has a neighborhood $U$ on which $T|_U = \ddc v$ for some psh function $v$.
+		      % 	      Two such potentials differ by a smooth pluriharmonic function.
+		      % 	      If $T$ is smooth, its local potentials can be chosen smooth.
+		      %       \end{latexmathchange}
+		      % \item \latexdeleted{give positive closed $T$ $\omega$, the $g$ in}
+		      %       \cref{eq:lelong-equation} \latexdeleted{is $\omega$-psh and converse}
+		      %       \begin{latexmathchange}
+		      % 	      (\textbf{Global potentials}) Let $\omega$ be a smooth closed real $(1,1)$-form and $T$ a closed positive $(1,1)$-current.
+		      % 	      Every real distribution $g$ satisfying $T = \omega + \ddc g$ has a unique $\omega$-psh representative.
+		      % 	      Conversely, every $g \in \operatorname{PSH}(X,\omega)$ defines a closed positive $(1,1)$-current by this equation.
+		      %       \end{latexmathchange}
 		      % \item (\textbf{Currents and regularity}) If $u \in \operatorname{PSH}(X)$ and $u \not\equiv-\infty$,
 		      %       then $u \in L^1_{\mathrm{loc}}(X)$ and $\ddc u$ is a closed positive $(1,1)$-current.
 		      %       Conversely, a real generalized function $g$ with $\ddc g \geq 0$ has a unique psh representative.
@@ -871,11 +875,11 @@ Then $u$ is $\omega$-psh iff $u+\rho$ is psh.
 See \cite[Chapter~I, \S 5 and Chapter~III, Proposition~1.19]{Demailly-2012-ComplexAnalyticDifferential}.
 
 \begin{example}[label=\labelNFM{eg:c2-function-is-psh-iff-ddc-has-semi-definite-matrix}, status=draft, tag=0000000]
-		Let $u \in \scrC^2(X,\bbR)$.
-		In local holomorphic coordinates, write $L_u = (\partial_{z_j,\bar z_k}u)_{j,k=1}^d$ for its Levi matrix.
-		Then
-		\[ u \in \operatorname{PSH}(X) \quad\Longleftrightarrow\quad L_u(x) \text{ is positive semidefinite for every }x \in X \quad\Longleftrightarrow\quad \ddc u \geq 0. \]
-		Thus $u$ is psh exactly when $\ddc u$ is semi-positive.
+	Let $u \in \scrC^2(X,\bbR)$.
+	In local holomorphic coordinates, write $L_u = (\partial_{z_j,\bar z_k}u)_{j,k=1}^d$ for its Levi matrix.
+	Then
+	\[ u \in \operatorname{PSH}(X) \quad\Longleftrightarrow\quad L_u(x) \text{ is positive semidefinite for every }x \in X \quad\Longleftrightarrow\quad \ddc u \geq 0. \]
+	Thus $u$ is psh exactly when $\ddc u$ is semi-positive.
 	% \latexdeleted{Let $u \in \scrC^2(X)$, then $u \in PSH$ iff $L_u$ is}
 	% \begin{latexmathchange}
 	% \end{latexmathchange}
@@ -887,22 +891,22 @@ See \cite[Chapter~I, \S 5 and Chapter~III, Proposition~1.19]{Demailly-2012-Compl
 % \end{remark}
 
 \begin{example}[label=\labelNFM{eg:sum-max-convex-composition-of-psh-is-psh}, status=draft, tag=0000000]
-		Let $u,v \in \operatorname{PSH}(X)$ and $a \geq 0$.
-		Then $au$, $u+v$ and $\max\{u,v\}$ are psh, with the convention $0u \equiv 0$.
+	Let $u,v \in \operatorname{PSH}(X)$ and $a \geq 0$.
+	Then $au$, $u+v$ and $\max\{u,v\}$ are psh, with the convention $0u \equiv 0$.
 
-		If $\varphi : \bbR \to \bbR$ is convex and nondecreasing, then $\varphi\circ u$ is psh.
-		At points where $u = -\infty$, use the value $\varphi(-\infty) \coloneqq \lim_{t \to -\infty}\varphi(t)$.
-        See \cite[Chapter~I, \S 5.A, Theorem~5.6]{Demailly-2012-ComplexAnalyticDifferential}.
-        \Yang{}
+	If $\varphi : \bbR \to \bbR$ is convex and nondecreasing, then $\varphi\circ u$ is psh.
+	At points where $u = -\infty$, use the value $\varphi(-\infty) \coloneqq \lim_{t \to -\infty}\varphi(t)$.
+	See \cite[Chapter~I, \S 5.A, Theorem~5.6]{Demailly-2012-ComplexAnalyticDifferential}.
+	\Yang{}
 \end{example}
 
 \begin{example}[label=\labelNFM{eg:green-function-of-lines-is-psh}, status=draft, tag=0000000]
-		Let $[Z_0:\cdots:Z_n]$ be homogeneous coordinates on $\bbP^n$, and $\omega$ is a positive closed $(1,1)$ form corresponding to the cohomological class $c_1(\scrO(1))$.
-        Then
-		\[ \rho_0([Z]) \coloneqq \log\frac{|Z_0|}{\|Z\|} = \frac12\log\left(\frac{|Z_0|^2}{|Z_0|^2+\cdots |Z_n|^2}\right) \]
-        \Yang{}
-        is a $\omega$-psh function.
-        \toai{since we have \cref{eg:fubini-study-form-on-pn-as-kahler-manifold}, please rewrite this example with a reference}
+	Let $[Z_0:\cdots:Z_n]$ be homogeneous coordinates on $\bbP^n$, and $\omega$ is a positive closed $(1,1)$ form corresponding to the cohomological class $c_1(\scrO(1))$.
+	Then
+	\[ \rho_0([Z]) \coloneqq \log\frac{|Z_0|}{\|Z\|} = \frac12\log\left(\frac{|Z_0|^2}{|Z_0|^2+\cdots |Z_n|^2}\right) \]
+	\Yang{}
+	is a $\omega$-psh function.
+	\toai{since we have \cref{eg:fubini-study-form-on-pn-as-kahler-manifold}, please rewrite this example with a reference}
 
 	% 	is smooth and strictly psh, with $\ddc\rho_0 = \omega_{\mathrm{FS}}|_{U_0}$.
 	% 	It tends to $+\infty$ along $H$, so it does not extend to a psh function on $\bbP^n$.
@@ -938,79 +942,93 @@ Then $\ddc(g+\rho-v) = 0$, so $g+\rho-v$ is represented by a smooth pluriharmoni
 Consequently $g$ has a quasi-psh representative, and $\omega+\ddc g = T \geq 0$.
 The same argument shows that this representative is continuous if $T$ has continuous local potentials.
 
-We now use \latexdeleted{locally bounded}\latexmath{possibly unbounded} psh potentials to define wedge products and pullbacks.
+We now use possibly unbounded psh potentials to define wedge products and pullbacks.
 
 \begin{proposition}[label=\labelNFM{prop:wedge-and-pullback-of-currents}, status=draft, tag=0000000]
-	Let $T$ be a closed positive current on $X$ of bidimension $(p,p)$, where $1 \leq p \leq d$.
+	Let $T$ be a closed positive current on $X$ of bidimension $(p,p)$, where $1 \leq p \leq d$ and $u$ be a psh function.
+	\Yang{}
 	\begin{enumerate}
-		\item (\textbf{Wedge product}) \latexdeleted{Let $u$ be a locally bounded psh function.}
-		      \begin{latexmathchange}
-			      Let $u \in \operatorname{PSH}(X)$, $u \not\equiv-\infty$, be locally integrable against the trace measure of $T$.
-			      In a coordinate chart, this means
-			      \[ u \in L^1_{\mathrm{loc}}(\sigma_T),\qquad \sigma_T \coloneqq T\wedge\beta^p,\qquad \beta \coloneqq \ddc|z|^2. \]
-			      The condition is independent of the chosen coordinates.
-			      It holds for locally bounded $u$ and also allows unbounded logarithmic potentials when they are $\sigma_T$-integrable.
-		      \end{latexmathchange}
-		      Since $T$ has measure coefficients, $uT$ is well-defined, and
-		      \[ \ddc u\wedge T \coloneqq \ddc(uT) \]
-		      is a closed positive current of bidimension $(p-1,p-1)$.
-		      It agrees with the usual wedge product when $u$ is smooth.
-		\item (\textbf{Pullback}) Let $f : Y \to X$ be holomorphic,
-		      and let $S$ be a closed positive $(1,1)$-current on $X$ \latexdeleted{with locally bounded local potentials}.
-		      \begin{latexmathchange}
-			      Choose local psh potentials $S|_U = \ddc u$.
-			      Assume that $u\circ f$ is not identically $-\infty$ on any connected component of $f^{-1}(U)$.
-			      Then $u\circ f$ is psh and locally integrable, even when $u$ is unbounded.
-		      \end{latexmathchange}
-		      On an open set $U$ with $S|_U = \ddc u$, set
-		      \[ (f^*S)|_{f^{-1}(U)} \coloneqq \ddc(u\circ f). \]
-		      This defines a closed positive $(1,1)$-current on $Y$, independent of the local potentials.
-		      Pullback agrees with the usual pullback of smooth forms and is functorial.
-		      \begin{latexmathchange}
-			      Functoriality applies whenever all the pullbacks involved are defined.
-		      \end{latexmathchange}
-		      If $S$ has continuous local potentials, so does $f^*S$.
+		\item Suppose abaaba, then $uT$ is a current.
+		\item Suppose abaaba, then $\ddc u \wedge T$ is well-defined.
+		\item Suppose abaaba, then $f^*T$ is well-defined.
 	\end{enumerate}
-	\begin{latexmathchange}
-		In particular, if $F$ is a nonzero holomorphic function, then
-		\[ f^*\delta_{\operatorname{div}(F)} = \ddc\log|F\circ f| = \delta_{\operatorname{div}(F\circ f)} \]
-		whenever $F\circ f$ is not identically zero on any component.
-		For wedge products, the trace integrability condition remains necessary for this construction:
-		on $\bbC^2$,
-		\[ \ddc\log|z_1|\wedge\delta_{\{z_2=0\}} = \delta_0, \]
-		whereas $(\log|z_1|)\delta_{\{z_1=0\}}$ is not defined.
-	\end{latexmathchange}
+	%
+	%
+	%
+	% \begin{enumerate}
+	% 	\item (\textbf{Wedge product}) \latexdeleted{Let $u$ be a locally bounded psh function.}
+	% 	      \begin{latexmathchange}
+	% 		      Let $u \in \operatorname{PSH}(X)$, $u \not\equiv-\infty$, be locally integrable against the trace measure of $T$.
+	% 		      In a coordinate chart, this means
+	% 		      \[ u \in L^1_{\mathrm{loc}}(\sigma_T),\qquad \sigma_T \coloneqq T\wedge\beta^p,\qquad \beta \coloneqq \ddc|z|^2. \]
+	% 		      The condition is independent of the chosen coordinates.
+	% 		      It holds for locally bounded $u$ and also allows unbounded logarithmic potentials when they are $\sigma_T$-integrable.
+	% 	      \end{latexmathchange}
+	% 	      Since $T$ has measure coefficients, $uT$ is well-defined, and
+	% 	      \[ \ddc u\wedge T \coloneqq \ddc(uT) \]
+	% 	      is a closed positive current of bidimension $(p-1,p-1)$.
+	% 	      It agrees with the usual wedge product when $u$ is smooth.
+	% 	\item (\textbf{Pullback}) Let $f : Y \to X$ be holomorphic,
+	% 	      and let $S$ be a closed positive $(1,1)$-current on $X$ \latexdeleted{with locally bounded local potentials}.
+	% 	      \begin{latexmathchange}
+	% 		      Choose local psh potentials $S|_U = \ddc u$.
+	% 		      Assume that $u\circ f$ is not identically $-\infty$ on any connected component of $f^{-1}(U)$.
+	% 		      Then $u\circ f$ is psh and locally integrable, even when $u$ is unbounded.
+	% 	      \end{latexmathchange}
+	% 	      On an open set $U$ with $S|_U = \ddc u$, set
+	% 	      \[ (f^*S)|_{f^{-1}(U)} \coloneqq \ddc(u\circ f). \]
+	% 	      This defines a closed positive $(1,1)$-current on $Y$, independent of the local potentials.
+	% 	      Pullback agrees with the usual pullback of smooth forms and is functorial.
+	% 	      \begin{latexmathchange}
+	% 		      Functoriality applies whenever all the pullbacks involved are defined.
+	% 	      \end{latexmathchange}
+	% 	      If $S$ has continuous local potentials, so does $f^*S$.
+	% \end{enumerate}
+	% \begin{latexmathchange}
+	% 	In particular, if $F$ is a nonzero holomorphic function, then
+	% 	\[ f^*\delta_{\operatorname{div}(F)} = \ddc\log|F\circ f| = \delta_{\operatorname{div}(F\circ f)} \]
+	% 	whenever $F\circ f$ is not identically zero on any component.
+	% 	For wedge products, the trace integrability condition remains necessary for this construction:
+	% 	on $\bbC^2$,
+	% 	\[ \ddc\log|z_1|\wedge\delta_{\{z_2=0\}} = \delta_0, \]
+	% 	whereas $(\log|z_1|)\delta_{\{z_1=0\}}$ is not defined.
+	% \end{latexmathchange}
 \end{proposition}
 \begin{proof}[Construction and references]
-	For (a), work on a smaller coordinate ball and take smooth psh functions $u_\ell \downarrow u$.
-	\begin{latexmathchange}
-		On compact subsets, $|u_\ell| \leq |u|+C$.
-		The coefficient measures of $T$ are locally dominated by a constant multiple of $\sigma_T$,
-		so the integrability hypothesis permits dominated convergence.
-	\end{latexmathchange}
-	Dominated convergence for the coefficient measures of $T$ gives $u_\ell T \to uT$.
-	Thus
-	\[ \ddc(uT) = \lim_{\ell\to\infty}\ddc(u_\ell T) = \lim_{\ell\to\infty}\ddc u_\ell\wedge T, \]
-	which is closed and positive.
-
-
-	\latexdeleted{For symmetry and decreasing continuity in (b), use the Bedford--Taylor theorem;}
-	\latexdeleted{see} \cite[Chapter~III, \S 3, especially Theorem~3.7 and Corollary~3.10]{Demailly-2012-ComplexAnalyticDifferential}.
-	\latexdeleted{Since} $\latexdeletedmath{\ddc(hR)=0}$
-	\latexdeleted{for pluriharmonic} $\latexdeletedmath{h}$ \latexdeleted{and closed} $\latexdeletedmath{R}$ \latexdeleted{of pure bidegree,
-		symmetry gives independence of local potentials and gluing.}
-
-	\latexdeleted{For (c), composition with $f$ preserves locally bounded psh functions and pluriharmonic differences of potentials.
-		This proves gluing and functoriality.}
-
-	\begin{latexmathchange}
-		For (b), composition with $f$ preserves psh functions, provided the composition is not identically $-\infty$.
-		Differences of local potentials are smooth pluriharmonic functions, and remain so after composition.
-		Thus the local currents glue, and composition of potentials proves functoriality whenever defined.
-		The logarithmic identities follow from the Poincar\'e--Lelong formula.
-		For (a), see \cite[Theorem~6.3.1]{Dinh-Sibony-2005-IntroductionTheoryCurrents};
-		for the logarithmic formula, see \cite[Chapter~III, \S 2, (2.15)]{Demailly-2012-ComplexAnalyticDifferential}.
-	\end{latexmathchange}
+	the construction of $uT, \ddc u \wedge T, f^*T$ and references for the well-definedness.
+	%
+	%
+	%
+	%
+	% For (a), work on a smaller coordinate ball and take smooth psh functions $u_\ell \downarrow u$.
+	% \begin{latexmathchange}
+	% 	On compact subsets, $|u_\ell| \leq |u|+C$.
+	% 	The coefficient measures of $T$ are locally dominated by a constant multiple of $\sigma_T$,
+	% 	so the integrability hypothesis permits dominated convergence.
+	% \end{latexmathchange}
+	% Dominated convergence for the coefficient measures of $T$ gives $u_\ell T \to uT$.
+	% Thus
+	% \[ \ddc(uT) = \lim_{\ell\to\infty}\ddc(u_\ell T) = \lim_{\ell\to\infty}\ddc u_\ell\wedge T, \]
+	% which is closed and positive.
+	%
+	%
+	% \latexdeleted{For symmetry and decreasing continuity in (b), use the Bedford--Taylor theorem;}
+	% \latexdeleted{see} \cite[Chapter~III, \S 3, especially Theorem~3.7 and Corollary~3.10]{Demailly-2012-ComplexAnalyticDifferential}.
+	% \latexdeleted{Since} $\latexdeletedmath{\ddc(hR)=0}$
+	% \latexdeleted{for pluriharmonic} $\latexdeletedmath{h}$ \latexdeleted{and closed} $\latexdeletedmath{R}$ \latexdeleted{of pure bidegree,
+	% 	symmetry gives independence of local potentials and gluing.}
+	%
+	% \latexdeleted{For (c), composition with $f$ preserves locally bounded psh functions and pluriharmonic differences of potentials.
+	% 	This proves gluing and functoriality.}
+	%
+	% \begin{latexmathchange}
+	% 	For (b), composition with $f$ preserves psh functions, provided the composition is not identically $-\infty$.
+	% 	Differences of local potentials are smooth pluriharmonic functions, and remain so after composition.
+	% 	Thus the local currents glue, and composition of potentials proves functoriality whenever defined.
+	% 	The logarithmic identities follow from the Poincar\'e--Lelong formula.
+	% 	For (a), see \cite[Theorem~6.3.1]{Dinh-Sibony-2005-IntroductionTheoryCurrents};
+	% 	for the logarithmic formula, see \cite[Chapter~III, \S 2, (2.15)]{Demailly-2012-ComplexAnalyticDifferential}.
+	% \end{latexmathchange}
 \end{proof}
 
 
@@ -1120,8 +1138,8 @@ On this note, we will focus the case of hermitian line bundles.
 	On the tensor product $L_1 \otimes L_2$, there is a natural metric given by $s_1\otimes s_2 \mapsto \|s_1\|\|s_2\|$.
 	With this metric, we define the \emph{tensor product of metrized line} as $\bar{L}_1 \otimes \bar{L}_2 = (L_1\otimes L_2, \|\cdot\|_1\otimes \|\cdot\|_2)$.
 
-		Under tensor product, the isometry classes of continuously metrized holomorphic line bundles form an abelian group $\aPic(X)$.
-		Write $\aPic^\infty(X)$ for the subgroup of classes with smooth metrics.
+	Under tensor product, the isometry classes of continuously metrized holomorphic line bundles form an abelian group $\aPic(X)$.
+	Write $\aPic^\infty(X)$ for the subgroup of classes with smooth metrics.
 	% \latexdeleted{Under these operators, the isomorphic class of line bundles forms a group, denoted by $\aPic(X)$.}
 	% \begin{latexmathchange}
 	% \end{latexmathchange}
@@ -1129,12 +1147,12 @@ On this note, we will focus the case of hermitian line bundles.
 
 
 \begin{proposition}[label=\labelNFM{prop:hermitian-metric-on-an-complex-space}, status=draft, tag=0000000]
-		Let $X$ be a complex analytic variety.
-		There is an exact sequence
-		\[ 0 \longrightarrow \frac{\scrC_{X,\bbR}^0(X)}{\log|\scrO_X^*(X)|} \xrightarrow{\ a\ } \aPic(X) \longrightarrow \Pic(X) \longrightarrow 0, \]
-		where $a([u])$ is the trivial bundle with norm $\|z\|_u = e^{-u}|z|$,
-		and the last map forgets the metric.
-		The smooth version replacing $\scrC_{X,\bbR}^0(X)$ by $\cinf_{X,\bbR}(X)$ and $\aPic(X)$ by $\aPic^\infty(X)$ is also true.
+	Let $X$ be a complex analytic variety.
+	There is an exact sequence
+	\[ 0 \longrightarrow \frac{\scrC_{X,\bbR}^0(X)}{\log|\scrO_X^*(X)|} \xrightarrow{\ a\ } \aPic(X) \longrightarrow \Pic(X) \longrightarrow 0, \]
+	where $a([u])$ is the trivial bundle with norm $\|z\|_u = e^{-u}|z|$,
+	and the last map forgets the metric.
+	The smooth version replacing $\scrC_{X,\bbR}^0(X)$ by $\cinf_{X,\bbR}(X)$ and $\aPic(X)$ by $\aPic^\infty(X)$ is also true.
 \end{proposition}
 \begin{proof}
 	\leavevmode\par\nopagebreak
@@ -1159,6 +1177,10 @@ Under the correspondence of sections in a line bundle and Cartier divisors, the 
 
 	Given two green divisor $(D_1,g_1)$ and $(D_2,g_2)$, we define $(D_1,g_1) + (D_2,g_2) \coloneqq (D_1+D_2,g_1+g_2)$ and $-(D_1,g_1) \coloneqq (-D_1,-g_1)$.
 \end{definition}
+
+
+
+
 \begin{remark}[label=\labelNFM{rmk:name-of-green-function}, status=draft, tag=0000000]
 	Why such $g$ is called a green function? the Lelong equation.
 	\Yang{}
@@ -1196,6 +1218,7 @@ Under the correspondence of sections in a line bundle and Cartier divisors, the 
 \end{proof}
 
 
+\Yang{map form divisor to line bundle, from metric to forms}
 
 Let \(X\) be a complex analytic variety and $\calL$ a holomorphic line bundle on $X$.
 
