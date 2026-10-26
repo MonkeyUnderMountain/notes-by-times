@@ -90,7 +90,21 @@ Under this normalization, we have
 \]
 For details, see \cite{Barlet-Magnusson-2019-ComplexAnalyticCycles,Demailly-2012-ComplexAnalyticDifferential}.
 
-\Yang{example of $V_\bbC$}.
+\begin{example}[label=\labelNFM{eg:complex-vector-space-with-conjugation}, status=draft, tag=0000000]
+	Let $V$ be a complex vector space of dimension $d$ and denote by $J:V \to V$ its complex structure.
+	On $V_\bbC = V \otimes_\bbR \bbC$, we consider the complex vector space structure given by the right factor $\bbC$.
+	Then regard $V_\bbC$ as a real vector space, $\Gal(\bbC/\bbR) \acts \bbC$ gives an action of $\Gal(\bbC/\bbR)$ on $V_\bbC$.
+	That is, we have a natural conjugation $V_\bbC \to V_\bbC$, $x \otimes a \mapsto x \otimes \bar{a}$.
+	And the conjugation-invariant elements are exactly $V \otimes_\bbR \bbR \cong V$.
+    We have a decomposition $V_\bbC = V_+ \oplus V_-$ according to the action of $J$: $V_\pm$ means that $(J\otimes \bbC)|_{V_{\pm}} = \pm \upi$.
+    We have
+    \[ v \otimes a = \underbrace{\frac{1}{2}(v \otimes a - Jv \otimes \upi a)}_{\in V_+} + \underbrace{\frac{1}{2}(v \otimes a + Jv \otimes \upi a)}_{\in V_-}. \]
+	For any complex basis $x_1,\cdots,x_d$ of $V$, set $y_i = Jx_i$.
+    Then $x_1,\cdots,x_d,y_1,\cdots,y_d$ is a real basis of $V$.
+    Set $z_i \coloneqq \latexdeletedmath{x_i \otimes 1 + y_i \otimes \upi}\latexaddedmath{\frac{1}{2}(x_i \otimes 1 - y_i \otimes \upi)}$.
+	Then $\bar{z_i} = \latexdeletedmath{x_i \otimes 1 - y_i \otimes \upi}\latexaddedmath{\frac{1}{2}(x_i \otimes 1 + y_i \otimes \upi)}$ and $z_1,\cdots,z_d,\bar{z}_1,\cdots,\bar{z}_d$ is a complex basis of $V_\bbC$ corresponding to the decomposition $V_\bbC = V_+ \oplus V_-$,
+    where $V_\pm$ means that $(J\otimes \bbC)|_{V_{\pm}} = \pm \upi$.
+\end{example}
 
 
 There is a natural way to endow topology on $\scrA_X^{p,q}(U)$ making it as a Fr\'echet space.
@@ -527,45 +541,84 @@ Then we turn to the most important case, the real $(1,1)$-froms.
 \end{definition}
 
 \begin{example}[label=\labelNFM{eg:hermitian-form}, status=draft, tag=0000000]
-	Let $V$ be a complex vector space of dimension $d$.
-	On $V_\bbC = V \otimes_\bbR \bbC$, we consider the complex vector space structure given by the right factor $\bbC$.
-	Then regard $V_\bbC$ as a real vector space, $\Gal(\bbC/\bbR) \acts \bbC$ gives an action of $\Gal(\bbC/\bbR)$ on $V_\bbC$.
-	That is, we have a natural conjugation $V_\bbC \to V_\bbC$, $x \otimes a \mapsto x \otimes \bar{a}$.
-	And the conjugation-invariant elements are exactly $V \otimes_\bbR \bbR \cong V$.
-	For any real basis $x_1,\cdots,x_d,y_1,\cdots,y_d$ of $V$, set $z_i \coloneqq x_i \otimes 1 + y_i \otimes \upi$.
-	Then $\bar{p_i} = x_i \otimes 1 - y_i \otimes \upi$ and $z_1,\cdots,z_d,\bar{z}_1,\cdots,\bar{z}_d$ is a complex basis of $V_\bbC$.
-
+    Set $V,J,x_i,y_i,z_i$ as \cref{eg:complex-vector-space-with-conjugation}.
 	Denote by $\{\upd z_i; \upd \bar{z}_j\}$ the dual basis of $\{z_i;\bar{z}_j\}$.
-	As above, we regard $A^2 \coloneqq (V^\vee)^{\wedge 2}$ as a subspace of $(V^\vee)^{\otimes 2}$ via $\alpha \wedge \beta \mapsto \alpha \otimes \beta - \beta \otimes \alpha$.
+	As above, we regard $A^2 \coloneqq (V^\vee_\bbC)^{\wedge 2}$ as a subspace of $(V^\vee_\bbC)^{\otimes 2}$ via $\alpha \wedge \beta \mapsto \alpha \otimes \beta - \beta \otimes \alpha$.
 	The conjugation also acts on $V^\vee$ dually, then we get a decomposition of real vector space $A^2 = A^{0,2} \oplus A^{1,1} \oplus A^{2,0}$.
+    Let us explain the means of $\alpha \in A^{1,1}_\bbR$.
+    \begin{itemize}[nosep]
+        \item A $2$-form $\alpha \in A^2$ means that $\alpha$ is an anti-symmetric bilinear form $V_\bbC \times V_\bbC \to \bbC$.
+        \item A $2$-form $\alpha \in A^{2}_\bbR$ means that the map
+        \[ V \times V \cong (V\otimes_\bbR \bbR) \times (V\otimes_\bbR \bbR) \injmap V_\bbC \times V_\bbC \xrightarrow{\alpha} \bbC \]
+        has image contained in $\bbR$.
+        \item A $2$-form $\alpha \in A^{1,1}$ means that $\alpha|_{V_+ \times V_+} = 0$, $\alpha|_{V_-\times V_-} = 0$.
+        In particular,
+        \begin{align*}
+            \alpha(Ju, Jv) = \alpha(u,v), \quad \alpha(Ju,v) \mathrel{\latexdeletedmath{...}\latexaddedmath{= -}} \alpha(u,Jv).
+        \end{align*}
+        \begin{latexmathchange}
+            For $u,v \in V$, identify them with $u \otimes 1,v \otimes 1 \in V_\bbC$.
+            Write $u = u_+ + u_-$ and $v = v_+ + v_-$ according to $V_\bbC = V_+ \oplus V_-$.
+            Since $J$ acts by $\upi$ on $V_+$ and by $-\upi$ on $V_-$,
+            the two vanishing conditions give
+            \begin{align*}
+                \alpha(Ju,Jv) & = \alpha(\upi u_+ - \upi u_-, \upi v_+ - \upi v_-) \\
+                              & = \alpha(u_+,v_-) + \alpha(u_-,v_+) = \alpha(u,v), \\
+                \alpha(Ju,v) & = \upi \alpha(u_+,v_-) - \upi \alpha(u_-,v_+) \\
+                             & = -\alpha(u_+ + u_-, \upi v_+ - \upi v_-) = -\alpha(u,Jv).
+            \end{align*}
+        \end{latexmathchange}
+    \end{itemize}
+    Then, for $\alpha \in A^{1,1}_\bbR$,
+    \[ h_\alpha: V \times V \cong (V\otimes_\bbR \bbR) \times (V\otimes_\bbR \bbR) \injmap V_\bbC \times V_\bbC \to \bbC, \quad (u,v) \mapsto \alpha(u,Jv) - \upi \alpha(u,v) \]
+    indeed \latexdeleted{define}\latexgrammar{defines} a hermitian form on $V$ since \latexmath{for $a,b \in \bbR$,}
+    \begin{align*}
+        h_{\alpha}((a + b\upi)u,v) & = h_{\alpha}((a + bJ)u,v) \\
+                                  & = \latexaddedmath{a\alpha(u,Jv) + b\alpha(Ju,Jv) - \upi a\alpha(u,v) - \upi b\alpha(Ju,v)} \\
+                                  & = \latexaddedmath{(a + b\upi)\alpha(u,Jv) + (b - a\upi)\alpha(u,v)} \\
+                                  & = \latexaddedmath{(a + b\upi)h_\alpha(u,v)}.
+    \end{align*}
+    \begin{latexmathchange}
+        Moreover, skew-symmetry and the above identities give
+        \begin{align*}
+            h_\alpha(v,u) & = \alpha(v,Ju) - \upi\alpha(v,u) \\
+                          & = \alpha(u,Jv) + \upi\alpha(u,v) = \overline{h_\alpha(u,v)},
+        \end{align*}
+        where the last equality uses that $\alpha$ is real on $V \times V$.
+        Real bilinearity, the first computation and this symmetry show that $h_\alpha$ is linear in the first variable and conjugate-linear in the second;
+        in particular,
+        \[ h_\alpha(u,(a + b\upi)v) = (a - b\upi)h_\alpha(u,v). \]
+    \end{latexmathchange}
 
-
-
-
-
-
-	\Yang{}
-	Consider the constant $(1,1)$-form
-	\[ \alpha = \frac{\upi}{2}\sum_{j,k=1}^n a_{j\bar k}\,\upd z_j\wedge\upd\bar z_k. \]
-	Conjugation exchanges $\upd z_j$ and $\upd\bar z_j$; reordering the wedge factors gives
-	\[ \bar\alpha = \alpha \quad\Longleftrightarrow\quad a_{j\bar k} = \overline{a_{k\bar j}}\quad\text{for all }j,k. \]
-	Thus $\alpha \in \scrA_{\bbC^n,\bbR}^{1,1}$ means that the coefficient matrix is Hermitian;
-	the coefficients in the complex coframe need not be real.
-
-	Identify real tangent vectors with $u = (u_1,\ldots,u_n)$ and $v = (v_1,\ldots,v_n)$ in $\bbC^n$.
-	Multiplication by $\upi$ gives $J$, and direct evaluation gives
-	\[ h_\alpha(u,v) = \alpha(u,Jv) - \upi\alpha(u,v) = \sum_{j,k=1}^n a_{j\bar k}u_j\bar v_k. \]
-	The Hermitian symmetry of the matrix implies $h_\alpha(v,u) = \overline{h_\alpha(u,v)}$,
-	and this form is linear in $u$ and conjugate-linear in $v$.
-	For example, the identity matrix gives
-	\[ \omega_0 = \frac{\upi}{2}\sum_{j=1}^n\upd z_j\wedge\upd\bar z_j = \sum_{j=1}^n\upd x_j\wedge\upd y_j,\qquad h_{\omega_0}(u,v) = \sum_{j=1}^n u_j\bar v_j. \]
-	In general, $h_\alpha(u,u) = \alpha(u,Ju)$.
-	Hence positivity (resp. semi-positivity) is equivalent to $\alpha(u,Ju) > 0$ for every nonzero $u$
-	(resp. $\alpha(u,Ju) \geq 0$ for every $u$).
+    Under a concrete coordinate, a form $\alpha \in A^{1,1}$ can be written as
+	\[ \alpha = \frac{\upi}{2} \sum_{j,k=1}^{\latexdeletedmath{n}\latexaddedmath{d}} a_{j, k} \, \upd z_j \wedge \upd\bar z_k. \]
+    It is real iff
+	\[ \bar\alpha = \alpha \quad\Longleftrightarrow\quad a_{j, k} = \overline{a_{k j}}\quad\text{for all }j,k. \]
+    \begin{latexmathchange}
+        Indeed, conjugating and exchanging the indices gives
+        \[ \bar\alpha = -\frac{\upi}{2} \sum_{j,k=1}^d \overline{a_{j,k}} \, \upd\bar z_j \wedge \upd z_k = \frac{\upi}{2} \sum_{j,k=1}^d \overline{a_{k,j}} \, \upd z_j \wedge \upd\bar z_k. \]
+    \end{latexmathchange}
+    Under the basis $x_i$, the matrix of $h_\alpha$ is given by
+    \[ \latexaddedmath{\bigl(h_\alpha(x_j,x_k)\bigr)_{1 \leq j,k \leq d} = (a_{j,k})_{1 \leq j,k \leq d}.} \]
+    \begin{latexmathchange}
+        To see this, the normalization of $z_i$ gives
+        \[ x_k \otimes 1 = z_k + \bar z_k, \qquad y_k \otimes 1 = \upi(z_k - \bar z_k). \]
+        Since $\{\upd z_j;\upd\bar z_j\}$ is the dual basis,
+        \[ \upd z_j(x_k) = \delta_{jk}, \quad \upd z_j(y_k) = \upi\delta_{jk}, \quad \upd\bar z_j(x_k) = \delta_{jk}, \quad \upd\bar z_j(y_k) = -\upi\delta_{jk}. \]
+        Direct evaluation then gives
+        \[ \alpha(x_j,x_k) = \frac{\upi}{2}(a_{j,k} - a_{k,j}), \qquad \alpha(x_j,Jx_k) = \frac{1}{2}(a_{j,k} + a_{k,j}), \]
+        and hence
+        \[ h_\alpha(x_j,x_k) = \frac{1}{2}(a_{j,k} + a_{k,j}) - \upi \cdot \frac{\upi}{2}(a_{j,k} - a_{k,j}) = a_{j,k}. \]
+        More generally, for $u = \sum_{j=1}^d u_jx_j$ and $v = \sum_{k=1}^d v_kx_k$ with $u_j,v_k \in \bbC$,
+        \[ h_\alpha(u,v) = \sum_{j,k=1}^d a_{j,k}u_j\bar v_k. \]
+        Thus $\alpha$ is positive (resp. semi-positive) iff the Hermitian matrix $(a_{j,k})$ is positive definite (resp. positive semidefinite).
+    \end{latexmathchange}
 	See \cite[Chapter~III, \S 1.A, (1.7)--(1.8)]{Demailly-2012-ComplexAnalyticDifferential}.
 \end{example}
 
-\begin{lemma}[label=\labelNFM{lem:characterize-of-positive-11-form}, status=draft, tag=0000000]
+More generally, we have the following lemma.
+
+\begin{lemma}[label=\labelNFM{lem:characterize-of-positive-11-form}, status=draft, tag=0000000, title={{{\cite[Chapter~III, \S 1.A, (1.7)--(1.9)]{Demailly-2012-ComplexAnalyticDifferential}}}}]
 	Let $X$ be a complex manifold of complex dimension $d \geq 1$,
 	$x \in X$ and $\alpha \in \scrA_{X,\bbR}^{1,1}(X)$.
 	The following are equivalent:
@@ -579,10 +632,6 @@ Then we turn to the most important case, the real $(1,1)$-froms.
 	\end{enumerate}
 \end{lemma}
 
-These equivalences follow by diagonalizing the Hermitian coefficient matrix;
-the complementary wedge products detect its eigenvalues.
-See \cite[Chapter~III, \S 1.A, (1.7)--(1.9)]{Demailly-2012-ComplexAnalyticDifferential}.
-
 \begin{definition}[label=\labelNFM{def:kalher-and-hermitian-manifold}, status=draft, tag=0000000]
 	A \emph{Hermitian manifold} is a pair $(X,\omega)$,
 	where $X$ is a complex manifold and $\omega$ is a $\cinf$ real positive definite $(1,1)$-form.
@@ -592,6 +641,24 @@ See \cite[Chapter~III, \S 1.A, (1.7)--(1.9)]{Demailly-2012-ComplexAnalyticDiffer
 	See \cite[Chapter~VI, \S\S 4--5]{Demailly-2012-ComplexAnalyticDifferential}.
 \end{definition}
 
+\begin{example}[label=\labelNFM{eg:fubini-study-form-on-pn-as-kahler-manifold}, status=draft, tag=0000000]
+    Let $X = \bbP^n(\bbC)$.
+    There is a standard K\"ahler form, called the \emph{Fubini-Study form}, on $X$ given by
+    \[ \omega_{FS}|_{U_j} = \ddc\log\frac{\|Z\|}{|Z_j|}= \frac{\upi}{2\pi}\partial\partialbar\log\left(1 + \sum_{k \neq j}|z_k|^2\right). \]
+        Here $[Z_0:\cdots:Z_n]$ are homogeneous coordinates, $\|Z\|^2 = \sum_{k=0}^n|Z_k|^2$,
+        and $z_k = Z_k/Z_j$ for $k \neq j$ on $U_j = \{Z_j \neq 0\}$.
+        On an overlap, the potentials differ by $\log|Z_\ell/Z_j|$,
+        whose $\ddc$ is zero, so the local forms glue.
+        The resulting form is smooth, real, closed and positive definite;
+        it is called the Fubini--Study form.
+        And we have $c_1(\scrO(1)) = [\omega_{FS}] \in H^{1,1}(X)$.
+
+        \Yang{}
+
+        \toai{polish and add a reference}
+
+    In particular, any projective manifold is K\"ahler by restriction.
+\end{example}
 
 For higher codimension, there are serval different notions of positivity.
 
@@ -607,14 +674,7 @@ For higher codimension, there are serval different notions of positivity.
 	\end{enumerate}
 \end{definition}
 
-These conditions define closed convex cones in the real vector space of $(p,p)$-covectors at each point.
-We say that $\gamma$ is \emph{strongly positive} (resp. \emph{weakly positive}, or simply \emph{positive})
-if $\gamma_x$ lies in the interior of the corresponding cone for every $x \in X$.
-Equivalently, weak positivity means $\gamma_x\wedge\beta > 0$ for every nonzero strongly semi-positive $(d-p,d-p)$-covector $\beta$.
-We write $\gamma \geq 0$ for semi-positivity and $\gamma > 0$ for positivity.
-Thus, for forms, the word \emph{positive} always means strictly positive.
-
-\[ \gamma_x = \sum_a c_a(\upi\eta_{a,1}\wedge\bar\eta_{a,1})(\upi\eta_{a,p}\wedge\bar\eta_{a,p}),\qquad c_a \geq 0,\quad \eta_{a,j} \in T_x^{*1,0}X. \]
+% \[ \gamma_x = \sum_a c_a(\upi\eta_{a,1}\wedge\bar\eta_{a,1})(\upi\eta_{a,p}\wedge\bar\eta_{a,p}),\qquad c_a \geq 0,\quad \eta_{a,j} \in T_x^{*1,0}X. \]
 % Equivalently, it is a nonnegative linear combination of $\upi^{p^2}\eta\wedge\bar\eta$ with $\eta$ a decomposable $(p,0)$-covector.
 
 For currents, we only consider the global positivity.
@@ -638,33 +698,33 @@ For currents, we only consider the global positivity.
 \end{definition}
 
 
-\begin{remark}[label=\labelNFM{rmk:hermitian-positive}, status=draft, tag=0000000]
-	There is a third notion between strong and weak semi-positivity.
-	Let $\gamma$ be a real $(p,p)$-form on a complex manifold $X$ of complex dimension $d$.
-	We say that $\gamma$ is \emph{Hermitian semi-positive} if, at every $x \in X$, it is a finite sum
-	\[ \gamma_x = \upi^{p^2}\sum_a c_a\theta_a\wedge\bar\theta_a,\qquad c_a \geq 0,\quad \theta_a \in \bigwedge^p T_x^{*1,0}X. \]
-	Here the $\theta_a$ need not be decomposable.
-	Equivalently, in the expression
-	\[ \gamma_x = \upi^{p^2}\sum_{|I|=|J|=p}a_{I\bar J}\,\upd z_I\wedge\upd\bar z_J, \]
-	with $I,J$ increasing multi-indices, the Hermitian matrix $(a_{I\bar J})$ is positive semidefinite.
-	We call $\gamma$ \emph{Hermitian positive} if this matrix is positive definite at every point.
-	For forms, we have
-	\[ \text{strongly semi-positive}\ \Longrightarrow\ \text{Hermitian semi-positive}\ \Longrightarrow\ \text{weakly semi-positive}. \]
-	These are closed convex cones in each fiber; taking their interiors gives the corresponding implications for positive forms.
-	The three cones coincide for $p = 0,1,d-1,d$.
-	In particular, in bidegree $(1,1)$ their semi-positive and positive versions agree with \cref{def:positivity-of-11-forms}.
-	See \cite[\S 1, Definitions~1.1 and~1.4]{Debarre-Ein-Lazarsfeld-Voisin-2010-PseudoeffectiveNefClasses}.
-	The closed strong and weak cones are called \emph{strongly positive} and \emph{positive} in \cite[Chapter~III, \S 1.A]{Demailly-2012-ComplexAnalyticDifferential}.
+% \begin{remark}[label=\labelNFM{rmk:hermitian-positive}, status=draft, tag=0000000]
+% 	There is a third notion between strong and weak semi-positivity.
+% 	Let $\gamma$ be a real $(p,p)$-form on a complex manifold $X$ of complex dimension $d$.
+% 	We say that $\gamma$ is \emph{Hermitian semi-positive} if, at every $x \in X$, it is a finite sum
+% 	\[ \gamma_x = \upi^{p^2}\sum_a c_a\theta_a\wedge\bar\theta_a,\qquad c_a \geq 0,\quad \theta_a \in \bigwedge^p T_x^{*1,0}X. \]
+% 	Here the $\theta_a$ need not be decomposable.
+% 	Equivalently, in the expression
+% 	\[ \gamma_x = \upi^{p^2}\sum_{|I|=|J|=p}a_{I\bar J}\,\upd z_I\wedge\upd\bar z_J, \]
+% 	with $I,J$ increasing multi-indices, the Hermitian matrix $(a_{I\bar J})$ is positive semidefinite.
+% 	We call $\gamma$ \emph{Hermitian positive} if this matrix is positive definite at every point.
+% 	For forms, we have
+% 	\[ \text{strongly semi-positive}\ \Longrightarrow\ \text{Hermitian semi-positive}\ \Longrightarrow\ \text{weakly semi-positive}. \]
+% 	These are closed convex cones in each fiber; taking their interiors gives the corresponding implications for positive forms.
+% 	The three cones coincide for $p = 0,1,d-1,d$.
+% 	In particular, in bidegree $(1,1)$ their semi-positive and positive versions agree with \cref{def:positivity-of-11-forms}.
+% 	See \cite[\S 1, Definitions~1.1 and~1.4]{Debarre-Ein-Lazarsfeld-Voisin-2010-PseudoeffectiveNefClasses}.
+% 	The closed strong and weak cones are called \emph{strongly positive} and \emph{positive} in \cite[Chapter~III, \S 1.A]{Demailly-2012-ComplexAnalyticDifferential}.
 
-	A real current $T$ of bidimension $(p,p)$ is \emph{Hermitian semi-positive}
-	if $\langle T,\beta\rangle \geq 0$ for every smooth compactly supported Hermitian semi-positive $(p,p)$-form $\beta$.
-	For currents, the implications are
-	\[ \text{strongly positive}\ \Longrightarrow\ \text{Hermitian semi-positive}\ \Longrightarrow\ \text{positive}. \]
-	The three nonnegative notions for a smooth form $\gamma$ agree with the corresponding current notions for $T_\gamma \in \scrA_{d-p,d-p}^X(X)$.
-	Thus strong (resp. weak) semi-positivity of $\gamma$ is equivalent to strong (resp. weak) positivity of $T_\gamma$.
+% 	A real current $T$ of bidimension $(p,p)$ is \emph{Hermitian semi-positive}
+% 	if $\langle T,\beta\rangle \geq 0$ for every smooth compactly supported Hermitian semi-positive $(p,p)$-form $\beta$.
+% 	For currents, the implications are
+% 	\[ \text{strongly positive}\ \Longrightarrow\ \text{Hermitian semi-positive}\ \Longrightarrow\ \text{positive}. \]
+% 	The three nonnegative notions for a smooth form $\gamma$ agree with the corresponding current notions for $T_\gamma \in \scrA_{d-p,d-p}^X(X)$.
+% 	Thus strong (resp. weak) semi-positivity of $\gamma$ is equivalent to strong (resp. weak) positivity of $T_\gamma$.
 
-	\Yang{simpify it}
-\end{remark}
+% 	\Yang{simpify it}
+% \end{remark}
 
 
 
@@ -696,11 +756,6 @@ then use psh functions to construct wedge products and pullbacks.
 \end{definition}
 \endgroup
 
-Thus $g$ is a generalized function of bidegree $(0,0)$, acting on compactly supported $(d,d)$-forms.
-When $g$ is locally integrable, its action is $\langle g,\alpha\rangle = \int_X g\alpha$.
-
-A \emph{local potential} of $T$ on an open set $U$ is a real generalized function $v$ with $T|_U = \ddc v$.
-
 If $X$ is compact K\"ahler, the $\ppbar$-lemma in \cref{thm:cohomology-by-forms-and-currents}(b) shows that \cref{eq:lelong-equation} has a solution iff
 $[T] = [\omega]$ in $H^2_\dR(X,\bbR)$.
 When $X$ is connected and compact, any two such global potentials differ by a real constant.
@@ -731,6 +786,16 @@ We first describe the operator $\ddc$ concretely.
 
 The nonnegative condition on $\ddc$ extends from smooth functions to the following classes of potentials.
 
+Let $\Delta \subset \bbC$ be the unit disc.
+Recall that a function $f: \Delta \to [-\infty,+\infty)$, $f \not\equiv -\infty$,
+is \emph{subharmonic} if it is upper semicontinuous and, for every closed disc $\overline{D(a,r)} \subset \Delta$ with $r > 0$,
+satisfies the mean value inequality
+\[ f(a) \leq \frac{1}{2\pi}\int_0^{2\pi} f(a + r e^{\upi\theta})\,\upd\theta. \]
+For $f \in C^2(\Delta,\bbR)$, this is equivalent to
+\[ \Delta_{\bbR^2}f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} \geq 0. \]
+We treat the function identically $-\infty$ separately in the following definition.
+See \cite[Chapter~I, \S 4, Theorem and Definition~4.12]{Demailly-2012-ComplexAnalyticDifferential}.
+
 \begin{definition}[label=\labelNFM{def:psh-function}, status=draft, tag=0000000]
 	Let $u : X \to [-\infty,+\infty)$.
 	We say that $u$ is \emph{plurisubharmonic}, or \emph{psh}, if
@@ -750,78 +815,10 @@ The nonnegative condition on $\ddc$ extends from smooth functions to the followi
 	\[ \omega + \ddc u \geq 0 \]
 	as a current.
 	Denote this set by $\operatorname{PSH}(X,\omega)$.
+    \Yang{}
 \end{definition}
 
-
-Locally write $\omega = \ddc\rho$ with $\rho$ smooth and real-valued.
-Then $u$ is $\omega$-psh iff $u+\rho$ is psh.
-See \cite[Chapter~I, \S 5 and Chapter~III, Proposition~1.19]{Demailly-2012-ComplexAnalyticDifferential}.
-
-\begin{example}[label=\labelNFM{eg:c2-function-is-psh-iff-ddc-has-semi-definite-matrix}, status=draft, tag=0000000]
-	\latexdeleted{Let $u \in \scrC^2(X)$, then $u \in PSH$ iff $L_u$ is}
-	\begin{latexmathchange}
-		Let $u \in \scrC^2(X,\bbR)$.
-		In local holomorphic coordinates, write $L_u = (\partial_{z_j,\bar z_k}u)_{j,k=1}^d$ for its Levi matrix.
-		Then
-		\[ u \in \operatorname{PSH}(X) \quad\Longleftrightarrow\quad L_u(x) \text{ is positive semidefinite for every }x \in X \quad\Longleftrightarrow\quad \ddc u \geq 0. \]
-		Thus $u$ is psh exactly when $\ddc u$ is semi-positive.
-	\end{latexmathchange}
-\end{example}
-
-\begin{remark}[label=\labelNFM{rmk:psh-on-real-line}, status=draft, tag=0000000]
-	On real one dimension, it is convex
-	\Yang{}
-\end{remark}
-
-\begin{example}[label=\labelNFM{eg:sum-max-convex-composition-of-psh-is-psh}, status=draft, tag=0000000]
-	\latexdeleted{Let $u,v$ be psh, then}
-	\[ \latexdeletedmath{au, a \geq 0, u+v, \max{u,v}} \]
-	\latexdeleted{are psh.
-		Let $\varphi: \bbR \to \bbR$ be a convex function
-		Then $\varphi\circ u$ is psh.}
-	\begin{latexmathchange}
-		Let $u,v \in \operatorname{PSH}(X)$ and $a \geq 0$.
-		Then $au$, $u+v$ and $\max\{u,v\}$ are psh, with the convention $0u \equiv 0$.
-
-		If $\varphi : \bbR \to \bbR$ is convex and nondecreasing, then $\varphi\circ u$ is psh.
-		At points where $u = -\infty$, use the value $\varphi(-\infty) \coloneqq \lim_{t \to -\infty}\varphi(t)$.
-		The monotonicity assumption is necessary: $\varphi(t) = -t$ is convex,
-		but $-|z|^2$ is not psh on $\bbC$.
-	\end{latexmathchange}
-\end{example}
-
-\begin{example}[label=\labelNFM{eg:green-function-of-lines-is-psh}, status=draft, tag=0000000]
-	\leavevmode\par\nopagebreak
-	\begin{latexmathchange}
-		Let $[Z_0:\cdots:Z_n]$ be homogeneous coordinates on $\bbP^n$,
-		let $\|Z\| = (\sum_{j=0}^n|Z_j|^2)^{1/2}$, and set $H = \{Z_0 = 0\}$.
-		On the affine chart $U_0 = \bbP^n\setminus H$, the function
-		\[ \rho_0([Z]) \coloneqq \log\frac{\|Z\|}{|Z_0|} = \frac12\log\left(1+\sum_{j=1}^n\left|\frac{Z_j}{Z_0}\right|^2\right) \]
-		is smooth and strictly psh, with $\ddc\rho_0 = \omega_{\mathrm{FS}}|_{U_0}$.
-		It tends to $+\infty$ along $H$, so it does not extend to a psh function on $\bbP^n$.
-
-		Its negative
-		\[ g_H([Z]) \coloneqq \log\frac{|Z_0|}{\|Z\|},\qquad g_H|_H = -\infty, \]
-		is globally well-defined and $\omega_{\mathrm{FS}}$-psh:
-		the Poincar\'e--Lelong formula gives
-		\[ \omega_{\mathrm{FS}} + \ddc g_H = \delta_H \geq 0. \]
-	\end{latexmathchange}
-	% \begin{enumerate}
-	%     \item Let $H = \{Z_0 = 0\} \subset \bbP^n$ and $\|Z\| = (\sum_{j=0}^n|Z_j|^2)^{1/2}$.
-	%           The function $\log\|Z\|$ is psh on $\bbC^{n+1}\setminus\{0\}$,
-	%           but changes by $\log|\lambda|$ under $Z \mapsto \lambda Z$.
-	%           Its local versions
-	%           \[ \rho_j([Z]) = \log\frac{\|Z\|}{|Z_j|}\quad\text{on }U_j = \{Z_j \neq 0\} \]
-	%           define the Fubini--Study form $\omega_{\mathrm{FS}}|_{U_j} = \ddc\rho_j$.
-	%           The function
-	%           \[ g_H([Z]) \coloneqq \log\frac{|Z_0|}{\|Z\|} \]
-	%           is globally well-defined and satisfies
-	%           \[ \delta_H = \omega_{\mathrm{FS}} + \ddc g_H. \]
-	%           Thus $g_H$ is an $\omega_{\mathrm{FS}}$-psh potential of $\delta_H$.
-	%           Global psh functions on the compact connected manifold $\bbP^n$ are constant, apart from the allowed function $-\infty$.
-	% \end{enumerate}
-	See \cite[Chapter~III, \S 2, (2.15)]{Demailly-2012-ComplexAnalyticDifferential}.
-\end{example}
+The positivity of $\ddc u$ corresponding to the psh properties of $u$.
 
 \begin{proposition}[label=\labelNFM{prop:properties-of-psh-function}, status=draft, tag=0000000]
 	We have the following properties.
@@ -868,6 +865,73 @@ See \cite[Chapter~I, \S 5 and Chapter~III, Proposition~1.19]{Demailly-2012-Compl
 	See \cite[\S 6.2, especially Theorem~6.2.2 and Proposition~6.2.5]{Dinh-Sibony-2005-IntroductionTheoryCurrents}
 	and \cite[Chapter~III, Proposition~1.19]{Demailly-2012-ComplexAnalyticDifferential}.
 \end{proposition}
+
+Locally write $\omega = \ddc\rho$ with $\rho$ smooth and real-valued.
+Then $u$ is $\omega$-psh iff $u+\rho$ is psh.
+See \cite[Chapter~I, \S 5 and Chapter~III, Proposition~1.19]{Demailly-2012-ComplexAnalyticDifferential}.
+
+\begin{example}[label=\labelNFM{eg:c2-function-is-psh-iff-ddc-has-semi-definite-matrix}, status=draft, tag=0000000]
+		Let $u \in \scrC^2(X,\bbR)$.
+		In local holomorphic coordinates, write $L_u = (\partial_{z_j,\bar z_k}u)_{j,k=1}^d$ for its Levi matrix.
+		Then
+		\[ u \in \operatorname{PSH}(X) \quad\Longleftrightarrow\quad L_u(x) \text{ is positive semidefinite for every }x \in X \quad\Longleftrightarrow\quad \ddc u \geq 0. \]
+		Thus $u$ is psh exactly when $\ddc u$ is semi-positive.
+	% \latexdeleted{Let $u \in \scrC^2(X)$, then $u \in PSH$ iff $L_u$ is}
+	% \begin{latexmathchange}
+	% \end{latexmathchange}
+\end{example}
+
+% \begin{remark}[label=\labelNFM{rmk:psh-on-real-line}, status=draft, tag=0000000]
+% 	On real one dimension, it is convex
+% 	\Yang{}
+% \end{remark}
+
+\begin{example}[label=\labelNFM{eg:sum-max-convex-composition-of-psh-is-psh}, status=draft, tag=0000000]
+		Let $u,v \in \operatorname{PSH}(X)$ and $a \geq 0$.
+		Then $au$, $u+v$ and $\max\{u,v\}$ are psh, with the convention $0u \equiv 0$.
+
+		If $\varphi : \bbR \to \bbR$ is convex and nondecreasing, then $\varphi\circ u$ is psh.
+		At points where $u = -\infty$, use the value $\varphi(-\infty) \coloneqq \lim_{t \to -\infty}\varphi(t)$.
+        See \cite[Chapter~I, \S 5.A, Theorem~5.6]{Demailly-2012-ComplexAnalyticDifferential}.
+        \Yang{}
+\end{example}
+
+\begin{example}[label=\labelNFM{eg:green-function-of-lines-is-psh}, status=draft, tag=0000000]
+		Let $[Z_0:\cdots:Z_n]$ be homogeneous coordinates on $\bbP^n$, and $\omega$ is a positive closed $(1,1)$ form corresponding to the cohomological class $c_1(\scrO(1))$.
+        Then
+		\[ \rho_0([Z]) \coloneqq \log\frac{|Z_0|}{\|Z\|} = \frac12\log\left(\frac{|Z_0|^2}{|Z_0|^2+\cdots |Z_n|^2}\right) \]
+        \Yang{}
+        is a $\omega$-psh function.
+        \toai{since we have \cref{eg:fubini-study-form-on-pn-as-kahler-manifold}, please rewrite this example with a reference}
+
+	% 	is smooth and strictly psh, with $\ddc\rho_0 = \omega_{\mathrm{FS}}|_{U_0}$.
+	% 	It tends to $+\infty$ along $H$, so it does not extend to a psh function on $\bbP^n$.
+	% \leavevmode\par\nopagebreak
+	% \begin{latexmathchange}
+
+	% 	Its negative
+	% 	\[ g_H([Z]) \coloneqq \log\frac{|Z_0|}{\|Z\|},\qquad g_H|_H = -\infty, \]
+	% 	is globally well-defined and $\omega_{\mathrm{FS}}$-psh:
+	% 	the Poincar\'e--Lelong formula gives
+	% 	\[ \omega_{\mathrm{FS}} + \ddc g_H = \delta_H \geq 0. \]
+	% \end{latexmathchange}
+	% \begin{enumerate}
+	%     \item Let $H = \{Z_0 = 0\} \subset \bbP^n$ and $\|Z\| = (\sum_{j=0}^n|Z_j|^2)^{1/2}$.
+	%           The function $\log\|Z\|$ is psh on $\bbC^{n+1}\setminus\{0\}$,
+	%           but changes by $\log|\lambda|$ under $Z \mapsto \lambda Z$.
+	%           Its local versions
+	%           \[ \rho_j([Z]) = \log\frac{\|Z\|}{|Z_j|}\quad\text{on }U_j = \{Z_j \neq 0\} \]
+	%           define the Fubini--Study form $\omega_{\mathrm{FS}}|_{U_j} = \ddc\rho_j$.
+	%           The function
+	%           \[ g_H([Z]) \coloneqq \log\frac{|Z_0|}{\|Z\|} \]
+	%           is globally well-defined and satisfies
+	%           \[ \delta_H = \omega_{\mathrm{FS}} + \ddc g_H. \]
+	%           Thus $g_H$ is an $\omega_{\mathrm{FS}}$-psh potential of $\delta_H$.
+	%           Global psh functions on the compact connected manifold $\bbP^n$ are constant, apart from the allowed function $-\infty$.
+	% \end{enumerate}
+	See \cite[Chapter~III, \S 2, (2.15)]{Demailly-2012-ComplexAnalyticDifferential}.
+\end{example}
+
 
 For the assertion about a global potential, locally write $\omega = \ddc\rho$ and $T = \ddc v$ with $v$ psh.
 Then $\ddc(g+\rho-v) = 0$, so $g+\rho-v$ is represented by a smooth pluriharmonic function.
@@ -973,53 +1037,22 @@ For this purpose, we need some more finer structure on the line bundle, namely, 
 	is continuous (resp. $\cinf$).
 	Many times, we only care about the norm $\|s\|_h \coloneqq \sqrt{h(s,s)}$ induced by $h$.
 	A holomorphic vector bundle with a metric is called a \emph{metrized vector bundle}, denoted by $\bar{E} = (E,\|\cdot\|)$.
-	%
-	% \latexdeleted{}
-	%
-	% \[
-	%     \latexdeletedmath{\langle \cdot, \cdot \rangle_x: E_x \times E_x \to \mathbb{C}}
-	% \]
-	%
-	% \latexdeleted{is a hermitian inner product for each \(x\), and for any local $\scrF$-sections \(s,t\) of \(E\), the function}
-	%
-	% \[
-	%     \latexdeletedmath{x \mapsto \langle s(x), t(x) \rangle_x}
-	% \]
-	%
-	% \latexdeleted{is of class $\scrF$ on \(X\).
-	% 	A complex vector bundle equipped with a hermitian metric is called a \emph{hermitian vector bundle}.}
-	%
-	%     \begin{latexmathchange}
-	%         Let $E$ be a holomorphic vector bundle of rank $r$ on a complex analytic space $X$.
-	%         A \emph{Hermitian metric} $h$ on $E$ is a family of positive definite Hermitian forms $h_x$ on the fibers $E_x$,
-	%         linear in the first argument and conjugate-linear in the second.
-	%         For a local holomorphic frame $e_1,\ldots,e_r$, set
-	%         \[ H(x) \coloneqq (h_x(e_i(x),e_j(x)))_{i,j=1}^r,\qquad h_x(s,t) = \sum_{i,j=1}^r H_{ij}(x)s_i\overline{t_j}. \]
-	%         We call $h$ \emph{continuous} (resp. \emph{smooth}) if all coefficients $H_{ij}$ are continuous (resp. $\cinf$).
-	%         This condition is independent of the holomorphic frame.
-	%         The pair $(E,h)$ is a continuous (resp. smooth) \emph{Hermitian vector bundle}.
-	%
-	%         The induced norm is $\|s\|_h^2 = h(s,s)$.
-	%         In rank one, a nowhere vanishing local holomorphic frame $e$ determines a real weight
-	%         \[ \varphi_e \coloneqq -\log\|e\|_h = -\frac12\log h(e,e),\qquad \|ae\|_h = |a|e^{-\varphi_e}. \]
-	%         The metric is continuous (resp. smooth) exactly when these weights are continuous (resp. smooth).
-	%     \end{latexmathchange}
 \end{definition}
 
-\begin{remark}\label{rmk:Riemannian_metric_induced_by_hermitian_metric}
-	Let \(h\) be a smooth hermitian metric on a complex manifold \(X\).
-	Then \(h\) induces a Riemannian metric \(g\) on the underlying real manifold of \(X\) by
-	\[g(u,v) = \Real(h(u,v))\]
-	for real tangent vectors \(u,v \in T_x X\).
-\end{remark}
+% \begin{remark}\label{rmk:Riemannian_metric_induced_by_hermitian_metric}
+% 	Let \(h\) be a smooth hermitian metric on a complex manifold \(X\).
+% 	Then \(h\) induces a Riemannian metric \(g\) on the underlying real manifold of \(X\) by
+% 	\[g(u,v) = \Real(h(u,v))\]
+% 	for real tangent vectors \(u,v \in T_x X\).
+% \end{remark}
 
-\begin{remark}[label=\labelNFM{rmk:metric-on-tangent-gives-a-form}, status=draft, tag=0000000]
-	Let $h$ be a smooth hermitian metric on $TX$.
-	Then it gives a smooth section in $\wedge^2 T^*X$ and hence a smooth $2$-forms in $\scrA^2_X(X)$.
-	Moreover, it is a $(1,1)$ form.
+% \begin{remark}[label=\labelNFM{rmk:metric-on-tangent-gives-a-form}, status=draft, tag=0000000]
+% 	Let $h$ be a smooth hermitian metric on $TX$.
+% 	Then it gives a smooth section in $\wedge^2 T^*X$ and hence a smooth $2$-forms in $\scrA^2_X(X)$.
+% 	Moreover, it is a $(1,1)$ form.
 
-	\Yang{}
-\end{remark}
+% 	\Yang{}
+% \end{remark}
 
 
 On this note, we will focus the case of hermitian line bundles.
@@ -1087,33 +1120,21 @@ On this note, we will focus the case of hermitian line bundles.
 	On the tensor product $L_1 \otimes L_2$, there is a natural metric given by $s_1\otimes s_2 \mapsto \|s_1\|\|s_2\|$.
 	With this metric, we define the \emph{tensor product of metrized line} as $\bar{L}_1 \otimes \bar{L}_2 = (L_1\otimes L_2, \|\cdot\|_1\otimes \|\cdot\|_2)$.
 
-	\latexdeleted{Under these operators, the isomorphic class of line bundles forms a group, denoted by $\aPic(X)$.}
-	\begin{latexmathchange}
 		Under tensor product, the isometry classes of continuously metrized holomorphic line bundles form an abelian group $\aPic(X)$.
-		Here an isometry is a holomorphic bundle isomorphism preserving the norm.
 		Write $\aPic^\infty(X)$ for the subgroup of classes with smooth metrics.
-	\end{latexmathchange}
+	% \latexdeleted{Under these operators, the isomorphic class of line bundles forms a group, denoted by $\aPic(X)$.}
+	% \begin{latexmathchange}
+	% \end{latexmathchange}
 \end{definition}
 
 
 \begin{proposition}[label=\labelNFM{prop:hermitian-metric-on-an-complex-space}, status=draft, tag=0000000]
-	\latexdeleted{Let $X$ be a complex analytic variety.
-		We have an exact sequence of abelian groups}
-
-	\[
-		\latexdeletedmath{0 \to \cinf_{X,\bbR}(X) \xrightarrow{\exp} \aPic(X) \to \Pic(X) \to 0.}
-	\]
-
-	\begin{latexmathchange}
 		Let $X$ be a complex analytic variety.
 		There is an exact sequence
 		\[ 0 \longrightarrow \frac{\scrC_{X,\bbR}^0(X)}{\log|\scrO_X^*(X)|} \xrightarrow{\ a\ } \aPic(X) \longrightarrow \Pic(X) \longrightarrow 0, \]
 		where $a([u])$ is the trivial bundle with norm $\|z\|_u = e^{-u}|z|$,
 		and the last map forgets the metric.
-		Here $\log|\scrO_X^*(X)|$ is the additive subgroup consisting of $\log|f|$ for global holomorphic units $f$.
-		The smooth version replaces $\scrC_{X,\bbR}^0(X)$ by $\cinf_{X,\bbR}(X)$ and $\aPic(X)$ by $\aPic^\infty(X)$.
-		If $X$ is connected and compact, the denominator consists of the real constants.
-	\end{latexmathchange}
+		The smooth version replacing $\scrC_{X,\bbR}^0(X)$ by $\cinf_{X,\bbR}(X)$ and $\aPic(X)$ by $\aPic^\infty(X)$ is also true.
 \end{proposition}
 \begin{proof}
 	\leavevmode\par\nopagebreak
