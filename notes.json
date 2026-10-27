@@ -18,7 +18,7 @@
     {
       "id": "tools-from-complex-geometry",
       "title": "Tools from Complex Geometry",
-      "tex": "chapters/dynamics-on-projective-spaces/tools-from-complex-geometry/Tools-from-complex-geometry.tex",
+      "tex": "chapters/dynamics-on-projective-spaces/Tools-from-complex-geometry/Tools-from-complex-geometry.tex",
       "url": "pdf/chapters/dynamics-on-projective-spaces/tools-from-complex-geometry/tools-from-complex-geometry.pdf",
       "compile": true,
       "status": {
