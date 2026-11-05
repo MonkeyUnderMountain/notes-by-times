@@ -18,6 +18,19 @@
   \colorbox{red!50}{#1}%
   \endgroup
 }
+% Preserve the surrounding math style, including in exponents and indices.
+\DeclareRobustCommand{\latexdeletedmath}[1]{%
+  \mathpalette\latexrevision@deletedmath{#1}%
+}
+\newcommand{\latexrevision@deletedmath}[2]{%
+  \mbox{\latexdeleted{\ensuremath{#1#2}}}%
+}
+\DeclareRobustCommand{\latexaddedmath}[1]{%
+  \mathpalette\latexrevision@addedmath{#1}%
+}
+\newcommand{\latexrevision@addedmath}[2]{%
+  \mbox{\latexmath{\ensuremath{#1#2}}}%
+}
 \tcbset{latexrevision/.style={%
   enhanced jigsaw,
   breakable,
