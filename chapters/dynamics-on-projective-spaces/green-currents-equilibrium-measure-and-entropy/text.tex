@@ -12,7 +12,7 @@ so that $f^*\scrO_{\bbP^d}(1) \cong \scrO_{\bbP^d}(q)$.
 \begin{definition}[label=\labelNFM{def:green-currents-of-dynamics}, status=draft, tag=0000000]
 	Let $f: \bbP^d \to \bbP^d$ be a $q$-polarized endomorphism.
 	The \emph{Green currents} of $f$ is defined as
-	\[ T_f \coloneqq \lim_{k \to \infty} \frac{(f^k)^*T_{\omega_\FS}}{q^k} \in \scrB^{1,1}(X). \]
+	\[ T_f \coloneqq \lim_{k \to \infty} \frac{(f^k)^*\omega_\FS}{q^k} \in \scrB^{1,1}(X). \]
 	It is a closed positive currents of degree $(1,1)$.
 	Its potential function, i.e., the function $g$ with
 	\[ T_f = \omega_\FS + \ddc g, \]
@@ -21,43 +21,14 @@ so that $f^*\scrO_{\bbP^d}(1) \cong \scrO_{\bbP^d}(q)$.
 
 \begin{example}[label=\labelNFM{eg:green-currents-of-power-map}, status=draft, tag=0000000]
 	Let $f: \bbP^1 \to \bbP^1$ be given by $z \mapsto z^q$.
-	Here the dimension is $d = 1$.
-	On the affine chart $\bbC \subset \bbP^1$, we have $\omega_\FS = \ddc\bigl(\frac{1}{2}\log(1 + |z|^2)\bigr)$ and $f^k(z) = z^{q^k}$.
-	Hence
-	\[ \left.\frac{(f^k)^*\omega_\FS}{q^k}\right|_{\bbC} = \ddc\left(\frac{1}{2q^k}\log(1 + |z|^{2q^k})\right). \]
-	The potentials converge locally uniformly to the escape-rate function
-	\[ G_f(z) \coloneqq \log\max\{1,|z|\}. \]
-	A global Green function in the preceding definition is
-	\[ g_f(z) = G_f(z) - \frac{1}{2}\log(1 + |z|^2), \qquad g_f(\infty) = 0. \]
-	It extends continuously to $\bbP^1$, and $T_f = \omega_\FS + \ddc g_f$.
-	Since the dimension is $1$, the Green current is already the equilibrium measure: $\mu_f = T_f$.
-	On $\bbC$, it is $\ddc G_f$, the normalized arc-length measure on the unit circle; explicitly,
-	\[ \int_{\bbP^1}\varphi\,\upd\mu_f = \frac{1}{2\pi}\int_0^{2\pi}\varphi(e^{\upi\theta})\,\upd\theta, \qquad \varphi \in C^0(\bbP^1). \]
-	Thus $\Supp T_f = J_1(f) = \{|z| = 1\}$.
+
 	See \cite[Example~1.23]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
 	\Yang{}
 \end{example}
 
 \begin{example}[label=\labelNFM{eg:green-currents-of-z2+c}, status=draft, tag=0000000]
 	Let $f_t: \bbP^1 \to \bbP^1$ be given by $z \mapsto z^2 + t$.
-	Fix $t \in \bbC$; here $d = 1$ and $q = 2$.
-	The escape-rate function is
-	\[ G_t(z) \coloneqq \lim_{k \to \infty}\frac{1}{2^k}\log\max\{1,|f_t^k(z)|\}. \]
-	The bound $\bigl|\log\max\{1,|z^2 + t|\} - 2\log\max\{1,|z|\}\bigr| \leq C_t$ for some $C_t$ independent of $z$,
-	applied along the orbit, bounds successive differences by $C_t/2^{k+1}$.
-	Thus the limit is locally uniform, and $G_t$ is continuous and subharmonic.
-	It satisfies
-	\[ G_t(f_t(z)) = 2G_t(z), \qquad G_t(z) - \log|z| \longrightarrow 0 \quad (z \to \infty). \]
-	The filled Julia set is
-	\[ K_t \coloneqq \{z \in \bbC : \sup_{k \geq 0}|f_t^k(z)| < \infty\} = \{G_t = 0\}. \]
-	The function $G_t$ is positive and harmonic on $\bbC \setminus K_t$.
-	The global Green function and Green current are
-	\[ g_t(z) = G_t(z) - \frac{1}{2}\log(1 + |z|^2), \qquad g_t(\infty) = 0, \qquad T_{f_t} = \omega_\FS + \ddc g_t. \]
-	Indeed, on $\bbC$ the normalized pullbacks of $\omega_\FS$ have potentials $2^{-k-1}\log(1 + |f_t^k(z)|^2)$,
-	which converge locally uniformly to $G_t$.
-	The current $T_{f_t}$ has no mass at $\infty$, and
-	\[ \mu_{f_t} = T_{f_t}, \qquad \mu_{f_t}|_{\bbC} = \ddc G_t, \qquad \Supp\mu_{f_t} = J_1(f_t) = \partial K_t. \]
-	For $t = 0$, this recovers the preceding example with $q = 2$.
+	The $\Supp T_f$ is the Julia set, and see \cite{Graven-2026-ComplexDynamicsVisualization}.
 	\Yang{}
 \end{example}
 
@@ -83,6 +54,7 @@ so that $f^*\scrO_{\bbP^d}(1) \cong \scrO_{\bbP^d}(q)$.
 \begin{proposition}[label=\labelNFM{prop:Julia-set-of-order1}, status=draft, tag=0000000]
 	Let $f: \bbP^d \to \bbP^d$ be a $q$-polarized endomorphism.
 	The Julia set of order $1$, $J_1(f)$, coincides with the usual Julia set.
+	That is, for any ...
 	\Yang{}
 \end{proposition}
 
@@ -98,7 +70,21 @@ so that $f^*\scrO_{\bbP^d}(1) \cong \scrO_{\bbP^d}(q)$.
 		      Here $\Per_n(f)$ counts multiplicity.
 	\end{enumerate}
 \end{theorem}
-\begin{proof}
+For a full analytic proof, see \cite[Section 1.4]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
+Here we give a proof \Yang{}
+\begin{proof}[Proof of a special case]
+	We give a proof assuming the arithmetic equidistirbution for small points (\Yang{}).
+
+	\begin{claim}[label=\labelNFM{claim:equidistirbution-from-arithmetic-equidistirbution}, status=draft, tag=0000000]
+	Set $P_n = \Per_n(f)$ or $f^{-n}(a)$.
+		There exists $x_n$ generic such that $\mu_{P_n} - \mu_{G_n} \to 0$
+	\end{claim}
+
+	\Yang{}
+\end{proof}
+
+\begin{proof}[Proof of \cref{claim:equidistirbution-from-arithmetic-equidistirbution}]
+	
 	\Yang{}
 \end{proof}
 

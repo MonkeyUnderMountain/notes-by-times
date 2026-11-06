@@ -847,6 +847,42 @@ The positivity of $\ddc u$ corresponds to the psh properties of $u$.
   so $\log|f|$ is pluriharmonic and $\ddc\log|f| = 0$.
 \end{example}
 
+\begin{example}[label=\labelNFM{eg:ddc-of-log-z}, status=draft, tag=0000000]
+	Let $X = \bbA^1(\bbC)$ and $u = \log |z|$.
+	This is a psh function and we have 
+	\[ \ddc u = \delta_0 \in \scrB^{1,1}(\bbC). \]
+
+	\Yang{}
+  Near $0$, on $U_1$ with coordinate $z = X_0/X_1$, we have
+  \[ u(z) = \frac{1}{2} \log(1 + |z|^2) - \log|z|, \qquad \omega|_{U_1} = \ddc\left(\frac{1}{2} \log(1 + |z|^2)\right). \]
+  Since $\log|z|$ is locally integrable, $u$ defines a real current of degree zero.
+  For $R > 0$ and $\phi \in \cinf_c(\{|z| < R\})$,
+  our normalization gives $\ddc\phi = (\Delta\phi/2\pi)\,\upd x \wedge \upd y$, where $z = x + \upi y$.
+  Set $A_{\varepsilon,R} \coloneqq \{\varepsilon < |z| < R\}$ and $h(z) \coloneqq \log|z|$.
+  In real coordinates, for any smooth function $\psi$, we have
+    \[ \upd^c\psi = \frac{1}{2\pi}(\psi_x\,\upd y - \psi_y\,\upd x). \]
+    Thus $\upd h \wedge \upd^c\phi = \upd\phi \wedge \upd^c h$.
+    Also, $\ddc h = 0$ on $A_{\varepsilon,R}$.
+    The product rule therefore gives
+    \[ \upd(h\,\upd^c\phi - \phi\,\upd^c h) = h\,\ddc\phi. \]
+    The boundary of $A_{\varepsilon,R}$ consists of the counterclockwise outer circle and the clockwise inner circle.
+    Reparametrizing the inner circle counterclockwise changes the sign of its integral.
+    With $z = \varepsilon e^{\upi\theta}$ and $\theta$ increasing, the restrictions to this circle are
+    \[ \upd^c h = \frac{\upd\theta}{2\pi}, \qquad \upd^c\phi = \frac{\varepsilon}{2\pi}\partial_r\phi(\varepsilon e^{\upi\theta})\,\upd\theta. \]
+  Since $\phi$ vanishes near $|z| = R$,
+  green's formula on $\{\varepsilon < |z| < R\}$ gives
+  \begin{align*}
+    \int_{\varepsilon < |z| < R} \log|z|\,\ddc\phi & = \int_{\partial A_{\varepsilon,R}} (h\,\upd^c\phi - \phi\,\upd^c h) = \int_{|z| = \varepsilon} (\phi\,\upd^c h - h\,\upd^c\phi) \\
+    & = \frac{1}{2\pi} \int_0^{2\pi} \left(\phi(\varepsilon e^{\upi\theta}) - \varepsilon \log\varepsilon\,\partial_r\phi(\varepsilon e^{\upi\theta})\right)\,\upd\theta \\
+    & \longrightarrow \phi(0) \qquad (\varepsilon \to 0).
+  \end{align*}
+  Since $\log|z|$ is locally integrable and $\ddc\phi$ has bounded coefficients with compact support,
+  the left side of the preceding boundary identity tends to $\int_{|z| < R}\log|z|\,\ddc\phi$.
+  Thus $\int_{|z| < R}\log|z|\,\ddc\phi = \phi(0)$.
+
+	\Yang{}
+\end{example}
+
 \begin{example}[label=\labelNFM{eg:green-function-of-lines-is-psh}, status=draft, tag=0000000]
 	Let $H = \{X_0 = 0\} \subset \bbP^d$ and let $\omega_{\mathrm{FS}}$ be the Fubini--Study form in \cref{eg:fubini-study-form-on-pn-as-kahler-manifold}.
 	Set
@@ -1167,32 +1203,8 @@ Here $\varphi_i$ denotes its continuous extension to $U_i$.
   \[ \int_{\bbP^1} f \cdot (\omega - \delta_0) = \int_{\bbP^1} f \cdot \ddc (- \log \|X_0\|_{\mathrm{FS}}). \]
   This suggests taking $u = g_H = -\log \|X_0\|_{\mathrm{FS}}$.
 
-  Near $0$, on $U_1$ with coordinate $z = X_0/X_1$, we have
-  \[ u(z) = \frac{1}{2} \log(1 + |z|^2) - \log|z|, \qquad \omega|_{U_1} = \ddc\left(\frac{1}{2} \log(1 + |z|^2)\right). \]
-  Since $\log|z|$ is locally integrable, $u$ defines a real current of degree zero.
-  For $R > 0$ and $\phi \in \cinf_c(\{|z| < R\})$,
-  our normalization gives $\ddc\phi = (\Delta\phi/2\pi)\,\upd x \wedge \upd y$, where $z = x + \upi y$.
-  Set $A_{\varepsilon,R} \coloneqq \{\varepsilon < |z| < R\}$ and $h(z) \coloneqq \log|z|$.
-  In real coordinates, for any smooth function $\psi$, we have
-    \[ \upd^c\psi = \frac{1}{2\pi}(\psi_x\,\upd y - \psi_y\,\upd x). \]
-    Thus $\upd h \wedge \upd^c\phi = \upd\phi \wedge \upd^c h$.
-    Also, $\ddc h = 0$ on $A_{\varepsilon,R}$.
-    The product rule therefore gives
-    \[ \upd(h\,\upd^c\phi - \phi\,\upd^c h) = h\,\ddc\phi. \]
-    The boundary of $A_{\varepsilon,R}$ consists of the counterclockwise outer circle and the clockwise inner circle.
-    Reparametrizing the inner circle counterclockwise changes the sign of its integral.
-    With $z = \varepsilon e^{\upi\theta}$ and $\theta$ increasing, the restrictions to this circle are
-    \[ \upd^c h = \frac{\upd\theta}{2\pi}, \qquad \upd^c\phi = \frac{\varepsilon}{2\pi}\partial_r\phi(\varepsilon e^{\upi\theta})\,\upd\theta. \]
-  Since $\phi$ vanishes near $|z| = R$,
-  green's formula on $\{\varepsilon < |z| < R\}$ gives
-  \begin{align*}
-    \int_{\varepsilon < |z| < R} \log|z|\,\ddc\phi & = \int_{\partial A_{\varepsilon,R}} (h\,\upd^c\phi - \phi\,\upd^c h) = \int_{|z| = \varepsilon} (\phi\,\upd^c h - h\,\upd^c\phi) \\
-    & = \frac{1}{2\pi} \int_0^{2\pi} \left(\phi(\varepsilon e^{\upi\theta}) - \varepsilon \log\varepsilon\,\partial_r\phi(\varepsilon e^{\upi\theta})\right)\,\upd\theta \\
-    & \longrightarrow \phi(0) \qquad (\varepsilon \to 0).
-  \end{align*}
-  Since $\log|z|$ is locally integrable and $\ddc\phi$ has bounded coefficients with compact support,
-  the left side of the preceding boundary identity tends to $\int_{|z| < R}\log|z|\,\ddc\phi$.
-  Thus $\int_{|z| < R}\log|z|\,\ddc\phi = \phi(0)$.
+	\Yang{by ref}
+
 
   Hence $\ddc\log|z| = \delta_0$, and
   \[ \langle \ddc u,\phi\rangle = \int_{U_1} u\,\ddc\phi = \int_{U_1} \phi\,\omega - \phi(0). \]
