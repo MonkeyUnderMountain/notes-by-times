@@ -48,7 +48,7 @@ so that $f^*\scrO_{\bbP^d}(1) \cong \scrO_{\bbP^d}(q)$.
 \begin{definition}[label=\labelNFM{def:equilibrium-measure}, status=draft, tag=0000000]
 	Let $f: \bbP^d \to \bbP^d$ be a $q$-polarized endomorphism.
 	We define $T_f^p = T_f^{\wedge p}$ and $J_p(f) \coloneqq \Supp T_f^p$, called the \emph{Julia set of order $p$} of $f$.
-	For $p = d$, we set $\mu_f \coloneqq T_f^d$, called the emph{equilibrium-measure} of $f$.
+	For $p = d$, we set $\mu_f \coloneqq T_f^d$, called the \latexdeleted{emph\{equilibrium-measure\}}\latexgrammar{\emph{equilibrium measure}} of $f$.
 \end{definition}
 
 \begin{proposition}[label=\labelNFM{prop:Julia-set-of-order1}, status=draft, tag=0000000]
@@ -57,6 +57,7 @@ so that $f^*\scrO_{\bbP^d}(1) \cong \scrO_{\bbP^d}(q)$.
 	That is, for any ...
 	\Yang{}
 \end{proposition}
+
 
 \begin{theorem}[label=\labelNFM{thm:equidistribution-of-backforward-orbit-and-periodic-points}, status=draft, tag=0000000]
 	Let $f: \bbP^d \to \bbP^d$ be a $q$-polarized endomorphism.
@@ -68,29 +69,153 @@ so that $f^*\scrO_{\bbP^d}(1) \cong \scrO_{\bbP^d}(q)$.
 		\item We have
 		      \[ \frac{1}{q^{nd}} \sum_{y \in \Per_n(f)} \delta_y \to \mu_f. \]
 		      Here $\Per_n(f)$ counts multiplicity.
+		      \begin{latexmathchange}
+		      We use $\Per_n(f) = \operatorname{Fix}(f^n)$, so the exact period divides $n$.
+		      Its multiplicity at $y$ is the local intersection multiplicity of the graph of $f^n$ with the diagonal at $(y,y)$.
+		      Its total multiplicity is $1+q^n+\cdots+q^{dn}$, whose ratio to $q^{dn}$ tends to $1$.
+		      \end{latexmathchange}
 	\end{enumerate}
 \end{theorem}
 For a full analytic proof, see \cite[Section 1.4]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
-Here we give a proof \Yang{}
-\begin{proof}[Proof of a special case]
-	We give a proof assuming the arithmetic equidistirbution for small points (\Yang{}).
+Here we give an arithmetic proof in the reduced case. \Yang{}
+\begin{latexmathchange}
+Let $K\subset\bbC$ be a number field and $f:\bbP^d_K\to\bbP^d_K$ have degree $q\geq2$.
+The canonical metric is defined by the same pullback limit as $T_f$, so
+\[ c_1(\bar L_f)_v=T_f, \qquad \mu_{\bar L_f,v}=T_f^d=\mu_f. \]
+The canonical height identities give
+\[ \widehat h_f(f(y))=q\widehat h_f(y), \qquad q\widehat h_f(\bbP^d)=\widehat h_f(\bbP^d)\quad\Longrightarrow\quad\widehat h_f(\bbP^d)=0. \]
+The only equidistribution input below is \hyperref[thm:equidistribution-of-small-points]{arithmetic equidistribution for generic small points}.
+\end{latexmathchange}
+\begin{latexmathchange}
+For a finite Galois-invariant cycle $P_n=\sum_y m_n(y)[y]$ and a Galois orbit $G$, put
+\[ M_n=\sum_y m_n(y), \qquad \mu_{P_n}=M_n^{-1}\sum_y m_n(y)\delta_y, \qquad \mu_G=\frac1{\#G}\sum_{y\in G}\delta_y. \]
+\end{latexmathchange}
 
-	\begin{claim}[label=\labelNFM{claim:equidistirbution-from-arithmetic-equidistirbution}, status=draft, tag=0000000]
-		Set $P_n = \Per_n(f)$ or $f^{-n}(a)$.
-		There exists $x_n \in P_n$ generic such that $\mu_{P_n} - \mu_{G_n} \to 0$, where $G_n$ is the Galois orbit of $x_n$.
-	\end{claim}
+\Needspace{14\baselineskip}
+\begin{lemma}[label=\labelNFM{lem:algebraic-fixed-point-counts}, status=draft, tag=0000000]
+\leavevmode\par
+Let $f:\bbP^d_k \to \bbP^d_k$ be an endomorphism of algebraic degree $q \geq 2$, where $k$ is algebraically closed.
+The fixed-point scheme of $f^n$ is finite, of length
+\[ N_n = 1+q^n+\cdots+q^{dn}. \]
+For an integral subvariety $Z$ of dimension $r$,
+\[ \#\bigl(Z\cap\operatorname{Fix}(f^n)\bigr) \leq \deg(Z)(q^n+1)^r, \]
+where the second formula counts distinct points, regardless of their ambient fixed-point multiplicities.
 
-	\Yang{}
+\end{lemma}
+\Needspace{18\baselineskip}
+\begin{proof}
+\leavevmode\par
+A positive-dimensional fixed locus would contain a projective curve $C$.
+The equality $f^n|_C = \mathrm{id}_C$ would imply both $(f^n)^*\calO(1)|_C = \calO(1)|_C$ and $(f^n)^*\calO(1)|_C = \calO(q^n)|_C$, contradicting positive degree on $C$.
+Thus the graph $\Gamma_n$ meets the diagonal $\Delta$ in a zero-dimensional scheme.
+Both are smooth of dimension $d$ in $\bbP^d\times\bbP^d$, so their proper intersection multiplicities are the local lengths of this scheme.
+In the Chow ring, with $h_1,h_2$ the two hyperplane classes,
+\[ [\Delta] = \sum_{i = 0}^d h_1^i h_2^{d-i}, \qquad \deg(\Gamma_n\cdot\Delta) = \sum_{i = 0}^d q^{n(d-i)} = N_n. \]
+The formula for $[\Delta]$ follows by pairing with the complementary monomials; each such intersection has degree one on the diagonal.
+This proves the length formula without an analytic fixed-point theorem.
+
+Write $f^n = [F_0:\cdots:F_d]$, with the $F_i$ homogeneous of degree $Q = q^n$.
+Its fixed-point scheme is cut out by $X_iF_j-X_jF_i$, all of degree $Q+1$.
+Their base locus is finite.
+Choose $r$ general linear combinations of these equations so that their common zeros on $Z$ are finite: at each step, none of the remaining positive-dimensional components is contained in all the equations.
+The resulting intersection contains $Z\cap\operatorname{Fix}(f^n)$.
+Projective B\'ezout gives degree at most $\deg(Z)(Q+1)^r$, hence the distinct-point bound.
+For a reducible proper $Z$, summing over its irreducible components gives a bound $C_Z(q^n+1)^r$, with $r = \dim Z < d$.
+
 \end{proof}
+
+\Needspace{18\baselineskip}
+\begin{claim}[label=\labelNFM{claim:equidistirbution-from-arithmetic-equidistirbution}, status=draft, tag=0000000, title={Galois-orbit criterion}]
+
+Let $P_n$ be nonempty finite $K$-Galois-invariant multisets of algebraic points, whose multiplicities are constant on each Galois orbit.
+Suppose their heights tend to zero uniformly,
+\[ \max_{y \in \operatorname{Supp}P_n}\widehat h_f(y) \longrightarrow 0, \]
+and they do not concentrate on proper algebraic subsets:
+\[ \mu_{P_n}(Z) \longrightarrow 0 \qquad\text{for every proper closed }Z \subsetneq \bbP^d_{\bar K}. \tag{NC}\label{eq:arithmetic-orbit-non-concentration} \]
+Then $\mu_{P_n} \to \mu_f$ weakly at the fixed complex embedding.
+Moreover, one can choose a generic sequence $x_n \in \operatorname{Supp}P_n$ such that, for $G_n = \operatorname{Gal}(\bar K/K)\cdot x_n$,
+\[ \mu_{G_n} \longrightarrow \mu_f, \qquad \mu_{P_n}-\mu_{G_n} \longrightarrow 0. \]
+This makes no assertion that one orbit carries an asymptotically full fraction of $P_n$.
+\end{claim}
 
 \begin{proof}[Proof of \cref{claim:equidistirbution-from-arithmetic-equidistirbution}]
 
-	\toai{please fill a proof of the claim, this may be difficult, you can take a long time to think. add necessary references}
-	\Yang{}
+	 \textbf{Step 1: choose a generic sequence.}
+	The field $\bar K$ is countable, so enumerate the proper closed subsets of $\bbP^d_{\bar K}$ as $Z_1,Z_2,\ldots$.
+	Replace each $Z_j$ by the union of its finitely many $K$-Galois conjugates, so it remains proper and is defined over $K$.
+	Put $F_r = Z_1\cup\cdots\cup Z_r$.
+	By (NC), choose strictly increasing integers $N_r \geq r$ such that $\mu_{P_n}(F_r) < 1/2$ for every $n \geq N_r$.
+	For $n \geq N_1$, put $r(n) = \max\{r:N_r \leq n\}$ and choose $x_n \in \operatorname{Supp}P_n\setminus F_{r(n)}$.
+	Choose the finitely many earlier terms arbitrarily.
+	Since $r(n) \to \infty$, this sequence eventually avoids every proper closed subset, so it is generic.
+	The uniform height estimate above makes it small, and arithmetic equidistribution gives $\mu_{G_n} \to \mu_f$.
+
+	 \textbf{Step 2: pass from individual orbits to the whole cycle.}
+	Fix a continuous real-valued $\varphi$ and $\epsilon > 0$.
+	Call an orbit $G \subset \operatorname{Supp}P_n$ bad if
+	\[ \left|\int\varphi\,\upd\mu_G-\int\varphi\,\upd\mu_f\right| \geq \epsilon, \]
+	and let $B_n$ be the union of these bad orbits.
+	We claim that $\mu_{P_n}(B_n) \to 0$.
+	Otherwise choose $\eta > 0$ and infinitely many $n$ with $\mu_{P_n}(B_n) \geq \eta$.
+	For each $j$, choose an increasing such $n_j$ large enough that $\mu_{P_{n_j}}(F_j) < \eta/2$.
+	There is then a point $y_j \in B_{n_j}\setminus F_j$.
+	The sequence $(y_j)$ is generic and small, so arithmetic equidistribution forces its orbit measures to converge to $\mu_f$.
+	This contradicts their being bad for the fixed $\varphi,\epsilon$.
+
+	Multiplicities are constant on every $K$-Galois orbit, so $\mu_{P_n}$ is a convex combination of the orbit probability measures, with coefficients $m_n(y)\#G/M_n$ for $y \in G$.
+	The good and bad orbits give
+	\[ \left|\int\varphi\,\upd\mu_{P_n}-\int\varphi\,\upd\mu_f\right| \leq \epsilon+2\|\varphi\|_\infty\mu_{P_n}(B_n). \]
+	Let $n \to \infty$ and then $\epsilon \to 0$ to obtain $\mu_{P_n} \to \mu_f$.
+	Together with  the chosen generic sequence, this proves $\mu_{P_n}-\mu_{G_n} \to 0$.
+	The argument explains why one must control the mass of all bad orbits, rather than only choose one generic small orbit.
+\end{proof}
+
+\Needspace{10\baselineskip}
+\begin{latexmathchange}
+Assume $f$ is defined over a number field $K \subset \bbC$, and, for backward orbits, enlarge $K$ so that $a \in \bbP^d(K)\setminus\calE_f$.
+\latexdeleted{We use arithmetic equidistribution for generic small points from the heights chapter.}
+In the backward case assume $f^{-n}(a)$ is reduced for every $n \geq 1$; in the periodic case assume $\operatorname{Fix}(f^n)$ is reduced for every $n \geq 1$.
+These are separate hypotheses, imposed only in their respective cases.
+\latexdeleted{The full weighted argument is given in the theorem on arithmetic equidistribution of dynamical cycles in the Equidistribution section.}
+\end{latexmathchange}
+\Needspace{16\baselineskip}
+\begin{proof}[Arithmetic proof in the reduced case]
+\leavevmode\par
+\begin{latexmathchange}
+Let $P_n$ be the set of backward points or fixed points, and put
+\[ M_n = \#P_n, \qquad \mu_{P_n} = M_n^{-1}\sum_{y \in P_n}\delta_y. \]
+Reducedness makes all multiplicities one.
+The fiber degree gives $M_n = q^{dn}$ in the backward case; the algebraic fixed-point count gives $M_n = N_n \coloneqq 1+q^n+\cdots+q^{dn}$ in the periodic case.
+\latexdeleted{For the latter count, see the fixed-point counting lemma in the Equidistribution section.} The count is proved in \cref{lem:algebraic-fixed-point-counts} above.
+\end{latexmathchange}
+\begin{latexmathchange}
+Let $Z \subsetneq \bbP^d_{\bar K}$ be integral of dimension $r$.
+In the backward case, pull back $r$ general hyperplanes through $a$ whose intersection with $f^n(Z)$ is finite.
+B\'ezout gives $\#(P_n\cap Z) \leq \deg(Z)q^{nr}$, hence
+\[ \mu_{P_n}(Z) \leq \deg(Z)q^{-n(d-r)} \longrightarrow 0. \]
+In the periodic case, write $f^n = [F_0:\cdots:F_d]$.
+The fixed locus is cut out by $X_iF_j-X_jF_i$, of degree $q^n+1$.
+Taking $r$ general linear combinations on $Z$ and applying B\'ezout gives
+\[ \mu_{P_n}(Z) \leq \frac{\deg(Z)(q^n+1)^r}{N_n} \longrightarrow 0. \]
+The assertion for reducible $Z$ follows by summing over its components.
+\end{latexmathchange}
+\begin{latexmathchange}
+All points of $P_n$ have canonical height zero in the periodic case, and $q^{-n}\widehat h_f(a)$ in the backward case.
+Thus they are uniformly small, and the preceding estimates give non-concentration on every proper closed subset.
+\latexdeleted{The Galois-orbit criterion proved in the Equidistribution section now yields $\mu_{P_n}\to\mu_f$.} By \cref{claim:equidistirbution-from-arithmetic-equidistirbution}, $\mu_{P_n}\to\mu_f$.
+Its argument is to choose a generic small sequence from any positive mass of Galois orbits whose averages fail to approach $\mu_f$; arithmetic equidistribution rules out such a sequence.
+Finally $M_n/q^{dn} \to 1$, which gives the stated normalization.
+\end{latexmathchange}
 \end{proof}
 
 \begin{remark}[label=\labelNFM{rmk:the-totally-invariant-locus-and-its-linearity}, status=draft, tag=0000000]
-	The totally invariant locus $\calE_f$ is defined as
+	\latexdeleted{The totally invariant locus $\calE_f$ is defined as}
+	\begin{latexmathchange}
+	The exceptional, or totally invariant, locus $\calE_f$ is the largest proper algebraic subset satisfying $f^{-1}(\calE_f) = \calE_f = f(\calE_f)$.
+	Equivalently, it is the union of the proper totally invariant algebraic subsets.
+	There are only finitely many such subsets; see \cite[\S 1.4]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
+	This is the locus used in the non-concentration argument above.
+	\end{latexmathchange}
 	\Yang{}
 \end{remark}
 

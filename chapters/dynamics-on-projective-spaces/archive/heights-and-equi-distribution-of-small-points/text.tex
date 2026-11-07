@@ -1,0 +1,706 @@
+% !TeX root = heights-and-equi-distribution-of-small-points.tex
+\section{Heights and equi-distribution of small points}
+
+The main references are \cite{Yuan-Guo-2025-FirstCourseArakelov}.
+
+We also refer to \cite[Appendices~A.5--A.6 and \S 5.4]{Yuan-Zhang-2026-AdelicLineBundles} and \cite[Chapter~3]{Chambert-Loir-2012-ArakelovGeometryHeights}.
+
+We will use the language of Berkovich space, for reference, see \cite{Berkovich-2012-SpectralTheoryAnalytic,Ducros-Favre-Nicaise-2015-BerkovichSpacesApplications}.
+
+\begin{notation}[label=\labelNFM{not:berkovich-space-and-a-geometry}, status=draft, tag=0000000]
+	We fix some notations that will be frequently used in this section.
+	\begin{itemize}
+		\item \latexdeleted{Recall that a \emph{valuation field} is a ...}
+		      \begin{latexmathchange}
+		      A \emph{valuation field} $(\kk,|\cdot|)$ is a field with an absolute value:
+		      $|a| = 0$ if and only if $a = 0$, $|ab| = |a||b|$, and $|a+b| \leq |a|+|b|$.
+		      Completeness always refers to the metric $|a-b|$.
+		      \end{latexmathchange}
+		      It is non-archimedean if $|a + b| \leq \max\{|a|,|b|\}$.
+		      Two nontrivial absolute values define the same \emph{place} if they differ by a positive real power.
+		      \Yang{}
+		      \latexdeleted{To Ai: finish the notation, both $\calO_\kk$ and $\kk^\circ$}
+		      \begin{latexmathchange}
+		      For a non-archimedean valuation field, put
+		      \[ \calO_\kk = \kk^\circ \coloneqq \{a \in \kk : |a| \leq 1\}, \qquad \frakm_\kk = \kk^{\circ\circ} \coloneqq \{a \in \kk : |a| < 1\}. \]
+		      Then $\kk^\circ$ is a valuation ring with fraction field $\kk$, unique maximal ideal $\frakm_\kk$, and residue field
+		      \[ \calk = \widetilde{\kk} \coloneqq \kk^\circ/\kk^{\circ\circ}, \qquad (\kk^\circ)^* = \{a \in \kk : |a| = 1\}. \]
+		      These notations also apply to complete extensions such as $\scrH(x)$.
+		      The ring $\calO_K$ of integers of a number field is a global object; at a finite place $v$, the corresponding local valuation ring is $\calO_{K_v} = K_v^\circ$.
+		      \end{latexmathchange}
+		\item Let $K$ be a number field, $M_K$ its set of places, and $M_K^f$, $M_K^\infty$ its subsets of finite and infinite places.
+		      Write $K_v$ for the completion at $v$.
+		      For $v \mid p$, normalize $|\cdot|_v$ to extend the usual absolute value on $\bbQ_p$, with $|p|_p = p^{-1}$ at finite places and $\bbQ_\infty = \bbR$.
+		      Set $n_v \coloneqq [K_v:\bbQ_p]/[K:\bbQ]$ for $v \mid p$ and $p \in M_\bbQ$ \latexdeleted{and $n_v$} \Yang{}
+		      \begin{latexmathchange}
+		      Thus $n_v = 1/[K:\bbQ]$ at a real place and $n_v = 2/[K:\bbQ]$ at a complex place, using the usual complex modulus.
+		      Write $\bbC_v$ for the completion of an algebraic closure of $K_v$; at an infinite place this means $\bbC$.
+		      \end{latexmathchange}
+		      Then we have the product formula
+		      \[ \sum_{v \in M_K}n_v\log|a|_v = 0 \quad (a \in K^*). \]
+		\item Unless otherwise stated, $X$ is a geometrically integral projective variety over $K$, $d = \dim X \geq 1$, and $L$ is a line bundle on $X$.
+		      Write $X_{\bar{v}}^\an \coloneqq (X_{\bbC_v})^\an$ for its Berkovich analytification; see \Yang{}.
+		      \begin{latexmathchange}
+		      In the local measure notation below, $X_v^\an$ is also an abbreviation for $X_{\bar v}^\an$.
+		      At an infinite place this is $X(\bbC)$ with its usual analytic topology.
+		      Thus Galois conjugates are averaged on the space over $\bbC_v$, before taking any quotient by the local Galois group.
+		      \end{latexmathchange}
+
+		\item Let $\kk$ be a field and $R$ be a ring such that $\Frac R = \kk$.
+		      Let $X$ be a variety over $\kk$.
+		      \latexdeleted{A \emph{flat model} of $X$ over $R$ is}
+		      \begin{latexmathchange}
+		      A \emph{flat model} of $X$ over $R$ is a flat separated $R$-scheme $\calX$ of finite type, together with a specified isomorphism $\calX_\kk \cong X$.
+		      Here $R$ is understood to be a domain.
+		      \end{latexmathchange}
+		      If $X/\kk$ is proper (resp. projective), we require that $\calX/R$ is also proper (resp. projective).
+		      \Yang{}
+	\end{itemize}
+	\Yang{}
+\end{notation}
+
+\begin{proposition}[label=\labelNFM{prop:spreading-out-for-berkovich}, status=draft, tag=0000000]
+	\latexdeleted{Let $R$ be a integral ring with $\Frac R = \kk$ and $X/\kk$ a variety.}
+	\latexdeleted{Then $X$ has a flat model.}
+	\latexdeleted{If $X/\kk$ is proper or projective, then $\calX/R$ can also be taken to be...}
+	\latexdeleted{When $R$ is a valuation ring and $\calX/R$ is proper, we have the reduction map $X(\overline{\kk}) \to \calX_\calk$.}
+	\latexdeleted{To Ai: finish the prop and give a references}
+	\begin{latexmathchange}
+	Let $R$ be a domain with fraction field $\kk$, and let $X/\kk$ be a variety.
+	\begin{enumerate}
+		\item There exists $0 \neq s \in R$ such that $X$ has a flat model of finite presentation over $R[1/s]$.
+		      If $X$ is proper, respectively projective, the model can be chosen proper, respectively projective.
+		\item If $R = \kk^\circ$ for a non-archimedean valuation field with a real-valued absolute value, $X$ has a flat model over $R$ itself.
+		      Properness and projectivity can again be preserved.
+		\item Suppose moreover that $\kk$ is complete and $\calX/R$ is a proper flat model.
+		      There is a reduction map
+		      \[ \frakr_\calX : X^\an \longrightarrow |\calX_\calk|. \]
+		      For a classical point, this is obtained by extending the point over the valuation ring of a finite extension of $\kk$ and taking its special point.
+	\end{enumerate}
+	For spreading out and generic flatness, see \cite[Tags \href{https://stacks.math.columbia.edu/tag/01ZM}{01ZM}, \href{https://stacks.math.columbia.edu/tag/051S}{051S}]{Stacksprojectauthors-2026-StacksProject}.
+	For the valuation-ring argument and proper extension of points, see Tags \href{https://stacks.math.columbia.edu/tag/0539}{0539} and \href{https://stacks.math.columbia.edu/tag/0BX4}{0BX4} of the same reference.
+	\end{latexmathchange}
+\end{proposition}
+\begin{proof}
+	\Yang{}
+	\begin{latexmathchange}
+	Finite presentation allows the equations and gluing data of $X$ to descend to $R[1/s]$.
+	After enlarging $s$, properness or a chosen projective embedding also descends.
+	Generic freeness on a finite affine covering then makes this model flat after a further localization.
+	This explains why the assertion over a general domain is a statement over an open part of its spectrum.
+
+	Now let $R = \kk^\circ$.
+	If the valuation is trivial, take $\calX = X$.
+	Otherwise choose $a$ with $0 < |a| < 1$.
+	For every $b \in \kk$, one has $a^n b \in R$ for sufficiently large $n$, so $\kk = R[1/a]$.
+	Consequently $X$, viewed as an $R$-scheme, is already a flat model of finite presentation, though its special fiber is empty.
+	If $X$ is proper over $\kk$, apply Nagata compactification over $R$ and take the schematic closure of $X$ in the compactification.
+	Its generic fiber is $X$, because a proper open subscheme of the separated generic fiber is also closed there.
+	The closure is integral, hence torsion free over $R$, hence flat by Tag \href{https://stacks.math.columbia.edu/tag/0539}{0539}.
+	For a projective $X$, use instead its schematic closure in $\bbP^N_R$.
+	Nagata compactification is \cite[Tag \href{https://stacks.math.columbia.edu/tag/0F41}{0F41}]{Stacksprojectauthors-2026-StacksProject}.
+
+	Finally, for $x \in X^\an$, properness extends $\Spec\scrH(x) \to X$ uniquely to $\Spec\scrH(x)^\circ \to \calX$.
+	The image of the closed point lies in $\calX_\calk$ and defines $\frakr_\calX(x)$.
+	For $x \in X(\overline{\kk})$, completeness gives the unique extension of the absolute value to its finite field of definition.
+	The same valuative criterion gives its reduction.
+	The target is the underlying special-fiber space; its points need not be $\calk$-rational.
+	\end{latexmathchange}
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:adic-metric-and-model-metric}]{Berkovich space, adic metric and model metric}
+
+On this subsection, fix a non-archimedean completed valuation field $\kk$.
+
+Let $X$ be a variety over a complete valuation field $\kk$.
+Recall its Berkovich analytification.
+
+\begin{construction}[label=\labelNFM{constr:berkovich-analytification}, status=draft, tag=0000000]
+	Let $X$ be a variety over a complete valuation field $(\kk,|\cdot|)$.
+	For an affine open $U = \Spec A \subset X$, its \emph{Berkovich analytification} is defined as
+	\[ U^\an \coloneqq \left\{  \text{  multiplicative seminorm } \rho: A \to \bbR_{\geq 0} \text{ whose restriction on } \kk \text{ is } |\cdot| \right\}. \]
+	Its topology is the weakest one for which $x \mapsto \|a\|_x$ is continuous for every $a \in A$.
+	The affine spaces glue to a set $X^\an$.
+	We have
+	\[ X^\an = \left\{ (x,\gamma) \;\middle|\; x \in |X|, \gamma \text{ an absolute value on } \rkk(x) \text{ extending } |\cdot| \text{ on } \kk \right\}. \]
+	Given $\rho \in U^\an$, we can get a scheme-theoretic point $\wp_\rho \coloneqq \Ker \rho$ and a absolute value on $\rkk(\wp_\rho) = \latexdeletedmath{A/\wp_\rho}\latexaddedmath{\Frac(A/\wp_\rho)}$ by $\bar{a} \mapsto \rho(a)$ \latexmath{and extension to fractions}.
+	Conversely, given $(x,\gamma)$ and any affine neighborhood $U$ of $x$, we can define a multiplicative seminorm by $\calO_X(U) \to \rkk(x) \xrightarrow{\gamma} \bbR_{\geq 0}$.
+
+	On $X^\an$, there is a Grothendieck topology.
+	\Yang{}
+
+
+	For $x \in X_v^\an$, let $\scrH(x)$ denote its completed residue field.
+	\Yang{}
+\end{construction}
+
+
+Finally, let us recall some useful construction and properties of Berkovich space.
+
+\begin{construction}[label=\labelNFM{constr:related-construction-in-berkovich-space}, status=draft, tag=0000000]
+	Let us recall some construction; see \cite[Section 9.1.1]{Yuan-Guo-2025-FirstCourseArakelov}.
+	\begin{itemize}
+		\item \emph{Completed residue field.} Let $X/\kk$ be a variety and $(x,\rho) \in X^\an$.
+		      The completed residue field is defined as the completion of $\rkk(x)$ with respect to $\rho$, denoted by $\scrH(x)$.
+		\item \emph{Classical points.} Recall that for a finite extension $\bfl/\kk$ with $\kk$ completed valuation field, there exists a unique absolute valuation $\rho_{\bfl/\kk}$ on $\bfl$ extending the one on $\kk$.
+		      Then we have a map
+		      \[ \fraki: X(\overline{\kk}) \to X^\an, \qquad x \mapsto (x,\rho_{\rkk(x)/\kk}). \]
+		      \latexdeleted{This map is the unique section of the forget map $X^\an \to |X|$ and hence injective.}
+		      \begin{latexmathchange}
+		      Geometric points with the same $\kk$-Galois orbit have the same image in $X^\an$.
+		      More precisely, closed scheme points, rather than all geometric points separately, give an injection $|X|_{\mathrm{cl}} \hookrightarrow X^\an$.
+		      For example, over $\bbQ_p$ all conjugates of an algebraic number give the same seminorm on $\bbQ_p[T]$.
+		      Over an algebraically closed field the classical-point map itself is injective.
+		      \end{latexmathchange}
+		\item \emph{Functoriality}
+		\item \emph{Reduction map.} Let $X/\kk$ be a projective variety with a projective integral model $\calX/\calO_\kk$.
+		      For every $x = (x,\rho) \in X^\an$, by the valuation criterion, we have the diagram
+		      \[
+			      \begin{tikzcd}
+				      \Spec \scrH(x) & \Spec \rkk(x) & \calX \\
+				      \Spec \calO_{\scrH(x)} = \{\scrH(x), \calk_{\scrH(x)}\} & & \Spec \calO_\kk = \{\kk,\calk\}.
+				      \arrow[from=1-1, to=1-2]
+				      \arrow[from=1-2, to=1-3, "x"]
+				      \arrow[from=1-1, to=2-1]
+				      \arrow[from=1-3, to=2-3]
+				      \arrow[from=2-1, to=2-3]
+				      \arrow[from=2-1, to=1-3, gray, "\exists! \tilde{x}"]
+			      \end{tikzcd}
+		      \]
+		      Set the reduction map as
+		      \[ \frakr_\calX: X^\an \to \calX_\calk, \qquad x \mapsto \tilde{x}(\calk_{\scrH(x)}). \]
+		      This reduction map $\frakr_\calX$ extends the reduction map of classical points in \cref{prop:spreading-out-for-berkovich} along $\fraki$.
+	\end{itemize}
+
+
+
+	\Yang{}
+\end{construction}
+
+
+Let us turn to the metric on line bundles.
+
+\begin{definition}[label=\labelNFM{def:adic-metric}, status=draft, tag=0000000]
+	Let $L$ be a line bundle on $X$.
+	A \emph{continuous $v$-adic metric} on $L$ is a family of norms $\|\cdot\|_{x}$ on the one-dimensional $\scrH(x)$-vector space $L(x)$ for every $x \in X_{\bar{v}}^\an$ for any continuous local section $s \in \Gamma(L,U;\scrC)$, the function $x \mapsto \|s(x)\|_x$ is continuous;
+	and is Galois-invariant, i.e., $\|\sigma(s)\|_{\latexdeletedmath{x}\latexaddedmath{\sigma(x)}} = \|s\|_x$ for all $\sigma \in \Gal(\overline{K_v}/K_v)$.
+	The pair $\bar L_v = (L,\|\cdot\|_v)$ is called a \emph{metrized line bundle}.
+\end{definition}
+
+\begin{example}[label=\labelNFM{eg:standard-metrics-on-projective-space}, status=draft, tag=0000000]
+	Let $\bbP^d$ with coordinates $[x_0:\cdots:x_d]$ and $L = \calO(1)$.
+	The following rule gives a $v$-adic metric on $L$:
+	\[ X_k \mapsto \frac{|X_k|_v}{\max_{0 \leq i \leq d}|X_i|_v}. \]
+	This is called the \emph{standard metric} on $\calO(1)$.
+\end{example}
+
+Now we introduce a class of metric, which miraculously serves as a non-archimedean analoge of $\cinf$-function.
+
+First let see the complex case, $(X,L)/\bbC$.
+To determine a $\cinf$-hermitian metric $\|\cdot\|$ on $L$, we only need to choose an everywhere nonvanish $\cinf$-section $s$ with $\|s(x)\| = 1$ for all $x \in X$.
+So, choose an everywhere nonvanish $\cinf$-section $s$, we can get a hermitian metric on $L$ by $\|as\| \coloneqq |a|$ for any $\cinf$-function $a$.
+More generally, a $\cinf$-orthogonal frame, i.e., a collection of trivialization $\{(U_i,L|_{U_i} \cong \cinf_{X,\bbC} \cdot e_i)\}$ with transition function $e_i = f_{ij} e_j$ such that $|f_{ij}|=1$, determines a $\cinf$-hermitian metric on $L$ by $\|ae_i\| \coloneqq |a|$ for any $\cinf$-function $a$.
+Hence, a $\cinf$-hermitian metric is determined by a collection of transition functions $\{f_{ij}\}$, where
+\[ \bigl( f_{ij}: X \to S^1 = \{|z|=1\} \subset \bbC^* \bigr) \in \cinf(X,S^1). \]
+
+On the non-archimedean place, we have no good $\cinf$-functions.
+However, the elements of norm $1$ has some very good structure, namely, we can consider $(\kk^\circ)^*$, the multiplicative group of the ring of integers.
+Hence, the question becomes, what is a suitable function class (?).
+\[ \bigl( f_{ij}: X \to (\kk^\circ)^* = \{|a|=1\} \subset \kk^*\bigr) \in (?). \]
+For a scheme $\calY/(\kk^\circ)$, there is a natural class of functions $\calY \to (\kk^\circ)^*$ given by $\calO_\calY^*$.
+Therefore, for the variety $X/\kk$, the natural way should be that taking an integral model $\calX/(\kk^\circ)$ and by $X \to \calX \to (\kk^\circ)^*$.
+
+\begin{construction}[label=\labelNFM{constr:model-metric}, status=draft, tag=0000000]
+	Let $X$ be a projective variety over $\kk$ and $L$ line bundle on $X$.
+	Given an integral model $(\calX,\calL)$, where $\calX$ is an integral model of $X$, $\calL$ a line bundle on $X$ with an isomorphism $\calL|_X \cong L$,
+	then we can define a \emph{model metric} $\|\cdot\|_{(\calX,\calL)}$ by the frame of $\calL$ on $X$.
+	More explicitly, let $\{(\calU_i,\calL|_{\calU_i} = \calO_{\calU_i} \cdot e_i) \}$ be a trivialization of $\calL$.
+	This also gives a trivialization
+	\[ \{((\calU_i \cap X \eqqcolon U_i)^{\an}, L|_{U_i}^{\an} = \calL|_{U_i}^{\an} \cong \scrO_{U_i^\an} \cdot e_i\} \]
+	of $L^{\an}$ on $X^\an$.
+	For any local continuous section $ae_i$, set $\|ae_i(x)\|_{(\calX,\calL)} \coloneqq |a|_x$.
+
+	For latter use, we also need a version with rational coefficients.
+	Given an integral model $(\calX,\calM)$ of $(X,L^{\otimes m})$, the \emph{model metric (with rational coefficients)} of $(\calX,\calM, m)$ is defined as
+	\[ \|s\|_{(\calX,\calM,m)} \coloneqq \|s^{\otimes m}\|_{(\calX,\calM)}^{1/m}.\]
+\end{construction}
+
+\begin{example}[label=\labelNFM{eg:standard-metric-are-model-metric}, status=draft, tag=0000000]
+	Let $\|\cdot\|$ be the standard metric on $(\bbP^d,\calO(1))$.
+
+	\Yang{}
+\end{example}
+
+\begin{definition}[label=\labelNFM{def:semipositive-local-metric}, status=draft, tag=0000000]
+	A continuous metric is called \emph{semipositive} if it is a uniform limit of the following metrics: model metrics for which $\calL$ is relatively nef, that is, $\deg(\calL|_C) \geq 0$ for every integral curve $C$ in the special fiber.
+	\Yang{}
+\end{definition}
+
+
+Recall that in the archimedean case, any $\cinf_{-,\bbR}$-function can be got by $-\log \|1\|$ for some $\cinf$-metric $\|\cdot\|$ on $\scrO_X$.
+By this way, we have the following define.
+
+\begin{definition}[label=\labelNFM{def:model-function-over-na-place}, status=draft, tag=0000000]
+	Let $X$ be a projective variety over $\kk$.
+	A \emph{model function} on $X$ is a function $X^\an \to \bbR$ of form $- \log \|1\|_{(\calX,\calL,m)}$, where $(\calX,\calL,m)$ is a model of $(X,\calO_X)$ and $1 \in \calO_X(X)$ is the canonical section.
+\end{definition}
+
+\begin{example}[label=\labelNFM{eg:model-function}, status=draft, tag=0000000]
+	\latexdeleted{To Ai: give some example and nonexample of model function}
+	\begin{latexmathchange}
+		Let $\pi$ be a uniformizer of $K_v$.
+		Since the special fiber of a model is the divisor of $\pi$, every rational multiple of $-\log|\pi|_v$ is a constant model function.
+
+		For a nonconstant example, let $X = \bbP^1_K$ with affine coordinate $z$ and put
+		\[ \varphi(z) \coloneqq \log\frac{\max\{|\pi|_v,|z|\}}{\max\{1,|z|\}}. \]
+		The expression extends continuously to $\bbP^{1,\an}_{\bbC_v}$, with value $0$ at $\infty$.
+		It is a model function: on $\bbP^1_{K_v^\circ}$, take the vertical ideal $(\pi,z)$ on the chart $z \neq \infty$ and the unit ideal on the other chart.
+		Its blowup makes the ideal invertible; the negative of the exceptional divisor gives $\varphi$.
+
+		The continuous function $\varphi^2$ is \emph{not} a model function.
+		Indeed, on the segment of Gauss points $x_{0,r}$ with $|\pi|_v \leq r \leq 1$,
+		\[ \varphi(x_{0,r}) = \log r, \qquad \varphi^2(x_{0,r}) = (\log r)^2. \]
+		A rational model function restricts to a piecewise affine function of $\log r$ with finitely many pieces,
+		whereas $(\log r)^2$ does not.
+		For the piecewise affine behavior on skeleta, see \href{https://gubler.app.uni-regensburg.de/Publikationen/1404.7044v1.pdf}{Gubler--Rabinoff--Werner}.
+	\end{latexmathchange}
+\end{example}
+
+\begin{proposition}[label=\labelNFM{prop:basic-properties-of-model-function}, status=draft, tag=0000000]
+	Let $X$ be a variety over $K$.
+	\begin{enumerate}
+		\item $af+bg$ are model for \Yang{}
+		\item $\max{f,g}$ and $\min{f,g}$ are \Yang{}
+		\item model function is dense in $\scrC(X)$.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}[References for proof]
+	\Yang{}
+\end{proof}
+
+\begin{remark}[label=\labelNFM{rmk:tropical-semiring-and-model-function}, status=draft, tag=0000000]
+	\latexdeleted{The model functions usual does not form a ring since it cannot take multiplication.}
+	\latexdeleted{but To Ai: fill this remark}
+	\begin{latexmathchange}
+		Model functions form a $\bbQ$-vector space and are closed under pointwise maximum and minimum.
+		For sums and rational multiples, pass to a common model and add or scale the vertical divisors.
+		To form a maximum, after passing to a common model, blow up the sum of the corresponding vertical fractional ideals so that it becomes invertible.
+		The resulting model function is the pointwise maximum; the minimum follows by taking negatives.
+
+		Define tropical operations by
+		\[ \varphi \oplus \psi \coloneqq \max\{\varphi,\psi\}, \qquad \varphi \odot \psi \coloneqq \varphi + \psi. \]
+		After adjoining the constant function $-\infty$, these operations make $\calM_v(X) \cup \{-\infty\}$ an idempotent semiring,
+		with tropical zero $-\infty$ and tropical unit the ordinary zero function.
+		Ordinary pointwise products need not be model functions, as $\varphi^2$ in the preceding example shows.
+	\end{latexmathchange}
+\end{remark}
+
+
+\begin{definition}[label=\labelNFM{def:Chambert-Loir-measure}, status=draft, tag=0000000]
+	Let $X$ and
+	Let $\bar L$ be nef, with $L$ big.
+	At every place $v$, there is a positive measure $c_1(\bar L_v)^d$ on $X_v^\an$ of total mass $\deg_L(X)$.
+	At an infinite place it is the Bedford--Taylor product of the curvature current.
+	At a finite place it is the Chambert-Loir measure: for model metrics it is obtained from intersection degrees on the special fiber, and semipositive metrics are treated by weak limits.
+	We set
+	\[ \mu_{\bar L,v} \coloneqq \frac{c_1(\bar L_v)^d}{\deg_L(X)}. \]
+	Thus $\mu_{\bar L,v}$ is a probability measure.
+	\Yang{}
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:adelic-line-bundle-and-positivity}]{Adelic line bundle and arithmetic intersection}
+
+On this subsection, fix a number field $K$.
+\Yang{}
+
+
+
+\begin{definition}[label=\labelNFM{def:adelic-line-bundle-projective-case}, status=draft, tag=0000000]
+	Let $X$ be a projective variety over $K$.
+	An \emph{adelic line bundle} on $X$ is a pair
+	\[ \bar L = (L,(\|\cdot\|_v)_{v \in M_K}) \]
+	with continuous $v$-adic metrics, such that there is an nonempty open subset $U \subset \Spec \calO_K$ and an integral model $(\calX,\calL)/U$ of $(X,L)$ such that for all $v \in U$, $\|\cdot\|_v = \|\cdot\|_{\calX|_{\calO_v},\calL|_{\calO_v}}$ is the model metric induced by the pullback of $(\calX,\calL)$.
+	\latexdeleted{It forms a group..}
+	\latexmath{Their isometry classes form $\aPic(X)$ under tensor product, with duals as inverses.}
+	\Yang{}
+\end{definition}
+
+\begin{definition}[label=\labelNFM{def:positivity-of-adelic-line-bundles}, status=draft, tag=0000000]
+	An adelic line bundle is \emph{semipositive}, or \emph{relatively nef}, if all its local metrics are semipositive.
+	It is \emph{nef} if it is semipositive and $h_{\bar L}(x) \geq 0$ for every $x \in X(\bar K)$.
+	It is \emph{integrable} if $\bar L \cong \bar A \otimes \bar B^\vee$ for two nef adelic $\bbQ$-line bundles $\bar A,\bar B$.
+	We denote the group of integrable adelic line bundles by $\aPic(X)_{\mathrm{int}}$.
+	\Yang{}
+\end{definition}
+
+\begin{proposition}[label=\labelNFM{prop:fundamental-properties-of-adelic-line-bundle}, status=draft, tag=0000000]
+	\latexdeleted{To Ai: finish}
+	\begin{latexmathchange}
+	Let $X$ be a projective variety over $K$.
+	The following operations on line bundles extend to adelic line bundles.
+	\begin{enumerate}
+		\item Tensor products and duals carry the product and dual norms.
+		      A morphism $g:Y \to X$ gives a pullback $g^*:\aPic(X) \to \aPic(Y)$.
+		      A finite extension $E/K$ gives base change, with the metrics extended at every $w \mid v$.
+		\item Tensor products, positive rational powers, and pullbacks preserve semipositivity and nefness.
+		      Differences of nef $\bbQ$-line bundles are stable under tensor product, duals, and pullback, so the integrable classes form a $\bbQ$-vector space.
+		\item For the point height defined below,
+		      \[ h_{\bar L\otimes\bar M} = h_{\bar L}+h_{\bar M}, \qquad h_{g^*\bar L}(y) = h_{\bar L}(g(y)), \qquad h_{\bar L_E}(x) = h_{\bar L}(x). \]
+		      If two metrics on the same $L$ satisfy $\|\cdot\|'_v = e^{-\varphi_v}\|\cdot\|_v$, then
+		      \[ h_{\bar L'}(x)-h_{\bar L}(x) = \sum_{v \in M_K} n_v\int\varphi_v\,\upd\delta_{x,v}, \qquad |h_{\bar L'}(x)-h_{\bar L}(x)| \leq \sum_v n_v\|\varphi_v\|_\infty. \]
+		      Here $\delta_{x,v}$ is the local Galois-orbit probability measure defined in the equidistribution subsection.
+		      Only finitely many $\varphi_v$ are nonzero.
+		\item If $L$ is ample, $h_{\bar L}$ is bounded below and has Northcott's property:
+		      for every real $B$ and integer $D$, the set
+		      \[ \{x \in X(\bar K):h_{\bar L}(x) \leq B,\ [K(x):K] \leq D\} \]
+		      is finite.
+	\end{enumerate}
+	See \cite[Appendices~A.1.1--A.1.2 and A.5.2]{Yuan-Zhang-2026-AdelicLineBundles}.
+	\end{latexmathchange}
+\end{proposition}
+
+\begin{proof}
+	\leavevmode\par
+	\begin{latexmathchange}
+	Take a common model over an open subset of $\Spec\calO_K$ to check the adelic condition for the operations in (1).
+	Local approximation by relatively nef models proves the semipositivity assertions; the height identities prove preservation of nonnegative point heights.
+	The identities in (3) follow by adding logarithms of norms and by the local-degree formula under finite extensions.
+	In particular, two adelic metrics on $L$ give heights differing by a bounded function.
+	For $L$ ample, choose $m > 0$ and an embedding $\iota:X \hookrightarrow \bbP^N_K$ with $L^{\otimes m} \cong \iota^*\calO(1)$.
+	Then $m h_{\bar L} = h_{\overline{\calO(1)}_{\max}}\circ\iota+O(1)$.
+	The usual projective Northcott theorem and nonnegativity of the standard height give (4).
+	\end{latexmathchange}
+\end{proof}
+
+\begin{definition}[label=\labelNFM{def:height-of-an-algebraic-point}, status=draft, tag=0000000]
+	Let $x \in X(\bar K)$ and choose a finite extension $E/K$ with $x \in X(E)$.
+	For a rational section $s$ of $L$ regular and nonzero at $x$, define
+	\[ h_{\bar L}(x) \coloneqq -\sum_{w \in M_E}n_w\log\|s(x)\|_w, \qquad n_w = \frac{[E_w:\bbQ_p]}{[E:\bbQ]} \quad (w \mid p). \]
+\end{definition}
+
+\Yang{}
+The metrics are pulled back from $K$.
+\Yang{}
+Only finitely many summands are nonzero.
+Replacing $s(x)$ by $a s(x)$ changes the sum by $-\sum_w n_w\log|a|_w = 0$.
+The local degree formula shows that the value is also independent of $E$.
+Thus this gives a well-defined real-valued height on $X(\bar K)$.
+\Yang{}
+
+\begin{example}[label=\labelNFM{eg:standard-logarithmic-height}, status=draft, tag=0000000]
+	Give $\scrO(1)$ on $\bbP^d$ the standard metric at every place, and denote the result by $\overline{\scrO(1)}_{\max}$.
+	Applying the definition with a nonzero coordinate section gives
+	\[ h_{\overline{\scrO(1)}_{\max}}([a_0:\cdots:a_d]) = \sum_{w \in M_E}n_w\log\max_i|a_i|_w. \]
+	The product formula removes the term involving that coordinate.
+	In particular, for $x = [x_0:\cdots:x_d] \in \bbP^d(\bbQ)$ with $\gcd(\{x_i\}) = 1$, we have
+	\[  h_{\overline{\scrO(1)}_{\max}}(x) = \log \max\{|x_0|,\cdots,|x_d|\}. \]
+\end{example}
+
+\begin{definition}[label=\labelNFM{def:arithmetic-intersection-and-subvariety-height}, status=draft, tag=0000000]
+	\latexdeleted{Let $\bar L_0,\ldots,\bar L_k$ be adelic line bundle on $X$ and $Z \subset X$ a closed subset variety of dimension $k$.}
+	\latexdeleted{We define the \emph{arithmetic intersection number} as}
+	\[ \latexdeletedmath{\widehat c_1(\bar L_0)\cdots\widehat c_1(\bar L_k)\cdot[Z] \coloneqq} \]
+	\begin{latexmathchange}
+	Let $\bar L_0,\ldots,\bar L_r$ be integrable adelic $\bbQ$-line bundles and $Z \subset X$ an integral subvariety of dimension $r$.
+	The adelic Deligne pairing gives a metrized line over $\Spec K$,
+	\[ \widehat c_1(\bar L_0)\cdots\widehat c_1(\bar L_r)\cdot[Z] \coloneqq \langle\bar L_0|_Z,\ldots,\bar L_r|_Z\rangle_{Z/K}. \]
+	Its arithmetic degree is the real \emph{arithmetic intersection number}; we write
+	\[ I_K(\bar L_0,\ldots,\bar L_r;Z) \coloneqq \adeg\bigl(\widehat c_1(\bar L_0)\cdots\widehat c_1(\bar L_r)\cdot[Z]\bigr). \]
+	For model metrics, compute this degree by the Gillet--Soul\'e intersection on a common proper arithmetic model, dividing by the powers used to extend the $L_i$.
+	For nef adelic bundles, take the limit of such model intersections; multilinearity then defines the value for differences of nef bundles.
+	The limit is independent of the approximations.
+	We use the unnormalized arithmetic degree: on $\Spec K$, it is $-\sum_v[K_v:\bbQ_p]\log\|s\|_v$ for $0 \neq s$ and $v \mid p$.
+	See \cite[\S 4.1 and Appendix~A.5.3]{Yuan-Zhang-2026-AdelicLineBundles}.
+	\end{latexmathchange}
+	Let $Y \subset X$ be an integral closed subvariety of dimension $r$, and assume that $\deg_L(Y) = (L^r \cdot [Y]) > 0$.
+	Its normalized height is
+	\[ h_{\bar L}(Y) \coloneqq \frac{\adeg\bigl(\widehat c_1(\bar L)^{r+1}\cdot[Y]\bigr)}{(r+1)[K:\bbQ]\deg_L(Y)}. \]
+	\Yang{}
+\end{definition}
+
+For a closed point $P$ with residue field $E$, one has $\deg_L(P) = [E:K]$, and this agrees with the preceding point height.
+In particular,
+\[ h_{\bar L}(X) = \frac{\adeg\bigl(\widehat c_1(\bar L)^{d+1}\cdot[X]\bigr)}{(d+1)[K:\bbQ]\deg_L(X)}. \]
+See \cite[\S 3.2]{Chambert-Loir-2012-ArakelovGeometryHeights} and \cite[Appendix~A.5.3]{Yuan-Zhang-2026-AdelicLineBundles}.
+
+\begin{theorem}[label=\labelNFM{thm:fundamental-properties-of-arithmetic-intersection}, status=draft, tag=0000000]
+	\latexdeleted{Let ...}
+	\latexdeleted{To Ai: finish}
+	\begin{latexmathchange}
+	For integrable adelic $\bbQ$-line bundles, the arithmetic intersection has the following properties.
+	\begin{enumerate}
+		\item It is symmetric and multilinear in the line bundles and additive in the cycle.
+		      It is continuous for uniform convergence of semipositive metrics with fixed underlying bundles and fixed metrics outside a finite set of places.
+		\item If $g:Y \to X$ is a morphism of projective varieties and $W \subset Y$ is an integral $r$-dimensional subvariety, the projection formula is
+		      \[ I_K(g^*\bar L_0,\ldots,g^*\bar L_r;W) = I_K(\bar L_0,\ldots,\bar L_r;g_*[W]). \]
+		      Here $g_*[W] = [K(W):K(g(W))][g(W)]$ when $\dim g(W) = r$, and is zero otherwise.
+		\item For a finite extension $E/K$, with base-changed cycles interpreted additively,
+		      \[ I_E(\bar L_{0,E},\ldots,\bar L_{r,E};Z_E) = [E:K]I_K(\bar L_0,\ldots,\bar L_r;Z). \]
+		      Thus normalized heights are unchanged by base extension.
+		\item Let $r = \dim X = d$, and change only the metric of $\bar L_0$ at $v$ by $\|\cdot\|_v' = e^{-\varphi}\|\cdot\|_v$, with the changed bundle integrable.
+		      Then
+		      \[ I_K(\bar L_0',\bar L_1,\ldots,\bar L_d;X)-I_K(\bar L_0,\bar L_1,\ldots,\bar L_d;X) = [K:\bbQ]n_v\int_{X_{\bar v}^\an}\varphi\,c_1(\bar L_{1,v})\cdots c_1(\bar L_{d,v}). \]
+		\item If all the bundles are nef, their intersection on an effective cycle is nonnegative.
+	\end{enumerate}
+	See \cite[\S\S 4.1--4.4 and Appendix~A.5.3]{Yuan-Zhang-2026-AdelicLineBundles}.
+	\end{latexmathchange}
+\end{theorem}
+
+\begin{proof}
+	\leavevmode\par
+	\begin{latexmathchange}
+	For model metrics these are the symmetry, multilinearity, projection formula, metric-change formula, and positivity of arithmetic intersection.
+	When the other bundles are semipositive, the metric-change formula bounds a variation by the uniform norm of the metric change times the relevant geometric degree.
+	It therefore gives continuity and permits passage to the defining limits of nef adelic bundles.
+	Expanding differences of nef bundles gives the integrable case; base change follows either on models or from the local-degree formula for the metrized Deligne pairing.
+	\end{latexmathchange}
+\end{proof}
+
+\begin{definition}[label=\labelNFM{def:arithmetic-volume-of-adelic-line-bundle}, status=draft, tag=0000000]
+	\latexdeleted{Let $X$ and $\bar{L}$ a ...}
+	\[ \latexdeletedmath{a\vol(X) \coloneqq} \]
+	\latexdeleted{To Ai: finish}
+	\begin{latexmathchange}
+	Let $X/K$ be projective of dimension $d$ and $\bar L$ an adelic line bundle.
+	The set of \emph{small sections} and its logarithmic cardinality are
+	\[ \widehat H^0(X,m\bar L) \coloneqq \{s \in H^0(X,L^{\otimes m}):\|s\|_{v,\sup} \leq 1\text{ for every }v\}, \qquad \widehat h^0(X,m\bar L) \coloneqq \log\#\widehat H^0(X,m\bar L). \]
+	This is a finite set containing the zero section, rather than a $K$-vector space.
+	The \emph{arithmetic volume} is
+	\[ \widehat{\vol}(\bar L) \coloneqq \limsup_{m \to \infty}\frac{\widehat h^0(X,m\bar L)}{m^{d+1}/(d+1)!}. \]
+	For $\bbQ$-line bundles, clear denominators and use homogeneity of degree $d+1$.
+	The bundle is \emph{arithmetically big} if $\widehat{\vol}(\bar L) > 0$.
+	This is stronger than bigness of the underlying $L$, which concerns growth of $\dim_K H^0(X,mL)$ in degree $d$.
+	Our volume has no factor $1/[K:\bbQ]$.
+	For a nef $\bar L$, the arithmetic Hilbert--Samuel formula gives
+	\[ \widehat{\vol}(\bar L) = I_K(\bar L,\ldots,\bar L;X). \]
+	See \cite[\S\S 5.1--5.2, especially Theorem~5.2.2]{Yuan-Zhang-2026-AdelicLineBundles}.
+	\end{latexmathchange}
+\end{definition}
+
+\begin{theorem}[label=\labelNFM{thm:arithmetic-siu-inequality}, status=draft, tag=0000000]
+	\latexdeleted{Let $X$ be}
+	\Yang{}
+	\latexdeleted{To Ai: finish}
+	\begin{latexmathchange}
+	Let $X/K$ be projective of dimension $d$, and let $\bar A,\bar B$ be nef adelic $\bbQ$-line bundles.
+	Then the \emph{arithmetic Siu inequality} is
+	\[ \widehat{\vol}(\bar A\otimes\bar B^\vee) \geq I_K(\bar A^{d+1};X)-(d+1)I_K(\bar A^d,\bar B;X). \]
+	Here powers inside $I_K$ mean repeated arguments.
+	In particular, a positive right-hand side implies that $\bar A\otimes\bar B^\vee$ is arithmetically big.
+	This estimates the small sections left after subtracting a nef bundle, just as the geometric Siu inequality estimates ordinary sections.
+	For the theorem and proof, see \cite[Theorem~5.2.2(2)]{Yuan-Zhang-2026-AdelicLineBundles}.
+	\end{latexmathchange}
+\end{theorem}
+
+
+\begin{definition}[label=\labelNFM{def:successive-minima}, status=draft, tag=0000000]
+	\latexdeleted{Let $X$ and $\bar{L}$ a ...}
+	\[ \latexdeletedmath{e_i(\bar L) \coloneqq} \]
+	\Yang{}
+	\latexdeleted{To Ai: finish}
+	\begin{latexmathchange}
+	Let $\dim X = d$ and $\bar L$ be an adelic line bundle with $L$ ample.
+	For $1 \leq i \leq d+1$, define the \emph{successive minima} by
+	\[ e_i(\bar L) \coloneqq \sup_{\substack{Z \subset X_{\bar K}\text{ closed}\\\dim Z \leq d-i}}\ \inf_{x \in X(\bar K)\setminus Z(\bar K)} h_{\bar L}(x). \]
+	We allow $Z = \varnothing$, with dimension $-\infty$.
+	Then $e_1 \geq \cdots \geq e_{d+1}$; $e_1$ is the \emph{essential minimum}, and $e_{d+1} = \inf_x h_{\bar L}(x)$ is the absolute minimum.
+	Equivalently,
+	\[ e_1(\bar L) = \inf\{t \in \bbR:\{x \in X(\bar K):h_{\bar L}(x) \leq t\}\text{ is Zariski dense}\}. \]
+	For every generic sequence $(x_m)$, one has $\liminf_m h_{\bar L}(x_m) \geq e_1(\bar L)$.
+	Indeed, it eventually avoids each fixed proper closed $Z$ in the definition.
+	The same definition of $e_1$ also makes sense when $L$ is only big.
+	See \cite[Appendix~A.5.5]{Yuan-Zhang-2026-AdelicLineBundles}; that appendix uses arithmetic dimension $d+1$ in place of our geometric dimension $d$.
+	\end{latexmathchange}
+\end{definition}
+
+\begin{theorem}[label=\labelNFM{thm:fundamental-inequality-IV}, status=draft, tag=0000000]
+	\latexdeleted{Let $X$ be}
+
+	\latexdeleted{To Ai: finish}
+	\Yang{}
+	\begin{latexmathchange}
+	Let $X/K$ be projective of dimension $d$, let $L$ be ample, and let $\bar L$ be semipositive.
+	Zhang's theorem of successive minima states
+	\[ e_1(\bar L) \geq h_{\bar L}(X) \geq \frac{e_1(\bar L)+\cdots+e_{d+1}(\bar L)}{d+1}. \]
+	If $\bar L$ is nef with big underlying $L$, one still has the fundamental inequalities
+	\[ e_1(\bar L) \geq h_{\bar L}(X) \geq \frac{e_1(\bar L)}{d+1}. \]
+	For the first statement and proof, see \cite[Theorem~A.5.2]{Yuan-Zhang-2026-AdelicLineBundles}; for the nef and big version, see Theorem~5.3.3 there.
+	\end{latexmathchange}
+\end{theorem}
+
+\begin{latexmathchange}
+	These inequalities explain the smallness condition in equidistribution.
+	Every generic sequence has $\liminf h_{\bar L}(x_m) \geq e_1(\bar L) \geq h_{\bar L}(X)$.
+	Thus a generic sequence whose heights tend to $h_{\bar L}(X)$ attains this lower bound.
+	For a nef bundle, all the point heights are nonnegative, so the lower successive minima are nonnegative as well.
+\end{latexmathchange}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:canonical-height}]{Canonical height}
+
+\Yang{}
+\latexdeleted{To Ai: finish this section}
+
+On this subsection, let us turn to the dynamics.
+
+\latexdeleted{Let $f: X \to X$ over ..}
+\begin{latexmathchange}
+	Let $X/K$ be a geometrically integral projective variety of dimension $d$ over a number field.
+	A \emph{$q$-polarized dynamics} consists of $f:X \to X$, an ample line bundle $L$, and an isomorphism $\alpha:f^*L\xrightarrow{ \sim }L^{\otimes q}$, where $q \geq 2$.
+	The morphism $f$ is finite and surjective, of degree $q^d$.
+	Indeed, ampleness rules out a positive-dimensional fiber, and the degree follows from $(f^*L)^d = q^d L^d$.
+\end{latexmathchange}
+
+\begin{definition}[label=\labelNFM{def:canonical-height}, status=draft, tag=0000000]
+	Let $(f,X)$ be a $q$-polarized dynamics with polarization $L$.
+	\latexdeleted{Then there exists a canonical adelic line bundle structure $\bar{L}$ on $L$ such that $f^*\bar{L} = \bar{L}^{\otimes q}$.}
+	\begin{latexmathchange}
+	For the fixed polarization isomorphism $\alpha$, the \emph{canonical adelic line bundle} $\bar L_f$ is the unique adelic metric on $L$ for which $\alpha$ is an isometry
+	\[ f^*\bar L_f \xrightarrow[\alpha]{ \sim } \bar L_f^{\otimes q}. \]
+	Its point height $\widehat h_{f,L} \coloneqq h_{\bar L_f}$ is the \emph{canonical height}.
+	The choice of $\alpha$ matters for the individual local metrics.
+	Replacing $\alpha$ by $a\alpha$, with $a \in K^*$, changes these metrics by constants whose weighted sum is zero by the product formula; the point height is unchanged.
+	\end{latexmathchange}
+\end{definition}
+
+\Needspace{22\baselineskip}
+\begin{construction}[label=\labelNFM{constr:canonical-metric-by-iteration}, status=draft, tag=0000000]
+	\leavevmode\par
+	\begin{latexmathchange}
+	Start with a semipositive adelic metric $\bar L_0$ and use the iterates of $\alpha$ to regard
+	\[ \bar L_n \coloneqq q^{-n}(f^n)^*\bar L_0 \]
+	as metrics on the same $L$; multiplication by $q^{-n}$ means taking the $q^n$-th root of the norms.
+	At each place, let $C_v = \|\log(\|\cdot\|_{1,v}/\|\cdot\|_{0,v})\|_\infty$.
+	The pullback operation divided by $q$ contracts differences of logarithmic metrics, so
+	\[ \left\|\log\frac{\|\cdot\|_{n+1,v}}{\|\cdot\|_{n,v}}\right\|_\infty \leq q^{-n}C_v. \]
+	The geometric series converges, giving a continuous limiting metric at every place.
+	Choose a model on which $f,L,\alpha$ all extend away from finitely many places; there $C_v = 0$.
+	Hence the limit is adelic, and it is semipositive because the iterated metrics are semipositive.
+	It satisfies $f^*\bar L_f \cong \bar L_f^{\otimes q}$ isometrically.
+	For two metrics with this property, their logarithmic difference $u_v$ satisfies $u_v = q^{-1}u_v\circ f$.
+	The supremum norm forces $u_v = 0$, proving uniqueness and independence of the starting metric.
+	See \cite[Theorem~6.1.1 and Appendix~A.5.2]{Yuan-Zhang-2026-AdelicLineBundles}.
+	\end{latexmathchange}
+\end{construction}
+
+\begin{proposition}[label=\labelNFM{prop:canonical-height-properties}, status=draft, tag=0000000]
+	\leavevmode\par
+	\begin{latexmathchange}
+	For any Weil height $h_L$ associated to $L$, one has
+	\[ \widehat h_{f,L}(x) = \lim_{n \to \infty}q^{-n}h_L(f^n(x)), \qquad \widehat h_{f,L}(f(x)) = q\widehat h_{f,L}(x), \qquad \widehat h_{f,L} = h_L+O(1). \]
+	Moreover, $\widehat h_{f,L} \geq 0$, and
+	\[ \widehat h_{f,L}(x) = 0 \quad \Longleftrightarrow \quad x\text{ is preperiodic for }f. \]
+	The canonical bundle is nef and $h_{\bar L_f}(X) = 0$.
+	In particular, periodic points have height zero, and for $y \in f^{-n}(a)$,
+	\[ \widehat h_{f,L}(y) = q^{-n}\widehat h_{f,L}(a). \]
+	\end{latexmathchange}
+\end{proposition}
+\begin{proof}
+	\leavevmode\par
+	\begin{latexmathchange}
+	The height machine gives $|h_L(f(x))-qh_L(x)| \leq C$ for a constant $C$ independent of $x$.
+	The successive differences in $q^{-n}h_L(f^n(x))$ are at most $Cq^{-n-1}$.
+	Thus the sequence converges, differs from $h_L$ by at most $C/(q-1)$, and satisfies the functional equation.
+	The metric construction gives the same limit by the metric-change bound above.
+	An ample height is bounded below, so dividing that lower bound by $q^n$ shows $\widehat h_{f,L}(x) \geq 0$.
+
+	A finite orbit has canonical height zero by the functional equation.
+	Conversely, if $\widehat h_{f,L}(x) = 0$, all iterates have bounded $h_L$ and belong to the fixed number field $K(x)$.
+	Northcott's theorem makes the orbit finite.
+	Semipositivity and nonnegative point heights show that $\bar L_f$ is nef.
+	Finally the projection formula gives
+	\[ q^{d+1}I_K(\bar L_f^{d+1};X) = I_K((f^*\bar L_f)^{d+1};X) = q^d I_K(\bar L_f^{d+1};X). \]
+	Since $q > 1$, this intersection is zero, so its normalized height is zero.
+	The backward-orbit formula follows from the functional equation.
+	\end{latexmathchange}
+\end{proof}
+
+\begin{remark}[label=\labelNFM{rmk:canonical-metric-and-green-current}, status=draft, tag=0000000]
+	\leavevmode\par
+	\begin{latexmathchange}
+	For $X = \bbP^d$ and $L = \calO(1)$, start at an infinite place with the Fubini--Study metric.
+	The curvatures of its iterates converge to
+	\[ c_1(\bar L_{f,v}) = \lim_{n \to \infty}q^{-n}(f^n)^*\omega_\FS = T_f, \qquad \mu_{\bar L_f,v} = T_f^d = \mu_f. \]
+	Thus the analytic Green current and the arithmetic canonical height come from the same metrized line bundle.
+	The canonical height of $X$ is zero, so the smallness condition in arithmetic equidistribution is exactly $\widehat h_{f,L}(x_m) \to 0$.
+	Genericity is a separate condition: small points could all lie in a fixed proper invariant subvariety.
+	See \cite[Appendix~A.6.4]{Yuan-Zhang-2026-AdelicLineBundles}.
+	\end{latexmathchange}
+\end{remark}
+
+
+
+
+
