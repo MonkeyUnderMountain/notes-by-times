@@ -6,14 +6,14 @@ The main references are \cite{Dinh-Sibony-2010-DynamicsSeveralComplex}.
 
 \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:green-currents-and-equilibrium-measure}]{Green currents and equilibrium measure}
 
-Throughout this section, $d$ denotes the dimension of $\bbP^d$, and $q \geq 2$ denotes the polarization degree,
+Throughout this section, $d$ denotes the dimension of $\bbP^d=X$, and $q \geq 2$ denotes the polarization degree,
 so that $f^*\scrO_{\bbP^d}(1) \cong \scrO_{\bbP^d}(q)$.
 
 \begin{definition}[label=\labelNFM{def:green-currents-of-dynamics}, status=draft, tag=0000000]
 	Let $f: \bbP^d \to \bbP^d$ be a $q$-polarized endomorphism.
-	The \emph{Green currents} of $f$ is defined as
+	The \emph{Green current} of $f$ is defined as
 	\[ T_f \coloneqq \lim_{n \to \infty} \frac{(f^n)^*\omega_\FS}{q^n} \in \scrB^{1,1}(X). \]
-	It is a closed positive currents of degree $(1,1)$.
+	It is a closed positive current of bidegree $(1,1)$.
 	Its potential function, i.e., the function $g$ with
 	\[ T_f = \omega_\FS + \ddc g, \]
 	is called the \emph{Green function} of $f$.
@@ -26,40 +26,54 @@ so that $f^*\scrO_{\bbP^d}(1) \cong \scrO_{\bbP^d}(q)$.
 	\[ \omega = \frac{1}{2} \ddc \log\left( 1 + |z|^2 \right), \quad  (f^n)^*\omega = \frac{1}{2} \ddc \log \left( 1 + |z|^{2q^n} \right). \]
 	Hence we have
 	\[  \frac{(f^n)^*\omega}{q^n} = \ddc \log \left( 1 + |z|^{2q^n} \right)^{1/2q^n}. \]
-	Recall that on complex line $\bbC = \bbR^2$ with polar coordinate $z=r\upe^{\upi \theta}$, we have
-	\[ \ddc u = \frac{1}{2\pi} \left( \partial_r (r u_r) + \frac{1}{r} r_{\theta\theta} \right) \upd r \wedge \upd \theta. \]
+	Recall that on the complex line $\bbC = \bbR^2$ with polar coordinates $z=r\upe^{\upi \theta}$, we have
+	\[ \ddc u = \frac{1}{2\pi} \left( \partial_r (r u_r) + \frac{1}{r} u_{\theta\theta} \right) \upd r \wedge \upd \theta. \]
 	Set
 	\[ u_n(r) = \frac{1}{n} \log \left( 1 + r^n \right), \qquad \ddc u_n = \frac{1}{2\pi} \left( r u_n'\right)' \upd r \wedge \upd \theta = \frac{1}{2\pi} \left( \frac{r^n}{1+r^n}\right)' \upd r \wedge \upd \theta. \]
-	For any test compact-support $\cinf$-function $\varphi$, we have
+	For any test compactly supported $\cinf$-function $\varphi$, we have
 	\begin{align*}
 		\lim_{n \to \infty} \int_\bbC \varphi \ddc u_n & = \lim_{n \to \infty} \frac{1}{2\pi} \int_0^{2\pi} \left( \int_0^\infty \varphi(r,\theta) \left( \frac{r^n}{1+r^n}\right)'\upd r \right) \upd \theta                                                                                                                          \\
 		                                               & = \lim_{n \to \infty} \frac{1}{2\pi} \int_0^{2\pi} \left( \int_0^\infty \varphi(t^{1/n},\theta) \upd \frac{t}{1+t} \right) \upd \theta = \frac{1}{2\pi} \int_0^{2\pi} \left( \int_0^\infty \lim_{n \to \infty} \varphi(t^{1/n},\theta) \upd \frac{t}{1+t} \right) \upd \theta \\
 		                                               & = \frac{1}{2\pi} \int_0^{2\pi} \varphi(1,\theta) \left( \int_0^\infty \upd \frac{t}{1+t}\right) \upd \theta = \frac{1}{2\pi} \int_0^{2\pi} \varphi(1,\theta) \upd \theta
 	\end{align*}
 	Hence
-	\[ \frac{(f^n)^*\omega}{q^n} = \ddc u_{2q^n} \to T_f = \text{ Lebguis measure on } S^1 \subset \bbC. \]
+	\[ \frac{(f^n)^*\omega}{q^n} = \ddc u_{2q^n} \to T_f = \text{ normalized Lebesgue measure on } S^1 \subset \bbC. \]
 	On a dense open subset, we have
 	\[ \ddc g = T_f - \omega = \ddc \log \max \left\{1, |z|\right\} - \ddc \log\left( 1 + |z|^2 \right)^{1/2} = \ddc \log \frac{ \max \{ |z|, 1 \} }{ (|z|^2 + 1)^{1/2} }. \]
-	Such formula extanding to $\bbP^1(\bbC)$, that is,
+	Such a formula extends to $\bbP^1(\bbC)$, that is,
 	\[ g = \log \frac{ \max \{ |z|, 1 \} }{ (|z|^2 + 1)^{1/2} }. \]
 \end{example}
 
 \begin{example}[label=\labelNFM{eg:green-currents-of-z2+c}, status=draft, tag=0000000]
 	Let $f_t: \bbP^1 \to \bbP^1$ be given by $z \mapsto z^2 + t$.
-	By \cref{rmk:Julia-set-of-order1-and-usual-Julia-set}, the $\Supp T_f$ is the Julia set.
+	By \cref{rmk:Julia-set-of-order1-and-usual-Julia-set}, the $\Supp T_{f_t}$ is the Julia set.
 	See \cite{Graven-2026-ComplexDynamicsVisualization} for a visualization.
 \end{example}
 
 \begin{proposition}[label=\labelNFM{prop:basic-properties-of-green-currents}, status=draft, tag=0000000]
 	Let $f: \bbP^d \to \bbP^d$ be a $q$-polarized endomorphism.
 	\begin{enumerate}
-		\item The green function $g$ of $f$ is continous on $\bbP^d$.
-		\item Let $S$ be any positive closed currents of degree $(1,1)$ and mass $1$ on $\bbP^d$ with bounded local potential. Then $(f^k)^*S/(q^k) \to T_f$ as currents.
-		\item The green currents is totally-invariant: $f^*T_f = qT_f$, $f_*T_f = q^{d-1}T_f$.
+		\item The Green function $g$ of $f$ is continuous on $\bbP^d$.
+		\item Let $S$ be any positive closed current of bidegree $(1,1)$ and mass $1$ on $\bbP^d$ with bounded local potentials. Then $(f^n)^*S/(q^n) \to T_f$ as currents.
+		\item The Green current is totally invariant: $f^*T_f = qT_f$, $f_*T_f = q^{d-1}T_f$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	\Yang{}
+	Since $q[\omega] = [f^*\omega] \in H^{1,1}(X,\bbC)$, we can write
+	\[ \frac{f^*\omega}{q} - \omega = \ddc u \]
+	with $u \in \cinf_{X,\bbR}$.
+	Then
+	\[ \frac{(f^n)^*\omega}{q^n} - \omega = \sum_{i=1}^n \left( \frac{(f^i)^*\omega}{q^i} - \frac{(f^{i-1})^*\omega}{q^{i-1}} \right) = \ddc\underbrace{\left(\sum_{i=1}^n\frac{u\circ f^{i-1}}{q^{i-1}}\right)}_{g_n}. \]
+	Since $\bbP^d(\bbC)$ is compact, the sum $g_n$ uniformly converges to a continuous function $g$ and hence the LHS converges to a current $T_f - \omega$.
+
+	For any other $S$, write $\omega - S = \ddc v$ with $v$ bounded.
+	Then
+	\[ \frac{(f^n)^*\omega}{q^n} - \frac{(f^n)^*S}{q^n} = \ddc\left(q^{-n}v\circ f^n\right) \to 0. \]
+	Then $(f^n)^*S/(q^n) \to T_f$.
+
+	By the construction of $T_f$, we have
+	\[ f^*T_f = \lim_{n \to \infty} \frac{(f^{n+1})^*\omega}{q^{n}} = q \lim_{n \to \infty} \frac{(f^{n+1})^*\omega}{q^{n+1}} = q T_f.  \]
+	And by the projection formula, we have $f_*T_f = q^{d-1}T_f$.
 \end{proof}
 
 
@@ -76,10 +90,10 @@ so that $f^*\scrO_{\bbP^d}(1) \cong \scrO_{\bbP^d}(q)$.
 
 \begin{theorem}[label=\labelNFM{thm:equidistribution-of-backforward-orbit-and-periodic-points}, status=draft, tag=0000000]
 	Let $f: \bbP^d \to \bbP^d$ be a $q$-polarized endomorphism.
-	Let $\calE_f$ the totally invariant locus of $f$.
-	Set $P_n = f^{-n}(a)$ for $a \notin \calE_f$ (backforwark orbit case) or $P_n = \Per_n(f) = \Fix(f^n)$ (periodic point case).
-	In either case, the set $P_n$ counts multiplicity.
-	Then we have the convergence of currents
+	Let $\calE_f$ be the totally invariant locus of $f$.
+	Set $P_n = f^{-n}(a)$ for $a \notin \calE_f$ (backward orbit case) or $P_n = \Per_n(f) = \Fix(f^n)$ (periodic point case).
+	In either case, the multiset $P_n$ counts multiplicity.
+	Then we have the convergence of measures
 	\[ \delta_{P_n} \coloneqq \frac{1}{\# P_n} \sum_{y \in P_n} \delta_y \to \mu_f. \]
 \end{theorem}
 
@@ -87,39 +101,43 @@ so that $f^*\scrO_{\bbP^d}(1) \cong \scrO_{\bbP^d}(q)$.
 	The exceptional, or totally invariant, locus $\calE_f$ is the largest proper algebraic subset satisfying $f^{-1}(\calE_f) = \calE_f = f(\calE_f)$.
 	Equivalently, it is the union of the proper totally invariant algebraic subsets.
 	There are only finitely many such subsets; see \cite[Theorem 1.47]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
-	Recently, with help of AI, Luo--Meng show that such a totally invariant subvariety in $\bbP^d$ must be a linear subspace; and Chang--Luo gives a sharp bound of number of such subvariety; see \cite{Luo-Meng-2026-TotallyInvariantSubvarieties,Chang-Luo-2026-SharpBoundsTotally}.
+	Recently, with the help of AI, Luo--Meng show that an irreducible totally invariant subvariety in $\bbP^d$ must be a linear subspace; and Chang--Luo give a sharp bound on the number of such subvarieties; see \cite{Luo-Meng-2026-TotallyInvariantSubvarieties,Chang-Luo-2026-SharpBoundsTotally}.
 \end{remark}
 
 For a full analytic proof, see \cite[Section 1.4]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
-Here we give a proof using the arithmetic equidistribution under some extra assumption.
+Here we give a proof using the arithmetic equidistribution under some extra assumptions.
 
 \begin{proof}[A conditional proof of \cref{thm:equidistribution-of-backforward-orbit-and-periodic-points}]
-	Set $R_n$ be the set of elements in $P_n$ without multiplicity.
+	Let $R_n$ be the set of elements in $P_n$ without multiplicity.
 	% \[ \delta_n \coloneqq \delta_{P_n}, \qquad \nu_n \coloneqq \frac{1}{\# P_n} \sum_{y \in R_n} \delta_y. \]
 	In the proof, we assume
 	\begin{enumerate}[nosep]
-		\item The endomorphism $f$ is define over a number field $K$; in the backforward orbit case, we require $a$ is also defined over $K$.
+		\item The endomorphism $f$ is defined over a number field $K$; in the backward orbit case, we require that $a$ is also defined over $K$.
 		\item The ratio $(\# R_n)/(\# P_n)$ has limit $1$.
 		      For example, the set $P_n$ has no multiplicity.
 	\end{enumerate}
 
 	\begin{step}\label{step:algebraic-equidistribution-in-thm:equidistribution-of-backforward-orbit-and-periodic-points}
-		On this step, we show the following ``algebraic dynamical equidistribution'':
+		In this step, we show the following ``algebraic dynamical equidistribution'':
 		\[ \lim_{n\to \infty} \delta_{P_n}(Z) = \lim_{n\to \infty} \frac{\#(Z \cap P_n)}{\# P_n} = 0, \qquad \forall Z \subsetneq \bbP^d \text{ proper subvariety.} \]
 		Here $\#(Z \cap P_n)$ counts the multiplicity in $P_n$.
 	\end{step}
 
 	We first estimate $\# P_n$.
-	In the backforward orbit case, by projection formula, $\# P_n = q^{dn}$.
+	In the backward orbit case, by the projection formula, $\# P_n = q^{dn}$.
 	In the periodic point case, by \cref{lem:the-chow-cycle-of-graph-of-f-on-pn},
-	\[ \# P_n = [\Gamma_{f^n}] \cdot [\Delta] = \left(\sum (q^n)^j H_1^{j} \cdot H_2^{d-j} \right) \cdot \left(\sum H_1^{j} \cdot H_2^{d-j} \right) = \sum_{j=0}^{d} (q^n)^j = \frac{q^{n(d+1)} - 1}{q^n - 1} \asymp q^{dn}. \]
+	\begin{align*}
+		\# P_n & = [\Gamma_{f^n}] \cdot [\Delta]                                                                       \\
+		       & = \left(\sum (q^n)^j L_1^{j} \cdot L_2^{d-j} \right) \cdot \left(\sum L_1^{j} \cdot L_2^{d-j} \right) \\
+		       & = \sum_{j = 0}^{d} (q^n)^j = \frac{q^{n(d+1)} - 1}{q^n - 1} \asymp q^{dn}.
+	\end{align*}
 
-	Then the $\#(Z \cap R_n)$.
+	Then we estimate $\#(Z \cap R_n)$.
 	Assume $\dim Z = r$.
-	In the backforward orbit case, let $|W|$ be the linear system of hyperplanes through $a$ and $V = (f^n)^*W \subset H^0(\bbP^n,\calO(q^n))$.
-	In the periodic points case, wirite $f^n = [F_0:\cdots :F_d]$ and $|V|$ be the linear system generated by all $X_iF_j - X_jF_i \in H^0(\bbP^n,\calO(q^n+1))$.
+	In the backward orbit case, let $|W|$ be the linear system of hyperplanes through $a$ and $V = (f^n)^*W \subset H^0(\bbP^{d},\calO(q^n))$.
+	In the periodic point case, write $f^n = [F_0:\cdots :F_d]$ and $|V|$ be the linear system generated by all $X_iF_j - X_jF_i \in H^0(\bbP^{d},\calO(q^n+1))$.
 	In either case, we have $R_n = \Bs |V|$ set-theoretically.
-	By \cref{lem:dimension-drop-of-intersection-of-general-hypersurface}, we can choose $H_1,\cdots,H_r \in |V|$ such that $\dim Z \cap H_1 \cap \cdots \cap H_r = 0$.
+	By \cref{lem:dimension-drop-of-intersection-of-general-hypersurface}, we can choose $H_1,\cdots,H_r \in |V|$ such that $\dim Z \cap H_1 \cap \cdots \cap H_r \leq 0$.
 	Then we have
 	\[ \#(Z \cap R_n) \leq \#(Z \cap H_1 \cap \cdots \cap H_r) \leq [Z]\cdot H_1 \cdots H_r \leq \deg(Z) (q^n+1)^r. \]
 	Since $r < d$, we have
@@ -128,22 +146,21 @@ Here we give a proof using the arithmetic equidistribution under some extra assu
 	\[  \frac{\#(Z \cap P_n)}{\# P_n} =  \frac{\#(Z \cap R_n)}{\# P_n} + \frac{\#(Z \cap P_n) - \#(Z \cap R_n)}{\# P_n} \leq  \frac{\#(Z \cap R_n)}{\# P_n} + \frac{\#(P_n) - \#(R_n)}{\# P_n} \to 0.\]
 
 	\begin{step}
-		On this step, we will show the convergence $\delta_{P_n} \to \mu_f$ by arithmetic equidistribution.
+		In this step, we will show the convergence $\delta_{P_n} \to \mu_f$ by arithmetic equidistribution.
 		% and deduce the conclusion by the assumption $(\# R_n)/(\# P_n) \to 1$.
 	\end{step}
 
-	We need to show that for all continous function $\varphi: \bbP^d(\bbC) \to \bbR$,
+	We need to show that for all continuous functions $\varphi: \bbP^d(\bbC) \to \bbR$,
 	\[ \int_{\bbP^d} \varphi \upd \delta_{P_n} \to \int_{\bbP^d} \varphi \upd \mu_f. \]
 	Fix $\varphi$.
-	For any finite multiset $S \subset \bbP^d$, set
-	\[ \Phi(S) \coloneqq \left| \int \varphi \upd \delta_{S} - \int \varphi \upd \mu_f\right|. \]
+	For any nonempty finite multiset $S \subset \bbP^d$, set
+	\[ \Phi(S) \coloneqq \left| \int \varphi \upd \delta_{S} - \int \varphi \upd \mu_f\right|,\qquad \Phi(\varnothing)\coloneqq0. \]
 	The goal becomes to show that $\Phi(P_n) \to 0$.
 	We have
-	\[ \Phi(S) \leq 2 \max_{x \in \bbP^d(\bbC)} |\varphi(x)|, \qquad \Phi(S_1 \sqcup S_2) \leq \frac{\# S_1}{ \# S_1 + \# S_2} \Phi(S_1) + \frac{\# S_1}{ \# S_1 + \# S_2} \Phi(S_2). \]
-	Set $G = G_K$ be the absolute Galois group of $K$, i.e., $G_K = \Gal(\overline{K}/K)$.
+	\[ \Phi(S) \leq 2 \max_{x \in \bbP^d(\bbC)} |\varphi(x)|, \qquad \Phi(S_1 \sqcup S_2) \leq \frac{\# S_1}{ \# S_1 + \# S_2} \Phi(S_1) + \frac{\# S_2}{ \# S_1 + \# S_2} \Phi(S_2). \]
+	Let $G = G_K$ be the absolute Galois group of $K$, i.e., $G_K = \Gal(\overline{K}/K)$.
 	Since $f$ (and $a$) is defined over $K$, $P_n$ is $G$-invariant.
-	Let $P_n = \bigsqcup_{i \in I_n} G.x_i$ be the orbit decomposition.
-	% Here $G.x$ also counts multiplicity.
+	Let $P_n = \bigsqcup_{i \in I_n} G.x_i$ be the orbit decomposition (allowing repeated orbit copies).
 
 	Fix $\varepsilon > 0$, set
 	\[ J_n = J_n(\varepsilon,\varphi) \coloneqq \left\{ i \in I_n \;\middle|\; \Phi(G.x_i) > \varepsilon \right\} \qquad E_n = E_n(\varepsilon,\varphi) \coloneqq \bigsqcup_{i \in J_n} G.x_i . \]
@@ -152,76 +169,76 @@ Here we give a proof using the arithmetic equidistribution under some extra assu
 	\begin{equation}\label{eq:estimation-in-proof-of-equidistribution-by-arithmetic-equidistribution}
 		\Phi(P_n) \leq \frac{\# E_n}{\# P_n} \cdot \Phi(E_n) + \sum_{i \notin J_n} \frac{\# G.x_i}{\# P_n} \cdot \Phi(G.x_i) \leq \frac{\# E_n}{\# P_n} \cdot 2 \max_{x} |\varphi(x)| + \varepsilon.
 	\end{equation}
+	By the definition of $E_n$, the elements in it have the same multiplicity as $P_n$.
+	Hence $(\# E_n / \# P_n)$ is equal to the measure of the underlying set of $E_n$ with respect to $\delta_{P_n}$.
 
 	Suppose that there exists $\eta > 0$ such that $(\# E_n / \# P_n) \geq \eta$ for infinitely many $n$.
-	Since $K$ is countable, $\bbP^d_{\overline{K}}$ has only countably many proper subvariety, denoted by $Z_1,\cdots,Z_m,\cdots,$.
+	Since $\bar K$ is countable, $\bbP^d_{\overline{K}}$ has only countably many proper subvarieties, denoted by $Z_1,\cdots,Z_m,\cdots,$.
 	Set $Y_m = \bigcup_{i=1}^m Z_i$.
-	By \cref{step:algebraic-equidistribution-in-thm:equidistribution-of-backforward-orbit-and-periodic-points}, for any $m$, there exists $N_m \geq m$ such that $\delta_{P_{N_m}} < \eta/2$.
+	By \cref{step:algebraic-equidistribution-in-thm:equidistribution-of-backforward-orbit-and-periodic-points}, for any $m$, there exists $N_m \geq m$ such that $\delta_{P_{N_m}}(Y_m) < \eta/2$.
+	Choose the $N_m$ increasingly with $\#E_{N_m}/\#P_{N_m} \geq \eta$.
 	Then we can find $y_m \in E_{N_m} \setminus Y_m$.
 	This sequence $y_m \in \bbP^d(\overline{K})$ is generic by the construction of $Y_m$.
 	And it has small height since $y_m \in E_{N_m} \subset P_{N_m}$.
-	Then by the arithmetic equidistribution, $\delta_{G.y_m} \to \mu_f$.
+	Then by the arithmetic equidistribution (\cref{thm:equidistribution-of-small-points}), $\delta_{G.y_m} \to \mu_f$.
 	In particular, we have $\Phi(G.y_m) \to 0$.
-	The contradicts that $y_m \in E_{N_m}$ (and hence $\Phi(G.y_m) > \varepsilon$.
+	This contradicts that $y_m \in E_{N_m}$ (and hence $\Phi(G.y_m) > \varepsilon$).
 	Hence, $\lim_{n} (\# E_n / \# P_n) = 0$.
 	Combining with \cref{eq:estimation-in-proof-of-equidistribution-by-arithmetic-equidistribution}, we are done.
 \end{proof}
 
 \begin{lemma}[label=\labelNFM{lem:the-chow-cycle-of-graph-of-f-on-pn}, status=draft, tag=0000000]
 	Let $f: \bbP^d \to \bbP^d$ be a $q$-polarized endomorphism.
-	Then on $\CH^*(\bbP^d \times \bbP^d) \cong (\bbZ[H_1]/H_1^{d+1}) \otimes (\bbZ[H_2]/H_2^{d+1}) = \bbZ[H_1,H_2]/(H_1^{d+1},H_2^{d+1})$, where $H_i$ is the pullbuck of hyperplane on the $i$-factor $\bbP^d$, the class of graph of $f$ is given by
-	\[ [\Gamma_f] = \sum_{j=0}^d q^j H_1^{j} \cdot H_2^{d-j}. \]
+	\begin{align*}
+		\CH^*(\bbP^d\times\bbP^d) & \cong (\bbZ[L_1]/L_1^{d+1})\otimes(\bbZ[L_2]/L_2^{d+1}) \\
+		                          & = \bbZ[L_1,L_2]/(L_1^{d+1},L_2^{d+1}),
+	\end{align*}
+	where $L_i$ is the pullback of a hyperplane on the $i$-factor, the class of the graph of $f$ is given by
+	\[ [\Gamma_f] = \sum_{j = 0}^d q^j L_1^{j} \cdot L_2^{d-j}. \]
 	In particular,
-	\[ [\Delta] = \sum_{j=0}^d H_1^{j} \cdot H_2^{d-j}. \]
+	\[ [\Delta] = \sum_{j = 0}^d L_1^{j} \cdot L_2^{d-j}. \]
 \end{lemma}
 \begin{proof}
-	Denote by $\tau = (\id,f): \bbP^d \to \bbP^d \times \bbP^d$ and $p_i: \bbP^d \times \bbP^d \to \bbP^d$.
-	Then $[\Gamma_f] = \tau_*[X]$.
-	By the projection formula, we have
-	\[ [\Gamma_f] \cdot H_1^j \cdot H_2^{d-j} = \tau_*[X] \cdot p_1^*[H])^j \cdot (p_2^*[H])^{d-j} = [X] \cdot \id^*[H])^j \cdot (f^*[H])^{d-j} = q^{d-j}. \]
-	Assume that $[\Gamma_f] = \sum_{k=0}^d a_k H_1^{k} \cdot H_2^{d-k}$.
+	Let $\tau = (\id,f): \bbP^d \to \bbP^d \times \bbP^d$ and $p_i: \bbP^d \times \bbP^d \to \bbP^d$.
+	Then $[\Gamma_f] = \tau_*[\bbP^d]$.
+	Put $L = c_1(\calO_{\bbP^d}(1))$ and $L_i = p_i^*L$.
+	The projection formula gives
+	\[ \deg([\Gamma_f]\cdot L_1^j\cdot L_2^{d-j}) = \deg\bigl(L^j\cdot(qL)^{d-j}\bigr) = q^{d-j}. \]
+	Assume that $[\Gamma_f] = \sum_{k = 0}^d a_k L_1^{k} \cdot L_2^{d-k}$.
 	We have
-	\[ [\Gamma_f] \cdot H_1^j \cdot H_2^{d-j} = \left( \sum_{k=0}^d a_k H_1^{k} \cdot H_2^{d-k} \right) \cdot H_1^j \cdot H_2^{d-j} = a_{d-j}. \]
+	\[ [\Gamma_f] \cdot L_1^j \cdot L_2^{d-j} = \left( \sum_{k = 0}^d a_k L_1^{k} \cdot L_2^{d-k} \right) \cdot L_1^j \cdot L_2^{d-j} = a_{d-j}. \]
 	The conclusion follows.
-	\toai{on this lemma and where it be used, use $L_i$ to Replace $H_i$ so that we can distinguish them with below notation.}
 \end{proof}
 
 \begin{lemma}[label=\labelNFM{lem:dimension-drop-of-intersection-of-general-hypersurface}, status=draft, tag=0000000]
 	Let $Z \subset \bbP^d$ be a subvariety of dimension $r$ and $V \subset H^0(\bbP^d,\calO(k))$ a linear system such that $\dim \Bs |V| = 0$.
-	Then there exists $H_1,\cdots,H_r \in |V|$ such that $\dim Z \cap H_1 \cap \cdots \cap H_r \leq 0$.
+	Then there exist $H_1,\cdots,H_r \in |V|$ such that $\dim Z \cap H_1 \cap \cdots \cap H_r \leq 0$.
 \end{lemma}
 \begin{proof}
-	The condition $\dim \Bs |V| = 0$ means that for all subvariety $W \subset \bbP^d$ of positive dimension, there exists $H \in |V|$ such that $\dim W \cap H < \dim W$.
+	The condition $\dim \Bs |V| = 0$ means that for every subvariety $W \subset \bbP^d$ of positive dimension, there exists $H \in |V|$ such that $\dim W \cap H < \dim W$.
 	Note that this condition is open.
-	Hence, inductively, there exists $H_{s+1} \in |V|$ such that for every irreducible component $W$ of $Z \cap H_1 \cap \cdots \cap H_s$, $\dim W \cap H < \dim W$.
+	Hence, inductively, there exists $H_{s+1} \in |V|$ such that for every positive-dimensional irreducible component $W$ of $Z \cap H_1 \cap \cdots \cap H_s$, $\dim W \cap H_{s+1} < \dim W$.
 \end{proof}
 
 
 \begin{remark}[label=\labelNFM{rmk:comments-on-the-proof-of-dynamical-distribution-by-arithmetic-distribution}, status=draft, tag=0000000]
 	There are some comments on the above conditional proof of \cref{thm:equidistribution-of-backforward-orbit-and-periodic-points}.
 	\begin{enumerate}
-		\item The assumption (a) in the proof is for use of the arithmetic equidistribution.
-		      In general case, one will expect a finitely generated field version of arithmetic equidistribution.
+		\item The assumption (a) in the proof is for the use of the arithmetic equidistribution.
+		      In the general case, one will expect a finitely generated field version of arithmetic equidistribution.
 		      But up to now, it is still a conjecture; see \cite[Conjecture 5.4.1]{Yuan-Zhang-2026-AdelicLineBundles}.
-		\item In the backforward orbit case, the condition $a \notin \calE_f$ is used in the limit of ratio $(\# R_n)/(\# P_n)$.
-		      If $a \in Z$ with $Z$ totally invariant, then $f^*[Z] = q^k[Z]$, and we have $(\# R_n)/(\# P_n) \leq 1/q^{nk} \to 0$.
-		      And under the condition in \cref{thm:equidistribution-of-backforward-orbit-and-periodic-points}, this ratio always have limit $1$.
-		\item By the assumption (b), we can see that the multiplicity is not matter in equidistribution: we also have
+		\item In the backward orbit case, the condition $a \notin \calE_f$ is necessary for the limit $(\# R_n)/(\# P_n)\to 1$.
+		      If $a \in Z$ with $Z$ proper and totally invariant, then $R_n \subset Z$, and we have $(\# R_n)/(\# P_n) = O(q^{-n\operatorname{codim} Z}) \to 0$.
+		      And under the condition in \cref{thm:equidistribution-of-backforward-orbit-and-periodic-points}, this ratio need not have limit $1$.
+		      For $f(z) = z^2-1$ and $a = -1 \notin \calE_f$, one has $\#R_n/\#P_n \leq 1/2$.
+		      But on the periodic points case, the ratio is alway $1$, see \cite[Corollary 1.3]{Dinh-Zhong-2023-PeriodicPointsMeromorphic}.
+		\item By the assumption (b), we can see that the multiplicity does not matter in the equidistribution of periodic points: we also have
 		      \[ \delta_{R_n} \to \mu_f. \]
 		\item By the argument in the proof, we see that the assumption (b) implies the ``algebraic dynamical equidistribution'' in \cref{step:algebraic-equidistribution-in-thm:equidistribution-of-backforward-orbit-and-periodic-points}.
 
-		      In the case of backforward orbit, the ``algebraic dynamical equidistribution'' has proved by Gignac; see \cite[Theorem 5.1]{Gignac-2014-EquidistributionPreimagesNonarchimedean}.
-		      For the assumption (b) and periodic point case, I cannot find an algebraic proof now though the formulation is purely algebraic.
-		      %
-		      % Conversely,
-		      %
-		      % , then we can get the assumption (b)
-		      % \[ \lim_{n\to \infty} \delta_{P_n}(Z) = \lim_{n\to \infty} \frac{\#(Z \cap P_n)}{\# P_n} = 0, \qquad \forall Z \subsetneq \bbP^d \text{ proper subvariety,} \]
-		      % where $\#(Z \cap P_n)$ counting multiplicity,
-		      % then we do not need the assumption (b).
-		      % I call this strong version ``algebraic dynamical equidistribution''.
-		      % It is equivalent to the assumption (b) since \Yang{}
-		      % In the periodic point case, 
+		      In the case of backward orbit, the ``algebraic dynamical equidistribution'' was proved by Gignac; see \cite[Theorem 5.1]{Gignac-2014-EquidistributionPreimagesNonarchimedean}.
+		      Recently, Xie generalizes his results to finite flat int-amplified dynamics; see \cite[Theorem 1.23]{Xie-2023-RemarksAlgebraicDynamics}.
+		      For the assumption (b) in the periodic point case, I have not found an algebraic proof now though the formulation is purely algebraic.
 	\end{enumerate}
 
 \end{remark}
@@ -242,148 +259,6 @@ Here we give a proof using the arithmetic equidistribution under some extra assu
 
 
 
-%
-%
-% \Yang{}
-% \begin{lemma}[label=\labelNFM{lem:algebraic-fixed-point-counts}, status=draft, tag=0000000]
-% 	\leavevmode\par
-% 	Let $f:\bbP^d_k \to \bbP^d_k$ be an endomorphism of algebraic degree $q \geq 2$, where $k$ is algebraically closed.
-% 	The fixed-point scheme of $f^n$ is finite, of length
-% 	\[ N_n = 1+q^n+\cdots+q^{dn}. \]
-% 	For an integral subvariety $Z$ of dimension $r$,
-% 	\[ \#\bigl(Z\cap\operatorname{Fix}(f^n)\bigr) \leq \deg(Z)(q^n+1)^r, \]
-% 	where the second formula counts distinct points, regardless of their ambient fixed-point multiplicities.
-%
-% \end{lemma}
-% \Needspace{18\baselineskip}
-% \begin{proof}
-% 	\leavevmode\par
-%
-% \end{proof}
-%
-% \Needspace{18\baselineskip}
-% \begin{claim}[label=\labelNFM{claim:equidistirbution-from-arithmetic-equidistirbution}, status=draft, tag=0000000, title={Galois-orbit criterion}]
-%
-% 	Let $P_n$ be nonempty finite $K$-Galois-invariant multisets of algebraic points, whose multiplicities are constant on each Galois orbit.
-% 	Suppose their heights tend to zero uniformly,
-% 	\[ \max_{y \in \operatorname{Supp}P_n}\widehat h_f(y) \longrightarrow 0, \]
-% 	and they do not concentrate on proper algebraic subsets:
-% 	\[ \mu_{P_n}(Z) \longrightarrow 0 \qquad\text{for every proper closed }Z \subsetneq \bbP^d_{\bar K}. \tag{NC}\label{eq:arithmetic-orbit-non-concentration} \]
-% 	Then $\mu_{P_n} \to \mu_f$ weakly at the fixed complex embedding.
-% 	Moreover, one can choose a generic sequence $x_n \in \operatorname{Supp}P_n$ such that, for $G_n = \operatorname{Gal}(\bar K/K)\cdot x_n$,
-% 	\[ \mu_{G_n} \longrightarrow \mu_f, \qquad \mu_{P_n}-\mu_{G_n} \longrightarrow 0. \]
-% 	This makes no assertion that one orbit carries an asymptotically full fraction of $P_n$.
-% \end{claim}
-%
-% \begin{proof}[Proof of \cref{claim:equidistirbution-from-arithmetic-equidistirbution}]
-%
-% 	\textbf{Step 1: choose a generic sequence.}
-%
-% 	\textbf{Step 2: pass from individual orbits to the whole cycle.}
-% \end{proof}
-%
-% \Needspace{10\baselineskip}
-% \begin{latexmathchange}
-% 	Assume $f$ is defined over a number field $K \subset \bbC$, and, for backward orbits, enlarge $K$ so that $a \in \bbP^d(K)\setminus\calE_f$.
-% 	\latexdeleted{We use arithmetic equidistribution for generic small points from the heights chapter.}
-% 	In the backward case assume $f^{-n}(a)$ is reduced for every $n \geq 1$; in the periodic case assume $\operatorname{Fix}(f^n)$ is reduced for every $n \geq 1$.
-% 	These are separate hypotheses, imposed only in their respective cases.
-% 	\latexdeleted{The full weighted argument is given in the theorem on arithmetic equidistribution of dynamical cycles in the Equidistribution section.}
-% \end{latexmathchange}
-% \Needspace{16\baselineskip}
-% \begin{latexmathchange}
-% 	All points of $P_n$ have canonical height zero in the periodic case, and $q^{-n}\widehat h_f(a)$ in the backward case.
-% 	Thus they are uniformly small, and the preceding estimates give non-concentration on every proper closed subset.
-% 	\latexdeleted{The Galois-orbit criterion proved in the Equidistribution section now yields $\mu_{P_n}\to\mu_f$.} By \cref{claim:equidistirbution-from-arithmetic-equidistirbution}, $\mu_{P_n}\to\mu_f$.
-% 	Its argument is to choose a generic small sequence from any positive mass of Galois orbits whose averages fail to approach $\mu_f$; arithmetic equidistribution rules out such a sequence.
-% 	Finally $M_n/q^{dn} \to 1$, which gives the stated normalization.
-% \end{latexmathchange}
-%
-%
-% \Yang{}
-%
-%
-%
-%
-% %
-% %
-% % % \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:equilibrium-measure-and-julia-sets}]{Equilibrium measure}
-% %
-% % Let $f: \bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a family of endomorphism on $\bbP^n$ over $\Lambda$.
-% % Here $\Lambda$ may be an algebraic variety or a complex analytic variety.
-% % We call that $f$ a holomorphic family or an algebraic family according to $\Lambda \to \End_{\bbP^n,d}(\bbC)$.
-% %
-% % \begin{definition}[label=\labelNFM{def:green-currents}, status=draft, tag=0000000]
-% % 	Let $f:\bbP^n \times \Lambda \to \bbP^n \times \Lambda$ be a holomorphic family of $d$-polarized endomorphism on $\bbP^n$ over $\Lambda$.
-% % 	Then \emph{relative Green currents} of $f$ is defined as
-% % 	\[ T_f \coloneqq \lim_{n \to +\infty} \frac{(f^n)^*\omega_2}{d^n} \]
-% % 	When $\Lambda$ is a point, we say that $T_f$ is the Green currents.
-% % 	\Yang{}
-% % \end{definition}
-% %
-% % \begin{lemma}[label=\labelNFM{lem:thepropertiesy-of-u-and-T-fact}, status=draft, tag=0000000]
-% % 	By the P-L equation, there is a Green function \Yang{}
-% % 	\[ \upd \upd^c u = \omega_2 - T_f. \]
-% % 	Notation as \cref{def:green-currents}.
-% % 	The function $u$ is Holder continuous quasi-psh.
-% % 	\Yang{}
-% % \end{lemma}
-% % \begin{proof}
-% % 	\Yang{}
-% % \end{proof}
-% %
-% % \begin{theorem}[label=\labelNFM{thm:green-function-and-currents}, status=draft, tag=0000000]
-% % 	Let $f:\bbP^k\to\bbP^k$ be a holomorphic endomorphism of algebraic degree $d\geq2$.
-% % 	For a positive $(1,1)$-current $S$, its mass is $\int_{\bbP^k}S\wedge\omega_{\mathrm{FS}}^{k-1}$.
-% % 	Let $S$ be a closed positive $(1,1)$-current of mass $1$ on $\bbP^k$, with bounded local potentials.
-% % 	Then
-% % 	\[
-% % 		d^{-n}(f^n)^*S\longrightarrow T_f
-% % 	\]
-% % 	weakly, where $T_f$ is a closed positive $(1,1)$-current of mass $1$.
-% % 	It has continuous local potentials and is independent of $S$.
-% % 	Moreover, it is totally invariant:
-% % 	\[
-% % 		f^*T_f=dT_f,\qquad f_*T_f=d^{k-1}T_f.
-% % 	\]
-% % 	See \cite[Theorem~1.16]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
-% % 	\Yang{}
-% % \end{theorem}
-% %
-% % % \begin{definition}[label=\labelNFM{def:equilibrium-measure}, status=draft, tag=0000000]
-% % % 	Let $f:\bbP^n \to \bbP^n$ be a $d$-polarized endomorphism on $\bbP^n$.
-% % % 	Assume $d\geq2$.
-% % % 	The \emph{equilibrium measures} are defined fiberwise by
-% % % 	\[
-% % % 		\mu_{f}\coloneqq T_{f}^n.
-% % % 	\]
-% % % 	These products are well-defined since the Green currents have continuous local potentials, and each $\mu_{f}$ is a probability measure.
-% % % 	See \cite[\S 1.2]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
-% % % 	\Yang{}
-% % % \end{definition}
-% %
-% % \begin{proposition}[label=\labelNFM{prop:equilibrium-measure-and-julia-set}, status=draft, tag=0000000]
-% % 	Let $f:\bbP^n\to\bbP^n$ be a holomorphic endomorphism of algebraic degree $d\geq2$, $T_f$ its Green current, and $\mu_f=T_f^n$ its equilibrium measure.
-% % 	\begin{enumerate}
-% % 		\item $\Supp T_f$ is the Julia set of $f$, that is,  the complement of the largest open set on which $(f^j)_{j\geq0}$ is a normal family.
-% % 		\item Let $\calE_f$ the totally invariant locus of $f$.
-% % 		      Then for any $a \notin \calE_f$, we have
-% % 		      \[ \frac{1}{d^{nj}} \sum_{y \in f^{-1}(a)} \delta_y \to \mu_f. \]
-% % 		      Here $f^{-1}(a)$ counts multiplicity.
-% % 	\end{enumerate}
-% % 	For the Julia sets, see \cite[\S 1.2]{Dinh-Sibony-2010-DynamicsSeveralComplex}; for point equidistribution, see \cite[Theorem~1.45]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
-% % \end{proposition}
-% % \begin{proof}
-% % 	The identification of $J_1(f)$ with the usual Julia set is proved in \cite[\S 1.2]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
-% % 	The equidistribution statement is exactly \cite[Theorem~1.45]{Dinh-Sibony-2010-DynamicsSeveralComplex}.
-% %
-% % 	\Yang{}
-% %
-% % \end{proof}
-% %
-% %
-% %
-% %
 
 
 

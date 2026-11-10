@@ -5,6 +5,17 @@
   },
   "notes": [
     {
+      "id": "dynamics-on-projective-spaces",
+      "title": "Dynamics on Projective Spaces",
+      "tex": "chapters/dynamics-on-projective-spaces/dynamics-on-projective-spaces.tex",
+      "url": "pdf/chapters/dynamics-on-projective-spaces/dynamics-on-projective-spaces.pdf",
+      "compile": true,
+      "status": {
+        "published": 0,
+        "finished": 0
+      }
+    },
+    {
       "id": "moduli-of-dynamics-on-projective-spaces",
       "title": "Moduli of Dynamics on Projective Spaces",
       "tex": "chapters/dynamics-on-projective-spaces/moduli-of-dynamics-on-projective-spaces/moduli-of-dynamics-on-projective-spaces.tex",
@@ -20,6 +31,17 @@
       "title": "Tools from Complex Geometry",
       "tex": "chapters/dynamics-on-projective-spaces/tools-from-complex-geometry/tools-from-complex-geometry.tex",
       "url": "pdf/chapters/dynamics-on-projective-spaces/tools-from-complex-geometry/tools-from-complex-geometry.pdf",
+      "compile": true,
+      "status": {
+        "published": 0,
+        "finished": 0
+      }
+    },
+    {
+      "id": "green-currents-equilibrium-measures-and-entropy",
+      "title": "Green Currents, Equilibrium Measures, and Entropy",
+      "tex": "chapters/dynamics-on-projective-spaces/green-currents-equilibrium-measures-and-entropy/green-currents-equilibrium-measures-and-entropy.tex",
+      "url": "pdf/chapters/dynamics-on-projective-spaces/green-currents-equilibrium-measures-and-entropy/green-currents-equilibrium-measures-and-entropy.pdf",
       "compile": true,
       "status": {
         "published": 0,

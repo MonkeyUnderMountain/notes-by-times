@@ -3,10 +3,14 @@
 
 
 
-\Yang{This section is fully by AI, need human to read and rewrite}
+% \Yang{This section is fully by AI, need human to read and rewrite}
 
 
 \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:arithmetic-Equidistribution}]{Arithmetic equidistribution}
+
+
+\Yang{}
+
 
 Let $X/K$ be a projective variety of dimension $d$ over a number field.
 Recall that $(x_m) \subset X(\bar K)$ is \emph{generic} if
@@ -54,240 +58,238 @@ See \cite[Theorem~5.4.3]{Yuan-Zhang-2026-AdelicLineBundles}.
 
 \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:algebraic-Equidistribution}]{Algebraic equidistirbution in dynamics}
 
-Let $K$ be a number field, $k = \bar K$, and $f:X = \bbP^d_k \to X$ an endomorphism of degree $q \geq 2$.
-Put
-\[ f^*\calO(1) = \calO(q), \qquad D \coloneqq \deg f = q^d. \]
-Indeed, a curve in a fiber would give $0 = \deg(f^*\calO(1)|_C) = q\deg(C) > 0$.
-Thus $f$ is finite; smoothness and the Cohen--Macaulay flatness criterion give flatness.
-The formula for $D$ follows by intersecting $d$ pulled-back hyperplanes.
-For integral $W$, write $\eta_W$ for its generic point.
-We say that $C$ is totally invariant if $f^{-1}(C) = C$, and that $W$ belongs to a totally invariant cycle if $(f^p)^{-1}(W) = W$ for some $p \geq 1$.
-The references are \cite[\S\S 2--5]{Gignac-2014-EquidistributionPreimages} and \cite[\S 7]{Gignac-2012-NoetherianSpaces}.
-
-\begin{lemma}[label=\labelNFM{lem:algebraic-multiplicity-cocycle}, status=draft, tag=0000000]
-For $x \in X$, $y = f(x)$, put
-\[ e_f(x) \coloneqq \operatorname{length}_{\calO_{X,x}}(\calO_{X,x}/\frakm_y\calO_{X,x}), \qquad m_f(x) \coloneqq e_f(x)[\rkk(x):\rkk(y)]. \]
-Then $e_f:X \to \{1,\ldots,D\}$ is upper semicontinuous, and
-\[ e_{f^{n+m}} = e_{f^n}(e_{f^m}\circ f^n), \qquad \sum_{f(x)=y}m_f(x) = D. \]
-For closed $x$, $m_f(x) = e_f(x)$; for integral $F$ with $f^p(F) = F$,
-\[ [k(F):(f^p)^*k(F)] = q^{p\dim F}. \]
-\end{lemma}
-\begin{proof}
-For a flat local map $(A,\frakm) \to B$ and an $\frakm$-primary ideal $\fraka$, tensor a composition series of $A/\fraka$ with $B$:
-\[ \operatorname{length}_B(B/\fraka B) = \operatorname{length}_A(A/\fraka)\operatorname{length}_B(B/\frakm B). \]
-This gives the cocycle identity; residue-field degrees multiply as well.
-Since $f_*\calO_X$ is locally free of rank $D$,
-\[ D = \dim_{\rkk(y)}\bigl((f_*\calO_X)\otimes\rkk(y)\bigr) = \sum_{f(x)=y}m_f(x). \]
-At closed points both residue fields are $k$.
-
-For upper semicontinuity, let $I$ be the diagonal ideal on $X\times_f X$, and $\pi$ the first projection.
-The coherent sheaf
-\[ \scrF \coloneqq \pi_*(\calO_{X\times_f X}/I^D) \]
-has fiber dimension $e_f(x)$.
-Indeed, after extending the fiber over $f(x)$ to $\rkk(x)$, separability singles out the diagonal Artinian factor with residue field $\rkk(x)$ and length $e_f(x)$.
-On this factor $I^D = 0$; on every other factor $I$ is the unit ideal.
-Thus $\dim_{\rkk(x)}\scrF(x) = e_f(x)$.
-Fiber dimensions are upper semicontinuous by the minors of a presentation matrix.
-Finally, for $r = \dim F$, the projection formula gives
-\[ [k(F):(f^p)^*k(F)]\deg(F) = \bigl((f^p)^*\calO(1)\bigr)^r\cdot[F] = q^{pr}\deg(F). \]
-\end{proof}
-
-\begin{lemma}[label=\labelNFM{lem:noetherian-diagonal-limits-and-orbits}, status=draft, tag=0000000]
-Every sequence of probability measures admits a subsequence converging on constructible sets to a positive finitely additive $\ell$, with $\ell(X) = 1$.
-For $x \in X$ and bounded upper semicontinuous $\tau$,
-\[ \frac1n\sum_{j<n}\tau(f^j(x)) \longrightarrow \frac1p\sum_{i<p}\tau(\eta_i), \]
-where $\eta_i$ are the generic points of the components of the eventual orbit closure of $x$.
-\end{lemma}
-\begin{proof}
-There are countably many closed sets, since their ideals are finitely generated over the countable field $k$.
-Diagonal extraction gives convergence on closed sets; inclusion--exclusion gives convergence on constructible sets.
-Positivity, finite additivity, and total mass one pass to the limit.
-
-For forward averages, first suppose the eventual orbit closure $L$ is irreducible; discard finitely many initial terms.
-Write
-\[ d_N(A) \coloneqq N^{-1}\#(A\cap[0,N)), \qquad \bar d(A) \coloneqq \limsup_N d_N(A). \]
-If a proper closed subset of $L$ is visited with positive upper density, choose a minimal such $W$.
-Then $W$ is irreducible, and its proper closed subsets are visited with density zero.
-Put $A = \{j:f^j(x) \in W\}$, $s = \bar d(A) > 0$, and $A-i = \{n \geq 0:n+i \in A\}$.
-If $W\cap f^{-h}(W) \subsetneq W$ for every $h > 0$, then
-\[ \bar d\bigl((A-i)\cap(A-j)\bigr) = 0 \qquad(i<j). \]
-For each $M$, inclusion--exclusion gives
-\[ M d_N(A) \leq 1+\sum_{0\leq i<j<M}d_N\bigl((A-i)\cap(A-j)\bigr)+O_M(N^{-1}). \]
-Taking $d_{N_t}(A) \to s$ gives $Ms \leq 1$ for every $M$, a contradiction.
-Hence, for some $h$,
-\[ W \subset f^{-h}(W), \qquad f^h(W) = W. \]
-The second equality follows from finiteness and preservation of dimension.
-Once the orbit meets $W$, its tail lies in $\bigcup_{j<h}f^j(W) \subsetneq L$, contradicting density.
-Thus every proper closed subset of $L$ is visited with density zero.
-
-In general, the tail closures stabilize and $f(L) = L$.
-Its components $L_0,\ldots,L_{p-1}$ form one cycle, since a single orbit is dense in $L$.
-The subsequences modulo $p$ are dense in their respective components: the union of their closures is $L$.
-Apply the preceding argument to $f^p|_{L_i}$.
-The set $E_{i,\epsilon} = \{z \in L_i:\tau(z) \geq \tau(\eta_i)+\epsilon\}$ is proper and closed, so its visit density is zero; also $\tau\geq\tau(\eta_i)$ on $L_i$.
-Hence, along that subsequence,
-\[ 0 \leq \frac1N\sum_{j<N}\tau((f^p)^j(z))-\tau(\eta_i) \leq \epsilon+2\|\tau\|_\infty d_N(\{j:(f^p)^j(z)\in E_{i,\epsilon}\}). \]
-Let $N \to \infty$, then $\epsilon \to 0$, and average the $p$ residue classes.
-\end{proof}
-
-\begin{lemma}[label=\labelNFM{lem:reverse-multiplicity-growth}, status=draft, tag=0000000]
-The following limit exists and is upper semicontinuous:
-\[ e_-(x) \coloneqq \lim_{n\to\infty}\left(\max_{f^n(y)=x}e_{f^n}(y)\right)^{1/n} = \max_{\substack{F\ni x\text{ integral, periodic}\\p=\operatorname{per}(F)}}e_{f^p}(\eta_F)^{1/p}. \]
-\end{lemma}
-\begin{proof}
-Put
-\[ \tau = \log e_f, \qquad S_n = \sum_{j<n}\tau\circ f^j, \qquad T_n(x) = \max_{f^n(y)=x}S_n(y). \]
-For $c>0$, Noetherianity gives
-\[ A_c \coloneqq \bigcap_{n\geq1}\{S_n\geq cn\} = \bigcap_{n=1}^M\{S_n\geq cn\}. \]
-The functions $S_j/j$, $j\leq M$, take finitely many values.
-Choose $0\leq a<c$ bounding their values below $c$.
-An orbit segment avoiding $A_c$ splits into blocks of length at most $M$, each of average at most $a$, and a remainder of length less than $M$.
-Thus, with $C=\|\tau\|_\infty$,
-\[ S_n \leq an+MC. \]
-
-Let $E_i$ be the components of $A_c$, and $L_i$ the eventual orbit closures of $\eta_{E_i}$.
-For some common $s$, $f^s(E_i)\subset L_i$ for all $i$.
-If $x\notin\bigcup_iL_i$, a reverse orbit ending at $x$ avoids $A_c$ before its last $s$ terms; hence
-\[ T_n(x) \leq an+MC+sC, \qquad \limsup_n T_n(x)/n < c. \]
-If $x\in L_i$, the preceding lemma gives a generic-point cycle average $\beta_i\geq c$, since $\eta_{E_i}\in A_c$.
-Lift $x$ backwards inside this cycle.
-A lift in a component $F$ satisfies $\tau(y)\geq\tau(\eta_F)$, so
-\[ \liminf_n T_n(x)/n \geq \beta_i \geq c. \]
-
-Put $c=\limsup_nT_n(x)/n$.
-If $c=0$, the limit is zero and is attained at $\eta_X$, since $e_f(\eta_X)=1$.
-If $c>0$, the two implications put $x$ in some $L_i$ and force the liminf to equal $c$.
-Every periodic generic point specializing to $x$ gives the same backward-lifting lower bound; one of them attains $c$.
-This proves the maximum formula.
-For each $c>0$,
-\[ \left\{x:\lim_nT_n(x)/n\geq c\right\} = \bigcup_iL_i. \]
-These sets are closed; for $c\leq0$ the level set is $X$.
-Exponentiate to obtain $e_-$.
-\end{proof}
-
-\begin{lemma}[label=\labelNFM{lem:ramification-gap-and-fiber-count}, status=draft, tag=0000000]
-For integral $W\subset X$, put $r=\dim W$, $c=d-r$.
-Then
-\[ e_-(\eta_W)\leq q^c, \qquad e_-(\eta_W)=q^c \iff (f^p)^{-1}(W)=W\text{ for some }p\geq1, \]
-and, for closed $z$,
-\[ \#(f^{-n}(z)\cap W)\leq\deg(W)q^{nr}. \]
-The union $\calE_f$ of the proper totally invariant closed subsets is itself proper, closed, and totally invariant.
-\end{lemma}
-\begin{proof}
-For periodic integral $F\supset W$, $f^p(F)=F$,
-\[ e_{f^p}(\eta_F)=\frac{m_{f^p}(\eta_F)}{q^{p\dim F}}\leq q^{p\operatorname{codim}F}. \]
-Equality holds exactly when $\eta_F$ is its only preimage.
-Flat going-down, after base change to $F$, makes every component of $(f^p)^{-1}(F)$ dominate $F$.
-Thus equality is equivalent to $(f^p)^{-1}(F)=F$.
-The maximum formula gives $e_-(\eta_W)\leq q^c$; equality forces $\operatorname{codim}F=c$, hence $F=W$.
-
-If $z\notin f^n(W)$ the fiber is empty.
-Otherwise take $r$ general hyperplanes through $z$, meeting $f^n(W)$ in finitely many points.
-Their pullbacks contain $f^{-n}(z)\cap W$, and B\'ezout gives
-\[ \#(f^{-n}(z)\cap W)\leq\bigl((f^n)^*\calO(1)\bigr)^r\cdot[W]=q^{nr}\deg(W). \]
-For $r=0$ this is immediate.
-
-Put $B_c=\{e_-\geq q^c\}$.
-If $W$ has codimension $c$ and belongs to a totally invariant cycle, a component $F$ of $B_c$ containing $W$ satisfies
-\[ q^c\leq e_-(\eta_F)\leq q^{\operatorname{codim}F}\leq q^c. \]
-Thus $F=W$.
-Each $B_c$, $1\leq c\leq d$, is proper and has finitely many components, since $e_-(\eta_X)=1$.
-There are only finitely many such $W$; their union is proper and totally invariant.
-Conversely, the components of any totally invariant closed set form such cycles: $f$ permutes them and flatness excludes extra generic preimages.
-This union is therefore $\calE_f$.
-\end{proof}
-
-\begin{lemma}[label=\labelNFM{lem:gignac-escape-from-proper-subset}, status=draft, tag=0000000]
-Put $\nu_{n,a}=D^{-n}(f^n)^*\delta_a$, with $a$ closed.
-If $\nu_{n_i,a}\to\ell$ on constructible sets and $W$ is a minimal closed subset with $\ell(W)>0$, then $(f^p)^{-1}(W)=W$ for some $p\geq1$.
-\end{lemma}
-\begin{proof}
-Minimality makes $W$ irreducible.
-Suppose $W$ does not belong to a totally invariant cycle; put $c=\operatorname{codim}W$, $s=\ell(W)>0$.
-The preceding lemma and upper semicontinuity give a nonempty open $U\subset W$ with
-\[ e_-|_U<q^c, \qquad \ell(U)=\ell(W)=s. \]
-We claim that some $z\in f^{-n_I}(a)\cap U$ satisfies
-\[ \limsup_i\nu_{n_i-n_I,z}(W)>0. \]
-If not, set $n_0=0$ and
-\[ R(z,I)\coloneqq\limsup_i\nu_{n_i-n_I,z}(U), \qquad z\in f^{-n_I}(a). \]
-Then $R(z,I)=0$ for $z\in U$.
-Whenever $R(z,I)\geq s$, choose $J>I$ with $\nu_{n_J-n_I,z}(U)>s/2$.
-The multiplicity cocycle gives
-\[ \nu_{n_i-n_I,z}=\sum_{f^{n_J-n_I}(w)=z}\nu_{n_J-n_I,z}(\{w\})\nu_{n_i-n_J,w}. \]
-Taking mass on $U$ and the limsup, the terms with $w\in U$ vanish:
-\[ R(z,I)\leq(1-s/2)\max_{w\notin U}R(w,J). \]
-Starting at $R(a,0)=s$, iteration gives values at least $s(1-s/2)^{-j}>1$ for large $j$, a contradiction.
-This proves the claim.
-
-Choose $e_-(z)<\lambda<q^c$.
-For all large $h$, every $y\in f^{-h}(z)$ has $m_{f^h}(y)=e_{f^h}(y)\leq\lambda^h$.
-Therefore, with $r=d-c$,
-\[ \nu_{h,z}(W)\leq D^{-h}\lambda^h\deg(W)q^{rh}=\deg(W)(\lambda/q^c)^h\longrightarrow0, \]
-contradicting the claim.
-\end{proof}
-
-\begin{theorem}[label=\labelNFM{thm:gignac-algebraic-preimages}, status=draft, tag=0000000, title={Gignac}]
-Let $f:\bbP^d_{\bar K}\to\bbP^d_{\bar K}$ have degree $q\geq2$.
-For $a\in\bbP^d(\bar K)\setminus\calE_f$ and proper closed $Z\subsetneq\bbP^d_{\bar K}$,
-\[ \nu_{n,a}(Z)=q^{-dn}\sum_{y\in f^{-n}(a)\cap Z}m_{f^n}(y)\longrightarrow0. \]
-See \cite[Theorem~5.1]{Gignac-2014-EquidistributionPreimages}.
-\end{theorem}
-\begin{proof}
-Otherwise take $\nu_{n_i,a}(Z)\geq\epsilon>0$ and a diagonal limit $\ell$ on constructible sets.
-Choose a minimal closed $W\subset Z$ with $\ell(W)>0$.
-The preceding lemma gives a totally invariant cycle whose union $C$ contains $W$.
-Then
-\[ \ell(C)>0\quad\Longrightarrow\quad f^{-n}(a)\cap C\neq\varnothing\text{ for some }n\quad\Longrightarrow\quad a\in C\subset\calE_f, \]
-a contradiction.
-\end{proof}
-
-% \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:distribution-of-periodic-points}]{Distribution of periodic points}
-
-Here $k$ may be any algebraically closed field.
-Let $f:\bbP^d_k\to\bbP^d_k$ have degree $q\geq2$.
-Put
-\[ S_n=\operatorname{Fix}(f^n)(k), \qquad N_n=1+q^n+\cdots+q^{dn}, \]
-\[ R_n(Z)=\{y\in S_n:f^j(y)\notin Z\text{ for }0\leq j<n\}. \]
-We will use the condition
-\[ \operatorname{Fix}(f^n)\text{ is reduced for every }n\geq1. \tag{R}\label{eq:reduced-fixed-point-hypothesis} \]
-Equivalently, $\det(Df^n_y-I)\neq0$ for all $y\in S_n$.
-
-\begin{theorem}[label=\labelNFM{thm:algebraic-periodic-avoidance}, status=draft, tag=0000000]
-Assume (R), and let $\varnothing\neq Z\subsetneq\bbP^d$ have dimension $r$.
-For some $C_Z>0$ independent of $n$,
-\[ 0\leq N_n-\#R_n(Z)\leq nC_Z(q^n+1)^r, \qquad \#R_n(Z)=q^{dn}(1+o(1)), \]
-\[ \mu_{S_n}(Z)\coloneqq\frac{\#(S_n\cap Z)}{N_n}\leq\frac{C_Z(q^n+1)^r}{N_n}\longrightarrow0. \]
-\end{theorem}
-\begin{proof}
-By \hyperref[lem:algebraic-fixed-point-counts]{the counting lemma in the Green-current section}, reducedness gives $\#S_n=N_n$ and $\#(S_n\cap Z)\leq C_Z(q^n+1)^r$; for reducible $Z$, sum over its components.
-The map $f$ permutes $S_n$, with inverse $f^{n-1}$, so
-\[ \#(S_n\setminus R_n(Z))\leq\sum_{j<n}\#\{y\in S_n:f^j(y)\in Z\}=n\#(S_n\cap Z). \]
-Now $r<d$ gives
-\[ \frac{N_n}{q^{dn}}\longrightarrow1, \qquad \frac{n(q^n+1)^r}{q^{dn}}\longrightarrow0. \]
-Dividing the counting bounds proves the assertions.
-For $Z=\varnothing$, they are immediate.
-\end{proof}
-
-\begin{remark}[label=\labelNFM{rmk:reducedness-is-an-extra-hypothesis}, status=draft, tag=0000000]
-Condition (R) is extra: $f(z)=z+z^2$ has a double fixed point at $0$.
-The power map $[x_i]\mapsto[x_i^q]$ satisfies (R) in characteristic zero, since in a fixed-point chart
-\[ x_i^{q^n}-x_i=0, \qquad (x_i^{q^n}-x_i)'\in\{-1,q^n-1\}. \]
-Without (R), B\'ezout bounds distinct points, not their ambient fixed-point multiplicities.
-\end{remark}
-
-\begin{theorem}[label=\labelNFM{thm:dinh-zhong-periodic-avoidance-cited}, status=draft, tag=0000000, title={Dinh--Zhong, cited}]
-For $f:\bbP^d_\bbC\to\bbP^d_\bbC$ of degree $q\geq2$ and every proper closed $Z$,
-\[ \#R_n(Z)=q^{dn}(1+o(1)). \]
-Here points are distinct and their periods divide $n$.
-\end{theorem}
-This is \cite[Theorem~1.1]{Dinh-Zhong-2023-PeriodicPointsFujiki}: the dynamical degrees are $1,q,\ldots,q^d$.
-The general theorem remains a cited input; under (R), the preceding algebraic proof suffices.
 
 
+The main reference are \cite{Gignac-2014-EquidistributionPreimagesNonarchimedean,Xie-2023-RemarksAlgebraicDynamics}.
 
+% Let $K$ be a number field, $k = \bar K$, and $f:X = \bbP^d_k \to X$ an endomorphism of degree $q \geq 2$.
+% Put
+% \[ f^*\calO(1) = \calO(q), \qquad D \coloneqq \deg f = q^d. \]
+% Indeed, a curve in a fiber would give $0 = \deg(f^*\calO(1)|_C) = q\deg(C) > 0$.
+% Thus $f$ is finite; smoothness and the Cohen--Macaulay flatness criterion give flatness.
+% The formula for $D$ follows by intersecting $d$ pulled-back hyperplanes.
+% For integral $W$, write $\eta_W$ for its generic point.
+% We say that $C$ is totally invariant if $f^{-1}(C) = C$, and that $W$ belongs to a totally invariant cycle if $(f^p)^{-1}(W) = W$ for some $p \geq 1$.
+% The references are \cite[\S\S 2--5]{Gignac-2014-EquidistributionPreimages} and \cite[\S 7]{Gignac-2012-NoetherianSpaces}.
 
+% \begin{lemma}[label=\labelNFM{lem:algebraic-multiplicity-cocycle}, status=draft, tag=0000000]
+% For $x \in X$, $y = f(x)$, put
+% \[ e_f(x) \coloneqq \operatorname{length}_{\calO_{X,x}}(\calO_{X,x}/\frakm_y\calO_{X,x}), \qquad m_f(x) \coloneqq e_f(x)[\rkk(x):\rkk(y)]. \]
+% Then $e_f:X \to \{1,\ldots,D\}$ is upper semicontinuous, and
+% \[ e_{f^{n+m}} = e_{f^n}(e_{f^m}\circ f^n), \qquad \sum_{f(x)=y}m_f(x) = D. \]
+% For closed $x$, $m_f(x) = e_f(x)$; for integral $F$ with $f^p(F) = F$,
+% \[ [k(F):(f^p)^*k(F)] = q^{p\dim F}. \]
+% \end{lemma}
+% \begin{proof}
+% For a flat local map $(A,\frakm) \to B$ and an $\frakm$-primary ideal $\fraka$, tensor a composition series of $A/\fraka$ with $B$:
+% \[ \operatorname{length}_B(B/\fraka B) = \operatorname{length}_A(A/\fraka)\operatorname{length}_B(B/\frakm B). \]
+% This gives the cocycle identity; residue-field degrees multiply as well.
+% Since $f_*\calO_X$ is locally free of rank $D$,
+% \[ D = \dim_{\rkk(y)}\bigl((f_*\calO_X)\otimes\rkk(y)\bigr) = \sum_{f(x)=y}m_f(x). \]
+% At closed points both residue fields are $k$.
 
+% For upper semicontinuity, let $I$ be the diagonal ideal on $X\times_f X$, and $\pi$ the first projection.
+% The coherent sheaf
+% \[ \scrF \coloneqq \pi_*(\calO_{X\times_f X}/I^D) \]
+% has fiber dimension $e_f(x)$.
+% Indeed, after extending the fiber over $f(x)$ to $\rkk(x)$, separability singles out the diagonal Artinian factor with residue field $\rkk(x)$ and length $e_f(x)$.
+% On this factor $I^D = 0$; on every other factor $I$ is the unit ideal.
+% Thus $\dim_{\rkk(x)}\scrF(x) = e_f(x)$.
+% Fiber dimensions are upper semicontinuous by the minors of a presentation matrix.
+% Finally, for $r = \dim F$, the projection formula gives
+% \[ [k(F):(f^p)^*k(F)]\deg(F) = \bigl((f^p)^*\calO(1)\bigr)^r\cdot[F] = q^{pr}\deg(F). \]
+% \end{proof}
 
+% \begin{lemma}[label=\labelNFM{lem:noetherian-diagonal-limits-and-orbits}, status=draft, tag=0000000]
+% Every sequence of probability measures admits a subsequence converging on constructible sets to a positive finitely additive $\ell$, with $\ell(X) = 1$.
+% For $x \in X$ and bounded upper semicontinuous $\tau$,
+% \[ \frac1n\sum_{j<n}\tau(f^j(x)) \longrightarrow \frac1p\sum_{i<p}\tau(\eta_i), \]
+% where $\eta_i$ are the generic points of the components of the eventual orbit closure of $x$.
+% \end{lemma}
+% \begin{proof}
+% There are countably many closed sets, since their ideals are finitely generated over the countable field $k$.
+% Diagonal extraction gives convergence on closed sets; inclusion--exclusion gives convergence on constructible sets.
+% Positivity, finite additivity, and total mass one pass to the limit.
+
+% For forward averages, first suppose the eventual orbit closure $L$ is irreducible; discard finitely many initial terms.
+% Write
+% \[ d_N(A) \coloneqq N^{-1}\#(A\cap[0,N)), \qquad \bar d(A) \coloneqq \limsup_N d_N(A). \]
+% If a proper closed subset of $L$ is visited with positive upper density, choose a minimal such $W$.
+% Then $W$ is irreducible, and its proper closed subsets are visited with density zero.
+% Put $A = \{j:f^j(x) \in W\}$, $s = \bar d(A) > 0$, and $A-i = \{n \geq 0:n+i \in A\}$.
+% If $W\cap f^{-h}(W) \subsetneq W$ for every $h > 0$, then
+% \[ \bar d\bigl((A-i)\cap(A-j)\bigr) = 0 \qquad(i<j). \]
+% For each $M$, inclusion--exclusion gives
+% \[ M d_N(A) \leq 1+\sum_{0\leq i<j<M}d_N\bigl((A-i)\cap(A-j)\bigr)+O_M(N^{-1}). \]
+% Taking $d_{N_t}(A) \to s$ gives $Ms \leq 1$ for every $M$, a contradiction.
+% Hence, for some $h$,
+% \[ W \subset f^{-h}(W), \qquad f^h(W) = W. \]
+% The second equality follows from finiteness and preservation of dimension.
+% Once the orbit meets $W$, its tail lies in $\bigcup_{j<h}f^j(W) \subsetneq L$, contradicting density.
+% Thus every proper closed subset of $L$ is visited with density zero.
+
+% In general, the tail closures stabilize and $f(L) = L$.
+% Its components $L_0,\ldots,L_{p-1}$ form one cycle, since a single orbit is dense in $L$.
+% The subsequences modulo $p$ are dense in their respective components: the union of their closures is $L$.
+% Apply the preceding argument to $f^p|_{L_i}$.
+% The set $E_{i,\epsilon} = \{z \in L_i:\tau(z) \geq \tau(\eta_i)+\epsilon\}$ is proper and closed, so its visit density is zero; also $\tau\geq\tau(\eta_i)$ on $L_i$.
+% Hence, along that subsequence,
+% \[ 0 \leq \frac1N\sum_{j<N}\tau((f^p)^j(z))-\tau(\eta_i) \leq \epsilon+2\|\tau\|_\infty d_N(\{j:(f^p)^j(z)\in E_{i,\epsilon}\}). \]
+% Let $N \to \infty$, then $\epsilon \to 0$, and average the $p$ residue classes.
+% \end{proof}
+
+% \begin{lemma}[label=\labelNFM{lem:reverse-multiplicity-growth}, status=draft, tag=0000000]
+% The following limit exists and is upper semicontinuous:
+% \[ e_-(x) \coloneqq \lim_{n\to\infty}\left(\max_{f^n(y)=x}e_{f^n}(y)\right)^{1/n} = \max_{\substack{F\ni x\text{ integral, periodic}\\p=\operatorname{per}(F)}}e_{f^p}(\eta_F)^{1/p}. \]
+% \end{lemma}
+% \begin{proof}
+% Put
+% \[ \tau = \log e_f, \qquad S_n = \sum_{j<n}\tau\circ f^j, \qquad T_n(x) = \max_{f^n(y)=x}S_n(y). \]
+% For $c>0$, Noetherianity gives
+% \[ A_c \coloneqq \bigcap_{n\geq1}\{S_n\geq cn\} = \bigcap_{n=1}^M\{S_n\geq cn\}. \]
+% The functions $S_j/j$, $j\leq M$, take finitely many values.
+% Choose $0\leq a<c$ bounding their values below $c$.
+% An orbit segment avoiding $A_c$ splits into blocks of length at most $M$, each of average at most $a$, and a remainder of length less than $M$.
+% Thus, with $C=\|\tau\|_\infty$,
+% \[ S_n \leq an+MC. \]
+
+% Let $E_i$ be the components of $A_c$, and $L_i$ the eventual orbit closures of $\eta_{E_i}$.
+% For some common $s$, $f^s(E_i)\subset L_i$ for all $i$.
+% If $x\notin\bigcup_iL_i$, a reverse orbit ending at $x$ avoids $A_c$ before its last $s$ terms; hence
+% \[ T_n(x) \leq an+MC+sC, \qquad \limsup_n T_n(x)/n < c. \]
+% If $x\in L_i$, the preceding lemma gives a generic-point cycle average $\beta_i\geq c$, since $\eta_{E_i}\in A_c$.
+% Lift $x$ backwards inside this cycle.
+% A lift in a component $F$ satisfies $\tau(y)\geq\tau(\eta_F)$, so
+% \[ \liminf_n T_n(x)/n \geq \beta_i \geq c. \]
+
+% Put $c=\limsup_nT_n(x)/n$.
+% If $c=0$, the limit is zero and is attained at $\eta_X$, since $e_f(\eta_X)=1$.
+% If $c>0$, the two implications put $x$ in some $L_i$ and force the liminf to equal $c$.
+% Every periodic generic point specializing to $x$ gives the same backward-lifting lower bound; one of them attains $c$.
+% This proves the maximum formula.
+% For each $c>0$,
+% \[ \left\{x:\lim_nT_n(x)/n\geq c\right\} = \bigcup_iL_i. \]
+% These sets are closed; for $c\leq0$ the level set is $X$.
+% Exponentiate to obtain $e_-$.
+% \end{proof}
+
+% \begin{lemma}[label=\labelNFM{lem:ramification-gap-and-fiber-count}, status=draft, tag=0000000]
+% For integral $W\subset X$, put $r=\dim W$, $c=d-r$.
+% Then
+% \[ e_-(\eta_W)\leq q^c, \qquad e_-(\eta_W)=q^c \iff (f^p)^{-1}(W)=W\text{ for some }p\geq1, \]
+% and, for closed $z$,
+% \[ \#(f^{-n}(z)\cap W)\leq\deg(W)q^{nr}. \]
+% The union $\calE_f$ of the proper totally invariant closed subsets is itself proper, closed, and totally invariant.
+% \end{lemma}
+% \begin{proof}
+% For periodic integral $F\supset W$, $f^p(F)=F$,
+% \[ e_{f^p}(\eta_F)=\frac{m_{f^p}(\eta_F)}{q^{p\dim F}}\leq q^{p\operatorname{codim}F}. \]
+% Equality holds exactly when $\eta_F$ is its only preimage.
+% Flat going-down, after base change to $F$, makes every component of $(f^p)^{-1}(F)$ dominate $F$.
+% Thus equality is equivalent to $(f^p)^{-1}(F)=F$.
+% The maximum formula gives $e_-(\eta_W)\leq q^c$; equality forces $\operatorname{codim}F=c$, hence $F=W$.
+
+% If $z\notin f^n(W)$ the fiber is empty.
+% Otherwise take $r$ general hyperplanes through $z$, meeting $f^n(W)$ in finitely many points.
+% Their pullbacks contain $f^{-n}(z)\cap W$, and B\'ezout gives
+% \[ \#(f^{-n}(z)\cap W)\leq\bigl((f^n)^*\calO(1)\bigr)^r\cdot[W]=q^{nr}\deg(W). \]
+% For $r=0$ this is immediate.
+
+% Put $B_c=\{e_-\geq q^c\}$.
+% If $W$ has codimension $c$ and belongs to a totally invariant cycle, a component $F$ of $B_c$ containing $W$ satisfies
+% \[ q^c\leq e_-(\eta_F)\leq q^{\operatorname{codim}F}\leq q^c. \]
+% Thus $F=W$.
+% Each $B_c$, $1\leq c\leq d$, is proper and has finitely many components, since $e_-(\eta_X)=1$.
+% There are only finitely many such $W$; their union is proper and totally invariant.
+% Conversely, the components of any totally invariant closed set form such cycles: $f$ permutes them and flatness excludes extra generic preimages.
+% This union is therefore $\calE_f$.
+% \end{proof}
+
+% \begin{lemma}[label=\labelNFM{lem:gignac-escape-from-proper-subset}, status=draft, tag=0000000]
+% Put $\nu_{n,a}=D^{-n}(f^n)^*\delta_a$, with $a$ closed.
+% If $\nu_{n_i,a}\to\ell$ on constructible sets and $W$ is a minimal closed subset with $\ell(W)>0$, then $(f^p)^{-1}(W)=W$ for some $p\geq1$.
+% \end{lemma}
+% \begin{proof}
+% Minimality makes $W$ irreducible.
+% Suppose $W$ does not belong to a totally invariant cycle; put $c=\operatorname{codim}W$, $s=\ell(W)>0$.
+% The preceding lemma and upper semicontinuity give a nonempty open $U\subset W$ with
+% \[ e_-|_U<q^c, \qquad \ell(U)=\ell(W)=s. \]
+% We claim that some $z\in f^{-n_I}(a)\cap U$ satisfies
+% \[ \limsup_i\nu_{n_i-n_I,z}(W)>0. \]
+% If not, set $n_0=0$ and
+% \[ R(z,I)\coloneqq\limsup_i\nu_{n_i-n_I,z}(U), \qquad z\in f^{-n_I}(a). \]
+% Then $R(z,I)=0$ for $z\in U$.
+% Whenever $R(z,I)\geq s$, choose $J>I$ with $\nu_{n_J-n_I,z}(U)>s/2$.
+% The multiplicity cocycle gives
+% \[ \nu_{n_i-n_I,z}=\sum_{f^{n_J-n_I}(w)=z}\nu_{n_J-n_I,z}(\{w\})\nu_{n_i-n_J,w}. \]
+% Taking mass on $U$ and the limsup, the terms with $w\in U$ vanish:
+% \[ R(z,I)\leq(1-s/2)\max_{w\notin U}R(w,J). \]
+% Starting at $R(a,0)=s$, iteration gives values at least $s(1-s/2)^{-j}>1$ for large $j$, a contradiction.
+% This proves the claim.
+
+% Choose $e_-(z)<\lambda<q^c$.
+% For all large $h$, every $y\in f^{-h}(z)$ has $m_{f^h}(y)=e_{f^h}(y)\leq\lambda^h$.
+% Therefore, with $r=d-c$,
+% \[ \nu_{h,z}(W)\leq D^{-h}\lambda^h\deg(W)q^{rh}=\deg(W)(\lambda/q^c)^h\longrightarrow0, \]
+% contradicting the claim.
+% \end{proof}
+
+% \begin{theorem}[label=\labelNFM{thm:gignac-algebraic-preimages}, status=draft, tag=0000000, title={Gignac}]
+% Let $f:\bbP^d_{\bar K}\to\bbP^d_{\bar K}$ have degree $q\geq2$.
+% For $a\in\bbP^d(\bar K)\setminus\calE_f$ and proper closed $Z\subsetneq\bbP^d_{\bar K}$,
+% \[ \nu_{n,a}(Z)=q^{-dn}\sum_{y\in f^{-n}(a)\cap Z}m_{f^n}(y)\longrightarrow0. \]
+% See \cite[Theorem~5.1]{Gignac-2014-EquidistributionPreimages}.
+% \end{theorem}
+% \begin{proof}
+% Otherwise take $\nu_{n_i,a}(Z)\geq\epsilon>0$ and a diagonal limit $\ell$ on constructible sets.
+% Choose a minimal closed $W\subset Z$ with $\ell(W)>0$.
+% The preceding lemma gives a totally invariant cycle whose union $C$ contains $W$.
+% Then
+% \[ \ell(C)>0\quad\Longrightarrow\quad f^{-n}(a)\cap C\neq\varnothing\text{ for some }n\quad\Longrightarrow\quad a\in C\subset\calE_f, \]
+% a contradiction.
+% \end{proof}
+
+% % \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:distribution-of-periodic-points}]{Distribution of periodic points}
+
+% Here $k$ may be any algebraically closed field.
+% Let $f:\bbP^d_k\to\bbP^d_k$ have degree $q\geq2$.
+% Put
+% \[ S_n=\operatorname{Fix}(f^n)(k), \qquad N_n=1+q^n+\cdots+q^{dn}, \]
+% \[ R_n(Z)=\{y\in S_n:f^j(y)\notin Z\text{ for }0\leq j<n\}. \]
+% We will use the condition
+% \[ \operatorname{Fix}(f^n)\text{ is reduced for every }n\geq1. \tag{R}\label{eq:reduced-fixed-point-hypothesis} \]
+% Equivalently, $\det(Df^n_y-I)\neq0$ for all $y\in S_n$.
+
+% \begin{theorem}[label=\labelNFM{thm:algebraic-periodic-avoidance}, status=draft, tag=0000000]
+% Assume (R), and let $\varnothing\neq Z\subsetneq\bbP^d$ have dimension $r$.
+% For some $C_Z>0$ independent of $n$,
+% \[ 0\leq N_n-\#R_n(Z)\leq nC_Z(q^n+1)^r, \qquad \#R_n(Z)=q^{dn}(1+o(1)), \]
+% \[ \mu_{S_n}(Z)\coloneqq\frac{\#(S_n\cap Z)}{N_n}\leq\frac{C_Z(q^n+1)^r}{N_n}\longrightarrow0. \]
+% \end{theorem}
+% \begin{proof}
+% By \hyperref[lem:algebraic-fixed-point-counts]{the counting lemma in the Green-current section}, reducedness gives $\#S_n=N_n$ and $\#(S_n\cap Z)\leq C_Z(q^n+1)^r$; for reducible $Z$, sum over its components.
+% The map $f$ permutes $S_n$, with inverse $f^{n-1}$, so
+% \[ \#(S_n\setminus R_n(Z))\leq\sum_{j<n}\#\{y\in S_n:f^j(y)\in Z\}=n\#(S_n\cap Z). \]
+% Now $r<d$ gives
+% \[ \frac{N_n}{q^{dn}}\longrightarrow1, \qquad \frac{n(q^n+1)^r}{q^{dn}}\longrightarrow0. \]
+% Dividing the counting bounds proves the assertions.
+% For $Z=\varnothing$, they are immediate.
+% \end{proof}
+
+% \begin{remark}[label=\labelNFM{rmk:reducedness-is-an-extra-hypothesis}, status=draft, tag=0000000]
+% Condition (R) is extra: $f(z)=z+z^2$ has a double fixed point at $0$.
+% The power map $[x_i]\mapsto[x_i^q]$ satisfies (R) in characteristic zero, since in a fixed-point chart
+% \[ x_i^{q^n}-x_i=0, \qquad (x_i^{q^n}-x_i)'\in\{-1,q^n-1\}. \]
+% Without (R), B\'ezout bounds distinct points, not their ambient fixed-point multiplicities.
+% \end{remark}
+
+% \begin{theorem}[label=\labelNFM{thm:dinh-zhong-periodic-avoidance-cited}, status=draft, tag=0000000, title={Dinh--Zhong, cited}]
+% For $f:\bbP^d_\bbC\to\bbP^d_\bbC$ of degree $q\geq2$ and every proper closed $Z$,
+% \[ \#R_n(Z)=q^{dn}(1+o(1)). \]
+% Here points are distinct and their periods divide $n$.
+% \end{theorem}
+% This is \cite[Theorem~1.1]{Dinh-Zhong-2023-PeriodicPointsFujiki}: the dynamical degrees are $1,q,\ldots,q^d$.
+% The general theorem remains a cited input; under (R), the preceding algebraic proof suffices.
 
 
 
@@ -318,30 +320,36 @@ The general theorem remains a cited input; under (R), the preceding algebraic pr
 
 
 
-\subsection[status=draft,tag=0000000,label=\labelNFM{subsec:dynamical-equidistribution}]{Complex-dynamical equidistribution}
 
-Let $f:\bbP^d_K\to\bbP^d_K$ have degree $q\geq2$, with $K\subset\bbC$ a number field.
-Write $\mu_f=\mu_{\bar L_f,v}=c_1(\bar L_f)_v^d$ for the canonical measure at the chosen complex embedding.
-For a finite Galois-invariant cycle $P_n=\sum_y m_n(y)[y]$, put
-\[ M_n=\sum_y m_n(y), \qquad \mu_{P_n}=M_n^{-1}\sum_y m_n(y)\delta_y. \]
 
-\begin{theorem}[label=\labelNFM{thm:arithmetic-equidistribution-of-dynamical-cycles}, status=draft, tag=0000000]
-For $a\in\bbP^d(\bar K)\setminus\calE_f$,
-\begin{gather*}
-q^{-dn}\sum_{y\in f^{-n}(a)}m_{f^n}(y)\delta_y\longrightarrow\mu_f,\\
-q^{-dn}\sum_{f^n(y)=y}i_n(y)\delta_y\longrightarrow\mu_f,
-\end{gather*}
-where $i_n(y)$ is the graph--diagonal intersection multiplicity at $(y,y)$.
-\end{theorem}
-\begin{proof}
-Enlarge $K$ so that $a$ is $K$-rational.
-For backward cycles, Gignac's theorem and the height identity give
-\[ M_n=q^{dn}, \qquad \mu_{P_n}(Z)\longrightarrow0, \qquad \widehat h_f(y)=q^{-n}\widehat h_f(a)\quad(y\in P_n). \]
-For periodic cycles, $M_n=N_n$ and $\widehat h_f(y)=0$.
-Use algebraic avoidance under (R), and the cited Dinh--Zhong theorem otherwise:
-\[ 0\leq\sum_{y\in Z\cap S_n}i_n(y)\leq N_n-\#R_n(Z)=o(q^{dn}). \]
-Thus both cases satisfy
-\[ \max_{y\in\operatorname{Supp}P_n}\widehat h_f(y)\longrightarrow0, \qquad \mu_{P_n}(Z)\longrightarrow0\quad(Z\subsetneq\bbP^d\text{ closed}). \]
-The \hyperref[claim:equidistirbution-from-arithmetic-equidistirbution]{Galois-orbit criterion in the Green-current section} gives $\mu_{P_n}\to\mu_f$.
-Finally $M_n/q^{dn}\to1$.
-\end{proof}
+
+
+
+
+% \subsection[status=draft,tag=0000000,label=\labelNFM{subsec:dynamical-equidistribution}]{Complex-dynamical equidistribution}
+
+% Let $f:\bbP^d_K\to\bbP^d_K$ have degree $q\geq2$, with $K\subset\bbC$ a number field.
+% Write $\mu_f=\mu_{\bar L_f,v}=c_1(\bar L_f)_v^d$ for the canonical measure at the chosen complex embedding.
+% For a finite Galois-invariant cycle $P_n=\sum_y m_n(y)[y]$, put
+% \[ M_n=\sum_y m_n(y), \qquad \mu_{P_n}=M_n^{-1}\sum_y m_n(y)\delta_y. \]
+
+% \begin{theorem}[label=\labelNFM{thm:arithmetic-equidistribution-of-dynamical-cycles}, status=draft, tag=0000000]
+% For $a\in\bbP^d(\bar K)\setminus\calE_f$,
+% \begin{gather*}
+% q^{-dn}\sum_{y\in f^{-n}(a)}m_{f^n}(y)\delta_y\longrightarrow\mu_f,\\
+% q^{-dn}\sum_{f^n(y)=y}i_n(y)\delta_y\longrightarrow\mu_f,
+% \end{gather*}
+% where $i_n(y)$ is the graph--diagonal intersection multiplicity at $(y,y)$.
+% \end{theorem}
+% \begin{proof}
+% Enlarge $K$ so that $a$ is $K$-rational.
+% For backward cycles, Gignac's theorem and the height identity give
+% \[ M_n=q^{dn}, \qquad \mu_{P_n}(Z)\longrightarrow0, \qquad \widehat h_f(y)=q^{-n}\widehat h_f(a)\quad(y\in P_n). \]
+% For periodic cycles, $M_n=N_n$ and $\widehat h_f(y)=0$.
+% Use algebraic avoidance under (R), and the cited Dinh--Zhong theorem otherwise:
+% \[ 0\leq\sum_{y\in Z\cap S_n}i_n(y)\leq N_n-\#R_n(Z)=o(q^{dn}). \]
+% Thus both cases satisfy
+% \[ \max_{y\in\operatorname{Supp}P_n}\widehat h_f(y)\longrightarrow0, \qquad \mu_{P_n}(Z)\longrightarrow0\quad(Z\subsetneq\bbP^d\text{ closed}). \]
+% The \hyperref[claim:equidistirbution-from-arithmetic-equidistirbution]{Galois-orbit criterion in the Green-current section} gives $\mu_{P_n}\to\mu_f$.
+% Finally $M_n/q^{dn}\to1$.
+% \end{proof}
