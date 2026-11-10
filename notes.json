@@ -40,8 +40,8 @@
     {
       "id": "green-currents-equilibrium-measures-and-entropy",
       "title": "Green Currents, Equilibrium Measures, and Entropy",
-      "tex": "chapters/dynamics-on-projective-spaces/green-currents-equilibrium-measures-and-entropy/green-currents-equilibrium-measures-and-entropy.tex",
-      "url": "pdf/chapters/dynamics-on-projective-spaces/green-currents-equilibrium-measures-and-entropy/green-currents-equilibrium-measures-and-entropy.pdf",
+      "tex": "chapters/dynamics-on-projective-spaces/green-currents-equilibrium-measure-and-entropy/green-currents-equilibrium-measure-and-entropy.tex",
+      "url": "pdf/chapters/dynamics-on-projective-spaces/green-currents-equilibrium-measure-and-entropy/green-currents-equilibrium-measure-and-entropy.pdf",
       "compile": true,
       "status": {
         "published": 0,
